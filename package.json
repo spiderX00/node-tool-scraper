@@ -1,0 +1,16 @@
+{
+    "name": "node-tools",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "cheerio": "^0.22.0",
+        "express": "^4.14.0",
+        "fs": "0.0.1-security",
+        "lodash": "^4.17.4",
+        "log4js": "^1.1.0",
+        "tinyreq": "^3.2.0"
+    }
+}
