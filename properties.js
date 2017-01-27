@@ -4,7 +4,9 @@ const REGEX_ATTRIBUTES = [
     "*[ng-scope]",
     "*[ng-binding]",
     "*[ng-repeat]",
-    "*[ng-disabled]"
+    "*[ng-disabled]",
+    "*[ng-ignored-dblclick]",
+    "*[ng-ignored-click]"
 ];
 
 module.exports.BUILD_PATH = BUILD_PATH;

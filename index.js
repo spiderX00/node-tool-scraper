@@ -2,12 +2,13 @@ const express = require("express");
 const cheerio = require("cheerio");
 const tinyreq = require("tinyreq");
 const fs = require("fs");
-const properties = require("./properties");
 const log = require("log4js").getLogger("main");
 
+const ID = "#uiViewContainer";
+const PROPERTIES = require("./properties");
 const NGREGEX = new RegExp("ng-");
-const BUILD_PATH = properties.BUILD_PATH;
-const REGEX_ATTRIBUTES = properties.REGEX_ATTRIBUTES;
+const BUILD_PATH = PROPERTIES.BUILD_PATH;
+const REGEX_ATTRIBUTES = PROPERTIES.REGEX_ATTRIBUTES;
 
 function parseHTML(path) {
     fs.readFile(path, "utf8", (error, data) => {
@@ -35,7 +36,7 @@ function parseHTML(path) {
                 return;
             }
 
-            let mainContent = $("html").html();
+            let mainContent = $(ID).html();
             fs.writeFile(BUILD_PATH + "/result.html", mainContent, (err) => {
                 if (err) {
                     log.error(err);
