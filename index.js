@@ -5,6 +5,7 @@ const bodyparser = require("body-parser");
 const cheerio = require("cheerio");
 const tinyreq = require("tinyreq");
 const fs = require("fs");
+const R = require("ramda");
 
 const app = express();
 const log = require("log4js").getLogger("main");

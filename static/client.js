@@ -6,7 +6,6 @@ $(document).ready((e) => {
         if (!text || !url) {
             $("#result").text("ERRORE: Campi mancanti o url non corretto").css("color", "red");
         }
-        console.info(url);
         $.ajax({
                 method: "POST",
                 url: "/updateFile/",
