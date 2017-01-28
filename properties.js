@@ -1,4 +1,4 @@
-const BUILD_PATH = __dirname + "/build/";
+const BUILD_PATH = __dirname + "/build";
 const REGEX_ATTRIBUTES = [
 //  "*[ng-model]",
     "*[ng-scope]",

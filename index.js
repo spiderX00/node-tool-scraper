@@ -13,7 +13,7 @@ const log = require("log4js").getLogger("main");
 const ID = "#uiViewContainer";
 const PROPERTIES = require("./properties");
 const NGREGEX = new RegExp("ng-");
-const BUILD_PATH = PROPERTIES.BUILD_PATH;
+const BUILD_PATH = PROPERTIES.BUILD_PATH + "/easybet/templates";
 const REGEX_ATTRIBUTES = PROPERTIES.REGEX_ATTRIBUTES;
 const ListeningPort = 3000;
 
@@ -40,7 +40,7 @@ function parseHTML(data, path) {
             });
         });
 
-        fs.open(BUILD_PATH + path, "w+", (err, data) => {
+        fs.open(BUILD_PATH + "/result.html", "w+", (err, data) => {
             if (err) {
                 reject(err);
             }
@@ -104,7 +104,7 @@ if (cluster.isMaster) {
         cluster.fork()
 
 } else {
-  
+
     const app = express();
 
     app.use(bodyparser.urlencoded({
