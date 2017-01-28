@@ -40,7 +40,7 @@ function parseHTML(data, path) {
             });
         });
 
-        fs.open(BUILD_PATH + "/result.html", "w+", (err, data) => {
+        fs.open(BUILD_PATH + path, "w+", (err, data) => {
             if (err) {
                 reject(err);
             }
@@ -51,7 +51,7 @@ function parseHTML(data, path) {
                 reject("mainContent undefined");
             }
 
-            fs.writeFile(path, mainContent, (err) => {
+            fs.writeFile(BUILD_PATH + path, mainContent, (err) => {
                 if (err) {
                     reject(err);
                 }
@@ -107,12 +107,13 @@ if (cluster.isMaster) {
 
     const app = express();
 
-    app.use(bodyparser.urlencoded({
-        extended: false
+    app.use(bodyparser.json({
+        limit: "60mb"
     }));
 
-    app.use(bodyparser.json({
-        limit: "60MB"
+    app.use(bodyparser.urlencoded({
+        limit: "60mb",
+        extended: false
     }));
 
     app.use(express.static(__dirname + "/static"));
