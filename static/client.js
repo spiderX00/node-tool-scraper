@@ -28,7 +28,7 @@ $(function() {
                     });
                     saveAs(blob, url);
                     */
-                    $("#result").text("FILE AGGIORNATO").css("color", "green");
+                    $("#result").text(result).css("color", "green");
                 })
                 .catch((error) => {
                     console.error(error);
