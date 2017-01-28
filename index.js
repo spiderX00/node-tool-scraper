@@ -6,8 +6,8 @@ const cheerio = require("cheerio");
 const tinyreq = require("tinyreq");
 const fs = require("fs");
 const R = require("ramda");
+const cluster = require("cluster");
 
-const app = express();
 const log = require("log4js").getLogger("main");
 
 const ID = "#uiViewContainer";
@@ -23,8 +23,8 @@ function parseHTML(data, path) {
 
     return new Promise((resolve, reject) => {
 
-        if (!HTMLREGEX.test(data)){
-          reject("Invalid file");
+        if (!HTMLREGEX.test(data)) {
+            reject("Invalid file");
         }
 
         let $ = cheerio.load(data);
@@ -86,16 +86,38 @@ function uploadHandler(req, res, next) {
         });
 }
 
-app.use(bodyparser.urlencoded({
-    extended: false
-}));
+if (cluster.isMaster) {
 
-app.use(bodyparser.json({
-    limit: "60MB"
-}));
+    cluster.on("online", worker => {
+        log.info("Worker " + worker.process.pid + " is online")
+    })
 
-app.use(express.static(__dirname + "/static"));
+    cluster.on("exit", (worker, code, signal) => {
+        log.info("Worker " + worker.process.pid + " died with code: " + code + ", and signal: " + signal)
+        log.info("Starting a new worker")
+        cluster.fork()
+    })
 
-let server = app.listen(ListeningPort, ServerListening);
+    let numWorkers = require("os").cpus().length
 
-app.post("/updateFile/", uploadHandler);
+    for (let i = 0; i < numWorkers; i++)
+        cluster.fork()
+
+} else {
+  
+    const app = express();
+
+    app.use(bodyparser.urlencoded({
+        extended: false
+    }));
+
+    app.use(bodyparser.json({
+        limit: "60MB"
+    }));
+
+    app.use(express.static(__dirname + "/static"));
+
+    let server = app.listen(ListeningPort, ServerListening);
+
+    app.post("/updateFile/", uploadHandler);
+}
