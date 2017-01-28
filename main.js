@@ -15,7 +15,7 @@ const PROPERTIES = require("./properties");
 const NGREGEX = new RegExp("ng-");
 const BUILD_PATH = PROPERTIES.BUILD_PATH + "/easybet/templates";
 const REGEX_ATTRIBUTES = PROPERTIES.REGEX_ATTRIBUTES;
-const ListeningPort = 3000;
+const ListeningPort = 10000;
 
 function parseHTML(data, path) {
 
@@ -40,6 +40,16 @@ function parseHTML(data, path) {
             });
         });
 
+        let mainContent = $(ID).html();
+
+        if (!mainContent) {
+            reject("mainContent undefined");
+        }
+
+        resolve(mainContent);
+
+        /*
+
         fs.open(BUILD_PATH + path, "w+", (err, data) => {
             if (err) {
                 reject(err);
@@ -59,6 +69,8 @@ function parseHTML(data, path) {
                 resolve("File written");
             });
         });
+
+        */
 
     });
 
