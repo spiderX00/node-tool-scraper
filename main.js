@@ -13,7 +13,7 @@ const log = require("log4js").getLogger("main");
 const ID = "#uiViewContainer";
 const PROPERTIES = require("./properties");
 const NGREGEX = new RegExp("ng-");
-const BUILD_PATH = PROPERTIES.BUILD_PATH + "/easybet/templates";
+const BUILD_PATH = PROPERTIES.BUILD_PATH + "/easyBet/templates";
 const REGEX_ATTRIBUTES = PROPERTIES.REGEX_ATTRIBUTES;
 const ListeningPort = 10000;
 
@@ -46,31 +46,13 @@ function parseHTML(data, path) {
             reject("mainContent undefined");
         }
 
-        resolve(mainContent);
-
-        /*
-
-        fs.open(BUILD_PATH + path, "w+", (err, data) => {
+        fs.writeFile(BUILD_PATH + path + "index.html", mainContent, (err) => {
             if (err) {
                 reject(err);
             }
 
-            let mainContent = $(ID).html();
-
-            if (!mainContent) {
-                reject("mainContent undefined");
-            }
-
-            fs.writeFile(BUILD_PATH + path, mainContent, (err) => {
-                if (err) {
-                    reject(err);
-                }
-
-                resolve("File written");
-            });
+            resolve("File written");
         });
-
-        */
 
     });
 
@@ -130,7 +112,7 @@ if (cluster.isMaster) {
 
     app.use(express.static(__dirname + "/static"));
 
-    let server = app.listen(ListeningPort, ServerListening);
+    let server = app.listen(ListeningPort, "0.0.0.0", ServerListening);
 
     app.post("/updateFile/", uploadHandler);
 }

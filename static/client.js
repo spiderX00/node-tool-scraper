@@ -22,12 +22,6 @@ $(function() {
                 })
                 .then((result) => {
                     console.info(result);
-                    /*
-                    var BB = new Blob([text], {
-                        type: "text/plain;charset=utf-8"
-                    });
-                    saveAs(blob, url);
-                    */
                     $("#result").text(result).css("color", "green");
                 })
                 .catch((error) => {
