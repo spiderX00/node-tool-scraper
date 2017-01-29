@@ -66,4 +66,4 @@ parseHTML(file)
     })
     .catch((error) => {
         log.error(error);
-    })
+    });

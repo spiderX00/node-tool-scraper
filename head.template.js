@@ -6,17 +6,16 @@ module.exports.HEADTEMPLATE = `
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" />
-      <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" />
-      <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
       <link rel="stylesheet" href="assets/css/app.css" />
       <link rel="stylesheet" href="assets/css/style.min.css" />
       <link rel="stylesheet" href="assets/css/custom.css" />
       <!-- babel-polyfill -->
-      <script src="node_modules/babel-polyfill/dist/polyfill.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.22.0/polyfill.min.js"></script>
       <!-- main dependencies -->
-      <script src="node_modules/lodash/lodash.js"></script>
-      <script src="node_modules/angular/angular.js"></script>
-      <script src="node_modules/angular-animate/angular-animate.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
       <!-- shared controller -->
       <script src="main.controller.js"></script>
       <!-- settings -->
