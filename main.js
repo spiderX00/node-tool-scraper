@@ -2,51 +2,73 @@
 
 const cheerio = require("cheerio");
 const fs = require("fs");
+const util = require("util");
 
 const log = require("log4js").getLogger("node-tool");
 
 const ID = "#uiViewContainer";
 const PROPERTIES = require("./properties");
-const HEADTEMPLATE = require("./head.template").HEADTEMPLATE;
 const NGREGEX = new RegExp("ng-");
-const BUILD_PATH = PROPERTIES.BUILD_PATH + "/easyBet/templates";
+const BUILD_PATH = PROPERTIES.BUILD_PATH;
 const REGEX_ATTRIBUTES = PROPERTIES.REGEX_ATTRIBUTES;
+const COMMENT_NODE = "comment";
 
-function parseHTML(data, path) {
+function parseHTML(path) {
 
     const HTMLREGEX = new RegExp("<([A-Za-z][A-Za-z0-9]*)\\b[^>]*>(.*?)</\\1>");
 
     return new Promise((resolve, reject) => {
 
-        if (!HTMLREGEX.test(data)) {
-            reject("Invalid file");
-        }
+        fs.readFile(path, (error, data) => {
+            let $ = cheerio.load(data);
 
-        let $ = cheerio.load(data);
-
-        REGEX_ATTRIBUTES.forEach((regAttribute) => {
-            $(regAttribute).each((index, el) => {
-                let element = $(el);
-                Object.keys(el.attribs).forEach((name) => {
-                    if (NGREGEX.test(name)) {
-                        element.removeAttr(name);
-                    }
-                });
-            });
-        });
-
-        let mainContent = $(ID).html();
-
-        if (!mainContent) {
-            reject("main content undefined");
-        }
-
-        fs.writeFile(BUILD_PATH + path + "index.html", mainContent, (err) => {
-            if (err) {
-                reject(err);
+            if (!HTMLREGEX.test(data)) {
+                reject("Invalid file");
             }
 
-            resolve("File(s) written");
+            REGEX_ATTRIBUTES.forEach((regAttribute) => {
+                $(regAttribute).each((index, el) => {
+                    let element = $(el);
+                    Object.keys(el.attribs).forEach((name) => {
+                        if (NGREGEX.test(name)) {
+                            element.removeAttr(name);
+                        }
+                    });
+                });
+            });
+
+            $("*").contents().each(() => {
+                if (this.nodeType === COMMENT_NODE) {
+                    $(this).remove();
+                }
+            });
+
+            $(ID).addClass("main-content");
+            let mainContent = $(ID).html();
+
+            if (!mainContent) {
+                reject("main content undefined");
+            }
+
+            let htmlContent = `
+              {% extends "SkwebIncludeBundle:Include:base_admin.html.twig" %}
+                {% block Skweb_content %}
+                  {%set id_c=app.request.query.get("id_c")%}
+                  {%if(is_granted("ROLE_ADMIN"))%}
+                      {{ render(controller("SkwebAdminpageBundle:AdminCrud:menuAdmin",{'id_c':id_c})) }}
+                  {%endif%}
+            ` + mainContent + `
+              {% endblock Skweb_content %}
+            `;
+
+            fs.writeFile(BUILD_PATH + "/result.html", util.format(htmlContent), (err) => {
+                if (err) {
+                    reject(err);
+                }
+
+                resolve("File(s) written");
+            });
+
         });
 
     });
@@ -54,7 +76,7 @@ function parseHTML(data, path) {
 }
 
 if (!process.argv[2]) {
-    log.error("Please insert a path")
+    log.error("Please insert a file");
     return;
 }
 

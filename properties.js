@@ -1,10 +1,11 @@
 const BUILD_PATH = __dirname + "/build";
 const REGEX_ATTRIBUTES = [
+    "*[ng-model]",
     "*[ng-scope]",
     "*[ng-binding]",
     "*[ng-repeat]",
     "*[ng-disabled]",
-    "*[ng-click]",
+//  "*[ng-click]",
     "*[ng-dblclick]",
     "*[ng-submit]"
 ];

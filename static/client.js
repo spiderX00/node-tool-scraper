@@ -15,10 +15,7 @@ $(function() {
             $.ajax({
                     method: "POST",
                     url: "/updateFile/",
-                    data: {
-                        text,
-                        url
-                    }
+                    data: { text, url }
                 })
                 .then((result) => {
                     console.info(result);
