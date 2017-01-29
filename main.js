@@ -7,6 +7,7 @@ const log = require("log4js").getLogger("node-tool");
 
 const ID = "#uiViewContainer";
 const PROPERTIES = require("./properties");
+const HEADTEMPLATE = require("./head.template").HEADTEMPLATE;
 const NGREGEX = new RegExp("ng-");
 const BUILD_PATH = PROPERTIES.BUILD_PATH + "/easyBet/templates";
 const REGEX_ATTRIBUTES = PROPERTIES.REGEX_ATTRIBUTES;
