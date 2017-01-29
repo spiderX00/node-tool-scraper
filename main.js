@@ -26,8 +26,8 @@ function parseHTML(path) {
         fs.readFile(path, (error, data) => {
             let $ = cheerio.load(data);
 
-            if (!HTMLREGEX.test(data) || !document.getElementById(CONTAINER_ID)) {
-                reject(path + ":: Invalid file");
+            if (!HTMLREGEX.test(data) || !$(CONTAINER_ID).html()) {
+                return reject(path + ":: Invalid file");
             }
 
             REGEX_ATTRIBUTES.forEach((regAttribute) => {
@@ -52,7 +52,7 @@ function parseHTML(path) {
             let mainContent = $(CONTAINER_ID).html();
 
             if (!mainContent) {
-                reject(path + ":: main content undefined");
+                return reject(path + ":: main content undefined");
             }
 
             let htmlContent = [`
@@ -68,7 +68,7 @@ function parseHTML(path) {
 
             fs.writeFile(path, util.format(htmlContent.replace(REGEX_COMMENT, ``)), (err) => {
                 if (err) {
-                    reject(err);
+                    return reject(path + ":: " + err);
                 }
 
                 resolve(path + ":: File(s) written");
@@ -81,8 +81,7 @@ function parseHTML(path) {
 }
 
 if (!process.argv[2]) {
-    log.error("Please insert a file or a list of file");
-    return;
+    return log.error("Please insert a file or a list of file");
 }
 
 let args = process.argv.splice(2);
