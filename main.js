@@ -70,8 +70,7 @@ function parseHTML(path) {
                 if (err) {
                     return reject(path + ":: " + err);
                 }
-
-                resolve(path + ":: File(s) written");
+                return resolve(path + ":: File(s) written");
             });
 
         });
