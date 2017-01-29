@@ -83,12 +83,14 @@ if (!process.argv[2]) {
     return;
 }
 
-let file = process.argv[2];
+let args = process.argv.splice[2];
 
-parseHTML(file)
-    .then((results) => {
-        log.info(results);
-    })
-    .catch((error) => {
-        log.error(error);
-    });
+args.forEach((arg) => {
+  parseHTML(file)
+      .then((results) => {
+          log.info(results);
+      })
+      .catch((error) => {
+          log.error(error);
+      });
+});
