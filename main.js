@@ -26,7 +26,7 @@ function parseHTML(path) {
         fs.readFile(path, (error, data) => {
             let $ = cheerio.load(data);
 
-            if (!HTMLREGEX.test(data)) {
+            if (!HTMLREGEX.test(data) || !document.getElementById(CONTAINER_ID)) {
                 reject(path + ":: Invalid file");
             }
 
