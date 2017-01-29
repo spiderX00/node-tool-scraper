@@ -64,7 +64,9 @@ function parseHTML(path) {
                   {%if(is_granted("ROLE_ADMIN"))%}
                       {{ render(controller("SkwebAdminpageBundle:AdminCrud:menuAdmin",{'id_c':id_c})) }}
                   {%endif%}`,
-                b.beautify_html(mainContent),
+                `<div id="uiViewContainer" class="main-content span12">`
+                mainContent,
+                `</div>`,
                 `{% endblock Skweb_content %}`
             ].join('').replace(REGEX_COMMENT, ``).trim();
 
