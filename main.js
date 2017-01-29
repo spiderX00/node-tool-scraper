@@ -83,7 +83,7 @@ if (!process.argv[2]) {
     return;
 }
 
-let args = process.argv.splice[2];
+let args = process.argv.splice(2);
 
 args.forEach((arg) => {
   parseHTML(file)
