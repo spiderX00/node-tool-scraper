@@ -6,7 +6,7 @@ const util = require("util");
 
 const log = require("log4js").getLogger("node-tool");
 
-const ID = "#main";
+const MAIN_ID = "#main";
 const CONTAINER_ID = "#uiViewContainer";
 const PROPERTIES = require("./properties");
 const NGREGEX = new RegExp("ng-");
@@ -48,7 +48,7 @@ function parseHTML(path) {
             });
 
             $(CONTAINER_ID).addClass("main-content");
-            let mainContent = $(ID).html();
+            let mainContent = $(CONTAINER_ID).html();
 
             if (!mainContent) {
                 reject("main content undefined");
