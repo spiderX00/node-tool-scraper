@@ -1,0 +1,1444 @@
+{% extends "SkwebIncludeBundle:Include:base_admin.html.twig" %}
+                {% block Skweb_content %}
+                  {%set id_c=app.request.query.get("id_c")%}
+                  {%if(is_granted("ROLE_ADMIN"))%}
+                      {{ render(controller("SkwebAdminpageBundle:AdminCrud:menuAdmin",{'id_c':id_c})) }}
+                  {%endif%}
+                    <div ui-view="mainView" class="page-content page-relative nga-default nga-stagger nga-fade" style=""><div class="">
+	<div class="row-fluid">
+		<div class="span12">
+			<accordion-group binding-field="model.page.page_data.page_title" class=""> <div class="accordion-group accordion-group-default"><div class="accordion-group-heading "><h3 class="accordion-group-title">bo_trading_report_product</h3></div><div class="accordion-group-body ">
+                <div ng-include="&apos;src/backend/Reports/tradingProduct/sub/searchForm.html&apos;" class=""><form name="form" class="css-form ng-valid-required" novalidate="">
+    <div class="row-fluid">
+        <div class="span5 separate-area">
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.website" spanlabel="spansm-12" spaninput="spansm-12" name="Skin" binding-field="model.page.page_data.website.data" require="false"><ng-form name="fieldForm" class="ng-valid-required"><label class="spansm-12 control-label"><font><font>Skin</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="spansm-12"><select class="input-block-level ng-valid-required" name="Skin" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass"><option value="" class="" selected="selected"></option><option label="HitStars.it" value="number:1"><font><font>HitStars.it</font></font></option><option label="Roombet.it" value="number:2"><font><font>Roombet.it</font></font></option></select></div></ng-form></div>
+
+                    <div class="control-group">
+                        <label class="spansm-12 control-label"><font><font>Reference Agent</font></font></label>
+                        <div class="spansm-12">
+                            <select class="input-block-level ng-valid-required" name="local"><option value="" class="" selected="selected"></option></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.user_category" spanlabel="spansm-12" spaninput="spansm-12" name="Tipologia Utenti" binding-field="model.page.page_data.user_category.data" require="false"><ng-form name="fieldForm" class="ng-valid-required"><label class="spansm-12 control-label"><font><font>type Users</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="spansm-12"><select class="input-block-level ng-valid-required" name="Tipologia Utenti" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass"><option value="" class="" selected="selected"></option><option label="Diretti" value="number:1"><font><font>direct</font></font></option><option label="Sottoconti" value="number:2"><font><font>subaccounts</font></font></option><option label="Sottoconti Web" value="number:3"><font><font>subaccounts Web</font></font></option></select></div></ng-form></div>
+
+                    <div class="control-group">
+                        <label class="spansm-12 control-label"><font><font>Reference affiliate</font></font></label>
+                        <div class="spansm-12">
+                            <select class="input-block-level ng-valid-required" name="local"><option value="" class="" selected="selected"></option></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.bet_type" spanlabel="spansm-12" spaninput="spansm-12" name="bet_type" binding-field="model.page.page_data.bet_type.data" require="false"><ng-form name="fieldForm" class="ng-valid-required"><label class="spansm-12 control-label"><font><font>bet_type</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="spansm-12"><select class="input-block-level ng-valid-required" name="bet_type" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass"><option value="" class="" selected="selected"></option><option label="bet real" value="number:0"><font><font>bet real</font></font></option><option label="bet fun" value="number:1"><font><font>bet fun</font></font></option></select></div></ng-form></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="span7">
+            <div class="row-fluid">
+                <div class="spansm-6">
+                    <div class="control-group has-feedback" name="DAL" init="22/01/2017 02:00" model="model.filterData.report_date_from" require="true" min="" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><label class="spansm-12 control-label"><font><font>FROM</font></font></label><div class="spansm-12"><input class="datetimepicker input-block-level" id="DAL" name="DAL" type="text" placeholder="DAL"><span class="glyphicon glyphicon-calendar input-block-level-feedback" aria-hidden="true"></span></div></div>
+                </div>
+                <div class="spansm-6">
+                    <div class="control-group has-feedback" name="AL" init="29/01/2017 02:00" model="model.filterData.report_date_to" require="true" min="" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><label class="spansm-12 control-label"><font><font>TO THE</font></font></label><div class="spansm-12"><input class="datetimepicker input-block-level" id="AL" name="AL" type="text" placeholder="AL"><span class="glyphicon glyphicon-calendar input-block-level-feedback" aria-hidden="true"></span></div></div>
+                </div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="text-center">
+                    <div class="btn-group">
+                        <label class="btn btn-default active" btn-radio="item.id"><font><font>Day </font></font></label><label class="btn btn-default" btn-radio="item.id"><font><font>Week </font></font></label><label class="btn btn-default" btn-radio="item.id"><font><font>Month </font></font></label><label class="btn btn-default" btn-radio="item.id"><font><font>Year</font></font></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12">
+
+                <button type="submit" class="btn btn-primary pull-right"><font><font>
+                   Submit
+                </font></font></button>
+
+        </div>
+    </div>
+</form></div>
+			</div></div></accordion-group>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
+			<accordion-group binding-field="&apos;Andamento&apos;" class-head="accordion-group-light-head" class=""> <div class="accordion-group accordion-group-default"><div class="accordion-group-heading accordion-group-light-head"><h3 class="accordion-group-title"><font><font>trend</font></font></h3></div><div class="accordion-group-body ">
+				<div id="container" style="height: 300px; min-width: 310px" class="" data-highcharts-chart="3"><div class="highcharts-container" id="highcharts-14" style="position: relative; overflow: hidden; width: 1078px; height: 300px; text-align: left; line-height: normal; z-index: 0; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif; font-size: 12px;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1078" height="300"><desc>Created with Highstock 1.3.1</desc><defs><lineargradient x1="0" y1="0" x2="0" y2="1" id="highcharts-15"><stop offset="0" stop-color="#ffffff" stop-opacity="1"/><stop offset="1" stop-color="#f6f6f6" stop-opacity="1"/></lineargradient><clippath id="highcharts-16"><rect fill="none" x="0" y="0" width="1058" height="168"/></clippath><lineargradient x1="0" y1="0" x2="0" y2="1" id="highcharts-19"><stop offset="0" stop-color="#2f7ed8" stop-opacity="1"/><stop offset="1" stop-color="rgb(47,126,216)" stop-opacity="0"/></lineargradient><lineargradient x1="0" y1="0" x2="0" y2="1" id="highcharts-20"><stop offset="0" stop-color="#EEE" stop-opacity="1"/><stop offset="1" stop-color="#FFF" stop-opacity="1"/></lineargradient><lineargradient x1="0" y1="0" x2="0" y2="1" id="highcharts-21"><stop offset="0" stop-color="#FFF" stop-opacity="1"/><stop offset="1" stop-color="#CCC" stop-opacity="1"/></lineargradient><lineargradient x1="0" y1="0" x2="0" y2="1" id="highcharts-22"><stop offset="0" stop-color="#FEFEFE" stop-opacity="1"/><stop offset="1" stop-color="#F6F6F6" stop-opacity="1"/></lineargradient><lineargradient x1="0" y1="0" x2="0" y2="1" id="highcharts-23"><stop offset="0" stop-color="#9BD" stop-opacity="1"/><stop offset="1" stop-color="#CDF" stop-opacity="1"/></lineargradient></defs><rect rx="5" ry="5" fill="url(https://bo.hitstars.it/report/product/casino/3#highcharts-15)" x="0" y="0" width="1078" height="300"/><g class="highcharts-scrollbar" transform="translate(10,272)"><rect fill="url(https://bo.hitstars.it/report/product/casino/3#highcharts-20)" x="0" y="-0.5" width="1058" height="14" stroke="#CCC" stroke-width="1" rx="0" ry="0"/><rect fill="url(https://bo.hitstars.it/report/product/casino/3#highcharts-21)" x="14.5" y="-0.5" width="1029" height="14" stroke="#666" stroke-width="1" rx="2" ry="2"/><path fill="none" stroke="#666" stroke-width="1" visibility="visible" d="M 525.5 3.5 L 525.5 9.333333333333334 M 528.5 3.5 L 528.5 9.333333333333334 M 531.5 3.5 L 531.5 9.333333333333334"/><g><rect rx="2" ry="2" fill="url(https://bo.hitstars.it/report/product/casino/3#highcharts-21)" x="-0.5" y="-0.5" width="14" height="14" stroke="#666" stroke-width="1"/><path fill="#666" d="M 8 4 L 8 10 5 7"/></g><g transform="translate(1044,0)"><rect rx="2" ry="2" fill="url(https://bo.hitstars.it/report/product/casino/3#highcharts-21)" x="-0.5" y="-0.5" width="14" height="14" stroke="#666" stroke-width="1"/><path fill="#666" d="M 6 4 L 6 10 9 7"/></g></g><text x="10" y="25" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:12px;color:#666;fill:#666;"><tspan x="10">Zoom</tspan></text><g class="highcharts-grid" zindex="1"/><g class="highcharts-grid" zindex="1"><path fill="none" d="M 10 162.5 L 1068 162.5" stroke="#C0C0C0" stroke-width="1" zindex="1" opacity="1"/><path fill="none" d="M 10 120.5 L 1068 120.5" stroke="#C0C0C0" stroke-width="1" zindex="1" opacity="1"/><path fill="none" d="M 10 77.5 L 1068 77.5" stroke="#C0C0C0" stroke-width="1" zindex="1" opacity="1"/><path fill="none" d="M 10 35.5 L 1068 35.5" stroke="#C0C0C0" stroke-width="1" zindex="1" opacity="1"/><path fill="none" d="M 10 203.5 L 1068 203.5" stroke="#C0C0C0" stroke-width="1" zindex="1" opacity="1"/></g><g class="highcharts-grid" zindex="1"><path fill="none" d="M 176.5 231 L 176.5 271" stroke="#C0C0C0" stroke-width="1" zindex="1" opacity="1"/><path fill="none" d="M 323.5 231 L 323.5 271" stroke="#C0C0C0" stroke-width="1" zindex="1" opacity="1"/><path fill="none" d="M 471.5 231 L 471.5 271" stroke="#C0C0C0" stroke-width="1" zindex="1" opacity="1"/><path fill="none" d="M 618.5 231 L 618.5 271" stroke="#C0C0C0" stroke-width="1" zindex="1" opacity="1"/><path fill="none" d="M 765.5 231 L 765.5 271" stroke="#C0C0C0" stroke-width="1" zindex="1" opacity="1"/><path fill="none" d="M 912.5 231 L 912.5 271" stroke="#C0C0C0" stroke-width="1" zindex="1" opacity="1"/><path fill="none" d="M 29.5 231 L 29.5 271" stroke="#C0C0C0" stroke-width="1" zindex="1" opacity="1"/></g><g class="highcharts-grid" zindex="1"/><g class="highcharts-axis" zindex="2"><path fill="none" d="M 91.5 204 L 91.5 209" stroke="#C0D0E0" stroke-width="1" opacity="1"/><path fill="none" d="M 166.5 204 L 166.5 209" stroke="#C0D0E0" stroke-width="1" opacity="1"/><path fill="none" d="M 242.5 204 L 242.5 209" stroke="#C0D0E0" stroke-width="1" opacity="1"/><path fill="none" d="M 318.5 204 L 318.5 209" stroke="#C0D0E0" stroke-width="1" opacity="1"/><path fill="none" d="M 393.5 204 L 393.5 209" stroke="#C0D0E0" stroke-width="1" opacity="1"/><path fill="none" d="M 469.5 204 L 469.5 209" stroke="#C0D0E0" stroke-width="1" opacity="1"/><path fill="none" d="M 544.5 204 L 544.5 209" stroke="#C0D0E0" stroke-width="1" opacity="1"/><path fill="none" d="M 620.5 204 L 620.5 209" stroke="#C0D0E0" stroke-width="1" opacity="1"/><path fill="none" d="M 695.5 204 L 695.5 209" stroke="#C0D0E0" stroke-width="1" opacity="1"/><path fill="none" d="M 771.5 204 L 771.5 209" stroke="#C0D0E0" stroke-width="1" opacity="1"/><path fill="none" d="M 847.5 204 L 847.5 209" stroke="#C0D0E0" stroke-width="1" opacity="1"/><path fill="none" d="M 922.5 204 L 922.5 209" stroke="#C0D0E0" stroke-width="1" opacity="1"/><path fill="none" d="M 998.5 204 L 998.5 209" stroke="#C0D0E0" stroke-width="1" opacity="1"/><path fill="none" d="M 15.5 204 L 15.5 209" stroke="#C0D0E0" stroke-width="1" opacity="1"/><path fill="none" d="M 10 203.5 L 1068 203.5" stroke="#C0D0E0" stroke-width="1" zindex="7" visibility="visible"/></g><g class="highcharts-axis" zindex="2"/><g class="highcharts-axis" zindex="2"/><g class="highcharts-axis" zindex="2"/><g class="highcharts-series-group" zindex="3"><g class="highcharts-series" visibility="visible" zindex="0.1" transform="translate(10,35) scale(1 1)" clip-path="url(https://bo.hitstars.it/report/product/casino/3#highcharts-16)"><path fill="url(https://bo.hitstars.it/report/product/casino/3#highcharts-19)" d="M 0 102.6 L 151.14285714285714 35.7 L 302.2857142857143 126.8 L 453.42857142857144 72.3 L 604.5714285714286 81.4 L 755.7142857142857 29.9 L 906.8571428571429 88.2 L 1058 126.7 L 1058 169 L 0 169" zindex="0"/><path fill="none" d="M 0 102.6 L 151.14285714285714 35.7 L 302.2857142857143 126.8 L 453.42857142857144 72.3 L 604.5714285714286 81.4 L 755.7142857142857 29.9 L 906.8571428571429 88.2 L 1058 126.7" stroke="#2f7ed8" stroke-width="2" zindex="1"/></g><g class="highcharts-markers" visibility="visible" zindex="0.1" transform="translate(10,35) scale(1 1)" clip-path="none"><path fill="none" d="M -10 102.6 L 0 102.6 L 151.14285714285714 35.7 L 302.2857142857143 126.8 L 453.42857142857144 72.3 L 604.5714285714286 81.4 L 755.7142857142857 29.9 L 906.8571428571429 88.2 L 1058 126.7 L 1068 126.7" class="highcharts-tracker highcharts-tracker" stroke-linejoin="round" visibility="visible" stroke-opacity="0.0001" stroke="rgb(192,192,192)" stroke-width="22" zindex="2" style=""/></g><g class="highcharts-series" visibility="visible" zindex="0.1" transform="translate(24,231) scale(1 1)" clip-path="url(https://bo.hitstars.it/report/product/casino/3#highcharts-17)"><path fill="url(https://bo.hitstars.it/report/product/casino/3#highcharts-19)" d="M 0 28.4 C 0 28.4 88.28571428571429 5.3 147.14285714285714 5.3 C 206 5.3 235.42857142857142 36.7 294.2857142857143 36.7 C 353.14285714285717 36.7 382.57142857142856 17.9 441.4285714285714 17.9 C 500.28571428571433 17.9 529.7142857142857 21.1 588.5714285714286 21.1 C 647.4285714285713 21.1 676.8571428571428 3.3 735.7142857142857 3.3 C 794.5714285714284 3.3 824 16.720000000000002 882.8571428571428 23.4 C 941.7142857142857 30.080000000000005 1030 36.7 1030 36.7 L 1030 40 L 0 40" zindex="0"/><path fill="none" d="M 0 28.4 C 0 28.4 88.28571428571429 5.3 147.14285714285714 5.3 C 206 5.3 235.42857142857142 36.7 294.2857142857143 36.7 C 353.14285714285717 36.7 382.57142857142856 17.9 441.4285714285714 17.9 C 500.28571428571433 17.9 529.7142857142857 21.1 588.5714285714286 21.1 C 647.4285714285713 21.1 676.8571428571428 3.3 735.7142857142857 3.3 C 794.5714285714284 3.3 824 16.720000000000002 882.8571428571428 23.4 C 941.7142857142857 30.080000000000005 1030 36.7 1030 36.7" stroke="#4572A7" stroke-width="1" zindex="1"/></g><g class="highcharts-markers" visibility="visible" zindex="0.1" transform="translate(24,231) scale(1 1)" clip-path="url(https://bo.hitstars.it/report/product/casino/3#highcharts-18)"/></g><g class="highcharts-navigator" zindex="3"><rect fill="rgb(255,255,255)" x="24" y="231" width="0" height="40" fill-opacity="0.75"/><rect fill="rgb(255,255,255)" x="1054" y="231" width="0" height="40" fill-opacity="0.75"/><path fill="none" stroke="#444" stroke-width="1" d="M 10 231.5 L 24.5 231.5 24.5 271.5 M 1053.5 271.5 L 1053.5 231.5 1068 231.5"/></g><g style="cursor:e-resize;" zindex="3" transform="translate(1054,243)"><rect rx="3" ry="3" fill="#FFF" x="-4.5" y="0.5" width="8" height="15" stroke="#666" stroke-width="1"/><path fill="#FFF" d="M -1.5 4 L -1.5 12 M 0.5 4 L 0.5 12" stroke="#666" stroke-width="1"/></g><g style="cursor:e-resize;" zindex="4" transform="translate(24,243)"><rect rx="3" ry="3" fill="#FFF" x="-4.5" y="0.5" width="8" height="15" stroke="#666" stroke-width="1"/><path fill="#FFF" d="M -1.5 4 L -1.5 12 M 0.5 4 L 0.5 12" stroke="#666" stroke-width="1"/></g><g class="highcharts-axis-labels" zindex="7"><text x="28.6796875" y="218" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="middle" opacity="1"><tspan x="28.6796875">22. Jan</tspan></text><text x="91.86904761904762" y="218" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="middle" opacity="1"><tspan x="91.86904761904762">12:00</tspan></text><text x="167.4404761904762" y="218" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="middle" opacity="1"><tspan x="167.4404761904762">23. Jan</tspan></text><text x="243.01190476190476" y="218" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="middle" opacity="1"><tspan x="243.01190476190476">12:00</tspan></text><text x="318.5833333333333" y="218" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="middle" opacity="1"><tspan x="318.5833333333333">24. Jan</tspan></text><text x="394.1547619047619" y="218" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="middle" opacity="1"><tspan x="394.1547619047619">12:00</tspan></text><text x="469.7261904761905" y="218" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="middle" opacity="1"><tspan x="469.7261904761905">25. Jan</tspan></text><text x="545.297619047619" y="218" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="middle" opacity="1"><tspan x="545.297619047619">12:00</tspan></text><text x="620.8690476190476" y="218" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="middle" opacity="1"><tspan x="620.8690476190476">26. Jan</tspan></text><text x="696.4404761904761" y="218" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="middle" opacity="1"><tspan x="696.4404761904761">12:00</tspan></text><text x="772.0119047619048" y="218" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="middle" opacity="1"><tspan x="772.0119047619048">27. Jan</tspan></text><text x="847.5833333333334" y="218" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="middle" opacity="1"><tspan x="847.5833333333334">12:00</tspan></text><text x="923.1547619047619" y="218" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="middle" opacity="1"><tspan x="923.1547619047619">28. Jan</tspan></text><text x="998.7261904761905" y="218" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="middle" opacity="1"><tspan x="998.7261904761905">12:00</tspan></text></g><g class="highcharts-axis-labels" zindex="7"><text x="12" y="159.75" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:509px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="start" opacity="1"><tspan x="12">0k</tspan></text><text x="12" y="117.5" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:509px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="start" opacity="1"><tspan x="12">20k</tspan></text><text x="12" y="75.25" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:509px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="start" opacity="1"><tspan x="12">40k</tspan></text><text x="12" y="202" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:509px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="start" opacity="1"><tspan x="12">-20k</tspan></text><text x="0" y="-9999" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;width:509px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="start"><tspan x="0">60k</tspan></text></g><g class="highcharts-axis-labels" zindex="7"><text x="33.13095238095238" y="267" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="start" opacity="1"><tspan x="33.13095238095238">22. Jan</tspan></text><text x="180.27380952380952" y="267" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="start" opacity="1"><tspan x="180.27380952380952">23. Jan</tspan></text><text x="327.4166666666667" y="267" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="start" opacity="1"><tspan x="327.4166666666667">24. Jan</tspan></text><text x="474.5595238095238" y="267" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="start" opacity="1"><tspan x="474.5595238095238">25. Jan</tspan></text><text x="621.702380952381" y="267" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="start" opacity="1"><tspan x="621.702380952381">26. Jan</tspan></text><text x="768.8452380952381" y="267" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="start" opacity="1"><tspan x="768.8452380952381">27. Jan</tspan></text><text x="915.9880952380952" y="267" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;cursor:default;line-height:14px;fill:#666;" text-anchor="start" opacity="1"><tspan x="915.9880952380952">28. Jan</tspan></text></g><g class="highcharts-axis-labels" zindex="7"/><g class="highcharts-button" zindex="7" style="cursor:default;text-align:center;" transform="translate(48,10)"><rect rx="0" ry="0" fill="url(https://bo.hitstars.it/report/product/casino/3#highcharts-22)" x="0.5" y="0.5" width="30" height="18" stroke="#68A" stroke-width="1"/><text x="6.7109375" y="14" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:12px;color:black;fill:black;" zindex="1"><tspan x="6.7109375">1D</tspan></text></g><g class="highcharts-button" zindex="7" style="cursor:default;text-align:center;" transform="translate(78,10)"><rect rx="0" ry="0" fill="url(https://bo.hitstars.it/report/product/casino/3#highcharts-23)" x="0.5" y="0.5" width="30" height="18" stroke="#68A" stroke-width="1"/><text x="6.8984375" y="14" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:12px;color:black;fill:black;" zindex="1"><tspan x="6.8984375">All</tspan></text></g><g class="highcharts-tooltip" zindex="8" style="cursor:default;padding:0;white-space:nowrap;" visibility="hidden"><rect rx="10" ry="10" fill="none" x="0.5" y="0.5" width="16" height="16" isshadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)"/><rect rx="10" ry="10" fill="none" x="0.5" y="0.5" width="16" height="16" isshadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)"/><rect rx="10" ry="10" fill="none" x="0.5" y="0.5" width="16" height="16" isshadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)"/><rect rx="10" ry="10" fill="url(https://bo.hitstars.it/report/product/casino/3#highcharts-15)" x="0.5" y="0.5" width="16" height="16"/><text x="8" y="21" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:12px;color:#333333;fill:#333333;" zindex="1"/></g><text x="1068" y="295" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:9px;cursor:pointer;color:#909090;fill:#909090;" text-anchor="end" zindex="8"><tspan x="1068">Highcharts.com</tspan></text></svg></div></div>
+			</div></div></accordion-group>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
+			<table class="table table-bordered smartbox">
+				<tbody><tr>
+					<td>
+						<div>
+							<span><font><font>VOLUME TOTAL </font></font></span>
+							<span ng-class="{&apos;text-red&apos; : (model.statistics.total_volume &lt; 0)}" class=""><font><font>
+								&#x20AC; 0.00
+							 </font></font></span>
+							<span><font><font>THE PERIOD</font></font></span>
+						</div>
+					</td>
+					<td>
+						<div>
+							<span><font><font>PERIOD CHANGE (BET)</font></font></span>
+							<span ng-class="{&apos;text-red&apos; : (model.statistics.volume_change &lt; 0), &apos;text-green&apos; : (model.statistics.volume_change &gt; 0)}" class="text-red" style="">
+								<i class="icon icon-down-big" ng-class="{&apos;icon-down-big&apos;: (model.statistics.volume_change &lt; 0), &apos;icon-up-big&apos;: (model.statistics.volume_change &gt; 0)}" style=""></i><font><font>
+								(0,00%)
+							 </font></font></span>
+							<span><font><font>FOR THE PERIOD</font></font></span>
+						</div>
+					</td>
+					<td>
+						<div>
+							<span><font><font>TOTAL MARGIN </font></font></span>
+							<span ng-class="{&apos;text-red&apos; : (model.statistics.total_margin &lt; 0)}" class=""><font><font>&#x20AC; 0.00 </font></font></span>
+							<span><font><font>THE PERIOD</font></font></span>
+						</div>
+					</td>
+					<td>
+						<div>
+							<span><font><font>PERIOD CHANGE (WIN)</font></font></span>
+							<span ng-class="{&apos;text-red&apos; : (model.statistics.margin_change &lt; 0), &apos;text-green&apos; : (model.statistics.margin_change &gt; 0)}" class="text-red" style="">
+								<i class="icon icon-down-big" ng-class="{&apos;icon-down-big&apos;: (model.statistics.margin_change &lt; 0), &apos;icon-up-big&apos;: (model.statistics.margin_change &gt; 0)}" style=""></i><font><font>
+								(0,00%)
+							 </font></font></span>
+							<span><font><font>FOR THE PERIOD</font></font></span>
+						</div>
+					</td>
+					<td>
+						<div>
+							<span><font><font>RAKE </font></font></span>
+                            <span ng-class="{&apos;text-red&apos; : (model.statistics.total_rake &lt; 0)}" class=""><font><font>&#x20AC; 0.00 </font></font></span>
+                            <span><font><font>THE PERIOD</font></font></span>
+						</div>
+					</td>
+				</tr>
+			</tbody></table>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span6">
+			<accordion-group binding-field="&apos;TOP AND WORST PLAYERS BY TURNOVER&apos;" class-head="accordion-group-light-head" class=""> <div class="accordion-group accordion-group-default"><div class="accordion-group-heading accordion-group-light-head"><h3 class="accordion-group-title">TOP AND WORST PLAYERS BY TURNOVER</h3></div><div class="accordion-group-body ">
+				<div ng-include="&apos;src/backend/Reports/tradingProduct/sub/topturnover.html&apos;" class="">    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover ng-table" ng-table="tableParamsTopBet"><thead ng-include="templates.header" class=""><tr class="">  </tr> <tr ng-show="show_filter" class="ng-table-filters ng-hide">  </tr> </thead>
+			<tbody><tr class="light-grey-row-fluid text-center">
+				<th>USER</th>
+				<th><font><font>BUT</font></font></th>
+				<th>RAKE</th>
+				<th>MARGIN</th>
+				<th>MARGIN%</th>
+				<th><font><font>BALANCE</font></font></th>
+			</tr>
+			<tr class="" style="">
+				<td>
+					<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/10002792/update"><font><font>
+						marcone67
+					</font></font></a>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.bet &lt; 0)}"><font><font>
+					63222.00
+				</font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                    
+                    <span class=""><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>4086.00</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-center" ng-class="{&apos;text-red&apos; : (item.c_net_margin / item.bet &lt; 0)}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>6.46%</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0,00%</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0,00%</font></font></span>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+					1.28
+				</font></font></td>
+			</tr><tr class="">
+				<td>
+					<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/20002686/update"><font><font>
+						gios56
+					</font></font></a>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.bet &lt; 0)}"><font><font>
+					23573.00
+				</font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                    
+                    <span class=""><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>1301.00</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-center" ng-class="{&apos;text-red&apos; : (item.c_net_margin / item.bet &lt; 0)}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>5.52%</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0,00%</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0,00%</font></font></span>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+					1089.50
+				</font></font></td>
+			</tr><tr class="">
+				<td>
+					<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/20004093/update">
+						central
+					</a>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.bet &lt; 0)}"><font><font>
+					8590.00
+				</font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                    
+                    <span class=""><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>910.00</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-center" ng-class="{&apos;text-red&apos; : (item.c_net_margin / item.bet &lt; 0)}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>10.59%</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0,00%</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0,00%</font></font></span>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+					1106.02
+				</font></font></td>
+			</tr><tr class="">
+				<td>
+					<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/20001343/update"><font><font>
+						daniele79
+					</font></font></a>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.bet &lt; 0)}"><font><font>
+					7571.00
+				</font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                    
+                    <span class=""><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-right text-red" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-385.00</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-center text-red" ng-class="{&apos;text-red&apos; : (item.c_net_margin / item.bet &lt; 0)}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-5.09%</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0,00%</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0,00%</font></font></span>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+					198.96
+				</font></font></td>
+			</tr><tr class="">
+				<td>
+					<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/10008906/update"><font><font>
+						alexordnas
+					</font></font></a>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.bet &lt; 0)}"><font><font>
+					7366.00
+				</font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                    
+                    <span class=""><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>133.50</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-center" ng-class="{&apos;text-red&apos; : (item.c_net_margin / item.bet &lt; 0)}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>1.81%</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0,00%</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0,00%</font></font></span>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+					0.80
+				</font></font></td>
+			</tr><tr class="">
+				<td>
+					<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/9885933/update"><font><font>
+						roberto0369
+					</font></font></a>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.bet &lt; 0)}"><font><font>
+					6566.00
+				</font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                    
+                    <span class=""><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>788,00</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-center" ng-class="{&apos;text-red&apos; : (item.c_net_margin / item.bet &lt; 0)}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>12.00%</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0,00%</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0,00%</font></font></span>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+					0.00
+				</font></font></td>
+			</tr><tr class="">
+				<td>
+					<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/20000019/update"><font><font>
+						lisa2111
+					</font></font></a>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.bet &lt; 0)}"><font><font>
+					5079.00
+				</font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                    
+                    <span class=""><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-right text-red" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-252.00</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-center text-red" ng-class="{&apos;text-red&apos; : (item.c_net_margin / item.bet &lt; 0)}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-4.96%</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0,00%</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0,00%</font></font></span>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+					0.01
+				</font></font></td>
+			</tr><tr class="">
+				<td>
+					<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/20000452/update"><font><font>
+						contebillo
+					</font></font></a>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.bet &lt; 0)}"><font><font>
+					4719.00
+				</font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                    
+                    <span class=""><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>821,00</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-center" ng-class="{&apos;text-red&apos; : (item.c_net_margin / item.bet &lt; 0)}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>17.40%</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0,00%</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0,00%</font></font></span>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+					280.40
+				</font></font></td>
+			</tr><tr class="">
+				<td>
+					<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/20004404/update"><font><font>
+						giulpi
+					</font></font></a>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.bet &lt; 0)}"><font><font>
+					4640.50
+				</font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                    
+                    <span class=""><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>554.50</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-center" ng-class="{&apos;text-red&apos; : (item.c_net_margin / item.bet &lt; 0)}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>11.95%</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0,00%</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0,00%</font></font></span>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+					355.70
+				</font></font></td>
+			</tr><tr class="">
+				<td>
+					<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/20004224/update"><font><font>
+						piripoppi79
+					</font></font></a>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.bet &lt; 0)}"><font><font>
+					4536.00
+				</font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                    
+                    <span class=""><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-right text-red" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-666.00</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+				</td>
+				<td class="text-center text-red" ng-class="{&apos;text-red&apos; : (item.c_net_margin / item.bet &lt; 0)}">
+          <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-14.68%</font></font></span>
+          <span ng-show="model.productId == 10" class="ng-hide"><font><font>0,00%</font></font></span>
+          <span ng-show="model.productId == 9" class="ng-hide"><font><font>0,00%</font></font></span>
+				</td>
+				<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+					2.35
+				</font></font></td>
+			</tr>
+        </tbody></table><div ng-table-pagination="params" template-url="templates.pagination" class=""><div ng-include="templateUrl" class=""><div class="ng-table-pager">  <ul class="pagination ng-table-pagination"> <li class="disabled" style=""> <a ng-switch-when="prev" ng-click="params.page(page.number)" href="" class=""><font><font>&quot;</font></font></a>      </li><li class="active" style="">  <a ng-switch-when="first" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>1</font></font></span></a>     </li><li class="" style="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>2</font></font></span></a>    </li><li class="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>3</font></font></span></a>    </li><li class="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>4</font></font></span></a>    </li><li class="">     <a ng-switch-when="last" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>5</font></font></span></a>  </li><li class="">      <a ng-switch-when="next" ng-click="params.page(page.number)" href="" class=""><font><font>&#xBB;</font></font></a> </li> </ul> </div> </div></div>
+        <button class="btn btn-info" ng-click="openUserProduct({name:&apos;bet&apos;, sort:&apos;ASC&apos;})"><font><font>Expand</font></font></button>
+    </div>
+</div>
+			</div></div></accordion-group>
+		</div>
+		<div class="span6">
+			<accordion-group binding-field="&apos;TOP AND WORST PLAYERS BY MARGIN&apos;" class-head="accordion-group-light-head" class=""> <div class="accordion-group accordion-group-default"><div class="accordion-group-heading accordion-group-light-head"><h3 class="accordion-group-title">TOP AND WORST PLAYERS BY MARGIN</h3></div><div class="accordion-group-body ">
+				<div ng-include="&apos;src/backend/Reports/tradingProduct/sub/topmargin.html&apos;" class=""><div class="row-fluid" style="margin:0;padding:0;">
+	<div class="span6" style="margin:0px; padding:0px;">
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered table-hover ng-table" ng-table="tableParamsTopRev"><thead ng-include="templates.header" class=""><tr class="">  </tr> <tr ng-show="show_filter" class="ng-table-filters ng-hide">  </tr> </thead>
+				<tbody><tr class="light-grey-row-fluid text-center">
+					<th><font><font>USER</font></font></th>
+					<th><font><font>RAKE</font></font></th>
+					<th><font><font>MARGIN</font></font></th>
+					<th><font><font>BALANCE</font></font></th>
+				</tr>
+				<tr class="" style="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.user_id})" href="/userPlayer//update"><font><font>
+							marcone67
+						</font></font></a>
+					</td>
+                    <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                        
+                        <span class=""><font><font>0.00</font></font></span>
+                    </td>
+					<td class="text-center" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>4086.00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						1.28
+					</font></font></td>
+				</tr><tr class="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.user_id})" href="/userPlayer//update"><font><font>
+							gios56
+						</font></font></a>
+					</td>
+                    <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                        
+                        <span class=""><font><font>0.00</font></font></span>
+                    </td>
+					<td class="text-center" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>1301.00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						1089.50
+					</font></font></td>
+				</tr><tr class="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.user_id})" href="/userPlayer//update">
+							central
+						</a>
+					</td>
+                    <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                        
+                        <span class=""><font><font>0.00</font></font></span>
+                    </td>
+					<td class="text-center" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>910.00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						1106.02
+					</font></font></td>
+				</tr><tr class="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.user_id})" href="/userPlayer//update"><font><font>
+							contebillo
+						</font></font></a>
+					</td>
+                    <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                        
+                        <span class=""><font><font>0.00</font></font></span>
+                    </td>
+					<td class="text-center" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>821,00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						280.40
+					</font></font></td>
+				</tr><tr class="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.user_id})" href="/userPlayer//update"><font><font>
+							roberto0369
+						</font></font></a>
+					</td>
+                    <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                        
+                        <span class=""><font><font>0.00</font></font></span>
+                    </td>
+					<td class="text-center" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>788,00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						0.00
+					</font></font></td>
+				</tr><tr class="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.user_id})" href="/userPlayer//update"><font><font>
+							ultra74
+						</font></font></a>
+					</td>
+                    <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                        
+                        <span class=""><font><font>0.00</font></font></span>
+                    </td>
+					<td class="text-center" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>772,00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						1.00
+					</font></font></td>
+				</tr><tr class="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.user_id})" href="/userPlayer//update"><font><font>
+							cherub
+						</font></font></a>
+					</td>
+                    <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                        
+                        <span class=""><font><font>0.00</font></font></span>
+                    </td>
+					<td class="text-center" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>748.00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						200.60
+					</font></font></td>
+				</tr><tr class="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.user_id})" href="/userPlayer//update"><font><font>
+							giulpi
+						</font></font></a>
+					</td>
+                    <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                        
+                        <span class=""><font><font>0.00</font></font></span>
+                    </td>
+					<td class="text-center" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>554.50</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						355.70
+					</font></font></td>
+				</tr><tr class="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.user_id})" href="/userPlayer//update">
+							beca3103
+						</a>
+					</td>
+                    <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                        
+                        <span class=""><font><font>0.00</font></font></span>
+                    </td>
+					<td class="text-center" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>461,00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						0.50
+					</font></font></td>
+				</tr><tr class="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.user_id})" href="/userPlayer//update"><font><font>
+							giovannispecial
+						</font></font></a>
+					</td>
+                    <td class="text-right" ng-class="{&apos;text-red&apos; : (item.rake &lt; 0)}">
+                        
+                        <span class=""><font><font>0.00</font></font></span>
+                    </td>
+					<td class="text-center" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>444.00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						370.36
+					</font></font></td>
+				</tr>
+			</tbody></table><div ng-table-pagination="params" template-url="templates.pagination" class=""><div ng-include="templateUrl" class=""><div class="ng-table-pager">  <ul class="pagination ng-table-pagination"> <li class="disabled" style=""> <a ng-switch-when="prev" ng-click="params.page(page.number)" href="" class=""><font><font>&quot;</font></font></a>      </li><li class="active" style="">  <a ng-switch-when="first" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>1</font></font></span></a>     </li><li class="" style="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>2</font></font></span></a>    </li><li class="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>3</font></font></span></a>    </li><li class="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>4</font></font></span></a>    </li><li class="">     <a ng-switch-when="last" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>5</font></font></span></a>  </li><li class="">      <a ng-switch-when="next" ng-click="params.page(page.number)" href="" class=""><font><font>&#xBB;</font></font></a> </li> </ul> </div> </div></div>
+            <button class="btn btn-info" ng-click="openUserProduct({name:&apos;c_net_margin&apos;, sort:&apos;ASC&apos;})"><font><font>Expand</font></font></button>
+		</div>
+	</div>
+	<div class="span6" style="margin:0px;padding:0px;">
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered table-hover ng-table" ng-table="tableParamsWorstRev"><thead ng-include="templates.header" class=""><tr class="">  </tr> <tr ng-show="show_filter" class="ng-table-filters ng-hide">  </tr> </thead>
+				<tbody><tr class="light-grey-row-fluid text-center">
+					<th><font><font>USER</font></font></th>
+					<th><font><font>MARGIN</font></font></th>
+					<th><font><font>BALANCE</font></font></th>
+				</tr>
+				<tr class="" style="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/20004224/update"><font><font>
+							piripoppi79
+						</font></font></a>
+					</td>
+					<td class="text-center text-red" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-666.00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						2.35
+					</font></font></td>
+				</tr><tr class="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/20001343/update"><font><font>
+							daniele79
+						</font></font></a>
+					</td>
+					<td class="text-center text-red" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-385.00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						198.96
+					</font></font></td>
+				</tr><tr class="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/20000019/update"><font><font>
+							lisa2111
+						</font></font></a>
+					</td>
+					<td class="text-center text-red" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-252.00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						0.01
+					</font></font></td>
+				</tr><tr class="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/20004446/update"><font><font>
+							bisontino
+						</font></font></a>
+					</td>
+					<td class="text-center text-red" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-101.00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						1.05
+					</font></font></td>
+				</tr><tr class="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/8771714/update">
+							goanna65
+						</a>
+					</td>
+					<td class="text-center text-red" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-50.00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						119.40
+					</font></font></td>
+				</tr><tr class="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/10001613/update">
+							asilomogliano11
+						</a>
+					</td>
+					<td class="text-center text-red" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-22.00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						498.70
+					</font></font></td>
+				</tr><tr class="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/20003625/update"><font><font>
+							fiore90
+						</font></font></a>
+					</td>
+					<td class="text-center text-red" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-15.00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						102.35
+					</font></font></td>
+				</tr><tr class="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/10003041/update"><font><font>
+							antokatia15
+						</font></font></a>
+					</td>
+					<td class="text-center text-red" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-14,00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						408.30
+					</font></font></td>
+				</tr><tr class="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/20004122/update"><font><font>
+							ottoduelaterali
+						</font></font></a>
+					</td>
+					<td class="text-center text-red" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-5.00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						9.45
+					</font></font></td>
+				</tr><tr class="">
+					<td>
+						<a class="table-link" ui-sref="userPlayer.update({id:item.id})" href="/userPlayer/20006293/update"><font><font>
+							tiziano85
+						</font></font></a>
+					</td>
+					<td class="text-center text-red" ng-class="{&apos;text-red&apos; : (item.c_net_margin &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}">
+						<span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-3.00</font></font></span>
+						<span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+						<span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+					</td>
+					<td class="text-right" ng-class="{&apos;text-red&apos; : (item.balance &lt; 0)}"><font><font>
+						215.32
+					</font></font></td>
+				</tr>
+			</tbody></table><div ng-table-pagination="params" template-url="templates.pagination" class=""><div ng-include="templateUrl" class=""><div class="ng-table-pager">  <ul class="pagination ng-table-pagination"> <li class="disabled" style=""> <a ng-switch-when="prev" ng-click="params.page(page.number)" href="" class=""><font><font>&quot;</font></font></a>      </li><li class="active" style="">  <a ng-switch-when="first" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>1</font></font></span></a>     </li><li class="" style="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>2</font></font></span></a>    </li><li class="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>3</font></font></span></a>    </li><li class="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>4</font></font></span></a>    </li><li class="">     <a ng-switch-when="last" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>5</font></font></span></a>  </li><li class="">      <a ng-switch-when="next" ng-click="params.page(page.number)" href="" class=""><font><font>&#xBB;</font></font></a> </li> </ul> </div> </div></div>
+            <button class="btn btn-info" ng-click="openUserProduct({name:&apos;c_net_margin&apos;, sort:&apos;DESC&apos;})"><font><font>Expand</font></font></button>
+		</div>
+	</div>
+</div>
+</div>
+			</div></div></accordion-group>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
+			<accordion-group binding-field="model.page.page_data.game_data.title" class-head="accordion-group-light-head" class=""> <div class="accordion-group accordion-group-default"><div class="accordion-group-heading accordion-group-light-head"><h3 class="accordion-group-title"><font><font>Game Data</font></font></h3></div><div class="accordion-group-body ">
+				<div ng-include="&apos;src/backend/Reports/tradingProduct/sub/result.html&apos;" class=""><div class="table-responsive">
+    <table ng-table="tableParams" class="table table-striped table-bordered table-hover ng-table"><thead class="">
+            <tr class="light-grey-row-fluid text-center">
+                <th colspan="1"><font><font>Period</font></font></th>
+                <th colspan="5" class=""><font><font>Game Data</font></font></th>
+                <th colspan="4"><font><font>Bonus</font></font></th>
+                <th colspan="2"><font><font>costs</font></font></th>
+                <th colspan="1"><font><font>Res.</font></font></th>
+                <th colspan="5"><font><font>users</font></font></th>
+                <th colspan="2" class=""><font><font>Statistics</font></font></th>
+            </tr>
+        </thead><thead class="">
+            <tr>
+                <th class="header text-center sortable sort-asc" ng-class="{
+                    &apos;sort-asc&apos;: tableParams.isSortBy(&apos;act_date&apos;, &apos;asc&apos;),
+                    &apos;sort-desc&apos;: tableParams.isSortBy(&apos;act_date&apos;, &apos;desc&apos;)
+                  }" ng-click="tableParams.sorting({&apos;act_date&apos; : tableParams.isSortBy(&apos;act_date&apos;, &apos;asc&apos;) ? &apos;desc&apos; : &apos;asc&apos;})">
+                    <div><font><font>Date</font></font></div>
+                </th>
+                <th class=""><font><font>volume</font></font></th>
+                <th class=""><font><font>won</font></font></th>
+                <th>
+                    
+                    <span class="">Rake</span>
+                </th>
+
+                <th>
+                    <span class=""><font><font>gross margin</font></font></span>
+                </th>
+                <th class=""><font><font>% Gross Margin</font></font></th>
+                <th><font><font>Family bonus</font></font></th>
+                <th><font><font>bonus Product</font></font></th>
+                <th>
+                    <span>Jackpot</span>
+                </th>
+                <th>
+                    <span>Jackpot Won</span>
+                </th>
+                <th>Provider</th>
+                <th><font><font>tax</font></font></th>
+                <th><font><font>Marg. </font><font>Net</font></font></th>
+                <th><font><font>new Members</font></font></th>
+                <th>Funded Account</th>
+                <th><font><font>Active users</font></font></th>
+                <th>% Funded</th>
+                <th>Churn Rate</th>
+                <th>Avg. Bet</th>
+                <th>Avg. Margin</th>
+            </tr>
+        </thead>
+        
+        
+        <tbody>
+            <tr class="" style="">
+                <td class="text-right" data-title="&apos;Date&apos;" sortable="&apos;act_date&apos;" nowrap=""><font><font>
+                    01/22/2017
+                </font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.bet &lt; 0)}" nowrap=""><font><font>
+                    11432.50
+                </font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.win &lt; 0)}" nowrap=""><font><font>
+                    9610.50
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    
+                    
+                    <span ng-show="model.productId != 1 &amp;&amp; model.productId != 7" class=""><font><font>0.00</font></font></span>
+                </td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.game_data.bet - item.game_data.win &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>480.53</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>1822.00</font></font></span>
+                </td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : ((item.game_data.bet - item.game_data.win) / item.game_data.bet &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0,00%</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>4.20%</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>15.94%</font></font></span>
+                </td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    218.64
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    364.40
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>480.53</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>
+                        1238.96
+                    </font></font></span>
+                </td>
+                <td class="text-right" nowrap=""><font><font>
+                    99
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    1
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    15
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    6.67%
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0,00%
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    762.17
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    
+                    
+                    <span class=""><font><font>121.47</font></font></span>
+                </td>
+            </tr><tr class="">
+                <td class="text-right" data-title="&apos;Date&apos;" sortable="&apos;act_date&apos;" nowrap=""><font><font>
+                    01/23/2017
+                </font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.bet &lt; 0)}" nowrap=""><font><font>
+                    43122.00
+                </font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.win &lt; 0)}" nowrap=""><font><font>
+                    46509.00
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    
+                    
+                    <span ng-show="model.productId != 1 &amp;&amp; model.productId != 7" class=""><font><font>0.00</font></font></span>
+                </td>
+                <td class="text-right text-red" ng-class="{&apos;text-red&apos; : (item.game_data.bet - item.game_data.win &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>2325.45</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-3,387.00</font></font></span>
+                </td>
+                <td class="text-right text-red" ng-class="{&apos;text-red&apos; : ((item.game_data.bet - item.game_data.win) / item.game_data.bet &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0,00%</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>5.39%</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-7.85%</font></font></span>
+                </td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    -406.44
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    -677.40
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>2325.45</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>
+                        -2,303.16
+                    </font></font></span>
+                </td>
+                <td class="text-right" nowrap=""><font><font>
+                    209
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    27
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0,00%
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    -80.00%
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    1597.11
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    
+                    
+                    <span class=""><font><font>-125.44</font></font></span>
+                </td>
+            </tr><tr class="">
+                <td class="text-right" data-title="&apos;Date&apos;" sortable="&apos;act_date&apos;" nowrap=""><font><font>
+                    01/24/2017
+                </font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.bet &lt; 0)}" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.win &lt; 0)}" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    
+                    
+                    <span ng-show="model.productId != 1 &amp;&amp; model.productId != 7" class=""><font><font>0.00</font></font></span>
+                </td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.game_data.bet - item.game_data.win &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>0.00</font></font></span>
+                </td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : ((item.game_data.bet - item.game_data.win) / item.game_data.bet &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0,00%</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>0,00%</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>0,00%</font></font></span>
+                </td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>
+                        0.00
+                    </font></font></span>
+                </td>
+                <td class="text-right" nowrap=""><font><font>
+                    0
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0,00%
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    100.00%
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    
+                    
+                    <span class=""><font><font>0.00</font></font></span>
+                </td>
+            </tr><tr class="">
+                <td class="text-right" data-title="&apos;Date&apos;" sortable="&apos;act_date&apos;" nowrap=""><font><font>
+                    25/01/2017
+                </font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.bet &lt; 0)}" nowrap=""><font><font>
+                    25784.50
+                </font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.win &lt; 0)}" nowrap=""><font><font>
+                    25477.00
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    
+                    
+                    <span ng-show="model.productId != 1 &amp;&amp; model.productId != 7" class=""><font><font>0.00</font></font></span>
+                </td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.game_data.bet - item.game_data.win &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>1273.85</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>307,50</font></font></span>
+                </td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : ((item.game_data.bet - item.game_data.win) / item.game_data.bet &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0,00%</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>4.94%</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>1.19%</font></font></span>
+                </td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    36,90
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    61,50
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>1273.85</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>
+                        209.10
+                    </font></font></span>
+                </td>
+                <td class="text-right" nowrap=""><font><font>
+                    90
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    21
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0,00%
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    -&#x221E;%
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    1227.83
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    
+                    
+                    <span class=""><font><font>14,64</font></font></span>
+                </td>
+            </tr><tr class="">
+                <td class="text-right" data-title="&apos;Date&apos;" sortable="&apos;act_date&apos;" nowrap=""><font><font>
+                    26/01/2017
+                </font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.bet &lt; 0)}" nowrap=""><font><font>
+                    21472.00
+                </font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.win &lt; 0)}" nowrap=""><font><font>
+                    23347.50
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    
+                    
+                    <span ng-show="model.productId != 1 &amp;&amp; model.productId != 7" class=""><font><font>0.00</font></font></span>
+                </td>
+                <td class="text-right text-red" ng-class="{&apos;text-red&apos; : (item.game_data.bet - item.game_data.win &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>1167.38</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-1,875.50</font></font></span>
+                </td>
+                <td class="text-right text-red" ng-class="{&apos;text-red&apos; : ((item.game_data.bet - item.game_data.win) / item.game_data.bet &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0,00%</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>5.44%</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>-8.73%</font></font></span>
+                </td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    -225.06
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    -375.10
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>1167.38</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>
+                        -1,275.34
+                    </font></font></span>
+                </td>
+                <td class="text-right" nowrap=""><font><font>
+                    84
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    2
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    25
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    8,00%
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    -9.52%
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    858.88
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    
+                    
+                    <span class=""><font><font>-75.02</font></font></span>
+                </td>
+            </tr><tr class="">
+                <td class="text-right" data-title="&apos;Date&apos;" sortable="&apos;act_date&apos;" nowrap=""><font><font>
+                    27/01/2017
+                </font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.bet &lt; 0)}" nowrap=""><font><font>
+                    45865.00
+                </font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.win &lt; 0)}" nowrap=""><font><font>
+                    36864.00
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    
+                    
+                    <span ng-show="model.productId != 1 &amp;&amp; model.productId != 7" class=""><font><font>0.00</font></font></span>
+                </td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.game_data.bet - item.game_data.win &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>1843.20</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>9001.00</font></font></span>
+                </td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : ((item.game_data.bet - item.game_data.win) / item.game_data.bet &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0,00%</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>4.02%</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>19.62%</font></font></span>
+                </td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    1080.12
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    1800.20
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>1843.20</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>
+                        6120.68
+                    </font></font></span>
+                </td>
+                <td class="text-right" nowrap=""><font><font>
+                    321
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    26
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0,00%
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    -4.00%
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    1764.04
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    
+                    
+                    <span class=""><font><font>346.19</font></font></span>
+                </td>
+            </tr><tr class="">
+                <td class="text-right" data-title="&apos;Date&apos;" sortable="&apos;act_date&apos;" nowrap=""><font><font>
+                    28/01/2017
+                </font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.bet &lt; 0)}" nowrap=""><font><font>
+                    18240.50
+                </font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.win &lt; 0)}" nowrap=""><font><font>
+                    12350.50
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    
+                    
+                    <span ng-show="model.productId != 1 &amp;&amp; model.productId != 7" class=""><font><font>0.00</font></font></span>
+                </td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.game_data.bet - item.game_data.win &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>617.53</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>5.890,00</font></font></span>
+                </td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : ((item.game_data.bet - item.game_data.win) / item.game_data.bet &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0,00%</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>3.39%</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>32.29%</font></font></span>
+                </td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    706.80
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    1,178.00
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>617.53</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>
+                        4005.20
+                    </font></font></span>
+                </td>
+                <td class="text-right" nowrap=""><font><font>
+                    170
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    4
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    30
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    13.33%
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0,00%
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    608.02
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    
+                    
+                    <span class=""><font><font>196.33</font></font></span>
+                </td>
+            </tr><tr class="">
+                <td class="text-right" data-title="&apos;Date&apos;" sortable="&apos;act_date&apos;" nowrap=""><font><font>
+                    01/29/2017
+                </font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.bet &lt; 0)}" nowrap=""><font><font>
+                    1.00
+                </font></font></td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.win &lt; 0)}" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    
+                    
+                    <span ng-show="model.productId != 1 &amp;&amp; model.productId != 7" class=""><font><font>0.00</font></font></span>
+                </td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : (item.game_data.bet - item.game_data.win &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>1.00</font></font></span>
+                </td>
+                <td class="text-right" ng-class="{&apos;text-red&apos; : ((item.game_data.bet - item.game_data.win) / item.game_data.bet &lt; 0) &amp;&amp; ( model.productId != 10 &amp;&amp; model.productId != 9 )}" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0,00%</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>0,00%</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>100.00%</font></font></span>
+                </td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.00
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.12
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.20
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    <span ng-show="model.productId == 10" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="model.productId == 9" class="ng-hide"><font><font>0.00</font></font></span>
+                    <span ng-show="( model.productId != 10 &amp;&amp; model.productId != 9 )" class=""><font><font>
+                        0.68
+                    </font></font></span>
+                </td>
+                <td class="text-right" nowrap=""><font><font>
+                    5
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    2
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0,00%
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    93.33%
+                </font></font></td>
+                <td class="text-right" nowrap=""><font><font>
+                    0.50
+                </font></font></td>
+                <td class="text-right" nowrap="">
+                    
+                    
+                    <span class=""><font><font>0.50</font></font></span>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td><font><font>Totals:</font></font></td>
+                <td class=""><font><font>0.00</font></font></td>
+                <td class=""><font><font>0.00</font></font></td>
+                <td>
+                    
+                    <span class=""><font><font>0.00</font></font></span>
+                </td>
+                <td class=""><font><font>0.00</font></font></td>
+                <td></td>
+                <td class=""><font><font>0.00</font></font></td>
+                <td class=""><font><font>0.00</font></font></td>
+                <td class=""><font><font>0.00</font></font></td>
+                <td class=""><font><font>0.00</font></font></td>
+                <td class=""><font><font>0.00</font></font></td>
+                <td class=""><font><font>0.00</font></font></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table><div ng-table-pagination="params" template-url="templates.pagination" class=""><div ng-include="templateUrl" class=""><div class="ng-table-pager"> <div class="ng-table-counts btn-group pull-right"> <button type="button" class="btn btn-default active"> <span ng-bind="count" class=""><font><font>10</font></font></span> </button><button type="button" class="btn btn-default"> <span ng-bind="count" class=""><font><font>25</font></font></span> </button><button type="button" class="btn btn-default"> <span ng-bind="count" class=""><font><font>50</font></font></span> </button><button type="button" class="btn btn-default"> <span ng-bind="count" class=""><font><font>100</font></font></span> </button> </div> <ul class="pagination ng-table-pagination">  </ul> </div> </div></div>
+</div>
+</div>
+			</div></div></accordion-group>
+		</div>
+	</div>
+</div></div>
+                {% endblock Skweb_content %}

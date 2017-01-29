@@ -1,0 +1,47 @@
+{% extends "SkwebIncludeBundle:Include:base_admin.html.twig" %}
+                {% block Skweb_content %}
+                  {%set id_c=app.request.query.get("id_c")%}
+                  {%if(is_granted("ROLE_ADMIN"))%}
+                      {{ render(controller("SkwebAdminpageBundle:AdminCrud:menuAdmin",{'id_c':id_c})) }}
+                  {%endif%}
+                    <div ui-view="mainView" class="page-content page-relative nga-default nga-stagger nga-fade">
+<div class="userEditView" ui-view="userEditView" style=""><div class="">
+    <accordion-group class=""> <div class="accordion-group accordion-group-default"><div class="accordion-group-heading "><h3 class="accordion-group-title"></h3></div><div class="accordion-group-body ">
+        <div ng-include="&apos;src/backend/userManagement/docsManagement/docsSearch/sub/result.html&apos;" class="" style="">
+<div class="table-responsive">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="pull-left">
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default"><img src="css/img/icons/printIcon.png"></button>
+                    <button type="button" class="btn btn-default"><img src="css/img/icons/xlsIcon.png"></button>
+                    <button type="button" class="btn btn-default"><img src="css/img/icons/pdfIcon.png"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table ng-table="tableParams" class="table table-striped table-bordered table-hover ng-table"><thead ng-include="templates.header" class=""><tr class=""> <th class="header  sortable"> <div class=""><font><font>ID</font></font></div>  </th><th class="header  sortable"> <div class=""><font><font>document type</font></font></div>  </th><th class="header  sortable"> <div class=""><font><font>state</font></font></div>  </th><th class="header  sortable"> <div class=""><font><font>Date posted (ND)</font></font></div>  </th><th class="header  sortable"> <div class=""><font><font>checked</font></font></div>  </th><th class="header"> <div class=""><font><font>Operator</font></font></div>  </th><th class="header"> <div class="">Note</div>  </th><th class="header"> <div class=""> </div>  </th> </tr> <tr ng-show="show_filter" class="ng-table-filters ng-hide"> <th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th> </tr> </thead>
+        <tbody>
+        <tr class="" style="">
+            <td data-title="model.page.page_data.user_id.title" sortable="&apos;id&apos;" data-title-text=" " class=""><font><font>20007074</font></font></td>
+            <td data-title="model.page.page_data.document_type.title" sortable="&apos;document_type&apos;" data-title-text=" " class=""><font><font>Identity card&apos;</font></font></td>
+            <td data-title="model.page.page_data.document_status.title" sortable="&apos;document_status&apos;" data-title-text=" " class=""><font><font>On hold</font></font></td>
+            <td data-title="&apos;Data invio (ND)&apos;" sortable="&apos;created_date&apos;" data-title-text="Data invio (ND)" class=""><font><font>29.01.2017 00:59:23</font></font></td>
+            <td data-title="model.page.page_data.verify_date.title" sortable="&apos;verify_date&apos;" data-title-text=" " class=""></td>
+            <td data-title="model.page.page_data.operator.title" data-title-text=" " class=""></td>
+            <td data-title="model.page.page_data.note.title" data-title-text=" "></td>
+            <td style="text-align: right" data-title-text=" ">
+                <a class="link-ico" href="/document/detail/20007074/23420" ui-sref="docDetail({id: row-fluid.user_id,doc_id:row-fluid.id})">
+                    <i class="icon-eye"></i>
+                </a>
+                <a class="link-ico" href="javascript:void(0)" ng-click="openFile(row-fluid.id)">
+                    <i class="icon-floppy"></i>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table><div ng-table-pagination="params" template-url="templates.pagination" class=""><div ng-include="templateUrl" class=""><div class="ng-table-pager"> <div class="ng-table-counts btn-group pull-right"> <button type="button" class="btn btn-default active"> <span ng-bind="count" class=""><font><font>10</font></font></span> </button><button type="button" class="btn btn-default"> <span ng-bind="count" class=""><font><font>25</font></font></span> </button><button type="button" class="btn btn-default"> <span ng-bind="count" class=""><font><font>50</font></font></span> </button><button type="button" class="btn btn-default"> <span ng-bind="count" class=""><font><font>100</font></font></span> </button> </div> <ul class="pagination ng-table-pagination">  </ul> </div> </div></div>
+</div></div>
+    </div></div></accordion-group>
+</div></div></div>
+                {% endblock Skweb_content %}

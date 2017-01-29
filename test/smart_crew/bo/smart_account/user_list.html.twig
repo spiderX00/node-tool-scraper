@@ -1,0 +1,200 @@
+{% extends "SkwebIncludeBundle:Include:base_admin.html.twig" %}
+                {% block Skweb_content %}
+                  {%set id_c=app.request.query.get("id_c")%}
+                  {%if(is_granted("ROLE_ADMIN"))%}
+                      {{ render(controller("SkwebAdminpageBundle:AdminCrud:menuAdmin",{'id_c':id_c})) }}
+                  {%endif%}
+                    <div ui-view="mainView" class="page-content page-relative nga-default nga-stagger nga-fade" style="">    <accordion-group binding-field="model.page.page_data.page_title" class=""> <div class="accordion-group accordion-group-default"><div class="accordion-group-heading "><h3 class="accordion-group-title"><font><font>search User</font></font></h3></div><div class="accordion-group-body ">
+        <form name="form" class="css-form ng-valid-ng-max ng-valid-ng-min ng-valid-required" novalidate="">
+            
+            <div class="row-fluid">
+                <div class="span4">
+                    <field-set-accordion-group binding-field="PARAMETRI BASE" class=""><fieldset class="scheduler-border"><legend class="scheduler-border-label"><i class=""></i><font><font> BASIC PARAMETERS</font></font></legend><div>
+                        <div class="control-group has-feedback" name="DAL" model="model.filterData.date_from" require="false" min="" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><label class="spansm-12 control-label"><font><font>FROM</font></font></label><div class="spansm-12"><input class="datepicker input-block-level" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" placeholder="DAL" data-date-format="mm/dd/yyyy"><span class="fa fa-calendar input-block-level-feedback" aria-hidden="true"></span></div></div>
+
+                        <div class="control-group has-feedback" name="AL" model="model.filterData.date_to" require="false" min="" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><label class="spansm-12 control-label"><font><font>TO THE</font></font></label><div class="spansm-12"><input class="datepicker input-block-level" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" placeholder="AL" data-date-format="mm/dd/yyyy"><span class="fa fa-calendar input-block-level-feedback" aria-hidden="true"></span></div></div>
+
+
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="ID" model="model.filterData.id" type="number" require="false" min="" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-valid-ng-max ng-valid-ng-min ng-valid-required"><label class="spansm-12 control-label"><font><font>ID</font></font><span ng-show="false" class="ng-hide"><font><font> * </font></font></span></label><div class="spansm-12"><input type="number" autocomplete="off" name="ID" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="" class="input-block-level ng-valid-ng-max ng-valid-ng-min ng-valid-required" placeholder="ID"></div></ng-form></div>
+
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.user_player_status" spanlabel="spansm-12" spaninput="spansm-12" name="Stato giocatore" binding-field="model.page.page_data.user_player_status.data" require="false"><ng-form name="fieldForm" class="ng-valid-required"><label class="spansm-12 control-label"><font><font>player status</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="spansm-12"><select class="input-block-level ng-valid-required" name="Stato giocatore" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass"><option value="" class="" selected="selected"></option><option label="wait_mail" value="number:1"><font><font>wait_mail</font></font></option><option label="wait_doc" value="number:2"><font><font>wait_doc</font></font></option><option label="active" value="number:3"><font><font>active</font></font></option><option label="suspend_doc" value="number:10"><font><font>suspend_doc</font></font></option><option label="suspend_mail" value="number:11"><font><font>suspend_mail</font></font></option><option label="closed" value="number:100"><font><font>closed</font></font></option><option label="dormant" value="number:1000"><font><font>dormant</font></font></option></select></div></ng-form></div>
+
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.user_verify" spanlabel="spansm-12" spaninput="spansm-12" name="Stato Verifica" binding-field="model.page.page_data.user_verify.data" require="false"><ng-form name="fieldForm" class="ng-valid-required"><label class="spansm-12 control-label"><font><font>State Check</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="spansm-12"><select class="input-block-level ng-valid-required" name="Stato Verifica" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass"><option value="" class="" selected="selected"></option><option label="Non verificato" value="number:1"><font><font>unchecked</font></font></option><option label="Non verificato(documento scaduto)" value="number:2"><font><font>Unverified (expired document)</font></font></option><option label="Verificato" value="number:3"><font><font>checked</font></font></option></select></div></ng-form></div>
+
+                    </div></fieldset></field-set-accordion-group>
+                </div>
+
+				<div class="span4">
+					<field-set-accordion-group binding-field="Dati Anagrafici" class=""><fieldset class="scheduler-border"><legend class="scheduler-border-label"><i class=""></i><font><font> Personal data</font></font></legend><div>
+						<div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Username" model="model.filterData.username" require="false" min="" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-valid-ng-max ng-valid-ng-min ng-valid-required"><label class="spansm-12 control-label"><font><font>Username</font></font><span ng-show="false" class="ng-hide"><font><font> * </font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Username" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="" class="input-block-level ng-valid-ng-max ng-valid-ng-min ng-valid-required" placeholder="Username"></div></ng-form></div>
+
+						<div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Cognome" model="model.filterData.last_name" require="false" min="" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-valid-ng-max ng-valid-ng-min ng-valid-required"><label class="spansm-12 control-label"><font><font>surname</font></font><span ng-show="false" class="ng-hide"><font><font> * </font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Cognome" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="" class="input-block-level ng-valid-ng-max ng-valid-ng-min ng-valid-required" placeholder="Cognome"></div></ng-form></div>
+
+						<div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Nome" model="model.filterData.name" require="false" min="" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-valid-ng-max ng-valid-ng-min ng-valid-required"><label class="spansm-12 control-label"><font><font>Name</font></font><span ng-show="false" class="ng-hide"><font><font> * </font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Nome" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="" class="input-block-level ng-valid-ng-max ng-valid-ng-min ng-valid-required" placeholder="Nome"></div></ng-form></div>
+
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Codice fiscale" model="model.filterData.natnumber" require="false" min="" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-valid-ng-max ng-valid-ng-min ng-valid-required"><label class="spansm-12 control-label"><font><font>Fiscal Code</font></font><span ng-show="false" class="ng-hide"><font><font> * </font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Codice fiscale" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="" class="input-block-level ng-valid-ng-max ng-valid-ng-min ng-valid-required" placeholder="Codice fiscale"></div></ng-form></div>
+
+						<div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Email" model="model.filterData.mail_address" require="false" min="" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-valid-ng-max ng-valid-ng-min ng-valid-required"><label class="spansm-12 control-label"><font><font>Email</font></font><span ng-show="false" class="ng-hide"><font><font> * </font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Email" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="" class="input-block-level ng-valid-ng-max ng-valid-ng-min ng-valid-required" placeholder="Email"></div></ng-form></div>
+					</div></fieldset></field-set-accordion-group>
+				</div>
+
+                <div class="span4">
+                    <field-set-accordion-group binding-field="TIPOLOGIE E GRUPPI" class=""><fieldset class="scheduler-border"><legend class="scheduler-border-label"><i class=""></i><font><font> TYPES AND GROUPS</font></font></legend><div>
+
+
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.user_category" spanlabel="spansm-12" spaninput="spansm-12" name="Tipologia Utenti" binding-field="model.page.page_data.user_category.data" require="false"><ng-form name="fieldForm" class="ng-valid-required"><label class="spansm-12 control-label"><font><font>type Users</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="spansm-12"><select class="input-block-level ng-valid-required" name="Tipologia Utenti" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass"><option value="" class="" selected="selected"></option><option label="Diretti" value="number:1"><font><font>direct</font></font></option><option label="Sottoconti" value="number:2"><font><font>subaccounts</font></font></option><option label="Sottoconti Web" value="number:3"><font><font>subaccounts Web</font></font></option></select></div></ng-form></div>
+
+                    </div></fieldset></field-set-accordion-group>
+                    <field-set-accordion-group binding-field="Nickname Terze Parti" class=""><fieldset class="scheduler-border"><legend class="scheduler-border-label"><i class=""></i><font><font> Nickname Third Party</font></font></legend><div>
+
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.website" spanlabel="span12" spaninput="span12" name="Skin" binding-field="model.page.page_data.website.data" require="false"><ng-form name="fieldForm" class="ng-valid-required"><label class="span12 control-label"><font><font>Skin</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="span12"><select class="input-block-level ng-valid-required" name="Skin" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass"><option value="" class="" selected="selected"></option><option label="HitStars.it" value="number:1"><font><font>HitStars.it</font></font></option><option label="Roombet.it" value="number:2"><font><font>Roombet.it</font></font></option></select></div></ng-form></div>
+
+
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm.$invalid &amp;&amp; fieldForm.$touched}">
+                            <label class="spansm-12 control-label"><font><font>Product</font></font></label>
+                            <div class="spansm-12">
+                                <select name="Prodotto" class="input-block-level"><option value="? undefined:undefined ?"></option>
+                                    
+                                </select>
+
+                                
+                            </div>
+                        </div>
+
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="nickname" model="model.filterData.nickname" require="false" min="" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-valid-ng-max ng-valid-ng-min ng-valid-required"><label class="spansm-12 control-label"><font><font>nickname</font></font><span ng-show="false" class="ng-hide"><font><font> * </font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="nickname" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="" class="input-block-level ng-valid-ng-max ng-valid-ng-min ng-valid-required" placeholder="nickname"></div></ng-form></div>
+
+
+                    </div></fieldset></field-set-accordion-group>
+                    <field-set-accordion-group binding-field="REFERALS" class=""><fieldset class="scheduler-border"><legend class="scheduler-border-label"><i class=""></i><font><font> REFERALS</font></font></legend><div>
+
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.website" spanlabel="span12" spaninput="span12" name="Skin" binding-field="model.page.page_data.website.data" require="false"><ng-form name="fieldForm" class="ng-valid-required"><label class="span12 control-label"><font><font>Skin</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="span12"><select class="input-block-level ng-valid-required" name="Skin" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass"><option value="" class="" selected="selected"></option><option label="HitStars.it" value="number:1"><font><font>HitStars.it</font></font></option><option label="Roombet.it" value="number:2"><font><font>Roombet.it</font></font></option></select></div></ng-form></div>
+
+
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.user_affiliate" spanlabel="span12" spaninput="span12" name="Affiliato" binding-field="model.page.page_data.affiliate.data" require="false"><ng-form name="fieldForm" class="ng-valid-required"><label class="span12 control-label"><font><font>affiliated</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="span12"><select class="input-block-level ng-valid-required" name="Affiliato" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass"><option value="" class="" selected="selected"></option></select></div></ng-form></div>
+
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.user_affiliate" spanlabel="span12" spaninput="span12" name="Affiliato Web" binding-field="model.page.page_data.affilate_w.data" require="false"><ng-form name="fieldForm" class="ng-valid-required"><label class="span12 control-label"><font><font>Web affiliate</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="span12"><select class="input-block-level ng-valid-required" name="Affiliato Web" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass"><option value="" class="" selected="selected"></option></select></div></ng-form></div>
+                    </div></fieldset></field-set-accordion-group>
+                </div>
+
+
+                <div class="row-fluid">
+                    <div class="span12">
+                        <button type="submit" class="btn btn-primary pull-right"><font><font>
+                            FIND
+                        </font></font></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div></div></accordion-group>
+
+    <accordion-group binding-field="model.page.page_data.total_result.title" class=""> <div class="accordion-group accordion-group-default"><div class="accordion-group-heading "><h3 class="accordion-group-title"><font><font>TOTAL RESULTS</font></font></h3></div><div class="accordion-group-body ">
+        <div class="table-responsive">
+			<div class="row-fluid">
+				<div class="span12">
+                    <div class="pull-left">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default">
+                                <img src="css/img/icons/printIcon.png">
+                            </button>
+                            <button type="button" ng-click="exportAction(&apos;excel&apos;)" class="btn btn-default">
+                                <img src="css/img/icons/xlsIcon.png">
+                            </button>
+                            <button type="button" ng-click="exportAction(&apos;csv&apos;)" class="btn btn-default">
+                                <img src="css/img/icons/csvIcon.png">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="pull-right">
+                        <b class=""><font><font>Tot. Members: 0</font></font></b>
+                    </div>
+                        <table class="export-table-directive" id="exportTable" style="display:none">
+                            <thead>
+                                <tr>
+                                    <th><font><font>ID</font></font></th>
+                                    <th><font><font>Username</font></font></th>
+                                    <th class=""><font><font>Username</font></font></th>
+                                    <th class=""><font><font>surname</font></font></th>
+                                    <th class=""><font><font>Name</font></font></th>
+                                    <th class=""><font><font>Skin</font></font></th>
+                                    <th><font><font>Performer</font></font></th>
+                                    <th class=""></th>
+                                    <th class=""></th>
+                                    <th class=""></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><font><font>ID
+                                    </font></font></td><td><font><font>Username
+                                    </font></font></td><td class=""><font><font>Username</font></font></td>
+                                    <td class=""><font><font>surname</font></font></td>
+                                    <td class=""><font><font>Name</font></font></td>
+                                    <td class=""><font><font>Skin</font></font></td>
+                                    <td><font><font>Performer</font></font></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+				</div>
+			</div>
+            <table ng-table="tableParams" class="table table-striped table-bordered table-hover ng-table"><thead ng-include="templates.header" class=""><tr class=""> <th class="header  sortable"> <div class=""><font><font>ID</font></font></div>  </th><th class="header  sortable"> <div class=""><font><font>Username</font></font></div>  </th><th class="header  sortable"> <div class=""><font><font>Name</font></font></div>  </th><th class="header  sortable"> <div class=""><font><font>surname</font></font></div>  </th><th class="header  sortable"> <div class=""><font><font>Skin</font></font></div>  </th><th class="header  sortable"> <div class=""><font><font>Category</font></font></div>  </th><th class="header  sortable"> <div class=""><font><font>Recipient State</font></font></div>  </th><th class="header  sortable"> <div class=""><font><font>player status</font></font></div>  </th><th class="header  sortable"> <div class=""><font><font>State Check</font></font></div>  </th><th class="header  sortable"> <div class=""><font><font>BALANCE</font></font></div>  </th><th class="header"> <div class=""> </div>  </th> </tr> <tr ng-show="show_filter" class="ng-table-filters ng-hide"> <th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th> </tr> </thead>
+                <tbody>
+                <tr class="" style="">
+                    <td data-title="model.page.page_data.user_id.title" sortable="&apos;id&apos;" data-title-text=" " class=""><font><font>20007075</font></font></td>
+                    <td data-title="model.page.page_data.username.title" sortable="&apos;username&apos;" data-title-text=" ">
+						<a class="table-link" ui-sref="userPlayer.update({id:row-fluid.id})" href="/userPlayer/20007075/update">
+							deluca98
+						</a>
+					</td>
+                    <td data-title="model.page.page_data.name.title" sortable="&apos;name&apos;" data-title-text=" " class=""><font><font>Alessio</font></font></td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="&apos;last_name&apos;" data-title-text=" " class=""><font><font>De Luca</font></font></td>
+                    <td data-title="model.page.page_data.website.title" sortable="&apos;website_name&apos;" data-title-text=" " class="">
+					easybet24</td>
+                    <td data-title="&apos;Categoria&apos;" sortable="&apos;user_type&apos;" data-title-text="Categoria"><span translate="" class=""><font><font>direct</font></font></span></td>
+                    <td data-title="&apos;Stato concessionario&apos;" sortable="&apos;user_status&apos;" class="text-center" data-title-text="Stato concessionario"><font><font>
+                        Qualified
+					</font></font></td>
+                    <td data-title="model.page.page_data.user_player_status.title" sortable="&apos;user_player_status&apos;" class="text-center" data-title-text=" "><font><font>
+                        wait_mail
+					</font></font></td>
+                    <td data-title="model.page.page_data.user_verify.title" sortable="&apos;user_verify&apos;" class="text-center" data-title-text=" ">
+						<i class="icon icon-cancel-3" ng-class="{&apos;icon-ok-2&apos;: row-fluid.user_verify == 3, &apos;icon-cancel-3&apos;: row-fluid.user_verify &lt; 3}"></i>
+					</td>
+                    
+                    <td data-title="model.page.page_data.balance.title" class="text-right" sortable="&apos;username&apos;" ng-class="{&apos;text-red&apos; : (row-fluid.u_wallets.real.balance_currency + row-fluid.u_wallets.real.real_nd &lt; 0)}" nowrap="" data-title-text=" "><font><font>
+						&#x20AC; 0.00
+					</font></font></td>
+                    <td class="text-center" style="width:80px" nowrap="" data-title-text=" ">
+                        <a class="link-ico" tooltip="Visualizza(ND)" ui-sref="userPlayer.update({id:row-fluid.id})" href="/userPlayer/20007075/update">
+                            <i class="icon-cog"></i>
+                        </a>
+                        <a class="link-ico" tooltip="Visualizza Documenti(ND)" ui-sref="userPlayer.document({id:row-fluid.id})" href="/userPlayer/20007075/document">
+                            <i class="icon-doc-text"></i>
+                        </a>
+						<span class="dropdown" dropdown="">
+							<a class="link-ico" tooltip="ND Tools" dropdown-toggle="">
+							<i class="icon-flash"></i></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a ui-sref="userPlayer.operation.deposit({id:row-fluid.id})" href="/userPlayer/20007075/operation/deposit"><font><font>Performs charging (ND)</font></font></a>
+								</li>
+                                <li>
+									<a ui-sref="userPlayer.operation.withdraw({id:row-fluid.id})" href="/userPlayer/20007075/operation/withdraw"><font><font>Please Download (ND)</font></font></a>
+								</li>
+                                <li>
+									<a href="javascript:void(0)"><font><font>Reload Bonus (ND)</font></font></a>
+								</li>
+							</ul>
+						</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table><div ng-table-pagination="params" template-url="templates.pagination" class=""><div ng-include="templateUrl" class=""><div class="ng-table-pager"> <div class="ng-table-counts btn-group pull-right"> <button type="button" class="btn btn-default"> <span ng-bind="count" class=""><font><font>10</font></font></span> </button><button type="button" class="btn btn-default active"> <span ng-bind="count" class=""><font><font>25</font></font></span> </button><button type="button" class="btn btn-default"> <span ng-bind="count" class=""><font><font>50</font></font></span> </button><button type="button" class="btn btn-default"> <span ng-bind="count" class=""><font><font>100</font></font></span> </button> </div> <ul class="pagination ng-table-pagination"> <li class="disabled" style=""> <a ng-switch-when="prev" ng-click="params.page(page.number)" href="" class=""><font><font>&quot;</font></font></a>      </li><li class="active" style="">  <a ng-switch-when="first" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>1</font></font></span></a>     </li><li class="" style="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>2</font></font></span></a>    </li><li class="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>3</font></font></span></a>    </li><li class="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>4</font></font></span></a>    </li><li class="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>5</font></font></span></a>    </li><li class="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>6</font></font></span></a>    </li><li class="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>7</font></font></span></a>    </li><li class="disabled">    <a ng-switch-when="more" ng-click="params.page(page.number)" href="" class=""><font><font>...</font></font></a>   </li><li class="">     <a ng-switch-when="last" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>616</font></font></span></a>  </li><li class="">      <a ng-switch-when="next" ng-click="params.page(page.number)" href="" class=""><font><font>&#xBB;</font></font></a> </li> </ul> </div> </div></div>
+        </div>
+    </div></div></accordion-group>
+</div>
+                {% endblock Skweb_content %}

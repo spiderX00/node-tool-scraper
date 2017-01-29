@@ -1,0 +1,138 @@
+{% extends "SkwebIncludeBundle:Include:base_admin.html.twig" %}
+                {% block Skweb_content %}
+                  {%set id_c=app.request.query.get("id_c")%}
+                  {%if(is_granted("ROLE_ADMIN"))%}
+                      {{ render(controller("SkwebAdminpageBundle:AdminCrud:menuAdmin",{'id_c':id_c})) }}
+                  {%endif%}
+                    <div ui-view="mainView" class="page-content page-relative nga-default nga-stagger nga-fade" style=""><div class="">
+    <accordion-group binding-field="&apos;Impostazioni (ND)&apos;" class=""> <div class="accordion-group accordion-group-default"><div class="accordion-group-heading "><h3 class="accordion-group-title"><font><font>Settings (ND)</font></font></h3></div><div class="accordion-group-body ">
+
+            <field-set-accordion-group binding-field="Tasse prodotti" class=""><fieldset class="scheduler-border"><legend class="scheduler-border-label"><i class=""></i><font><font> product taxes</font></font></legend><div>
+                <div class="row-fluid">
+                    <div class="span2">
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.fee_tax.product_id" spanlabel="spansm-12" spaninput="spansm-12" name="Prodotto" binding-field="model.page.page_data.product_list.data" require="true"><ng-form name="fieldForm" class=""><label class="spansm-12 control-label"><font><font>product </font></font><span ng-show="true" class=""><font><font>*</font></font></span></label><div class="spansm-12"><select class="input-block-level" name="Prodotto" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" required="required"><option value="" class="" selected="selected"></option><option label="Casino Live" value="number:3"><font><font>Casino Live</font></font></option><option label="Casino NetEnt" value="number:4"><font><font>Casino NetEnt</font></font></option><option label="Casino WM" value="number:5"><font><font>Casino WM</font></font></option><option label="Casino Quick Fire" value="number:6"><font><font>Casino Quick Fire</font></font></option><option label="Bingo" value="number:7"><font><font>Bingo</font></font></option><option label="Casino Live Pro" value="number:8"><font><font>Casino Live Pro</font></font></option><option label="Betting Exchange" value="number:9"><font><font>Betting Exchange</font></font></option><option label="Skill Games Active" value="number:10"><font><font>Skill Games Active</font></font></option></select></div></ng-form></div>
+                    </div>
+                    <div class="span2">
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.fee_tax.fee_base" spanlabel="spansm-12" spaninput="spansm-12" name="Base calcolo" binding-field="model.page.page_data.tax_base_calc.data" require="true"><ng-form name="fieldForm" class=""><label class="spansm-12 control-label"><font><font>Calculation base </font></font><span ng-show="true" class=""><font><font>*</font></font></span></label><div class="spansm-12"><select class="input-block-level" name="Base calcolo" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" required="required"><option value="" class="" selected="selected"></option><option label="profitto" value="number:1"><font><font>profit</font></font></option><option label="volume" value="number:2"><font><font>volume</font></font></option><option label="Costo fisso annuale" value="number:3"><font><font>Annual fixed cost</font></font></option></select></div></ng-form></div>
+                    </div>
+                    <div class="span2">
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Tassa" model="model.fee_tax.fee_value" require="true" min="" type="number" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-valid-ng-max ng-valid-ng-min"><label class="spansm-12 control-label"><font><font>fee </font></font><span ng-show="true" class=""><font><font>*</font></font></span></label><div class="spansm-12"><input type="number" autocomplete="off" name="Tassa" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="" class="input-block-level ng-valid-ng-max ng-valid-ng-min" placeholder="Tassa" required="required"></div></ng-form></div>
+                    </div>
+                    <div class="span2">
+                        <button type="button" style="margin-top:22px;" class="btn btn-primary" ng-class="{ disabled: userAgentProfileForm.$invalid }" ng-click="saveFee(&apos;tax&apos;)"><font><font>
+                            add
+                        </font></font></button>
+                    </div>
+                </div>
+
+                <table class="table">
+                    <tbody>
+                        <tr class="">
+                            <td style="width: 150px" class=""><font><font>Casino Live</font></font></td>
+                            <td style="width: 150px" class=""><font><font>profit</font></font></td>
+                            <td style="width: 150px" class=""><font><font>20,00</font></font></td>
+                            <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee(&apos;tax&apos;,$index,item.id)"></i></div></td>
+                        </tr><tr class="">
+                            <td style="width: 150px" class=""><font><font>Casino NetEnt</font></font></td>
+                            <td style="width: 150px" class=""><font><font>profit</font></font></td>
+                            <td style="width: 150px" class=""><font><font>20,00</font></font></td>
+                            <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee(&apos;tax&apos;,$index,item.id)"></i></div></td>
+                        </tr><tr class="">
+                            <td style="width: 150px" class=""><font><font>Casino WM</font></font></td>
+                            <td style="width: 150px" class=""><font><font>profit</font></font></td>
+                            <td style="width: 150px" class=""><font><font>20,00</font></font></td>
+                            <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee(&apos;tax&apos;,$index,item.id)"></i></div></td>
+                        </tr><tr class="">
+                            <td style="width: 150px" class=""><font><font>Bingo</font></font></td>
+                            <td style="width: 150px" class=""><font><font>volume</font></font></td>
+                            <td style="width: 150px" class=""><font><font>12,00</font></font></td>
+                            <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee(&apos;tax&apos;,$index,item.id)"></i></div></td>
+                        </tr><tr class="">
+                            <td style="width: 150px" class=""></td>
+                            <td style="width: 150px" class=""><font><font>profit</font></font></td>
+                            <td style="width: 150px" class=""><font><font>20,00</font></font></td>
+                            <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee(&apos;tax&apos;,$index,item.id)"></i></div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div></fieldset></field-set-accordion-group>
+
+
+            <field-set-accordion-group binding-field="Costi provider" class=""><fieldset class="scheduler-border"><legend class="scheduler-border-label"><i class=""></i><font><font> provider costs</font></font></legend><div>
+                <div class="row-fluid">
+                    <div class="span2">
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.fee_provider.product_id" spanlabel="spansm-12" spaninput="spansm-12" name="Prodotto" binding-field="model.page.page_data.product_list.data" require="true"><ng-form name="fieldForm" class=""><label class="spansm-12 control-label"><font><font>product </font></font><span ng-show="true" class=""><font><font>*</font></font></span></label><div class="spansm-12"><select class="input-block-level" name="Prodotto" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" required="required"><option value="" class="" selected="selected"></option><option label="Casino Live" value="number:3"><font><font>Casino Live</font></font></option><option label="Casino NetEnt" value="number:4"><font><font>Casino NetEnt</font></font></option><option label="Casino WM" value="number:5"><font><font>Casino WM</font></font></option><option label="Casino Quick Fire" value="number:6"><font><font>Casino Quick Fire</font></font></option><option label="Bingo" value="number:7"><font><font>Bingo</font></font></option><option label="Casino Live Pro" value="number:8"><font><font>Casino Live Pro</font></font></option><option label="Betting Exchange" value="number:9"><font><font>Betting Exchange</font></font></option><option label="Skill Games Active" value="number:10"><font><font>Skill Games Active</font></font></option></select></div></ng-form></div>
+                    </div>
+                    <div class="span2">
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.fee_provider.fee_base" spanlabel="spansm-12" spaninput="spansm-12" name="Base calcolo" binding-field="model.page.page_data.tax_base_calc.data" require="true"><ng-form name="fieldForm" class=""><label class="spansm-12 control-label"><font><font>Calculation base </font></font><span ng-show="true" class=""><font><font>*</font></font></span></label><div class="spansm-12"><select class="input-block-level" name="Base calcolo" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" required="required"><option value="" class="" selected="selected"></option><option label="profitto" value="number:1"><font><font>profit</font></font></option><option label="volume" value="number:2"><font><font>volume</font></font></option><option label="Costo fisso annuale" value="number:3"><font><font>Annual fixed cost</font></font></option></select></div></ng-form></div>
+                    </div>
+                    <div class="span2">
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Tassa" model="model.fee_provider.fee_value" require="true" min="" type="number" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-valid-ng-max ng-valid-ng-min"><label class="spansm-12 control-label"><font><font>fee </font></font><span ng-show="true" class=""><font><font>*</font></font></span></label><div class="spansm-12"><input type="number" autocomplete="off" name="Tassa" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="" class="input-block-level ng-valid-ng-max ng-valid-ng-min" placeholder="Tassa" required="required"></div></ng-form></div>
+                    </div>
+                    <div class="span2">
+                        <button type="button" style="margin-top:22px;" class="btn btn-primary" ng-click="saveFee(&apos;provider&apos;)"><font><font>
+                            add
+                        </font></font></button>
+                    </div>
+                </div>
+                <table class="table">
+                    <tbody>
+                    <tr class="">
+                        <td style="width: 150px" class=""><font><font>Casino NetEnt</font></font></td>
+                        <td style="width: 150px" class=""><font><font>profit</font></font></td>
+                        <td style="width: 150px" class=""><font><font>15,00</font></font></td>
+                        <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee(&apos;provider&apos;,$index,item.id)"></i></div></td>
+                    </tr><tr class="">
+                        <td style="width: 150px" class=""><font><font>Casino WM</font></font></td>
+                        <td style="width: 150px" class=""><font><font>profit</font></font></td>
+                        <td style="width: 150px" class=""><font><font>13,50</font></font></td>
+                        <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee(&apos;provider&apos;,$index,item.id)"></i></div></td>
+                    </tr><tr class="">
+                        <td style="width: 150px" class=""></td>
+                        <td style="width: 150px" class=""><font><font>profit</font></font></td>
+                        <td style="width: 150px" class=""><font><font>12,50</font></font></td>
+                        <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee(&apos;provider&apos;,$index,item.id)"></i></div></td>
+                    </tr><tr class="">
+                        <td style="width: 150px" class=""><font><font>Casino Live</font></font></td>
+                        <td style="width: 150px" class=""><font><font>profit</font></font></td>
+                        <td style="width: 150px" class=""><font><font>12,00</font></font></td>
+                        <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee(&apos;provider&apos;,$index,item.id)"></i></div></td>
+                    </tr><tr class="">
+                        <td style="width: 150px" class=""><font><font>Bingo</font></font></td>
+                        <td style="width: 150px" class=""><font><font>profit</font></font></td>
+                        <td style="width: 150px" class=""><font><font>13,00</font></font></td>
+                        <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee(&apos;provider&apos;,$index,item.id)"></i></div></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div></fieldset></field-set-accordion-group>
+
+            <field-set-accordion-group binding-field="Costi personalizzati" class=""><fieldset class="scheduler-border"><legend class="scheduler-border-label"><i class=""></i><font><font> personalized costs</font></font></legend><div>
+                <div class="row-fluid">
+                    <div class="span2">
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Descrizione" model="model.fee_custom.fee_name" require="true" min="" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-valid-ng-max ng-valid-ng-min"><label class="spansm-12 control-label"><font><font>Description </font></font><span ng-show="true" class=""><font><font>*</font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Descrizione" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="" class="input-block-level ng-valid-ng-max ng-valid-ng-min" placeholder="Descrizione" required="required"></div></ng-form></div>
+                    </div>
+                    <div class="span2">
+                        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Importo annuale" model="model.fee_custom.fee_value" require="true" min="" type="number" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-valid-ng-max ng-valid-ng-min"><label class="spansm-12 control-label"><font><font>Annual amount </font></font><span ng-show="true" class=""><font><font>*</font></font></span></label><div class="spansm-12"><input type="number" autocomplete="off" name="Importo annuale" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="" class="input-block-level ng-valid-ng-max ng-valid-ng-min" placeholder="Importo annuale" required="required"></div></ng-form></div>
+                    </div>
+                    <div class="span2">
+                        <button type="button" style="margin-top:22px;" class="btn btn-primary" ng-class="{ disabled: userAgentProfileForm.$invalid }" ng-click="saveCustom()"><font><font>
+                            add
+                        </font></font></button>
+                    </div>
+                </div>
+                <table class="table">
+                    <tbody>
+                    <tr class="">
+                        <td style="width: 150px" class=""><font><font>Management costs</font></font></td>
+                        <td style="width: 150px" class=""><font><font>250,000.00</font></font></td>
+                        <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee(&apos;custom&apos;,$index,item.id)"></i></div></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div></fieldset></field-set-accordion-group>
+
+    </div></div></accordion-group>
+</div></div>
+                {% endblock Skweb_content %}

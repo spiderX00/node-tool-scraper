@@ -1,0 +1,55 @@
+{% extends "SkwebIncludeBundle:Include:base_admin.html.twig" %}
+                {% block Skweb_content %}
+                  {%set id_c=app.request.query.get("id_c")%}
+                  {%if(is_granted("ROLE_ADMIN"))%}
+                      {{ render(controller("SkwebAdminpageBundle:AdminCrud:menuAdmin",{'id_c':id_c})) }}
+                  {%endif%}
+                    <div ui-view="mainView" class="page-content page-relative nga-default nga-stagger nga-fade"><div class="row-fluid">
+    <div ui-view="subView" class="" style=""><accordion-group binding-field="model.page.page_data.page_title" initial-state="open" class=""> <div class="accordion-group accordion-group-default"><div class="accordion-group-heading "><h3 class="accordion-group-title"><font><font>View Skins</font></font></h3></div><div class="accordion-group-body ">
+<div class="row-fluid">
+    <div class="span12">
+            <div class="row-fluid">
+                <export-table-directive idtable="exportTable"></export-table-directive>
+            </div>
+             <table ng-table="tableParams" class="table table-striped table-bordered table-hover ng-table"><thead ng-include="templates.header" class=""><tr class=""> <th class="header"> <div class=""> </div>  </th><th class="header  sortable"> <div class=""><font><font>Skin name</font></font></div>  </th><th class="header  sortable"> <div class=""><font><font>REGISTRATION DATE</font></font></div>  </th><th class="header  sortable"> <div class=""><font><font>Website address</font></font></div>  </th><th class="header  sortable"> <div class=""><font><font>commission plan</font></font></div>  </th><th class="header"> <div class=""> </div>  </th> </tr> <tr ng-show="show_filter" class="ng-table-filters ng-hide"> <th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th> </tr> </thead>
+            <tbody>
+            <tr class="">
+                <td class="text-center" data-title-text=" "><i ng-class="{&apos;icon-check valid-input-ico&apos;:row-fluid.website_status == 1,
+                &apos;icon-check-empty inactive-input-ico&apos;:row-fluid.website_status == 2}" class="icon-check valid-input-ico"></i></td>
+                <td data-title="model.page.page_data.wskname.title" sortable="&apos;wskname&apos;" data-title-text=" ">
+				e<span class="auto-style1">asybet24</span></td>
+                <td data-title="model.page.page_data.created_date.title" sortable="&apos;created_date&apos;" data-title-text=" " class="">2017-01-01 11:37:51</td>
+                <td data-title="model.page.page_data.url.title" sortable="&apos;url&apos;" data-title-text=" " class="">
+				www.easybet24.net</td>
+                <td data-title="model.page.page_data.pl_commiss.title" sortable="&apos;pl_commiss&apos;" data-title-text=" " class="">
+				Master</td>
+                <td class="text-center" data-title-text=" ">
+                    <a class="link-ico" ui-sref="skin.update.profile({id:row-fluid.id})" href="/skin/update/2/profile">
+                        <i class="icon-cog"></i>
+                    </a>
+                </td>
+            </tr><tr class="">
+                <td class="text-center" data-title-text=" "><i ng-class="{&apos;icon-check valid-input-ico&apos;:row-fluid.website_status == 1,
+                &apos;icon-check-empty inactive-input-ico&apos;:row-fluid.website_status == 2}" class="icon-check valid-input-ico"></i></td>
+                <td data-title="model.page.page_data.wskname.title" sortable="&apos;wskname&apos;" data-title-text=" ">
+				&#xA0;</td>
+                <td data-title="model.page.page_data.created_date.title" sortable="&apos;created_date&apos;" data-title-text=" " class="">
+				&#xA0;</td>
+                <td data-title="model.page.page_data.url.title" sortable="&apos;url&apos;" data-title-text=" " class="">
+				&#xA0;</td>
+                <td data-title="model.page.page_data.pl_commiss.title" sortable="&apos;pl_commiss&apos;" data-title-text=" " class="">
+				&#xA0;</td>
+                <td class="text-center" data-title-text=" ">
+                    <a class="link-ico" ui-sref="skin.update.profile({id:row-fluid.id})" href="/skin/update/1/profile">
+                        <i class="icon-cog"></i>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table><div ng-table-pagination="params" template-url="templates.pagination" class=""><div ng-include="templateUrl" class=""><div class="ng-table-pager"> <div class="ng-table-counts btn-group pull-right"> <button type="button" class="btn btn-default active"> <span ng-bind="count" class=""><font><font>10</font></font></span> </button><button type="button" class="btn btn-default"> <span ng-bind="count" class=""><font><font>25</font></font></span> </button><button type="button" class="btn btn-default"> <span ng-bind="count" class=""><font><font>50</font></font></span> </button><button type="button" class="btn btn-default"> <span ng-bind="count" class=""><font><font>100</font></font></span> </button> </div> <ul class="pagination ng-table-pagination">  </ul> </div> </div></div>
+    </div>
+</div>
+</div></div></accordion-group></div>
+</div>
+</div>
+                {% endblock Skweb_content %}

@@ -1,0 +1,2881 @@
+{% extends "SkwebIncludeBundle:Include:base_admin.html.twig" %}
+                {% block Skweb_content %}
+                  {%set id_c=app.request.query.get("id_c")%}
+                  {%if(is_granted("ROLE_ADMIN"))%}
+                      {{ render(controller("SkwebAdminpageBundle:AdminCrud:menuAdmin",{'id_c':id_c})) }}
+                  {%endif%}
+                    <div ui-view="mainView" class="page-content page-relative nga-default nga-stagger nga-fade"><div class="">
+	<div class="row-fluid">
+		<div class="span12">
+			<accordion-group binding-field="model.page.page_data.page_title" class=""> <div class="accordion-group accordion-group-default"><div class="accordion-group-heading "><h3 class="accordion-group-title">Financial Report</h3></div><div class="accordion-group-body ">
+				<div ng-include="&apos;src/backend/Reports/tradingFinancial/sub/searchForm.html&apos;" class=""><form name="form" class="css-form ng-valid-required" novalidate="">
+    
+    <div class="row-fluid">
+        <div class="span5 separate-area">
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.website" spanlabel="spansm-12" spaninput="spansm-12" name="Skin" binding-field="model.page.page_data.website.data" require="false"><ng-form name="fieldForm" class="ng-valid-required"><label class="spansm-12 control-label"><font><font>Skin</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="spansm-12"><select class="input-block-level ng-valid-required" name="Skin" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass"><option value="" class="" selected="selected"></option><option label="HitStars.it" value="number:1"><font><font>HitStars.it</font></font></option><option label="Roombet.it" value="number:2"><font><font>Roombet.it</font></font></option></select></div></ng-form></div>
+
+                    <div class="control-group">
+                        <label class="spansm-12 control-label"><font><font>Reference Agent</font></font></label>
+                        <div class="spansm-12">
+                            <select class="input-block-level ng-valid-required" name="local"><option value="" class="" selected="selected"></option></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.user_category" spanlabel="spansm-12" spaninput="spansm-12" name="Tipologia Utenti" binding-field="model.page.page_data.user_category.data" require="false"><ng-form name="fieldForm" class="ng-valid-required"><label class="spansm-12 control-label"><font><font>type Users</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="spansm-12"><select class="input-block-level ng-valid-required" name="Tipologia Utenti" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass"><option value="" class="" selected="selected"></option><option label="Diretti" value="number:1"><font><font>direct</font></font></option><option label="Sottoconti" value="number:2"><font><font>subaccounts</font></font></option><option label="Sottoconti Web" value="number:3"><font><font>subaccounts Web</font></font></option></select></div></ng-form></div>
+
+                    <div class="control-group">
+                        <label class="spansm-12 control-label"><font><font>Reference affiliate</font></font></label>
+                        <div class="spansm-12">
+                            <select class="input-block-level ng-valid-required" name="local"><option value="" class="" selected="selected"></option></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="span7">
+            <div class="row-fluid">
+                <div class="spansm-6">
+                    <div class="control-group has-feedback" name="DAL" init="22/01/2017" model="model.filterData.report_date_from" require="true" min="" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><label class="spansm-12 control-label"><font><font>FROM</font></font></label><div class="spansm-12"><input class="datepicker input-block-level" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" placeholder="DAL" data-date-format="mm/dd/yyyy"><span class="fa fa-calendar input-block-level-feedback" aria-hidden="true"></span></div></div>
+                </div>
+                <div class="spansm-6">
+                    <div class="control-group has-feedback" name="AL" init="29/01/2017" model="model.filterData.report_date_to" require="true" min="" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><label class="spansm-12 control-label"><font><font>TO THE</font></font></label><div class="spansm-12"><input class="datepicker input-block-level" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" placeholder="AL" data-date-format="mm/dd/yyyy"><span class="fa fa-calendar input-block-level-feedback" aria-hidden="true"></span></div></div>
+                </div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="text-center">
+                    <div class="btn-group">
+                        <label class="btn btn-default active" btn-radio="item.id"><font><font>Day </font></font></label><label class="btn btn-default" btn-radio="item.id"><font><font>Week </font></font></label><label class="btn btn-default" btn-radio="item.id"><font><font>Month </font></font></label><label class="btn btn-default" btn-radio="item.id"><font><font>Year</font></font></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12">
+            <button type="submit" class="btn btn-primary pull-right"><font><font>
+                Submit
+            </font></font></button>
+        </div>
+    </div>
+</form></div>
+			</div></div></accordion-group>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
+			<div ng-include="&apos;src/backend/Reports/tradingFinancial/sub/result.html&apos;" class=""><div class="table-responsive">
+<table class="table table-bordered table-striped table-hover">
+<tbody><tr>
+    <th>&#xA0;</th>
+    <th>&#xA0;</th>
+    <th class="text-center" style=""><font><font>
+        01/22/2017
+    </font></font></th><th class="text-center"><font><font>
+        01/23/2017
+    </font></font></th><th class="text-center"><font><font>
+        01/24/2017
+    </font></font></th><th class="text-center"><font><font>
+        25/01/2017
+    </font></font></th><th class="text-center"><font><font>
+        26/01/2017
+    </font></font></th><th class="text-center"><font><font>
+        27/01/2017
+    </font></font></th><th class="text-center"><font><font>
+        28/01/2017
+    </font></font></th><th class="text-center"><font><font>
+        01/29/2017
+    </font></font></th>
+    <th>
+        TOTAL
+    </th>
+</tr>
+
+<tr>
+    <td class="text-brand text-bold">TOTAL BET</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr class="" style="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        57,50
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.total_bet.total_products[product] &lt; 0)}"><font><font>
+        57,50
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Live</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        4221.00
+    </font></font></td><td class="text-right"><font><font>
+        20017.80
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        14379.00
+    </font></font></td><td class="text-right"><font><font>
+        6496.50
+    </font></font></td><td class="text-right"><font><font>
+        26908.00
+    </font></font></td><td class="text-right"><font><font>
+        13436.00
+    </font></font></td><td class="text-right"><font><font>
+        181,00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.total_bet.total_products[product] &lt; 0)}"><font><font>
+        85639.30
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino NetEnt</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        4292.13
+    </font></font></td><td class="text-right"><font><font>
+        2284.86
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        81,55
+    </font></font></td><td class="text-right"><font><font>
+        1384.13
+    </font></font></td><td class="text-right"><font><font>
+        3211.37
+    </font></font></td><td class="text-right"><font><font>
+        4457.68
+    </font></font></td><td class="text-right"><font><font>
+        18,25
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.total_bet.total_products[product] &lt; 0)}"><font><font>
+        15729.97
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino WM</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        35,29
+    </font></font></td><td class="text-right"><font><font>
+        276.64
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        68,00
+    </font></font></td><td class="text-right"><font><font>
+        166,00
+    </font></font></td><td class="text-right"><font><font>
+        579.20
+    </font></font></td><td class="text-right"><font><font>
+        897.40
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.total_bet.total_products[product] &lt; 0)}"><font><font>
+        2022.53
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class="">Casino Quick Fire</strong>
+    </td>
+    <td class="text-right"><font><font>
+        80,17
+    </font></font></td><td class="text-right"><font><font>
+        127,71
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        549.54
+    </font></font></td><td class="text-right"><font><font>
+        672.49
+    </font></font></td><td class="text-right"><font><font>
+        683.16
+    </font></font></td><td class="text-right"><font><font>
+        866.67
+    </font></font></td><td class="text-right"><font><font>
+        0.19
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.total_bet.total_products[product] &lt; 0)}"><font><font>
+        2979.93
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Bingo</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        32,30
+    </font></font></td><td class="text-right"><font><font>
+        0.20
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.total_bet.total_products[product] &lt; 0)}"><font><font>
+        32,50
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Live Pro</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        14708.97
+    </font></font></td><td class="text-right"><font><font>
+        28281.19
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        10256.18
+    </font></font></td><td class="text-right"><font><font>
+        8699.95
+    </font></font></td><td class="text-right"><font><font>
+        37044.66
+    </font></font></td><td class="text-right"><font><font>
+        28828.70
+    </font></font></td><td class="text-right"><font><font>
+        7673.68
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.total_bet.total_products[product] &lt; 0)}"><font><font>
+        135,493.33
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Betting Exchange</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        3.15
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        2.57
+    </font></font></td><td class="text-right"><font><font>
+        458.60
+    </font></font></td><td class="text-right"><font><font>
+        994.30
+    </font></font></td><td class="text-right"><font><font>
+        3.22
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.total_bet.total_products[product] &lt; 0)}"><font><font>
+        1461.84
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class="">Skill Games Active</strong>
+    </td>
+    <td class="text-right"><font><font>
+        392,50
+    </font></font></td><td class="text-right"><font><font>
+        986.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        681.50
+    </font></font></td><td class="text-right"><font><font>
+        1374.00
+    </font></font></td><td class="text-right"><font><font>
+        1983.50
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.total_bet.total_products[product] &lt; 0)}"><font><font>
+        5417.50
+    </font></font></td>
+</tr>
+<tr>
+    <td>&#xA0;</td>
+    <td>
+        <strong>TOTAL</strong>
+    </td>
+    <td class="text-right" style=""><font><font>
+        23765.51
+    </font></font></td><td class="text-right"><font><font>
+        52031.90
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        25334.27
+    </font></font></td><td class="text-right"><font><font>
+        18103.14
+    </font></font></td><td class="text-right"><font><font>
+        70258.99
+    </font></font></td><td class="text-right"><font><font>
+        51464.25
+    </font></font></td><td class="text-right"><font><font>
+        7876.34
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.total_bet.total &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr>
+
+<tr>
+    <td class="text-brand text-bold">REVENUE</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        2.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.revenue.total_products[product] &lt; 0)}"><font><font>
+        2.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Live</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        1829.00
+    </font></font></td><td class="text-right text-red"><font><font>
+        -4,182.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        1442.00
+    </font></font></td><td class="text-right text-red"><font><font>
+        -2,463.50
+    </font></font></td><td class="text-right"><font><font>
+        9408.50
+    </font></font></td><td class="text-right"><font><font>
+        6161.00
+    </font></font></td><td class="text-right text-red"><font><font>
+        -531.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.revenue.total_products[product] &lt; 0)}"><font><font>
+        11664.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino NetEnt</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        2237.27
+    </font></font></td><td class="text-right"><font><font>
+        1243.71
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        71,55
+    </font></font></td><td class="text-right"><font><font>
+        924.78
+    </font></font></td><td class="text-right"><font><font>
+        394.86
+    </font></font></td><td class="text-right"><font><font>
+        3069.27
+    </font></font></td><td class="text-right text-red"><font><font>
+        -81.75
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.revenue.total_products[product] &lt; 0)}"><font><font>
+        7859.69
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino WM</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        28,35
+    </font></font></td><td class="text-right text-red"><font><font>
+        -35.71
+    </font></font></td><td class="text-right text-red"><font><font>
+        -20.75
+    </font></font></td><td class="text-right"><font><font>
+        55,95
+    </font></font></td><td class="text-right"><font><font>
+        73,32
+    </font></font></td><td class="text-right text-red"><font><font>
+        -31.51
+    </font></font></td><td class="text-right"><font><font>
+        283.44
+    </font></font></td><td class="text-right text-red"><font><font>
+        -2,00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.revenue.total_products[product] &lt; 0)}"><font><font>
+        351.09
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Quick Fire</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        61,93
+    </font></font></td><td class="text-right"><font><font>
+        7.19
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        264.07
+    </font></font></td><td class="text-right text-red"><font><font>
+        -18.23
+    </font></font></td><td class="text-right"><font><font>
+        470.80
+    </font></font></td><td class="text-right"><font><font>
+        263.21
+    </font></font></td><td class="text-right text-red"><font><font>
+        -119.97
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.revenue.total_products[product] &lt; 0)}"><font><font>
+        929.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Bingo</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.revenue.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Live Pro</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        1979.26
+    </font></font></td><td class="text-right"><font><font>
+        957.49
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right text-red"><font><font>
+        -1,235.17
+    </font></font></td><td class="text-right"><font><font>
+        18,30
+    </font></font></td><td class="text-right"><font><font>
+        2726.35
+    </font></font></td><td class="text-right"><font><font>
+        298.10
+    </font></font></td><td class="text-right text-red"><font><font>
+        -1,187.74
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.revenue.total_products[product] &lt; 0)}"><font><font>
+        3556.59
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Betting Exchange</font></font></strong>
+    </td>
+    <td class="text-right text-red"><font><font>
+        -1.71
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right text-red"><font><font>
+        -0.03
+    </font></font></td><td class="text-right text-red"><font><font>
+        -82.60
+    </font></font></td><td class="text-right text-red"><font><font>
+        -31.35
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold text-red" ng-class="{&apos;text-red&apos; : (data.revenue.total_products[product] &lt; 0)}"><font><font>
+        -115.69
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Skill Games Active</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        206,10
+    </font></font></td><td class="text-right"><font><font>
+        984.28
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        462.78
+    </font></font></td><td class="text-right"><font><font>
+        1368.88
+    </font></font></td><td class="text-right"><font><font>
+        1960.30
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.revenue.total_products[product] &lt; 0)}"><font><font>
+        4982.34
+    </font></font></td>
+</tr>
+<tr>
+    <td>&#xA0;</td>
+    <td>
+        <strong><font><font>TOTAL</font></font></strong>
+    </td>
+    <td class="text-right" style=""><font><font>
+        6340.20
+    </font></font></td><td class="text-right text-red" style=""><font><font>
+        -1,023.04
+    </font></font></td><td class="text-right text-red"><font><font>
+        -20.75
+    </font></font></td><td class="text-right"><font><font>
+        598.40
+    </font></font></td><td class="text-right text-red"><font><font>
+        -1,002.58
+    </font></font></td><td class="text-right"><font><font>
+        14255.28
+    </font></font></td><td class="text-right"><font><font>
+        12003.97
+    </font></font></td><td class="text-right text-red"><font><font>
+        -1,922.46
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.revenue.total &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr>
+
+<tr>
+    <td class="text-brand text-bold">TAX</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.40
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.tax.total_products[product] &lt; 0)}"><font><font>
+        0.40
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Live</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        365,80
+    </font></font></td><td class="text-right text-red"><font><font>
+        -836.40
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        288.40
+    </font></font></td><td class="text-right text-red"><font><font>
+        -492.70
+    </font></font></td><td class="text-right"><font><font>
+        1881.70
+    </font></font></td><td class="text-right"><font><font>
+        1232.20
+    </font></font></td><td class="text-right text-red"><font><font>
+        -106.20
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.tax.total_products[product] &lt; 0)}"><font><font>
+        2332.80
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino NetEnt</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        447.45
+    </font></font></td><td class="text-right"><font><font>
+        248.74
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        14,31
+    </font></font></td><td class="text-right"><font><font>
+        184.96
+    </font></font></td><td class="text-right"><font><font>
+        78.97
+    </font></font></td><td class="text-right"><font><font>
+        613.85
+    </font></font></td><td class="text-right text-red"><font><font>
+        -16.35
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.tax.total_products[product] &lt; 0)}"><font><font>
+        1571.94
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino WM</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        5.67
+    </font></font></td><td class="text-right text-red"><font><font>
+        -7.14
+    </font></font></td><td class="text-right text-red"><font><font>
+        -4.15
+    </font></font></td><td class="text-right"><font><font>
+        11,19
+    </font></font></td><td class="text-right"><font><font>
+        14,66
+    </font></font></td><td class="text-right text-red"><font><font>
+        -6.30
+    </font></font></td><td class="text-right"><font><font>
+        56,69
+    </font></font></td><td class="text-right text-red"><font><font>
+        -0.40
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.tax.total_products[product] &lt; 0)}"><font><font>
+        70,22
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Quick Fire</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.tax.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Bingo</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        3.88
+    </font></font></td><td class="text-right"><font><font>
+        0.02
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.tax.total_products[product] &lt; 0)}"><font><font>
+        3.90
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Live Pro</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.tax.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Betting Exchange</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.tax.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Skill Games Active</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.tax.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr>
+<tr>
+    <td>&#xA0;</td>
+    <td>
+        <strong><font><font>TOTAL</font></font></strong>
+    </td>
+    <td class="text-right" style=""><font><font>
+        822,80
+    </font></font></td><td class="text-right text-red" style=""><font><font>
+        -594.38
+    </font></font></td><td class="text-right text-red"><font><font>
+        -4.15
+    </font></font></td><td class="text-right"><font><font>
+        313.90
+    </font></font></td><td class="text-right text-red"><font><font>
+        -293.08
+    </font></font></td><td class="text-right"><font><font>
+        1954.37
+    </font></font></td><td class="text-right"><font><font>
+        1902.74
+    </font></font></td><td class="text-right text-red"><font><font>
+        -122.95
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.tax.total &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr>
+<tr>
+    <td>&#xA0;</td>
+    <td>
+        <strong><font><font>profit impact</font></font></strong>
+    </td>
+    <td class="text-right" style=""><font><font>
+        12.98%
+    </font></font></td><td class="text-right"><font><font>
+        0,00%
+    </font></font></td><td class="text-right"><font><font>
+        0,00%
+    </font></font></td><td class="text-right"><font><font>
+        52.46%
+    </font></font></td><td class="text-right"><font><font>
+        0,00%
+    </font></font></td><td class="text-right"><font><font>
+        13.71%
+    </font></font></td><td class="text-right"><font><font>
+        15.85%
+    </font></font></td><td class="text-right"><font><font>
+        0,00%
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.tax.total / data.revenue.total &lt; 0)}"><font><font>
+        0,00%
+    </font></font></td>
+</tr>
+
+<tr>
+    <td class="text-brand text-bold">PROVIDER</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.25
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.provider.total_products[product] &lt; 0)}"><font><font>
+        0.25
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Live</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        219.48
+    </font></font></td><td class="text-right text-red"><font><font>
+        -501.84
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        173.04
+    </font></font></td><td class="text-right text-red"><font><font>
+        -295.62
+    </font></font></td><td class="text-right"><font><font>
+        1129.02
+    </font></font></td><td class="text-right"><font><font>
+        739.32
+    </font></font></td><td class="text-right text-red"><font><font>
+        -63.72
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.provider.total_products[product] &lt; 0)}"><font><font>
+        1399.68
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino NetEnt</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        335.59
+    </font></font></td><td class="text-right"><font><font>
+        186.56
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        10,73
+    </font></font></td><td class="text-right"><font><font>
+        138,72
+    </font></font></td><td class="text-right"><font><font>
+        59,23
+    </font></font></td><td class="text-right"><font><font>
+        460.39
+    </font></font></td><td class="text-right text-red"><font><font>
+        -12.26
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.provider.total_products[product] &lt; 0)}"><font><font>
+        1178.95
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino WM</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        3.83
+    </font></font></td><td class="text-right text-red"><font><font>
+        -4.82
+    </font></font></td><td class="text-right text-red"><font><font>
+        -2.80
+    </font></font></td><td class="text-right"><font><font>
+        7.55
+    </font></font></td><td class="text-right"><font><font>
+        9.90
+    </font></font></td><td class="text-right text-red"><font><font>
+        -4.25
+    </font></font></td><td class="text-right"><font><font>
+        38.26
+    </font></font></td><td class="text-right text-red"><font><font>
+        -0.27
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.provider.total_products[product] &lt; 0)}"><font><font>
+        47,40
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Quick Fire</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.provider.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Bingo</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.provider.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Live Pro</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.provider.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Betting Exchange</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.provider.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Skill Games Active</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.provider.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr>
+<tr>
+    <td>&#xA0;</td>
+    <td>
+        <strong><font><font>TOTAL</font></font></strong>
+    </td>
+    <td class="text-right" style=""><font><font>
+        558.90
+    </font></font></td><td class="text-right text-red" style=""><font><font>
+        -319.85
+    </font></font></td><td class="text-right text-red"><font><font>
+        -2.80
+    </font></font></td><td class="text-right"><font><font>
+        191.33
+    </font></font></td><td class="text-right text-red"><font><font>
+        -147.00
+    </font></font></td><td class="text-right"><font><font>
+        1,184.00
+    </font></font></td><td class="text-right"><font><font>
+        1237.97
+    </font></font></td><td class="text-right text-red"><font><font>
+        -76.25
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.provider.total &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr>
+<tr>
+    <td>&#xA0;</td>
+    <td>
+        <strong><font><font>Incidence</font></font></strong>
+    </td>
+    <td class="text-right" style=""><font><font>
+        8.82%
+    </font></font></td><td class="text-right"><font><font>
+        0,00%
+    </font></font></td><td class="text-right"><font><font>
+        0,00%
+    </font></font></td><td class="text-right"><font><font>
+        31.97%
+    </font></font></td><td class="text-right"><font><font>
+        0,00%
+    </font></font></td><td class="text-right"><font><font>
+        8,31%
+    </font></font></td><td class="text-right"><font><font>
+        10.31%
+    </font></font></td><td class="text-right"><font><font>
+        0,00%
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.provider.total / data.revenue.total &lt; 0)}"><font><font>
+        0,00%
+    </font></font></td>
+</tr>
+
+
+<tr>
+    <td class="text-brand text-bold">BONUS</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Bonus on actual balance</font></font></strong>
+        
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.bonus.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        
+        <strong class=""><font><font>Poker</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.bonus.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        
+        <strong class=""><font><font>Casino</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.bonus.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        
+        <strong class=""><font><font>Bingo</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.bonus.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        
+        <strong class=""><font><font>Casino Live</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.bonus.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        
+        <strong class=""><font><font>Betting Exchange</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.bonus.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        
+        <strong class=""><font><font>Skill Games</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.bonus.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr>
+<tr>
+    <td>&#xA0;</td>
+    <td>
+        <strong><font><font>TOTAL</font></font></strong>
+    </td>
+    <td class="text-right" style=""><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.bonus.total &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr>
+<tr>
+    <td class="text-brand text-bold">CONTRIBUTION</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr>
+    <td>&#xA0;</td>
+    <td>
+        <strong>&#xA0;</strong>
+    </td>
+    <td class="text-right" style="">
+        <strong class=""><font><font>4958.50</font></font></strong>
+    </td><td class="text-right text-red" style="">
+        <strong class=""><font><font>-108.81</font></font></strong>
+    </td><td class="text-right text-red">
+        <strong class=""><font><font>-13.80</font></font></strong>
+    </td><td class="text-right">
+        <strong class=""><font><font>93,17</font></font></strong>
+    </td><td class="text-right text-red">
+        <strong class=""><font><font>-562.50</font></font></strong>
+    </td><td class="text-right">
+        <strong class=""><font><font>11116.91</font></font></strong>
+    </td><td class="text-right">
+        <strong class=""><font><font>8863.25</font></font></strong>
+    </td><td class="text-right text-red">
+        <strong class=""><font><font>-1,723.26</font></font></strong>
+    </td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.contribution.total &lt; 0)}">
+        <strong class=""><font><font>0.00</font></font></strong>
+    </td>
+</tr>
+
+<tr>
+    <td class="text-brand text-bold">FIXED COSTS</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr>
+    <td>&#xA0;</td>
+    <td>
+        <strong>&#xA0;</strong>
+    </td>
+    <td class="text-right" style=""><font><font>
+        684.93
+    </font></font></td><td class="text-right"><font><font>
+        684.93
+    </font></font></td><td class="text-right"><font><font>
+        684.93
+    </font></font></td><td class="text-right"><font><font>
+        684.93
+    </font></font></td><td class="text-right"><font><font>
+        684.93
+    </font></font></td><td class="text-right"><font><font>
+        684.93
+    </font></font></td><td class="text-right"><font><font>
+        684.93
+    </font></font></td><td class="text-right"><font><font>
+        684.93
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.fixed_cost.total &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr>
+
+<tr>
+    <td class="text-brand text-bold">NET MARGIN</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr>
+    <td>&#xA0;</td>
+    <td>
+        <strong>&#xA0;</strong>
+    </td>
+    <td class="text-right" style=""><font><font>
+        4273.57
+    </font></font></td><td class="text-right text-red" style=""><font><font>
+        -793.74
+    </font></font></td><td class="text-right text-red"><font><font>
+        -698.73
+    </font></font></td><td class="text-right text-red"><font><font>
+        -591.76
+    </font></font></td><td class="text-right text-red"><font><font>
+        -1,247.43
+    </font></font></td><td class="text-right"><font><font>
+        10431.98
+    </font></font></td><td class="text-right"><font><font>
+        8178.32
+    </font></font></td><td class="text-right text-red"><font><font>
+        -2,408.19
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.net_margin.total &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr>
+
+<tr>
+    <td class="text-brand text-bold">USER DETAIL</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong><span translate="" class=""><font><font>new Register</font></font></span></strong>
+    </td>
+    <td class="text-right"><font><font>
+        99
+    </font></font></td><td class="text-right"><font><font>
+        209
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        90
+    </font></font></td><td class="text-right"><font><font>
+        84
+    </font></font></td><td class="text-right"><font><font>
+        321
+    </font></font></td><td class="text-right"><font><font>
+        170
+    </font></font></td><td class="text-right"><font><font>
+        7
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.user_detail.total_products[product] &lt; 0)}"><font><font>
+        980
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong><span translate="" class="">Funded Accounts</span></strong>
+    </td>
+    <td class="text-right"><font><font>
+        1
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        2
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        4
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.user_detail.total_products[product] &lt; 0)}"><font><font>
+        7
+    </font></font></td>
+</tr>
+
+<tr>
+    <td class="text-brand text-bold">STATS USER</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        1
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        1
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Live</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        11
+    </font></font></td><td class="text-right"><font><font>
+        27
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        17
+    </font></font></td><td class="text-right"><font><font>
+        20
+    </font></font></td><td class="text-right"><font><font>
+        25
+    </font></font></td><td class="text-right"><font><font>
+        26
+    </font></font></td><td class="text-right"><font><font>
+        2
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        128
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino NetEnt</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        27
+    </font></font></td><td class="text-right"><font><font>
+        43
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        4
+    </font></font></td><td class="text-right"><font><font>
+        29
+    </font></font></td><td class="text-right"><font><font>
+        51
+    </font></font></td><td class="text-right"><font><font>
+        52
+    </font></font></td><td class="text-right"><font><font>
+        2
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        208
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino WM</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        4
+    </font></font></td><td class="text-right"><font><font>
+        4
+    </font></font></td><td class="text-right"><font><font>
+        1
+    </font></font></td><td class="text-right"><font><font>
+        3
+    </font></font></td><td class="text-right"><font><font>
+        4
+    </font></font></td><td class="text-right"><font><font>
+        5
+    </font></font></td><td class="text-right"><font><font>
+        5
+    </font></font></td><td class="text-right"><font><font>
+        1
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        27
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Quick Fire</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        6
+    </font></font></td><td class="text-right"><font><font>
+        3
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        6
+    </font></font></td><td class="text-right"><font><font>
+        6
+    </font></font></td><td class="text-right"><font><font>
+        10
+    </font></font></td><td class="text-right"><font><font>
+        8
+    </font></font></td><td class="text-right"><font><font>
+        1
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        40
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Bingo</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        5
+    </font></font></td><td class="text-right"><font><font>
+        1
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        6
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Live Pro</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        15
+    </font></font></td><td class="text-right"><font><font>
+        21
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        15
+    </font></font></td><td class="text-right"><font><font>
+        14
+    </font></font></td><td class="text-right"><font><font>
+        37
+    </font></font></td><td class="text-right"><font><font>
+        30
+    </font></font></td><td class="text-right"><font><font>
+        9
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        141
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Betting Exchange</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        2
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        2
+    </font></font></td><td class="text-right"><font><font>
+        2
+    </font></font></td><td class="text-right"><font><font>
+        3
+    </font></font></td><td class="text-right"><font><font>
+        1
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        10
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Skill Games Active</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        2
+    </font></font></td><td class="text-right"><font><font>
+        1
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        2
+    </font></font></td><td class="text-right"><font><font>
+        1
+    </font></font></td><td class="text-right"><font><font>
+        2
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        8
+    </font></font></td>
+</tr>
+
+<tr>
+    <td class="text-brand text-bold">AVG BET</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        57,50
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        57,50
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Live</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        383.73
+    </font></font></td><td class="text-right"><font><font>
+        741.40
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        845.82
+    </font></font></td><td class="text-right"><font><font>
+        324.83
+    </font></font></td><td class="text-right"><font><font>
+        1076.32
+    </font></font></td><td class="text-right"><font><font>
+        516.77
+    </font></font></td><td class="text-right"><font><font>
+        90,50
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        669.06
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino NetEnt</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        158.97
+    </font></font></td><td class="text-right"><font><font>
+        53,14
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        20,39
+    </font></font></td><td class="text-right"><font><font>
+        47,73
+    </font></font></td><td class="text-right"><font><font>
+        62,97
+    </font></font></td><td class="text-right"><font><font>
+        85,72
+    </font></font></td><td class="text-right"><font><font>
+        9,13
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        75,62
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino WM</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        8.82
+    </font></font></td><td class="text-right"><font><font>
+        69,16
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        22,67
+    </font></font></td><td class="text-right"><font><font>
+        41,50
+    </font></font></td><td class="text-right"><font><font>
+        115.84
+    </font></font></td><td class="text-right"><font><font>
+        179,48
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        74,91
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Quick Fire</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        13,36
+    </font></font></td><td class="text-right"><font><font>
+        42,57
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        91,59
+    </font></font></td><td class="text-right"><font><font>
+        112.08
+    </font></font></td><td class="text-right"><font><font>
+        68,32
+    </font></font></td><td class="text-right"><font><font>
+        108,33
+    </font></font></td><td class="text-right"><font><font>
+        0.19
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        74,50
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Bingo</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        6.46
+    </font></font></td><td class="text-right"><font><font>
+        0.20
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        5.42
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Live Pro</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        980.60
+    </font></font></td><td class="text-right"><font><font>
+        1346.72
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        683.75
+    </font></font></td><td class="text-right"><font><font>
+        621.43
+    </font></font></td><td class="text-right"><font><font>
+        1001.21
+    </font></font></td><td class="text-right"><font><font>
+        960.96
+    </font></font></td><td class="text-right"><font><font>
+        852.63
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        960.95
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Betting Exchange</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        1.58
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        1.29
+    </font></font></td><td class="text-right"><font><font>
+        229,30
+    </font></font></td><td class="text-right"><font><font>
+        331.43
+    </font></font></td><td class="text-right"><font><font>
+        3.22
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        146.18
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Skill Games Active</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        196,25
+    </font></font></td><td class="text-right"><font><font>
+        986.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        340.75
+    </font></font></td><td class="text-right"><font><font>
+        1374.00
+    </font></font></td><td class="text-right"><font><font>
+        991.75
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        677.19
+    </font></font></td>
+</tr>
+
+<tr>
+    <td class="text-brand text-bold">AVG PROFIT</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        2.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.revenue.total_products[product] / data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        2.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Live</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        166.27
+    </font></font></td><td class="text-right text-red"><font><font>
+        -154.89
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        84.82
+    </font></font></td><td class="text-right text-red"><font><font>
+        -123.18
+    </font></font></td><td class="text-right"><font><font>
+        376.34
+    </font></font></td><td class="text-right"><font><font>
+        236.96
+    </font></font></td><td class="text-right text-red"><font><font>
+        -265.50
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.revenue.total_products[product] / data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        91,13
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino NetEnt</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        82.86
+    </font></font></td><td class="text-right"><font><font>
+        28,92
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        17,89
+    </font></font></td><td class="text-right"><font><font>
+        31,89
+    </font></font></td><td class="text-right"><font><font>
+        7,74
+    </font></font></td><td class="text-right"><font><font>
+        59,02
+    </font></font></td><td class="text-right text-red"><font><font>
+        -40.88
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.revenue.total_products[product] / data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        37,79
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino WM</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        7.09
+    </font></font></td><td class="text-right text-red"><font><font>
+        -8.93
+    </font></font></td><td class="text-right text-red"><font><font>
+        -20.75
+    </font></font></td><td class="text-right"><font><font>
+        18,65
+    </font></font></td><td class="text-right"><font><font>
+        18,33
+    </font></font></td><td class="text-right text-red"><font><font>
+        -6.30
+    </font></font></td><td class="text-right"><font><font>
+        56,69
+    </font></font></td><td class="text-right text-red"><font><font>
+        -2,00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.revenue.total_products[product] / data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        13,00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Quick Fire</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        10,32
+    </font></font></td><td class="text-right"><font><font>
+        2.40
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        44,01
+    </font></font></td><td class="text-right text-red"><font><font>
+        -3.04
+    </font></font></td><td class="text-right"><font><font>
+        47,08
+    </font></font></td><td class="text-right"><font><font>
+        32,90
+    </font></font></td><td class="text-right text-red"><font><font>
+        -119.97
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.revenue.total_products[product] / data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        23,23
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Bingo</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.revenue.total_products[product] / data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Casino Live Pro</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        131.95
+    </font></font></td><td class="text-right"><font><font>
+        45,59
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right text-red"><font><font>
+        -82.34
+    </font></font></td><td class="text-right"><font><font>
+        1.31
+    </font></font></td><td class="text-right"><font><font>
+        73,69
+    </font></font></td><td class="text-right"><font><font>
+        9.94
+    </font></font></td><td class="text-right text-red"><font><font>
+        -131.97
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.revenue.total_products[product] / data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        25,22
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Betting Exchange</font></font></strong>
+    </td>
+    <td class="text-right text-red"><font><font>
+        -0.86
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right text-red"><font><font>
+        -0.02
+    </font></font></td><td class="text-right text-red"><font><font>
+        -41.30
+    </font></font></td><td class="text-right text-red"><font><font>
+        -10.45
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold text-red" ng-class="{&apos;text-red&apos; : (data.revenue.total_products[product] / data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        -11.57
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Skill Games Active</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        103.05
+    </font></font></td><td class="text-right"><font><font>
+        984.28
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        231.39
+    </font></font></td><td class="text-right"><font><font>
+        1368.88
+    </font></font></td><td class="text-right"><font><font>
+        980.15
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.revenue.total_products[product] / data.stats_user.total_products[product] &lt; 0)}"><font><font>
+        622.79
+    </font></font></td>
+</tr>
+
+
+<tr>
+    <td class="text-brand text-bold">NUMBER OF DEPOSITS</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Skrill</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        1
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.deposit_count.total_products[product] &lt; 0)}"><font><font>
+        1
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Credit card</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        2
+    </font></font></td><td class="text-right"><font><font>
+        38
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        9
+    </font></font></td><td class="text-right"><font><font>
+        9
+    </font></font></td><td class="text-right"><font><font>
+        34
+    </font></font></td><td class="text-right"><font><font>
+        51
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.deposit_count.total_products[product] &lt; 0)}"><font><font>
+        143
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Bank transfer</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.deposit_count.total_products[product] &lt; 0)}"><font><font>
+        0
+    </font></font></td>
+</tr>
+<tr>
+    <td>&#xA0;</td>
+    <td>
+        <strong><font><font>TOTAL</font></font></strong>
+    </td>
+    <td class="text-right" style=""><font><font>
+        3
+    </font></font></td><td class="text-right"><font><font>
+        38
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        9
+    </font></font></td><td class="text-right"><font><font>
+        9
+    </font></font></td><td class="text-right"><font><font>
+        34
+    </font></font></td><td class="text-right"><font><font>
+        51
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.deposit_amount.total &lt; 0)}"><font><font>
+        144
+    </font></font></td>
+</tr>
+
+
+<tr>
+    <td class="text-brand text-bold">DEPOSIT AMOUNT</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Skrill</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        15,00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.deposit_amount.total_products[product] &lt; 0)}"><font><font>
+        15,00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Credit card</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        60,00
+    </font></font></td><td class="text-right"><font><font>
+        6015.44
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        1377.00
+    </font></font></td><td class="text-right"><font><font>
+        490.06
+    </font></font></td><td class="text-right"><font><font>
+        3139.00
+    </font></font></td><td class="text-right"><font><font>
+        7827.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.deposit_amount.total_products[product] &lt; 0)}"><font><font>
+        18908.50
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Bank transfer</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.deposit_amount.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr>
+<tr>
+    <td>&#xA0;</td>
+    <td>
+        <strong><font><font>TOTAL</font></font></strong>
+    </td>
+    <td class="text-right" style=""><font><font>
+        75,00
+    </font></font></td><td class="text-right"><font><font>
+        6015.44
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        1377.00
+    </font></font></td><td class="text-right"><font><font>
+        490.06
+    </font></font></td><td class="text-right"><font><font>
+        3139.00
+    </font></font></td><td class="text-right"><font><font>
+        7827.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.deposit_amount.total &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr>
+
+<tr>
+    <td class="text-brand text-bold">DEPOSIT AVG</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Skrill</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        15,00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.gateway_tax_deposit.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Credit card</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        30,00
+    </font></font></td><td class="text-right"><font><font>
+        158,30
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        153,00
+    </font></font></td><td class="text-right"><font><font>
+        54,45
+    </font></font></td><td class="text-right"><font><font>
+        92,32
+    </font></font></td><td class="text-right"><font><font>
+        153.47
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.gateway_tax_deposit.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Bank transfer</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.gateway_tax_deposit.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr>
+
+<tr>
+    <td class="text-brand text-bold">NUMBER OF WITHDRAWALS</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Skrill</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        1
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.deposit_count.total_products[product] &lt; 0)}"><font><font>
+        1
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Bank transfer</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        6
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        9
+    </font></font></td><td class="text-right"><font><font>
+        2
+    </font></font></td><td class="text-right"><font><font>
+        5
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.deposit_count.total_products[product] &lt; 0)}"><font><font>
+        22
+    </font></font></td>
+</tr>
+<tr>
+    <td>&#xA0;</td>
+    <td>
+        <strong><font><font>TOTAL</font></font></strong>
+    </td>
+    <td class="text-right" style=""><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        7
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        9
+    </font></font></td><td class="text-right"><font><font>
+        2
+    </font></font></td><td class="text-right"><font><font>
+        5
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td><td class="text-right"><font><font>
+        0
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.withdraw_count.total &lt; 0)}"><font><font>
+        23
+    </font></font></td>
+</tr>
+
+
+<tr>
+    <td class="text-brand text-bold">WITHDRAWALS AMOUNT</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Skrill</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        150.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.withdraw_amount.total_products[product] &lt; 0)}"><font><font>
+        150.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Bank transfer</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        27,000.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        3285.72
+    </font></font></td><td class="text-right"><font><font>
+        561,00
+    </font></font></td><td class="text-right"><font><font>
+        1283.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.withdraw_amount.total_products[product] &lt; 0)}"><font><font>
+        32129.72
+    </font></font></td>
+</tr>
+<tr>
+    <td>&#xA0;</td>
+    <td>
+        <strong><font><font>TOTAL</font></font></strong>
+    </td>
+    <td class="text-right" style=""><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        27150.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        3285.72
+    </font></font></td><td class="text-right"><font><font>
+        561,00
+    </font></font></td><td class="text-right"><font><font>
+        1283.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.withdraw_count.total &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr>
+
+
+<tr>
+    <td class="text-brand text-bold">WITHDRAWALS TAX</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Skrill</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        1.48
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.gateway_tax_withdraw.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Bank transfer</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        5.16
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        7,74
+    </font></font></td><td class="text-right"><font><font>
+        1.72
+    </font></font></td><td class="text-right"><font><font>
+        4.30
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.gateway_tax_withdraw.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr>
+
+<tr>
+    <td class="text-brand text-bold">DEPOSIT TAX</td>
+    <td>&#xA0;</td>
+    <td class="" style=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td>
+    <td>&#xA0;</td>
+</tr>
+<tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Skrill</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.gateway_tax_deposit.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Credit card</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.gateway_tax_deposit.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr><tr class="">
+    <td>&#xA0;</td>
+    <td>
+        <strong class=""><font><font>Bank transfer</font></font></strong>
+    </td>
+    <td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td><td class="text-right"><font><font>
+        0.00
+    </font></font></td>
+    <td class="text-right text-bold" ng-class="{&apos;text-red&apos; : (data.gateway_tax_deposit.total_products[product] &lt; 0)}"><font><font>
+        0.00
+    </font></font></td>
+</tr>
+
+
+</tbody></table>
+</div>
+</div>
+		</div>
+	</div>
+</div></div>
+                {% endblock Skweb_content %}

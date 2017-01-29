@@ -1,0 +1,208 @@
+{% extends "SkwebIncludeBundle:Include:base_admin.html.twig" %}
+                {% block Skweb_content %}
+                  {%set id_c=app.request.query.get("id_c")%}
+                  {%if(is_granted("ROLE_ADMIN"))%}
+                      {{ render(controller("SkwebAdminpageBundle:AdminCrud:menuAdmin",{'id_c':id_c})) }}
+                  {%endif%}
+                    <div ui-view="mainView" class="page-content page-relative nga-default nga-stagger nga-fade"><div class="accordion-group accordion-group-default">
+    <div class="accordion-group-heading">
+
+        <div class="accordion-group-title"><font><strong>Credit card
+            </strong>
+            </font><div class="pull-right">
+                <div>
+                    <span class="text-primary"><font><font>State Storage </font></font></span>
+                    <span class=""><font><font>1 </font></font></span>
+
+                    <span class="text-primary"><font><font>Withdrawal State </font></font></span>
+                    <span class=""><font><font>1</font></font></span>
+                    <span><a ui-sref="gatewayLimitSettingInsert({gateway_id:item.id})" href="/gateway/limit/setting/insert/2"><i class="fa fa-plus-circle"></i></a></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="accordion-group-body" style="padding:0px">
+        <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th colspan="3" class="text-center"><font><font>user parameters</font></font></th>
+                            <th></th>
+                            <th colspan="6" class="text-center"><font><font>Deposits parameters</font></font></th>
+                            <th colspan="2" class="text-center"><font><font>Withdrawals parameters</font></font></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr>
+                            <th nowrap="" class="" style="height: 23px"><font><font>Skin</font></font></th>
+                            <th nowrap="" class="" style="height: 23px"><font><font>typology</font></font></th>
+                            <th nowrap="" class="" style="height: 23px"><font><font>Category</font></font></th>
+                            <th nowrap="" class="" style="height: 23px"><font><font>VERIFICATION</font></font></th>
+                            <th style="height: 23px"><font><font>Default</font></font></th>
+                            <th nowrap="" class="" style="height: 23px"><font><font>max / day</font></font></th>
+                            <th nowrap="" class="" style="height: 23px"><font><font># Max / day</font></font></th>
+                            <th nowrap="" class="" style="height: 23px"><font><font>max / week</font></font></th>
+                            <th nowrap="" class="" style="height: 23px"><font><font># Max / week</font></font></th>
+                            <th nowrap="" class="" style="height: 23px"><font><font>max / month</font></font></th>
+                            <th nowrap="" class="" style="height: 23px"><font><font># Max / month</font></font></th>
+
+                            <th nowrap="" class="" style="height: 23px"><font><font>minimum amount</font></font></th>
+                            <th nowrap="" class="" style="height: 23px"><font><font>maximum amount</font></font></th>
+                            <th style="width:60px; height: 23px;" nowrap=""></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="">
+                            <td nowrap="" class="">easybet24</td>
+                            <td nowrap="" class=""><font><font>Player</font></font></td>
+                            <td nowrap="" class=""><font><font>direct</font></font></td>
+                            <td nowrap="" class=""><font><font>not_verified</font></font></td>
+                            <td nowrap=""></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 1000.00</font></font></td>
+                            <td nowrap="" class=""><font><font>1000</font></font></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 5000.00</font></font></td>
+                            <td nowrap="" class=""><font><font>5000</font></font></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 5000.00</font></font></td>
+                            <td nowrap="" class=""><font><font>5000</font></font></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 0.00</font></font></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 0.00</font></font></td>
+                            <td class="text-center" nowrap="">
+                                <a class="link-ico" ui-sref="gatewayLimitSettingUpdate({id:limit.id,gateway_id:item.id})" href="/gateway/limit/setting/update/10/2">
+                                    <i class="icon-cog"></i>
+                                </a>
+                                <a class="link-ico" ng-click="deleteItem(item.id,limit,$index)">
+                                    <i class="icon-cancel"></i>
+                                </a>
+                            </td>
+                        </tr><tr class="">
+                            <td nowrap="" class="">easybet24</td>
+                            <td nowrap="" class=""><font><font>Player</font></font></td>
+                            <td nowrap="" class=""><font><font>direct</font></font></td>
+                            <td nowrap="" class=""><font><font>verified</font></font></td>
+                            <td nowrap=""></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 23,000.00</font></font></td>
+                            <td nowrap="" class=""><font><font>2300</font></font></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 100,000.00</font></font></td>
+                            <td nowrap="" class=""><font><font>10000</font></font></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 190,000.00</font></font></td>
+                            <td nowrap="" class=""><font><font>10000</font></font></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 0.00</font></font></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 0.00</font></font></td>
+                            <td class="text-center" nowrap="">
+                                <a class="link-ico" ui-sref="gatewayLimitSettingUpdate({id:limit.id,gateway_id:item.id})" href="/gateway/limit/setting/update/11/2">
+                                    <i class="icon-cog"></i>
+                                </a>
+                                <a class="link-ico" ng-click="deleteItem(item.id,limit,$index)">
+                                    <i class="icon-cancel"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div><div class="accordion-group accordion-group-default">
+    <div class="accordion-group-heading">
+
+        <div class="accordion-group-title"><font><strong><br>Bank transfer
+            </strong>
+            </font><div class="pull-right">
+                <div>
+                    <span class="text-primary"><font><font>State Storage </font></font></span>
+                    <span class=""><font><font>1 </font></font></span>
+
+                    <span class="text-primary"><font><font>Withdrawal State </font></font></span>
+                    <span class=""><font><font>1</font></font></span>
+                    <span><a ui-sref="gatewayLimitSettingInsert({gateway_id:item.id})" href="/gateway/limit/setting/insert/3"><i class="fa fa-plus-circle"></i></a></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="accordion-group-body" style="padding:0px">
+        <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th colspan="3" class="text-center"><font><font>user parameters</font></font></th>
+                            <th></th>
+                            <th colspan="6" class="text-center"><font><font>Deposits parameters</font></font></th>
+                            <th colspan="2" class="text-center"><font><font>Withdrawals parameters</font></font></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr>
+                            <th nowrap="" class=""><font><font>Skin</font></font></th>
+                            <th nowrap="" class=""><font><font>typology</font></font></th>
+                            <th nowrap="" class=""><font><font>Category</font></font></th>
+                            <th nowrap="" class=""><font><font>VERIFICATION</font></font></th>
+                            <th><font><font>Default</font></font></th>
+                            <th nowrap="" class=""><font><font>max / day</font></font></th>
+                            <th nowrap="" class=""><font><font># Max / day</font></font></th>
+                            <th nowrap="" class=""><font><font>max / week</font></font></th>
+                            <th nowrap="" class=""><font><font># Max / week</font></font></th>
+                            <th nowrap="" class=""><font><font>max / month</font></font></th>
+                            <th nowrap="" class=""><font><font># Max / month</font></font></th>
+
+                            <th nowrap="" class=""><font><font>minimum amount</font></font></th>
+                            <th nowrap="" class=""><font><font>maximum amount</font></font></th>
+                            <th style="width:60px" nowrap=""></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="">
+                            <td nowrap="" class="">easybet24</td>
+                            <td nowrap="" class=""><font><font>Player</font></font></td>
+                            <td nowrap="" class=""><font><font>direct</font></font></td>
+                            <td nowrap="" class=""><font><font>not_verified</font></font></td>
+                            <td nowrap=""></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 1000.00</font></font></td>
+                            <td nowrap="" class=""><font><font>2</font></font></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 0.00</font></font></td>
+                            <td nowrap="" class=""></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 0.00</font></font></td>
+                            <td nowrap="" class=""></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 0.00</font></font></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 5000.00</font></font></td>
+                            <td class="text-center" nowrap="">
+                                <a class="link-ico" ui-sref="gatewayLimitSettingUpdate({id:limit.id,gateway_id:item.id})" href="/gateway/limit/setting/update/12/3">
+                                    <i class="icon-cog"></i>
+                                </a>
+                                <a class="link-ico" ng-click="deleteItem(item.id,limit,$index)">
+                                    <i class="icon-cancel"></i>
+                                </a>
+                            </td>
+                        </tr><tr class="">
+                            <td nowrap="" class="">easybet24</td>
+                            <td nowrap="" class=""><font><font>Player</font></font></td>
+                            <td nowrap="" class=""><font><font>direct</font></font></td>
+                            <td nowrap="" class=""><font><font>verified</font></font></td>
+                            <td nowrap=""></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 10,000.00</font></font></td>
+                            <td nowrap="" class=""><font><font>2</font></font></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 0.00</font></font></td>
+                            <td nowrap="" class=""></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 0.00</font></font></td>
+                            <td nowrap="" class=""></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 0.00</font></font></td>
+                            <td nowrap="" class=""><font><font>&#x20AC; 5000.00</font></font></td>
+                            <td class="text-center" nowrap="">
+                                <a class="link-ico" ui-sref="gatewayLimitSettingUpdate({id:limit.id,gateway_id:item.id})" href="/gateway/limit/setting/update/13/3">
+                                    <i class="icon-cog"></i>
+                                </a>
+                                <a class="link-ico" ng-click="deleteItem(item.id,limit,$index)">
+                                    <i class="icon-cancel"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div></div>
+                {% endblock Skweb_content %}

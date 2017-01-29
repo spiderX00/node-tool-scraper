@@ -3,8 +3,10 @@
 const cheerio = require("cheerio");
 const fs = require("fs");
 const util = require("util");
+const beautifier = require('node-js-beautify');
 
 const log = require("log4js").getLogger("node-tool");
+const b = new beautifier();
 
 const MAIN_ID = "#main";
 const CONTAINER_ID = "#uiViewContainer";
@@ -64,9 +66,11 @@ function parseHTML(path) {
                   {%endif%}`,
                 mainContent,
                 `{% endblock Skweb_content %}`
-            ].join('').trim();
+            ].join('').replace(REGEX_COMMENT, ``).trim();
 
-            fs.writeFile(path, util.format(htmlContent.replace(REGEX_COMMENT, ``)), (err) => {
+            htmlContent = util.format(htmlContent);
+
+            fs.writeFile(path, b.beautify_html(htmlContent), (err) => {
                 if (err) {
                     return reject(path + ":: " + err);
                 }

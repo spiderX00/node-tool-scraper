@@ -1,0 +1,240 @@
+{% extends "SkwebIncludeBundle:Include:base_admin.html.twig" %}
+                {% block Skweb_content %}
+                  {%set id_c=app.request.query.get("id_c")%}
+                  {%if(is_granted("ROLE_ADMIN"))%}
+                      {{ render(controller("SkwebAdminpageBundle:AdminCrud:menuAdmin",{'id_c':id_c})) }}
+                  {%endif%}
+                    <div ui-view="mainView" class="page-content page-relative nga-default nga-stagger nga-fade" style=""><div class="row-fluid">
+    <div ui-view="subView" class=""><div ng-include="&apos;src/backend/settings/skinManagement/common/navbar/navbar.html&apos;" class=""><div ng-controller="navSkinCtrl" class="">
+    <div class="scrtabs-tab-container" scrolling-tabs-wrapper=""> <div class="scrtabs-tab-scroll-arrow-fluid scrtabs-js-tab-scroll-arrow-fluid-left" style="display: none;"><span class="glyphicon glyphicon-chevron-left"></span></div>   <div class="scrtabs-tabs-fixed-container" style="width: 1026px;">     <div class="scrtabs-tabs-movable-container" style="width: 1026px; left: 0px;">
+        <div class="tabset-subpage">
+  <ul class="nav nav-tabs">
+            <li class="uib-tab nav-item" active="tab.active" select="moveTo(key)" style="">
+  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+                    <i class=""></i><font><font> Profile
+                </font></font></uib-tab-heading></a>
+</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)" style="">
+  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+                    <i class=""></i><font><font> limits
+                </font></font></uib-tab-heading></a>
+</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)" style="">
+  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+                    <i class=""></i><font><font> Game Summary
+                </font></font></uib-tab-heading></a>
+</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)" style="">
+  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+                    <i class=""></i><font><font> financial report
+                </font></font></uib-tab-heading></a>
+</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)" style="">
+  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+                    <i class=""></i><font><font class=""> Audit Trail
+                </font></font></uib-tab-heading></a>
+</li><li class="uib-tab nav-item active" active="tab.active" select="moveTo(key)" style="">
+  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+                    <i class=""></i><font><font> Mail settings
+                </font></font></uib-tab-heading></a>
+</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+                    <i class=""></i><font><font> template Mail
+                </font></font></uib-tab-heading></a>
+</li>
+        </ul>
+  <div class="tab-content">
+    <div class="tab-pane" uib-tab-content-transclude="tab" style="">
+    
+                
+            </div><div class="tab-pane" uib-tab-content-transclude="tab" style="">
+    
+                
+            </div><div class="tab-pane" uib-tab-content-transclude="tab" style="">
+    
+                
+            </div><div class="tab-pane" uib-tab-content-transclude="tab" style="">
+    
+                
+            </div><div class="tab-pane" uib-tab-content-transclude="tab" style="">
+    
+                
+            </div><div class="tab-pane active" uib-tab-content-transclude="tab" style="">
+    
+                
+            </div><div class="tab-pane" uib-tab-content-transclude="tab">
+    
+                
+            </div>
+  </div>
+</div>
+    </div>   </div> <div class="scrtabs-tab-scroll-arrow-fluid scrtabs-js-tab-scroll-arrow-fluid-right" style="display: none;"><span class="glyphicon glyphicon-chevron-right"></span></div> <div class="scrtabs-tab-content-outside-movable-container">
+        <div class="tabset-subpage">
+  <ul class="nav nav-tabs">
+            <li class="uib-tab nav-item active" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+                    <i class=""></i><font><font> Profile
+                </font></font></uib-tab-heading></a>
+</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+                    <i class=""></i><font><font> limits
+                </font></font></uib-tab-heading></a>
+</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+                    <i class=""></i><font><font> Game Summary
+                </font></font></uib-tab-heading></a>
+</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+                    <i class=""></i><font><font> financial report
+                </font></font></uib-tab-heading></a>
+</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+                    <i class=""></i><font><font> Audit Trail
+                </font></font></uib-tab-heading></a>
+</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+                    <i class=""></i><font><font> Mail settings
+                </font></font></uib-tab-heading></a>
+</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+                    <i class=""></i><font><font> template Mail
+                </font></font></uib-tab-heading></a>
+</li>
+        </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" uib-tab-content-transclude="tab">
+    
+                
+            </div><div class="tab-pane" uib-tab-content-transclude="tab">
+    
+                
+            </div><div class="tab-pane" uib-tab-content-transclude="tab">
+    
+                
+            </div><div class="tab-pane" uib-tab-content-transclude="tab">
+    
+                
+            </div><div class="tab-pane" uib-tab-content-transclude="tab">
+    
+                
+            </div><div class="tab-pane" uib-tab-content-transclude="tab">
+    
+                
+            </div><div class="tab-pane" uib-tab-content-transclude="tab">
+    
+                
+            </div>
+  </div>
+</div>
+    </div></div>
+</div>
+</div>
+<div ui-view="subViewSecond" class="" style=""><accordion-group binding-field="model.page.page_data.page_title" initial-state="open" class=""> <div class="accordion-group accordion-group-default"><div class="accordion-group-heading "><h3 class="accordion-group-title"><font><font>Email settings</font></font></h3></div><div class="accordion-group-body ">
+    <form name="form" class="css-form ng-valid-required" novalidate="">
+        
+
+        <div class="row-fluid">
+            <div class="span4">
+                <field-set-accordion-group binding-field="Impostazioni di sistema (email)" class=""><fieldset class="scheduler-border"><legend class="scheduler-border-label"><i class=""></i><font><font> System settings (email)</font></font></legend><div>
+                    <div class="">
+                        <div class="">
+                            <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.website_setting_groups.sysemail[item.code]" class=""><div class="control-group" "=""><label class="spansm-12 control-label"><font><font>Email  </font><span class=""><font>*</font></span></font><span class=""><font></font></span></label><div class="spansm-12"><div class="inner-addon right-addon"><input type="input" name="Email" pattern="[^@]+@[^@]+\.[^@]+" class="input-block-level ng-valid-required" placeholder="Email" required="required"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                        </div>
+                        
+                    </div><div class="">
+                        <div class="">
+                            <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.website_setting_groups.sysemail[item.code]" class=""><div class="control-group" "=""><label class="spansm-12 control-label"><font><font>Sender Name   </font><span class=""><font>*</font></span></font><span class=""><font></font></span></label><div class="spansm-12"><div class="inner-addon right-addon"><input type="input" name="Nome mittente" pattern="" class="input-block-level ng-valid-required" placeholder="Nome mittente" required="required"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                        </div>
+                        
+                    </div>
+                </div></fieldset></field-set-accordion-group>
+            </div>
+            <div class="span4">
+                <field-set-accordion-group binding-field="Impostazione SMTP" class=""><fieldset class="scheduler-border"><legend class="scheduler-border-label"><i class=""></i><font><font> SMTP setting</font></font></legend><div>
+                    <div class="">
+                        <div class="">
+                            <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.website_setting_groups.smtpconfig[item.code]" class=""><div class="control-group" "=""><label class="spansm-12 control-label"><font><font>Username   </font><span class=""><font>*</font></span></font><span class=""><font></font></span></label><div class="spansm-12"><div class="inner-addon right-addon"><input type="input" name="Nome utente" pattern="" class="input-block-level ng-valid-required" placeholder="Nome utente" required="required"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                        </div>
+                        
+                    </div><div class="">
+                        <div class="">
+                            <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.website_setting_groups.smtpconfig[item.code]" class=""><div class="control-group" "=""><label class="spansm-12 control-label"><font><font>SMTP port   </font><span class=""><font>*</font></span></font><span class=""><font></font></span></label><div class="spansm-12"><div class="inner-addon right-addon"><input type="input" name="Porta SMTP" pattern="" class="input-block-level ng-valid-required" placeholder="Porta SMTP" required="required"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                        </div>
+                        
+                    </div><div class="">
+                        <div class="">
+                            <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.website_setting_groups.smtpconfig[item.code]" class=""><div class="control-group" "=""><label class="spansm-12 control-label"><font><font>SMTP Server   </font><span class=""><font>*</font></span></font><span class=""><font></font></span></label><div class="spansm-12"><div class="inner-addon right-addon"><input type="input" name="Server SMTP" pattern="" class="input-block-level ng-valid-required" placeholder="Server SMTP" required="required"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                        </div>
+                        
+                    </div><div class="">
+                        <div class="">
+                            <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.website_setting_groups.smtpconfig[item.code]" class=""><div class="control-group" "=""><label class="spansm-12 control-label"><font><font>password   </font><span class=""><font>*</font></span></font><span class=""><font></font></span></label><div class="spansm-12"><div class="inner-addon right-addon"><input type="input" name="Password" pattern="" class="input-block-level ng-valid-required" placeholder="Password" required="required"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                        </div>
+                        
+                    </div>
+                </div></fieldset></field-set-accordion-group>
+            </div>
+            <div class="span4">
+                <field-set-accordion-group binding-field="Autenticazione SMTP" class=""><fieldset class="scheduler-border"><legend class="scheduler-border-label"><i class=""></i><font><font> SMTP authentication</font></font></legend><div>
+                    <div class="">
+                        
+                        
+                        <div class="span12">
+                            <div class="checkbox">
+
+                                    <input type="checkbox" id="s_tld_ssl" class="" checked="checked">
+                                <label for="s_tld_ssl" class="">
+                                SMTP TLD/SSL
+                                </label>
+                            </div>
+                        </div>
+                    </div><div class="">
+                        
+                        <div class="">
+                            <div class="control-group" bind="item" init="model.page.page_value.website_detail[item.code]" model="model.website_setting_groups.smtpauth[item.code]"><label class="spansm-12 control-label"><font><font>authentication method</font></font></label><div class="spansm-12"><div class="inner-addon right-addon"><select class="input-block-level" name="Metodo autenticazione"><option value="" class="" selected="selected"></option><option label="0" value="string:1"><font><font>0</font></font></option></select><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div>
+                        </div>
+                        
+                    </div><div class="">
+                        
+                        
+                        <div class="span12">
+                            <div class="checkbox">
+
+                                    <input type="checkbox" id="s_use_auth" class="" checked="checked">
+                                <label for="s_use_auth" class="">
+                                Use authentication
+                                </label>
+                            </div>
+                        </div>
+                    </div><div class="">
+                        <div class="">
+
+                            <div class="">
+                                <div class="span8">
+                                    <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.website_setting_groups.smtpauth[item.code]" class=""><div class="control-group" "=""><label class="spansm-12 control-label"><font><font>Send test email to  </font></font></label><div class="spansm-12"><div class="inner-addon right-addon"><input type="input" name="Invia email di prova a" pattern="[^@]+@[^@]+\.[^@]+" class="input-block-level ng-valid-required" placeholder="Invia email di prova a"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                                </div>
+                                <div class="span4">
+                                    <button type="button" style="margin-top: 22px" class="btn btn-primary" ng-click="send()"><font><font>
+                                        Submit
+                                    </font></font></button>
+                                </div>
+
+                            </div>
+                            
+
+                        </div>
+                        
+                        
+                    </div>
+                </div></fieldset></field-set-accordion-group>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                <button type="submit" class="btn btn-primary pull-right"><font><font>
+                    Save
+                </font></font></button>
+            </div>
+        </div>
+    </form>
+</div></div></accordion-group></div>
+</div>
+</div>
+</div>
+                {% endblock Skweb_content %}
