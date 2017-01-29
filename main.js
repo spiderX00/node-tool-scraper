@@ -26,7 +26,7 @@ function parseHTML(path) {
             let $ = cheerio.load(data);
 
             if (!HTMLREGEX.test(data)) {
-                reject("Invalid file");
+                reject(path + ":: Invalid file");
             }
 
             REGEX_ATTRIBUTES.forEach((regAttribute) => {
@@ -51,7 +51,7 @@ function parseHTML(path) {
             let mainContent = $(CONTAINER_ID).html();
 
             if (!mainContent) {
-                reject("main content undefined");
+                reject(path + ":: main content undefined");
             }
 
             let htmlContent = [`
@@ -69,7 +69,7 @@ function parseHTML(path) {
                     reject(err);
                 }
 
-                resolve("File(s) written");
+                resolve(path +":: File(s) written");
             });
 
         });
@@ -79,7 +79,7 @@ function parseHTML(path) {
 }
 
 if (!process.argv[2]) {
-    log.error("Please insert a file");
+    log.error("Please insert a file or a list of file");
     return;
 }
 
