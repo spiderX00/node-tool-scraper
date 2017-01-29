@@ -1,37 +1,32 @@
-{% extends "SkwebIncludeBundle:Include:base_admin.html.twig" %}
-                {% block Skweb_content %}
-                  {%set id_c=app.request.query.get("id_c")%}
-                  {%if(is_granted("ROLE_ADMIN"))%}
-                      {{ render(controller("SkwebAdminpageBundle:AdminCrud:menuAdmin",{'id_c':id_c})) }}
-                  {%endif%}
-                    <div ui-view="mainView" class="page-content page-relative nga-default nga-stagger nga-fade"><accordion-group binding-field="model.page.page_data.page_title" class=""> <div class="accordion-group accordion-group-default"><div class="accordion-group-heading "><h3 class="accordion-group-title"><font><font>Withdrawals list</font></font></h3></div><div class="accordion-group-body ">
-    <form name="form" class="css-form ng-valid-ng-max ng-valid-ng-min ng-valid-required ng-dirty ng-valid-parse ng-submitted" novalidate="" style="">
+﻿<div id="uiViewContainer" class="span12">
+                    <!-- uiView: mainView --><div ui-view="mainView" class="page-content page-relative nga-default nga-stagger nga-fade ng-scope"><accordion-group binding-field="model.page.page_data.page_title" class="ng-scope ng-isolate-scope"> <div class="accordion-group accordion-group-default"><div class="accordion-group-heading " ng-dblclick="$event.preventDefault();" ng-click="show1()"><h3 class="accordion-group-title ng-binding"><font><font>Withdrawals list</font></font></h3></div><div class="accordion-group-body " ng-transclude="" ng-class="{'collapse': model.collapsed === true}">
+    <form ng-class="{'show-errors': form.$invalid &amp;&amp; form.$submitted}" ng-submit="search()" name="form" class="css-form ng-scope ng-valid-pattern ng-valid-ng-max ng-valid-ng-min ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required ng-dirty ng-valid-parse ng-submitted" novalidate="" style="">
         <div class="row-fluid">
             <div class="span-3">
                 <div class="spansm-6">
-                    <div class="control-group has-feedback" name="DAL" model="model.filterData.date_from" require="true" min="" max="" regexp="" init="26/12/2016" spanlabel="spansm-12" spaninput="spansm-12"><label class="spansm-12 control-label"><font><font>FROM</font></font></label><div class="spansm-12"><input class="datepicker input-block-level ng-touched ng-dirty ng-valid-parse" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" placeholder="DAL" data-date-format="mm/dd/yyyy" style=""><span class="fa fa-calendar input-block-level-feedback" aria-hidden="true"></span></div></div>
+                    <div class="control-group has-feedback ng-isolate-scope" name="DAL" model="model.filterData.date_from" require="true" min="" max="" regexp="" init="26/12/2016" spanlabel="spansm-12" spaninput="spansm-12"><!-- ngIf: colLabel --><label class="spansm-12 control-label" ng-if="colLabel"><font><font>FROM</font></font></label><!-- end ngIf: colLabel --><!-- ngIf: !colLabel --><div class="spansm-12"><input class="datepicker input-block-level ng-valid ng-valid-pattern ng-touched ng-dirty ng-valid-parse" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" ng-model="model" placeholder="DAL" ng-init="model = init" data-date-format="mm/dd/yyyy" style=""><span class="fa fa-calendar input-block-level-feedback" aria-hidden="true"></span></div><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div>
                 </div>
                 <div class="spansm-6">
-                    <div class="control-group has-feedback" name="AL" model="model.filterData.date_to" require="true" min="" max="" regexp="" init="29/01/2017" spanlabel="spansm-12" spaninput="spansm-12"><label class="spansm-12 control-label"><font><font>TO THE</font></font></label><div class="spansm-12"><input class="datepicker input-block-level" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" placeholder="AL" data-date-format="mm/dd/yyyy"><span class="fa fa-calendar input-block-level-feedback" aria-hidden="true"></span></div></div>
+                    <div class="control-group has-feedback ng-isolate-scope" name="AL" model="model.filterData.date_to" require="true" min="" max="" regexp="" init="29/01/2017" spanlabel="spansm-12" spaninput="spansm-12"><!-- ngIf: colLabel --><label class="spansm-12 control-label" ng-if="colLabel"><font><font>TO THE</font></font></label><!-- end ngIf: colLabel --><!-- ngIf: !colLabel --><div class="spansm-12"><input class="datepicker input-block-level ng-pristine ng-untouched ng-valid ng-valid-pattern" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" ng-model="model" placeholder="AL" ng-init="model = init" data-date-format="mm/dd/yyyy"><span class="fa fa-calendar input-block-level-feedback" aria-hidden="true"></span></div><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div>
                 </div>
             </div>
             <div class="span-3">
-                <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Username" model="model.filterData.username" type="text" require="false" min="" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-valid-ng-max ng-valid-ng-min ng-valid-required"><label class="spansm-12 control-label"><font><font>Username</font></font><span ng-show="false" class="ng-hide"><font><font> * </font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Username" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="" class="input-block-level ng-valid-ng-max ng-valid-ng-min ng-valid-required" placeholder="Username"></div></ng-form></div>
+                <div class="control-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Username" model="model.filterData.username" type="text" require="false" min="" max="" regexp="" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-pristine ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required"><label class="spansm-12 control-label"><font><font>Username</font></font><span ng-show="false" class="ng-hide"><font><font> * </font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Username" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="" ng-model="model" ng-disabled="" ng-init="model = init" class="input-block-level ng-pristine ng-untouched ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="Username" ng-required="false"><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
             </div>
             <div class="span-3">
-                <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.gateway" spanlabel="spansm-12" spaninput="spansm-12" name="Gateway" init="model.filterData.gateway" binding-field="model.page.page_data.gateway.data" require="false"><ng-form name="fieldForm" class="ng-valid-required"><label class="spansm-12 control-label"><font><font>Gateway</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="spansm-12"><select class="input-block-level ng-valid-required" name="Gateway" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass"><option value="" class="" selected="selected"></option><option label="Skrill" value="number:1"><font><font>Skrill</font></font></option><option label="Carta di Credito" value="number:2"><font><font>Credit card</font></font></option><option label="Bonifico Bancario" value="number:3"><font><font>Bank transfer</font></font></option></select></div></ng-form></div>
+                <div class="control-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.gateway" spanlabel="spansm-12" spaninput="spansm-12" name="Gateway" init="model.filterData.gateway" binding-field="model.page.page_data.gateway.data" require="false"><ng-form name="fieldForm" class="ng-pristine ng-valid ng-valid-required"><label class="spansm-12 control-label"><font><font>Gateway</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="spansm-12"><select class="input-block-level ng-pristine ng-untouched ng-valid ng-valid-required" name="Gateway" ng-disabled="" ng-init="bind = init" ng-model="bind" ng-required="false" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" ng-options="v.id as v.name for (k, v) in bindingField"><option value="" class="" selected="selected"></option><option label="Skrill" value="number:1"><font><font>Skrill</font></font></option><option label="Carta di Credito" value="number:2"><font><font>Credit card</font></font></option><option label="Bonifico Bancario" value="number:3"><font><font>Bank transfer</font></font></option></select><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
             </div>
             <div class="span-3">
-                <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.withdraw_status" spanlabel="spansm-12" spaninput="spansm-12" name="Stato Prelievo" init="model.filterData.withdraw_status" binding-field="model.page.page_data.withdraw_status.data" require="false"><ng-form name="fieldForm" class="ng-valid-required"><label class="spansm-12 control-label"><font><font>Withdrawal state</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="spansm-12"><select class="input-block-level ng-valid-required" name="Stato Prelievo" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass"><option value="" class="" selected="selected"></option><option label="In attesa" value="number:1"><font><font>On hold</font></font></option><option label="Confermato" value="number:2"><font><font>Confirmed</font></font></option><option label="Rifiutato" value="number:3"><font><font>rejected</font></font></option><option label="In elaborazione" value="number:4"><font><font>In processing</font></font></option><option label="Rifiutato dal gateway" value="number:5"><font><font>Declined by the gateway</font></font></option></select></div></ng-form></div>
+                <div class="control-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.withdraw_status" spanlabel="spansm-12" spaninput="spansm-12" name="Stato Prelievo" init="model.filterData.withdraw_status" binding-field="model.page.page_data.withdraw_status.data" require="false"><ng-form name="fieldForm" class="ng-pristine ng-valid ng-valid-required"><label class="spansm-12 control-label"><font><font>Withdrawal state</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="spansm-12"><select class="input-block-level ng-pristine ng-untouched ng-valid ng-valid-required" name="Stato Prelievo" ng-disabled="" ng-init="bind = init" ng-model="bind" ng-required="false" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" ng-options="v.id as v.name for (k, v) in bindingField"><option value="" class="" selected="selected"></option><option label="In attesa" value="number:1"><font><font>On hold</font></font></option><option label="Confermato" value="number:2"><font><font>Confirmed</font></font></option><option label="Rifiutato" value="number:3"><font><font>rejected</font></font></option><option label="In elaborazione" value="number:4"><font><font>In processing</font></font></option><option label="Rifiutato dal gateway" value="number:5"><font><font>Declined by the gateway</font></font></option></select><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
             </div>
             <div class="span3">
-                <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.website" spanlabel="spansm-12" spaninput="spansm-12" name="Skin" binding-field="model.page.page_data.website.data" require="false"><ng-form name="fieldForm" class="ng-valid-required"><label class="spansm-12 control-label"><font><font>Skin</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="spansm-12"><select class="input-block-level ng-valid-required" name="Skin" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass"><option value="" class="" selected="selected"></option><option label="HitStars.it" value="number:1"><font><font>HitStars.it</font></font></option><option label="Roombet.it" value="number:2"><font><font>Roombet.it</font></font></option></select></div></ng-form></div>
+                <div class="control-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.website" spanlabel="spansm-12" spaninput="spansm-12" name="Skin" binding-field="model.page.page_data.website.data" require="false"><ng-form name="fieldForm" class="ng-pristine ng-valid ng-valid-required"><label class="spansm-12 control-label"><font><font>Skin</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="spansm-12"><select class="input-block-level ng-pristine ng-untouched ng-valid ng-valid-required" name="Skin" ng-disabled="" ng-init="bind = init" ng-model="bind" ng-required="false" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" ng-options="v.id as v.name for (k, v) in bindingField"><option value="" class="" selected="selected"></option><option label="HitStars.it" value="number:1"><font><font>HitStars.it</font></font></option><option label="Roombet.it" value="number:2"><font><font>Roombet.it</font></font></option></select><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
             </div>
 
         </div>
         <div class="row-fluid">
             <div class="span12">
-                <button type="submit" class="btn btn-primary pull-right"><font><font>
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary pull-right"><font><font>
                     search
                 </font></font></button>
             </div>
@@ -39,8 +34,8 @@
     </form>
 </div></div></accordion-group>
 
-<accordion-group binding-field="model.page.page_data.total_result.title" class=""> <div class="accordion-group accordion-group-default"><div class="accordion-group-heading "><h3 class="accordion-group-title"></h3></div><div class="accordion-group-body ">
-    <div class="table-responsive">
+<accordion-group binding-field="model.page.page_data.total_result.title" class="ng-scope ng-isolate-scope"> <div class="accordion-group accordion-group-default"><div class="accordion-group-heading " ng-dblclick="$event.preventDefault();" ng-click="show1()"><h3 class="accordion-group-title ng-binding"></h3></div><div class="accordion-group-body " ng-transclude="" ng-class="{'collapse': model.collapsed === true}">
+    <div class="table-responsive ng-scope">
         <div class="row-fluid">
             <div class="span12">
                 <div class="pull-left">
@@ -48,565 +43,565 @@
                         <button type="button" class="btn btn-default">
                             <img src="../accounting/css/img/icons/printIcon.png">
                         </button>
-                        <button type="button" ng-click="exportAction(&apos;excel&apos;)" class="btn btn-default">
+                        <button type="button" ng-click="exportAction('excel')" class="btn btn-default">
                             <img src="../accounting/css/img/icons/xlsIcon.png">
                         </button>
-                        <button type="button" ng-click="exportAction(&apos;csv&apos;)" class="btn btn-default">
+                        <button type="button" ng-click="exportAction('csv')" class="btn btn-default">
                             <img src="../accounting/css/img/icons/pdfIcon.png">
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-        <table ng-table="tableParams" class="table table-striped table-bordered table-hover ng-table"><thead ng-include="templates.header" class=""><tr class=""> <th class="header"> <div class=""><font><font>Username</font></font></div>  </th><th class="header"> <div class=""><font><font>tax</font></font></div>  </th><th class="header"> <div class=""><font><font>Amount</font></font></div>  </th><th class="header"> <div class=""><font><font>Gateway</font></font></div>  </th><th class="header"> <div class=""><font><font>Withdrawal state</font></font></div>  </th><th class="header"> <div class=""><font><font>Notes Gateway</font></font></div>  </th><th class="header"> <div class=""><font><font>REGISTRATION DATE</font></font></div>  </th><th class="header"> <div class=""><font><font>date Evasion</font></font></div>  </th><th class="header"> <div class=""><font><font>operations</font></font></div>  </th> </tr> <tr ng-show="show_filter" class="ng-table-filters ng-hide"> <th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th><th class="filter">  </th> </tr> </thead>
+        <table ng-table="tableParams" class="table table-striped table-bordered table-hover ng-scope ng-table"><!-- ngInclude: templates.header --><thead ng-include="templates.header" class="ng-scope"><tr class="ng-scope"> <!-- ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-class="{ 'sortable': parse(column.sortable), 'sort-asc': params.sorting()[parse(column.sortable)]=='asc', 'sort-desc': params.sorting()[parse(column.sortable)]=='desc' }" ng-click="sortBy(column, $event)" ng-show="column.show(this)" ng-init="template=column.headerTemplateURL(this)" class="header"> <!-- ngIf: !template --><div ng-if="!template" ng-show="!template" ng-bind="parse(column.title)" class="ng-binding ng-scope"><font><font>Username</font></font></div><!-- end ngIf: !template --> <!-- ngIf: template --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-class="{ 'sortable': parse(column.sortable), 'sort-asc': params.sorting()[parse(column.sortable)]=='asc', 'sort-desc': params.sorting()[parse(column.sortable)]=='desc' }" ng-click="sortBy(column, $event)" ng-show="column.show(this)" ng-init="template=column.headerTemplateURL(this)" class="header"> <!-- ngIf: !template --><div ng-if="!template" ng-show="!template" ng-bind="parse(column.title)" class="ng-binding ng-scope"><font><font>tax</font></font></div><!-- end ngIf: !template --> <!-- ngIf: template --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-class="{ 'sortable': parse(column.sortable), 'sort-asc': params.sorting()[parse(column.sortable)]=='asc', 'sort-desc': params.sorting()[parse(column.sortable)]=='desc' }" ng-click="sortBy(column, $event)" ng-show="column.show(this)" ng-init="template=column.headerTemplateURL(this)" class="header"> <!-- ngIf: !template --><div ng-if="!template" ng-show="!template" ng-bind="parse(column.title)" class="ng-binding ng-scope"><font><font>Amount</font></font></div><!-- end ngIf: !template --> <!-- ngIf: template --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-class="{ 'sortable': parse(column.sortable), 'sort-asc': params.sorting()[parse(column.sortable)]=='asc', 'sort-desc': params.sorting()[parse(column.sortable)]=='desc' }" ng-click="sortBy(column, $event)" ng-show="column.show(this)" ng-init="template=column.headerTemplateURL(this)" class="header"> <!-- ngIf: !template --><div ng-if="!template" ng-show="!template" ng-bind="parse(column.title)" class="ng-binding ng-scope"><font><font>Gateway</font></font></div><!-- end ngIf: !template --> <!-- ngIf: template --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-class="{ 'sortable': parse(column.sortable), 'sort-asc': params.sorting()[parse(column.sortable)]=='asc', 'sort-desc': params.sorting()[parse(column.sortable)]=='desc' }" ng-click="sortBy(column, $event)" ng-show="column.show(this)" ng-init="template=column.headerTemplateURL(this)" class="header"> <!-- ngIf: !template --><div ng-if="!template" ng-show="!template" ng-bind="parse(column.title)" class="ng-binding ng-scope"><font><font>Withdrawal state</font></font></div><!-- end ngIf: !template --> <!-- ngIf: template --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-class="{ 'sortable': parse(column.sortable), 'sort-asc': params.sorting()[parse(column.sortable)]=='asc', 'sort-desc': params.sorting()[parse(column.sortable)]=='desc' }" ng-click="sortBy(column, $event)" ng-show="column.show(this)" ng-init="template=column.headerTemplateURL(this)" class="header"> <!-- ngIf: !template --><div ng-if="!template" ng-show="!template" ng-bind="parse(column.title)" class="ng-binding ng-scope"><font><font>Notes Gateway</font></font></div><!-- end ngIf: !template --> <!-- ngIf: template --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-class="{ 'sortable': parse(column.sortable), 'sort-asc': params.sorting()[parse(column.sortable)]=='asc', 'sort-desc': params.sorting()[parse(column.sortable)]=='desc' }" ng-click="sortBy(column, $event)" ng-show="column.show(this)" ng-init="template=column.headerTemplateURL(this)" class="header"> <!-- ngIf: !template --><div ng-if="!template" ng-show="!template" ng-bind="parse(column.title)" class="ng-binding ng-scope"><font><font>REGISTRATION DATE</font></font></div><!-- end ngIf: !template --> <!-- ngIf: template --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-class="{ 'sortable': parse(column.sortable), 'sort-asc': params.sorting()[parse(column.sortable)]=='asc', 'sort-desc': params.sorting()[parse(column.sortable)]=='desc' }" ng-click="sortBy(column, $event)" ng-show="column.show(this)" ng-init="template=column.headerTemplateURL(this)" class="header"> <!-- ngIf: !template --><div ng-if="!template" ng-show="!template" ng-bind="parse(column.title)" class="ng-binding ng-scope"><font><font>date Evasion</font></font></div><!-- end ngIf: !template --> <!-- ngIf: template --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-class="{ 'sortable': parse(column.sortable), 'sort-asc': params.sorting()[parse(column.sortable)]=='asc', 'sort-desc': params.sorting()[parse(column.sortable)]=='desc' }" ng-click="sortBy(column, $event)" ng-show="column.show(this)" ng-init="template=column.headerTemplateURL(this)" class="header"> <!-- ngIf: !template --><div ng-if="!template" ng-show="!template" ng-bind="parse(column.title)" class="ng-binding ng-scope"><font><font>operations</font></font></div><!-- end ngIf: !template --> <!-- ngIf: template --> </th><!-- end ngRepeat: column in $columns --> </tr> <tr ng-show="show_filter" class="ng-table-filters ng-scope ng-hide"> <!-- ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-show="column.show(this)" class="filter ng-scope"> <!-- ngRepeat: (name, filter) in column.filter --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-show="column.show(this)" class="filter ng-scope"> <!-- ngRepeat: (name, filter) in column.filter --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-show="column.show(this)" class="filter ng-scope"> <!-- ngRepeat: (name, filter) in column.filter --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-show="column.show(this)" class="filter ng-scope"> <!-- ngRepeat: (name, filter) in column.filter --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-show="column.show(this)" class="filter ng-scope"> <!-- ngRepeat: (name, filter) in column.filter --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-show="column.show(this)" class="filter ng-scope"> <!-- ngRepeat: (name, filter) in column.filter --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-show="column.show(this)" class="filter ng-scope"> <!-- ngRepeat: (name, filter) in column.filter --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-show="column.show(this)" class="filter ng-scope"> <!-- ngRepeat: (name, filter) in column.filter --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-show="column.show(this)" class="filter ng-scope"> <!-- ngRepeat: (name, filter) in column.filter --> </th><!-- end ngRepeat: column in $columns --> </tr> </thead>
             <tbody>
-            <tr class="" style="">
+            <!-- ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope" style="">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004481/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004481/update"><font><font>
                         gianfri1949
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>249.14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>On hold</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>01.28.2017 18:44:43</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>249.14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>On hold</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>01.28.2017 18:44:43</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    <button type="button" class="btn btn-small btn-success">
-                        <span class=""><font><font>Confirmation</font></font></span>
-                        
-                    </button>
-                    <button type="button" class="btn btn-small btn-error"><font><font>
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 --><button type="button" ng-if="row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5" ng-click="confirmOperation(row-fluid)" class="btn btn-small btn-success ng-scope">
+                        <!-- ngIf: row-fluid.withdraw_status == 1 --><span ng-if="row-fluid.withdraw_status == 1" class="ng-scope"><font><font>Confirmation</font></font></span><!-- end ngIf: row-fluid.withdraw_status == 1 -->
+                        <!-- ngIf: row-fluid.withdraw_status == 5 -->
+                    </button><!-- end ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 --><button type="button" ng-if="row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5" ng-click="rejectOperation(row-fluid)" class="btn btn-small btn-error ng-scope"><font><font>
                         refuses
-                    </font></font></button>
+                    </font></font></button><!-- end ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/10001206/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/10001206/update"><font><font>
                         vi7oci
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>49,10</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>On hold</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>01.28.2017 17:49:23</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>49,10</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>On hold</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>01.28.2017 17:49:23</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    <button type="button" class="btn btn-small btn-success">
-                        <span class=""><font><font>Confirmation</font></font></span>
-                        
-                    </button>
-                    <button type="button" class="btn btn-small btn-error"><font><font>
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 --><button type="button" ng-if="row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5" ng-click="confirmOperation(row-fluid)" class="btn btn-small btn-success ng-scope">
+                        <!-- ngIf: row-fluid.withdraw_status == 1 --><span ng-if="row-fluid.withdraw_status == 1" class="ng-scope"><font><font>Confirmation</font></font></span><!-- end ngIf: row-fluid.withdraw_status == 1 -->
+                        <!-- ngIf: row-fluid.withdraw_status == 5 -->
+                    </button><!-- end ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 --><button type="button" ng-if="row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5" ng-click="rejectOperation(row-fluid)" class="btn btn-small btn-error ng-scope"><font><font>
                         refuses
-                    </font></font></button>
+                    </font></font></button><!-- end ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20001343/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20001343/update"><font><font>
                         daniele79
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>199,14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>On hold</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>01.28.2017 16:51:49</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>199,14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>On hold</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>01.28.2017 16:51:49</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    <button type="button" class="btn btn-small btn-success">
-                        <span class=""><font><font>Confirmation</font></font></span>
-                        
-                    </button>
-                    <button type="button" class="btn btn-small btn-error"><font><font>
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 --><button type="button" ng-if="row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5" ng-click="confirmOperation(row-fluid)" class="btn btn-small btn-success ng-scope">
+                        <!-- ngIf: row-fluid.withdraw_status == 1 --><span ng-if="row-fluid.withdraw_status == 1" class="ng-scope"><font><font>Confirmation</font></font></span><!-- end ngIf: row-fluid.withdraw_status == 1 -->
+                        <!-- ngIf: row-fluid.withdraw_status == 5 -->
+                    </button><!-- end ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 --><button type="button" ng-if="row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5" ng-click="rejectOperation(row-fluid)" class="btn btn-small btn-error ng-scope"><font><font>
                         refuses
-                    </font></font></button>
+                    </font></font></button><!-- end ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004224/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004224/update"><font><font>
                         piripoppi79
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>599.14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>rejected</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>01.28.2017 00:10:47</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"><span class=""><font><font>01.28.2017 18:47:43</font></font></span></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>599.14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>rejected</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>01.28.2017 00:10:47</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --><span ng-if="row-fluid.created_date != row-fluid.last_update" class="ng-binding ng-scope"><font><font>01.28.2017 18:47:43</font></font></span><!-- end ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    
-                    
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20003733/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20003733/update"><font><font>
                         shed
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>99,14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>On hold</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>27.01.2017 22:46:02</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>99,14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>On hold</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>27.01.2017 22:46:02</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    <button type="button" class="btn btn-small btn-success">
-                        <span class=""><font><font>Confirmation</font></font></span>
-                        
-                    </button>
-                    <button type="button" class="btn btn-small btn-error"><font><font>
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 --><button type="button" ng-if="row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5" ng-click="confirmOperation(row-fluid)" class="btn btn-small btn-success ng-scope">
+                        <!-- ngIf: row-fluid.withdraw_status == 1 --><span ng-if="row-fluid.withdraw_status == 1" class="ng-scope"><font><font>Confirmation</font></font></span><!-- end ngIf: row-fluid.withdraw_status == 1 -->
+                        <!-- ngIf: row-fluid.withdraw_status == 5 -->
+                    </button><!-- end ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 --><button type="button" ng-if="row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5" ng-click="rejectOperation(row-fluid)" class="btn btn-small btn-error ng-scope"><font><font>
                         refuses
-                    </font></font></button>
+                    </font></font></button><!-- end ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004446/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004446/update"><font><font>
                         bisontino
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>699.14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>On hold</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>27.01.2017 22:23:33</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>699.14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>On hold</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>27.01.2017 22:23:33</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    <button type="button" class="btn btn-small btn-success">
-                        <span class=""><font><font>Confirmation</font></font></span>
-                        
-                    </button>
-                    <button type="button" class="btn btn-small btn-error"><font><font>
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 --><button type="button" ng-if="row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5" ng-click="confirmOperation(row-fluid)" class="btn btn-small btn-success ng-scope">
+                        <!-- ngIf: row-fluid.withdraw_status == 1 --><span ng-if="row-fluid.withdraw_status == 1" class="ng-scope"><font><font>Confirmation</font></font></span><!-- end ngIf: row-fluid.withdraw_status == 1 -->
+                        <!-- ngIf: row-fluid.withdraw_status == 5 -->
+                    </button><!-- end ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 --><button type="button" ng-if="row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5" ng-click="rejectOperation(row-fluid)" class="btn btn-small btn-error ng-scope"><font><font>
                         refuses
-                    </font></font></button>
+                    </font></font></button><!-- end ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/9861661/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/9861661/update"><font><font>
                         basin
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>49,14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>On hold</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>27.01.2017 17:31:15</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>49,14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>On hold</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>27.01.2017 17:31:15</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    <button type="button" class="btn btn-small btn-success">
-                        <span class=""><font><font>Confirmation</font></font></span>
-                        
-                    </button>
-                    <button type="button" class="btn btn-small btn-error"><font><font>
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 --><button type="button" ng-if="row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5" ng-click="confirmOperation(row-fluid)" class="btn btn-small btn-success ng-scope">
+                        <!-- ngIf: row-fluid.withdraw_status == 1 --><span ng-if="row-fluid.withdraw_status == 1" class="ng-scope"><font><font>Confirmation</font></font></span><!-- end ngIf: row-fluid.withdraw_status == 1 -->
+                        <!-- ngIf: row-fluid.withdraw_status == 5 -->
+                    </button><!-- end ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 --><button type="button" ng-if="row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5" ng-click="rejectOperation(row-fluid)" class="btn btn-small btn-error ng-scope"><font><font>
                         refuses
-                    </font></font></button>
+                    </font></font></button><!-- end ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/10001613/update">
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/10001613/update">
                         asilomogliano11
                     </a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>94,14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>On hold</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>27.01.2017 16:41:07</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>94,14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>On hold</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>27.01.2017 16:41:07</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    <button type="button" class="btn btn-small btn-success">
-                        <span class=""><font><font>Confirmation</font></font></span>
-                        
-                    </button>
-                    <button type="button" class="btn btn-small btn-error"><font><font>
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 --><button type="button" ng-if="row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5" ng-click="confirmOperation(row-fluid)" class="btn btn-small btn-success ng-scope">
+                        <!-- ngIf: row-fluid.withdraw_status == 1 --><span ng-if="row-fluid.withdraw_status == 1" class="ng-scope"><font><font>Confirmation</font></font></span><!-- end ngIf: row-fluid.withdraw_status == 1 -->
+                        <!-- ngIf: row-fluid.withdraw_status == 5 -->
+                    </button><!-- end ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 --><button type="button" ng-if="row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5" ng-click="rejectOperation(row-fluid)" class="btn btn-small btn-error ng-scope"><font><font>
                         refuses
-                    </font></font></button>
+                    </font></font></button><!-- end ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/9796489/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/9796489/update"><font><font>
                         alderopirri
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>199,14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>On hold</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>27.01.2017 15:18:28</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>199,14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>On hold</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>27.01.2017 15:18:28</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    <button type="button" class="btn btn-small btn-success">
-                        <span class=""><font><font>Confirmation</font></font></span>
-                        
-                    </button>
-                    <button type="button" class="btn btn-small btn-error"><font><font>
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 --><button type="button" ng-if="row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5" ng-click="confirmOperation(row-fluid)" class="btn btn-small btn-success ng-scope">
+                        <!-- ngIf: row-fluid.withdraw_status == 1 --><span ng-if="row-fluid.withdraw_status == 1" class="ng-scope"><font><font>Confirmation</font></font></span><!-- end ngIf: row-fluid.withdraw_status == 1 -->
+                        <!-- ngIf: row-fluid.withdraw_status == 5 -->
+                    </button><!-- end ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 --><button type="button" ng-if="row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5" ng-click="rejectOperation(row-fluid)" class="btn btn-small btn-error ng-scope"><font><font>
                         refuses
-                    </font></font></button>
+                    </font></font></button><!-- end ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20000019/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20000019/update"><font><font>
                         lisa2111
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>300.14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>Confirmed</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>27.01.2017 12:29:38</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"><span class=""><font><font>27.01.2017 12:43:04</font></font></span></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>300.14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>Confirmed</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>27.01.2017 12:29:38</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --><span ng-if="row-fluid.created_date != row-fluid.last_update" class="ng-binding ng-scope"><font><font>27.01.2017 12:43:04</font></font></span><!-- end ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    
-                    
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20002711/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20002711/update"><font><font>
                         rita56
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>449.14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>Confirmed</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>27.01.2017 11:26:39</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"><span class=""><font><font>27.01.2017 12:40:23</font></font></span></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>449.14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>Confirmed</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>27.01.2017 11:26:39</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --><span ng-if="row-fluid.created_date != row-fluid.last_update" class="ng-binding ng-scope"><font><font>27.01.2017 12:40:23</font></font></span><!-- end ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    
-                    
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20002711/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20002711/update"><font><font>
                         rita56
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>99,14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>rejected</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>27.01.2017 00:37:37</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"><span class=""><font><font>27.01.2017 11:25:22</font></font></span></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>99,14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>rejected</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>27.01.2017 00:37:37</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --><span ng-if="row-fluid.created_date != row-fluid.last_update" class="ng-binding ng-scope"><font><font>27.01.2017 11:25:22</font></font></span><!-- end ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    
-                    
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20002711/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20002711/update"><font><font>
                         rita56
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>349.14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>rejected</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>01.26.2017 23:06:07</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"><span class=""><font><font>27.01.2017 11:25:17</font></font></span></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>349.14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>rejected</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>01.26.2017 23:06:07</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --><span ng-if="row-fluid.created_date != row-fluid.last_update" class="ng-binding ng-scope"><font><font>27.01.2017 11:25:17</font></font></span><!-- end ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    
-                    
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004481/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004481/update"><font><font>
                         gianfri1949
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>160.14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>Confirmed</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>01.26.2017 21:31:02</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"><span class=""><font><font>27.01.2017 12:30:36</font></font></span></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>160.14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>Confirmed</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>01.26.2017 21:31:02</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --><span ng-if="row-fluid.created_date != row-fluid.last_update" class="ng-binding ng-scope"><font><font>27.01.2017 12:30:36</font></font></span><!-- end ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    
-                    
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004481/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004481/update"><font><font>
                         gianfri1949
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>70.14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>Confirmed</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>01.26.2017 20:25:44</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"><span class=""><font><font>27.01.2017 12:30:32</font></font></span></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>70.14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>Confirmed</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>01.26.2017 20:25:44</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --><span ng-if="row-fluid.created_date != row-fluid.last_update" class="ng-binding ng-scope"><font><font>27.01.2017 12:30:32</font></font></span><!-- end ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    
-                    
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20003995/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20003995/update"><font><font>
                         barbacchione
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>299.14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>Confirmed</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>01.26.2017 16:34:12</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"><span class=""><font><font>27.01.2017 12:09:48</font></font></span></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>299.14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>Confirmed</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>01.26.2017 16:34:12</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --><span ng-if="row-fluid.created_date != row-fluid.last_update" class="ng-binding ng-scope"><font><font>27.01.2017 12:09:48</font></font></span><!-- end ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    
-                    
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004274/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004274/update"><font><font>
                         Triatec
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>420.14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>Confirmed</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>01.26.2017 12:31:08</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"><span class=""><font><font>01.26.2017 13:50:20</font></font></span></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>420.14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>Confirmed</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>01.26.2017 12:31:08</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --><span ng-if="row-fluid.created_date != row-fluid.last_update" class="ng-binding ng-scope"><font><font>01.26.2017 13:50:20</font></font></span><!-- end ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    
-                    
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004481/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004481/update"><font><font>
                         gianfri1949
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>139,14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>Confirmed</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>25.01.2017 23:02:46</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"><span class=""><font><font>01.26.2017 07:53:55</font></font></span></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>139,14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>Confirmed</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>25.01.2017 23:02:46</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --><span ng-if="row-fluid.created_date != row-fluid.last_update" class="ng-binding ng-scope"><font><font>01.26.2017 07:53:55</font></font></span><!-- end ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    
-                    
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004123/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004123/update"><font><font>
                         bornagain
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>100.00</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>rejected</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>01.23.2017 19:10:21</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"><span class=""><font><font>25.01.2017 14:45:57</font></font></span></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>100.00</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>rejected</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>01.23.2017 19:10:21</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --><span ng-if="row-fluid.created_date != row-fluid.last_update" class="ng-binding ng-scope"><font><font>25.01.2017 14:45:57</font></font></span><!-- end ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    
-                    
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/10002128/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/10002128/update"><font><font>
                         lamb
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>249.14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>Confirmed</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>01.23.2017 18:08:05</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"><span class=""><font><font>25.01.2017 16:58:03</font></font></span></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>249.14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>Confirmed</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>01.23.2017 18:08:05</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --><span ng-if="row-fluid.created_date != row-fluid.last_update" class="ng-binding ng-scope"><font><font>25.01.2017 16:58:03</font></font></span><!-- end ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    
-                    
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/10002128/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/10002128/update"><font><font>
                         lamb
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>199,14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>rejected</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>01.23.2017 17:11:37</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"><span class=""><font><font>01.23.2017 18:06:35</font></font></span></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>199,14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>rejected</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>01.23.2017 17:11:37</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --><span ng-if="row-fluid.created_date != row-fluid.last_update" class="ng-binding ng-scope"><font><font>01.23.2017 18:06:35</font></font></span><!-- end ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    
-                    
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20003995/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20003995/update"><font><font>
                         barbacchione
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>379.14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>Confirmed</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>01.23.2017 17:00:08</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"><span class=""><font><font>25.01.2017 16:55:21</font></font></span></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>379.14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>Confirmed</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>01.23.2017 17:00:08</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --><span ng-if="row-fluid.created_date != row-fluid.last_update" class="ng-binding ng-scope"><font><font>25.01.2017 16:55:21</font></font></span><!-- end ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    
-                    
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/10002792/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/10002792/update"><font><font>
                         marcone67
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>499.14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>Confirmed</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>01.23.2017 15:07:22</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"><span class=""><font><font>25.01.2017 16:51:36</font></font></span></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>499.14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>Confirmed</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>01.23.2017 15:07:22</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --><span ng-if="row-fluid.created_date != row-fluid.last_update" class="ng-binding ng-scope"><font><font>25.01.2017 16:51:36</font></font></span><!-- end ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    
-                    
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004128/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004128/update"><font><font>
                         marian
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>1999.14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>Confirmed</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>01.23.2017 13:02:31</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"><span class=""><font><font>01.23.2017 14:07:17</font></font></span></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>1999.14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>Confirmed</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>01.23.2017 13:02:31</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --><span ng-if="row-fluid.created_date != row-fluid.last_update" class="ng-binding ng-scope"><font><font>01.23.2017 14:07:17</font></font></span><!-- end ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    
-                    
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr><tr class="">
+            </tr><!-- end ngRepeat: row-fluid in $data --><tr ng-repeat="row-fluid in $data" class="ng-scope">
                 <td data-title="model.page.page_data.username.title" data-title-text=" ">
-                    <a class="table-link" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004128/update"><font><font>
+                    <a class="table-link ng-binding" ui-sref="userPlayer.update({id:row-fluid.user_id})" href="/userPlayer/20004128/update"><font><font>
                         marian
                     </font></font></a>
                 </td>
-                <td data-title="model.page.page_data.tax.title" class="text-right" data-title-text=" "><font><font>0.86</font></font></td>
-                <td data-title="model.page.page_data.amount.title" class="text-right" data-title-text=" "><font><font>4999.14</font></font></td>
-                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class=""><font><font>Bank transfer</font></font></td>
-                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class=""><font><font>Confirmed</font></font></td>
-                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class=""></td>
-                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class=""><font><font>01.23.2017 13:01:05</font></font></td>
-                <td data-title="&apos;Data Evasione&apos;" data-title-text="Data Evasione"><span class=""><font><font>01.23.2017 14:07:14</font></font></span></td>
-                <td data-title="&apos;Operazioni&apos;" data-title-text="Operazioni">
-                    <button type="button" class="btn btn-small btn-info"><font><font>
+                <td data-title="model.page.page_data.tax.title" class="text-right ng-binding" data-title-text=" "><font><font>0.86</font></font></td>
+                <td data-title="model.page.page_data.amount.title" class="text-right ng-binding" data-title-text=" "><font><font>4999.14</font></font></td>
+                <td data-title="model.page.page_data.gateway.title" data-title-text=" " class="ng-binding"><font><font>Bank transfer</font></font></td>
+                <td data-title="model.page.page_data.withdraw_status.title" data-title-text=" " class="ng-binding"><font><font>Confirmed</font></font></td>
+                <td data-title="model.page.page_data.gw_result.title" data-title-text=" " class="ng-binding"></td>
+                <td data-title="model.page.page_data.created_date.title" data-title-text=" " class="ng-binding"><font><font>01.23.2017 13:01:05</font></font></td>
+                <td data-title="'Data Evasione'" data-title-text="Data Evasione"><!-- ngIf: row-fluid.created_date != row-fluid.last_update --><span ng-if="row-fluid.created_date != row-fluid.last_update" class="ng-binding ng-scope"><font><font>01.23.2017 14:07:14</font></font></span><!-- end ngIf: row-fluid.created_date != row-fluid.last_update --></td>
+                <td data-title="'Operazioni'" data-title-text="Operazioni">
+                    <!-- ngIf: row-fluid.gateway_id == 3 --><button type="button" ng-if="row-fluid.gateway_id == 3" ng-click="openBankRefer(row-fluid)" class="btn btn-small btn-info ng-scope"><font><font>
                         Ref. Banking
-                    </font></font></button>
-                    
-                    
+                    </font></font></button><!-- end ngIf: row-fluid.gateway_id == 3 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
+                    <!-- ngIf: row-fluid.withdraw_status == 1 || row-fluid.withdraw_status == 5 -->
                 </td>
-            </tr>
+            </tr><!-- end ngRepeat: row-fluid in $data -->
             </tbody>
             <tfoot>
             <tr>
                 <td><font><font>sum Page</font></font></td>
-                <td class="text-right"><font><font>0.00</font></font></td>
-                <td class="text-right"><font><font>0.00</font></font></td>
+                <td class="text-right ng-binding"><font><font>0.00</font></font></td>
+                <td class="text-right ng-binding"><font><font>0.00</font></font></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -615,10 +610,10 @@
                 <td></td>
             </tr>
             </tfoot>
-        </table><div ng-table-pagination="params" template-url="templates.pagination" class=""><div ng-include="templateUrl" class=""><div class="ng-table-pager"> <div class="ng-table-counts btn-group pull-right"> <button type="button" class="btn btn-default"> <span ng-bind="count" class=""><font><font>10</font></font></span> </button><button type="button" class="btn btn-default active"> <span ng-bind="count" class=""><font><font>25</font></font></span> </button><button type="button" class="btn btn-default"> <span ng-bind="count" class=""><font><font>50</font></font></span> </button><button type="button" class="btn btn-default"> <span ng-bind="count" class=""><font><font>100</font></font></span> </button> </div> <ul class="pagination ng-table-pagination"> <li class="disabled" style=""> <a ng-switch-when="prev" ng-click="params.page(page.number)" href="" class=""><font><font>&quot;</font></font></a>      </li><li class="active" style="">  <a ng-switch-when="first" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>1</font></font></span></a>     </li><li class="" style="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>2</font></font></span></a>    </li><li class="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>3</font></font></span></a>    </li><li class="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>4</font></font></span></a>    </li><li class="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>5</font></font></span></a>    </li><li class="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>6</font></font></span></a>    </li><li class="">   <a ng-switch-when="page" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>7</font></font></span></a>    </li><li class="disabled">    <a ng-switch-when="more" ng-click="params.page(page.number)" href="" class=""><font><font>...</font></font></a>   </li><li class="">     <a ng-switch-when="last" ng-click="params.page(page.number)" href="" class=""><span ng-bind="page.number" class=""><font><font>11</font></font></span></a>  </li><li class="">      <a ng-switch-when="next" ng-click="params.page(page.number)" href="" class=""><font><font>&#xBB;</font></font></a> </li> </ul> </div> </div></div>
+        </table><div ng-table-pagination="params" template-url="templates.pagination" class="ng-scope ng-isolate-scope"><!-- ngInclude: templateUrl --><div ng-include="templateUrl" class="ng-scope"><div class="ng-table-pager ng-scope"> <!-- ngIf: params.settings().counts.length --><div ng-if="params.settings().counts.length" class="ng-table-counts btn-group pull-right ng-scope"> <!-- ngRepeat: count in params.settings().counts --><button ng-repeat="count in params.settings().counts" type="button" ng-class="{'active':params.count()==count}" ng-click="params.count(count)" class="btn btn-default ng-scope"> <span ng-bind="count" class="ng-binding"><font><font>10</font></font></span> </button><!-- end ngRepeat: count in params.settings().counts --><button ng-repeat="count in params.settings().counts" type="button" ng-class="{'active':params.count()==count}" ng-click="params.count(count)" class="btn btn-default ng-scope active"> <span ng-bind="count" class="ng-binding"><font><font>25</font></font></span> </button><!-- end ngRepeat: count in params.settings().counts --><button ng-repeat="count in params.settings().counts" type="button" ng-class="{'active':params.count()==count}" ng-click="params.count(count)" class="btn btn-default ng-scope"> <span ng-bind="count" class="ng-binding"><font><font>50</font></font></span> </button><!-- end ngRepeat: count in params.settings().counts --><button ng-repeat="count in params.settings().counts" type="button" ng-class="{'active':params.count()==count}" ng-click="params.count(count)" class="btn btn-default ng-scope"> <span ng-bind="count" class="ng-binding"><font><font>100</font></font></span> </button><!-- end ngRepeat: count in params.settings().counts --> </div><!-- end ngIf: params.settings().counts.length --> <ul class="pagination ng-table-pagination"> <!-- ngRepeat: page in pages --><li ng-class="{'disabled': !page.active &amp;&amp; !page.current, 'active': page.current}" ng-repeat="page in pages" ng-switch="page.type" class="ng-scope disabled" style=""> <!-- ngSwitchWhen: prev --><a ng-switch-when="prev" ng-click="params.page(page.number)" href="" class="ng-scope"><font><font>"</font></font></a><!-- end ngSwitchWhen: --> <!-- ngSwitchWhen: first --> <!-- ngSwitchWhen: page --> <!-- ngSwitchWhen: more --> <!-- ngSwitchWhen: last --> <!-- ngSwitchWhen: next --> </li><!-- end ngRepeat: page in pages --><li ng-class="{'disabled': !page.active &amp;&amp; !page.current, 'active': page.current}" ng-repeat="page in pages" ng-switch="page.type" class="ng-scope active" style=""> <!-- ngSwitchWhen: prev --> <!-- ngSwitchWhen: first --><a ng-switch-when="first" ng-click="params.page(page.number)" href="" class="ng-scope"><span ng-bind="page.number" class="ng-binding"><font><font>1</font></font></span></a><!-- end ngSwitchWhen: --> <!-- ngSwitchWhen: page --> <!-- ngSwitchWhen: more --> <!-- ngSwitchWhen: last --> <!-- ngSwitchWhen: next --> </li><!-- end ngRepeat: page in pages --><li ng-class="{'disabled': !page.active &amp;&amp; !page.current, 'active': page.current}" ng-repeat="page in pages" ng-switch="page.type" class="ng-scope" style=""> <!-- ngSwitchWhen: prev --> <!-- ngSwitchWhen: first --> <!-- ngSwitchWhen: page --><a ng-switch-when="page" ng-click="params.page(page.number)" href="" class="ng-scope"><span ng-bind="page.number" class="ng-binding"><font><font>2</font></font></span></a><!-- end ngSwitchWhen: --> <!-- ngSwitchWhen: more --> <!-- ngSwitchWhen: last --> <!-- ngSwitchWhen: next --> </li><!-- end ngRepeat: page in pages --><li ng-class="{'disabled': !page.active &amp;&amp; !page.current, 'active': page.current}" ng-repeat="page in pages" ng-switch="page.type" class="ng-scope"> <!-- ngSwitchWhen: prev --> <!-- ngSwitchWhen: first --> <!-- ngSwitchWhen: page --><a ng-switch-when="page" ng-click="params.page(page.number)" href="" class="ng-scope"><span ng-bind="page.number" class="ng-binding"><font><font>3</font></font></span></a><!-- end ngSwitchWhen: --> <!-- ngSwitchWhen: more --> <!-- ngSwitchWhen: last --> <!-- ngSwitchWhen: next --> </li><!-- end ngRepeat: page in pages --><li ng-class="{'disabled': !page.active &amp;&amp; !page.current, 'active': page.current}" ng-repeat="page in pages" ng-switch="page.type" class="ng-scope"> <!-- ngSwitchWhen: prev --> <!-- ngSwitchWhen: first --> <!-- ngSwitchWhen: page --><a ng-switch-when="page" ng-click="params.page(page.number)" href="" class="ng-scope"><span ng-bind="page.number" class="ng-binding"><font><font>4</font></font></span></a><!-- end ngSwitchWhen: --> <!-- ngSwitchWhen: more --> <!-- ngSwitchWhen: last --> <!-- ngSwitchWhen: next --> </li><!-- end ngRepeat: page in pages --><li ng-class="{'disabled': !page.active &amp;&amp; !page.current, 'active': page.current}" ng-repeat="page in pages" ng-switch="page.type" class="ng-scope"> <!-- ngSwitchWhen: prev --> <!-- ngSwitchWhen: first --> <!-- ngSwitchWhen: page --><a ng-switch-when="page" ng-click="params.page(page.number)" href="" class="ng-scope"><span ng-bind="page.number" class="ng-binding"><font><font>5</font></font></span></a><!-- end ngSwitchWhen: --> <!-- ngSwitchWhen: more --> <!-- ngSwitchWhen: last --> <!-- ngSwitchWhen: next --> </li><!-- end ngRepeat: page in pages --><li ng-class="{'disabled': !page.active &amp;&amp; !page.current, 'active': page.current}" ng-repeat="page in pages" ng-switch="page.type" class="ng-scope"> <!-- ngSwitchWhen: prev --> <!-- ngSwitchWhen: first --> <!-- ngSwitchWhen: page --><a ng-switch-when="page" ng-click="params.page(page.number)" href="" class="ng-scope"><span ng-bind="page.number" class="ng-binding"><font><font>6</font></font></span></a><!-- end ngSwitchWhen: --> <!-- ngSwitchWhen: more --> <!-- ngSwitchWhen: last --> <!-- ngSwitchWhen: next --> </li><!-- end ngRepeat: page in pages --><li ng-class="{'disabled': !page.active &amp;&amp; !page.current, 'active': page.current}" ng-repeat="page in pages" ng-switch="page.type" class="ng-scope"> <!-- ngSwitchWhen: prev --> <!-- ngSwitchWhen: first --> <!-- ngSwitchWhen: page --><a ng-switch-when="page" ng-click="params.page(page.number)" href="" class="ng-scope"><span ng-bind="page.number" class="ng-binding"><font><font>7</font></font></span></a><!-- end ngSwitchWhen: --> <!-- ngSwitchWhen: more --> <!-- ngSwitchWhen: last --> <!-- ngSwitchWhen: next --> </li><!-- end ngRepeat: page in pages --><li ng-class="{'disabled': !page.active &amp;&amp; !page.current, 'active': page.current}" ng-repeat="page in pages" ng-switch="page.type" class="ng-scope disabled"> <!-- ngSwitchWhen: prev --> <!-- ngSwitchWhen: first --> <!-- ngSwitchWhen: page --> <!-- ngSwitchWhen: more --><a ng-switch-when="more" ng-click="params.page(page.number)" href="" class="ng-scope"><font><font>...</font></font></a><!-- end ngSwitchWhen: --> <!-- ngSwitchWhen: last --> <!-- ngSwitchWhen: next --> </li><!-- end ngRepeat: page in pages --><li ng-class="{'disabled': !page.active &amp;&amp; !page.current, 'active': page.current}" ng-repeat="page in pages" ng-switch="page.type" class="ng-scope"> <!-- ngSwitchWhen: prev --> <!-- ngSwitchWhen: first --> <!-- ngSwitchWhen: page --> <!-- ngSwitchWhen: more --> <!-- ngSwitchWhen: last --><a ng-switch-when="last" ng-click="params.page(page.number)" href="" class="ng-scope"><span ng-bind="page.number" class="ng-binding"><font><font>11</font></font></span></a><!-- end ngSwitchWhen: --> <!-- ngSwitchWhen: next --> </li><!-- end ngRepeat: page in pages --><li ng-class="{'disabled': !page.active &amp;&amp; !page.current, 'active': page.current}" ng-repeat="page in pages" ng-switch="page.type" class="ng-scope"> <!-- ngSwitchWhen: prev --> <!-- ngSwitchWhen: first --> <!-- ngSwitchWhen: page --> <!-- ngSwitchWhen: more --> <!-- ngSwitchWhen: last --> <!-- ngSwitchWhen: next --><a ng-switch-when="next" ng-click="params.page(page.number)" href="" class="ng-scope"><font><font>»</font></font></a><!-- end ngSwitchWhen: --> </li><!-- end ngRepeat: page in pages --> </ul> </div> </div></div>
     </div>
 </div></div></accordion-group>
-<script type="text/ng-template" id="templateBankRefer.html" class="">
+<script type="text/ng-template" id="templateBankRefer.html" class="ng-scope">
     <div class="modal-body">
         <div class="table-responsive">
             <table class="table table-striped table-hover">
@@ -648,4 +643,4 @@
     </div>
 </script>
 </div>
-                {% endblock Skweb_content %}
+                </div><head><title>withdrawal</title></head>

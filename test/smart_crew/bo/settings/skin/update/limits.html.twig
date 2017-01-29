@@ -1,170 +1,165 @@
-{% extends "SkwebIncludeBundle:Include:base_admin.html.twig" %}
-                {% block Skweb_content %}
-                  {%set id_c=app.request.query.get("id_c")%}
-                  {%if(is_granted("ROLE_ADMIN"))%}
-                      {{ render(controller("SkwebAdminpageBundle:AdminCrud:menuAdmin",{'id_c':id_c})) }}
-                  {%endif%}
-                    <div ui-view="mainView" class="page-content page-relative nga-default nga-stagger nga-fade" style=""><div class="row-fluid">
-    <div ui-view="subView" class=""><div ng-include="&apos;src/backend/settings/skinManagement/common/navbar/navbar.html&apos;" class=""><div ng-controller="navSkinCtrl" class="">
-    <div class="scrtabs-tab-container" scrolling-tabs-wrapper=""> <div class="scrtabs-tab-scroll-arrow-fluid scrtabs-js-tab-scroll-arrow-fluid-left" style="display: none;"><span class="glyphicon glyphicon-chevron-left"></span></div>   <div class="scrtabs-tabs-fixed-container" style="width: 1026px;">     <div class="scrtabs-tabs-movable-container" style="width: 1026px; left: 0px;">
-        <div class="tabset-subpage">
-  <ul class="nav nav-tabs">
-            <li class="uib-tab nav-item" active="tab.active" select="moveTo(key)" style="">
-  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+﻿<div id="uiViewContainer" class="span12">
+                    <!-- uiView: mainView --><div ui-view="mainView" class="page-content page-relative nga-default nga-stagger nga-fade ng-scope" style=""><div class="row-fluid ng-scope">
+    <!-- uiView: subView --><div ui-view="subView" class="ng-scope"><!-- ngInclude: 'src/backend/settings/skinManagement/common/navbar/navbar.html' --><div ng-include="'src/backend/settings/skinManagement/common/navbar/navbar.html'" class="ng-scope"><div ng-controller="navSkinCtrl" class="ng-scope">
+    <div class="scrtabs-tab-container" scrolling-tabs-wrapper=""> <div class="scrtabs-tab-scroll-arrow-fluid scrtabs-js-tab-scroll-arrow-fluid-left" style="display: none;"><span class="glyphicon glyphicon-chevron-left"></span></div>   <div class="scrtabs-tabs-fixed-container" style="width: 1026px;">     <div class="scrtabs-tabs-movable-container" ng-transclude="" style="width: 1026px; left: 0px;">
+        <div class="tabset-subpage ng-scope ng-isolate-scope">
+  <ul class="nav nav-tabs" ng-class="{'nav-stacked': vertical, 'nav-justified': justified}" ng-transclude="">
+            <!-- ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)" style="">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
                     <i class=""></i><font><font> Profile
                 </font></font></uib-tab-heading></a>
-</li><li class="uib-tab nav-item active" active="tab.active" select="moveTo(key)" style="">
-  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope active" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)" style="">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
                     <i class=""></i><font><font> limits
                 </font></font></uib-tab-heading></a>
-</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)">
-  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
                     <i class=""></i><font><font> Game Summary
                 </font></font></uib-tab-heading></a>
-</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)">
-  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
                     <i class=""></i><font><font> financial report
                 </font></font></uib-tab-heading></a>
-</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)">
-  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
                     <i class=""></i><font><font> Audit Trail
                 </font></font></uib-tab-heading></a>
-</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)">
-  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
                     <i class=""></i><font><font> Mail settings
                 </font></font></uib-tab-heading></a>
-</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)">
-  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
                     <i class=""></i><font><font> template Mail
                 </font></font></uib-tab-heading></a>
-</li>
+</li><!-- end ngRepeat: (key,tab) in model.nav -->
         </ul>
   <div class="tab-content">
-    <div class="tab-pane" uib-tab-content-transclude="tab" style="">
+    <!-- ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab" style="">
     
                 
-            </div><div class="tab-pane active" uib-tab-content-transclude="tab" style="">
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope active" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab" style="">
     
                 
-            </div><div class="tab-pane" uib-tab-content-transclude="tab">
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
     
                 
-            </div><div class="tab-pane" uib-tab-content-transclude="tab">
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
     
                 
-            </div><div class="tab-pane" uib-tab-content-transclude="tab">
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
     
                 
-            </div><div class="tab-pane" uib-tab-content-transclude="tab">
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
     
                 
-            </div><div class="tab-pane" uib-tab-content-transclude="tab">
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
     
                 
-            </div>
+            </div><!-- end ngRepeat: tab in tabset.tabs -->
   </div>
 </div>
-    </div>   </div> <div class="scrtabs-tab-scroll-arrow-fluid scrtabs-js-tab-scroll-arrow-fluid-right" style="display: none;"><span class="glyphicon glyphicon-chevron-right"></span></div> <div class="scrtabs-tab-content-outside-movable-container">
-        <div class="tabset-subpage">
-  <ul class="nav nav-tabs">
-            <li class="uib-tab nav-item active" active="tab.active" select="moveTo(key)">
-  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+    </div>   </div> <div class="scrtabs-tab-scroll-arrow-fluid scrtabs-js-tab-scroll-arrow-fluid-right" style="display: none;"><span class="glyphicon glyphicon-chevron-right"></span></div> <div class="scrtabs-tab-content-outside-movable-container" ng-transclude="">
+        <div class="tabset-subpage ng-scope ng-isolate-scope">
+  <ul class="nav nav-tabs" ng-class="{'nav-stacked': vertical, 'nav-justified': justified}" ng-transclude="">
+            <!-- ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope active" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
                     <i class=""></i><font><font> Profile
                 </font></font></uib-tab-heading></a>
-</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)">
-  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
                     <i class=""></i><font><font> limits
                 </font></font></uib-tab-heading></a>
-</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)">
-  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
                     <i class=""></i><font><font> Game Summary
                 </font></font></uib-tab-heading></a>
-</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)">
-  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
                     <i class=""></i><font><font> financial report
                 </font></font></uib-tab-heading></a>
-</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)">
-  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
                     <i class=""></i><font><font> Audit Trail
                 </font></font></uib-tab-heading></a>
-</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)">
-  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
                     <i class=""></i><font><font> Mail settings
                 </font></font></uib-tab-heading></a>
-</li><li class="uib-tab nav-item" active="tab.active" select="moveTo(key)">
-  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
                     <i class=""></i><font><font> template Mail
                 </font></font></uib-tab-heading></a>
-</li>
+</li><!-- end ngRepeat: (key,tab) in model.nav -->
         </ul>
   <div class="tab-content">
-    <div class="tab-pane active" uib-tab-content-transclude="tab">
+    <!-- ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope active" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
     
                 
-            </div><div class="tab-pane" uib-tab-content-transclude="tab">
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
     
                 
-            </div><div class="tab-pane" uib-tab-content-transclude="tab">
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
     
                 
-            </div><div class="tab-pane" uib-tab-content-transclude="tab">
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
     
                 
-            </div><div class="tab-pane" uib-tab-content-transclude="tab">
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
     
                 
-            </div><div class="tab-pane" uib-tab-content-transclude="tab">
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
     
                 
-            </div><div class="tab-pane" uib-tab-content-transclude="tab">
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
     
                 
-            </div>
+            </div><!-- end ngRepeat: tab in tabset.tabs -->
   </div>
 </div>
     </div></div>
 </div>
 </div>
-<div ui-view="subViewSecond" class="" style=""><div class="">
-    <accordion-group binding-field="model.accordion-groupTitle" class=""> <div class="accordion-group accordion-group-default"><div class="accordion-group-heading "><h3 class="accordion-group-title"><font><font>limits skin</font></font></h3></div><div class="accordion-group-body ">
-        <div class="row-fluid">
-            <div class="main-tabset">
-  <ul class="nav nav-tabs">
-                <li class="uib-tab nav-item active">
-  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+<!-- uiView: subViewSecond --><div ui-view="subViewSecond" class="ng-scope" style=""><div class="ng-scope">
+    <accordion-group binding-field="model.accordion-groupTitle" class="ng-isolate-scope"> <div class="accordion-group accordion-group-default"><div class="accordion-group-heading " ng-dblclick="$event.preventDefault();" ng-click="show1()"><h3 class="accordion-group-title ng-binding"><font><font>limits skin</font></font></h3></div><div class="accordion-group-body " ng-transclude="" ng-class="{'collapse': model.collapsed === true}">
+        <div class="row-fluid ng-scope">
+            <div class="main-tabset ng-isolate-scope">
+  <ul class="nav nav-tabs" ng-class="{'nav-stacked': vertical, 'nav-justified': justified}" ng-transclude="">
+                <!-- ngRepeat: (key,tab) in model.page.page_value.product_types --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope active" ng-repeat="(key,tab) in model.page.page_value.product_types">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
                         <div class="ico-product ico-product-casino"></div> Casino
                     </uib-tab-heading></a>
-</li><li class="uib-tab nav-item">
-  <a href="" ng-click="select()" class="nav-link" uib-tab-heading-transclude=""><uib-tab-heading class="">
+</li><!-- end ngRepeat: (key,tab) in model.page.page_value.product_types --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.page.page_value.product_types">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
                         <div class="ico-product ico-product-casinolive"></div><font><font> Casino Live
                     </font></font></uib-tab-heading></a>
-</li>
+</li><!-- end ngRepeat: (key,tab) in model.page.page_value.product_types -->
             </ul>
   <div class="tab-content">
-    <div class="tab-pane active" uib-tab-content-transclude="tab">
+    <!-- ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope active" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
     
                     
 
-					<div class="nav-tabs-body">
-                        <form name="form" class="css-form ng-valid-ng-max ng-valid-ng-min ng-valid-required" novalidate="" style="">
-                            
+					<div class="nav-tabs-body ng-scope">
+                        <form ng-class="{'show-errors': form.$invalid &amp;&amp; form.$submitted}" ng-submit="save(key)" name="form" class="css-form ng-pristine ng-valid ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-required" novalidate="" style="">
+                            <!-- ngIf: form.$invalid && form.$submitted -->
                             <div class="row-fluid">
-                                <div ng-include="&apos;src/backend/settings/skinManagement/limit/sub/userLimitsCustom.html&apos;" class="" style=""><div class="span12">
+                                <!-- ngInclude: 'src/backend/settings/skinManagement/limit/sub/userLimitsCustom.html' --><div ng-include="'src/backend/settings/skinManagement/limit/sub/userLimitsCustom.html'" class="ng-scope" style=""><!-- ngRepeat: (keyLimit,limit) in model.userLimit.product_types[key].limit_groups --><div class="span12 ng-scope" ng-repeat="(keyLimit,limit) in model.userLimit.product_types[key].limit_groups">
     <div class="row-fluid">
-        <span class="label label"><font><font>game parameters</font></font></span>
+        <span class="label label ng-binding"><font><font>game parameters</font></font></span>
     </div>
-    <div class="span3">
-        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Puntata massima giornaliera (EUR)" init="" model="model.userLimit.product_types[key].limit_groups[keyLimit].limits[subKey].value" require="false" min="0" max="1000" regexp="[0-9]{1,8}" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-valid-ng-max ng-valid-ng-min ng-valid-required"><label class="spansm-12 control-label"><font><font>daily maximum stake (EUR)</font></font><span ng-show="false" class="ng-hide"><font><font> * </font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Puntata massima giornaliera (EUR)" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="[0-9]{1,8}" class="input-block-level ng-valid-ng-max ng-valid-ng-min ng-valid-required" placeholder="Puntata massima giornaliera (EUR)"></div></ng-form></div>
-    </div><div class="span3">
-        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Puntata massima settimanale (EUR)" init="" model="model.userLimit.product_types[key].limit_groups[keyLimit].limits[subKey].value" require="false" min="0" max="1000" regexp="[0-9]{1,8}" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-valid-ng-max ng-valid-ng-min ng-valid-required"><label class="spansm-12 control-label"><font><font>maximum weekly stake (EUR)</font></font><span ng-show="false" class="ng-hide"><font><font> * </font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Puntata massima settimanale (EUR)" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="[0-9]{1,8}" class="input-block-level ng-valid-ng-max ng-valid-ng-min ng-valid-required" placeholder="Puntata massima settimanale (EUR)"></div></ng-form></div>
-    </div><div class="span3">
-        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Puntata massima mensile (EUR)" init="" model="model.userLimit.product_types[key].limit_groups[keyLimit].limits[subKey].value" require="false" min="0" max="1000" regexp="[0-9]{1,8}" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-valid-ng-max ng-valid-ng-min ng-valid-required"><label class="spansm-12 control-label"><font><font>Maximum monthly installment (EUR)</font></font><span ng-show="false" class="ng-hide"><font><font> * </font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Puntata massima mensile (EUR)" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="[0-9]{1,8}" class="input-block-level ng-valid-ng-max ng-valid-ng-min ng-valid-required" placeholder="Puntata massima mensile (EUR)"></div></ng-form></div>
-    </div>
-</div></div>
+    <!-- ngRepeat: (subKey,subLimit) in limit.limits --><div class="span3 ng-scope" ng-repeat="(subKey,subLimit) in limit.limits">
+        <div class="control-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Puntata massima giornaliera (EUR)" init="" model="model.userLimit.product_types[key].limit_groups[keyLimit].limits[subKey].value" require="false" min="0" max="1000" regexp="[0-9]{1,8}" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-pristine ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required"><label class="spansm-12 control-label"><font><font>daily maximum stake (EUR)</font></font><span ng-show="false" class="ng-hide"><font><font> * </font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Puntata massima giornaliera (EUR)" ng-maxlength="1000" ng-minlength="0" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="[0-9]{1,8}" ng-model="model" ng-disabled="" ng-init="model = init" class="input-block-level ng-pristine ng-untouched ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="Puntata massima giornaliera (EUR)" ng-required="false"><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+    </div><!-- end ngRepeat: (subKey,subLimit) in limit.limits --><div class="span3 ng-scope" ng-repeat="(subKey,subLimit) in limit.limits">
+        <div class="control-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Puntata massima settimanale (EUR)" init="" model="model.userLimit.product_types[key].limit_groups[keyLimit].limits[subKey].value" require="false" min="0" max="1000" regexp="[0-9]{1,8}" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-pristine ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required"><label class="spansm-12 control-label"><font><font>maximum weekly stake (EUR)</font></font><span ng-show="false" class="ng-hide"><font><font> * </font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Puntata massima settimanale (EUR)" ng-maxlength="1000" ng-minlength="0" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="[0-9]{1,8}" ng-model="model" ng-disabled="" ng-init="model = init" class="input-block-level ng-pristine ng-untouched ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="Puntata massima settimanale (EUR)" ng-required="false"><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+    </div><!-- end ngRepeat: (subKey,subLimit) in limit.limits --><div class="span3 ng-scope" ng-repeat="(subKey,subLimit) in limit.limits">
+        <div class="control-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Puntata massima mensile (EUR)" init="" model="model.userLimit.product_types[key].limit_groups[keyLimit].limits[subKey].value" require="false" min="0" max="1000" regexp="[0-9]{1,8}" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-pristine ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required"><label class="spansm-12 control-label"><font><font>Maximum monthly installment (EUR)</font></font><span ng-show="false" class="ng-hide"><font><font> * </font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Puntata massima mensile (EUR)" ng-maxlength="1000" ng-minlength="0" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="[0-9]{1,8}" ng-model="model" ng-disabled="" ng-init="model = init" class="input-block-level ng-pristine ng-untouched ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="Puntata massima mensile (EUR)" ng-required="false"><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+    </div><!-- end ngRepeat: (subKey,subLimit) in limit.limits -->
+</div><!-- end ngRepeat: (keyLimit,limit) in model.userLimit.product_types[key].limit_groups --></div>
                             </div>
                             <div class="row-fluid">
                                 <div class="span12">
-                                    <button type="submit" class="btn btn-primary pull-right"><font><font>
+                                    <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary pull-right"><font><font>
                                         ND: Save
                                     </font></font></button>
                                 </div>
@@ -172,30 +167,30 @@
                         </form>
 					</div>
 
-                </div><div class="tab-pane" uib-tab-content-transclude="tab">
+                </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
     
                     
 
-					<div class="nav-tabs-body">
-                        <form name="form" class="css-form ng-valid-ng-max ng-valid-ng-min ng-valid-required" novalidate="" style="">
-                            
+					<div class="nav-tabs-body ng-scope">
+                        <form ng-class="{'show-errors': form.$invalid &amp;&amp; form.$submitted}" ng-submit="save(key)" name="form" class="css-form ng-pristine ng-valid ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-required" novalidate="" style="">
+                            <!-- ngIf: form.$invalid && form.$submitted -->
                             <div class="row-fluid">
-                                <div ng-include="&apos;src/backend/settings/skinManagement/limit/sub/userLimitsCustom.html&apos;" class="" style=""><div class="span12">
+                                <!-- ngInclude: 'src/backend/settings/skinManagement/limit/sub/userLimitsCustom.html' --><div ng-include="'src/backend/settings/skinManagement/limit/sub/userLimitsCustom.html'" class="ng-scope" style=""><!-- ngRepeat: (keyLimit,limit) in model.userLimit.product_types[key].limit_groups --><div class="span12 ng-scope" ng-repeat="(keyLimit,limit) in model.userLimit.product_types[key].limit_groups">
     <div class="row-fluid">
-        <span class="label label"><font><font>game parameters</font></font></span>
+        <span class="label label ng-binding"><font><font>game parameters</font></font></span>
     </div>
-    <div class="span3">
-        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Puntata massima giornaliera (EUR)" init="" model="model.userLimit.product_types[key].limit_groups[keyLimit].limits[subKey].value" require="false" min="0" max="1000" regexp="[0-9]{1,8}" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-valid-ng-max ng-valid-ng-min ng-valid-required"><label class="spansm-12 control-label"><font><font>Daily maximum stake (EUR) </font></font><span ng-show="false" class="ng-hide"><font><font>*</font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Puntata massima giornaliera (EUR)" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="[0-9]{1,8}" class="input-block-level ng-valid-ng-max ng-valid-ng-min ng-valid-required" placeholder="Puntata massima giornaliera (EUR)"></div></ng-form></div>
-    </div><div class="span3">
-        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Puntata massima settimanale (EUR)" init="" model="model.userLimit.product_types[key].limit_groups[keyLimit].limits[subKey].value" require="false" min="0" max="1000" regexp="[0-9]{1,8}" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-valid-ng-max ng-valid-ng-min ng-valid-required"><label class="spansm-12 control-label"><font><font>Maximum weekly stake (EUR) </font></font><span ng-show="false" class="ng-hide"><font><font>*</font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Puntata massima settimanale (EUR)" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="[0-9]{1,8}" class="input-block-level ng-valid-ng-max ng-valid-ng-min ng-valid-required" placeholder="Puntata massima settimanale (EUR)"></div></ng-form></div>
-    </div><div class="span3">
-        <div class="control-group has-feedback" ng-class="{&apos;has-error&apos; : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Puntata massima mensile (EUR)" init="" model="model.userLimit.product_types[key].limit_groups[keyLimit].limits[subKey].value" require="false" min="0" max="1000" regexp="[0-9]{1,8}" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-valid-ng-max ng-valid-ng-min ng-valid-required"><label class="spansm-12 control-label"><font><font>Maximum monthly installment (EUR) </font></font><span ng-show="false" class="ng-hide"><font><font>*</font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Puntata massima mensile (EUR)" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="[0-9]{1,8}" class="input-block-level ng-valid-ng-max ng-valid-ng-min ng-valid-required" placeholder="Puntata massima mensile (EUR)"></div></ng-form></div>
-    </div>
-</div></div>
+    <!-- ngRepeat: (subKey,subLimit) in limit.limits --><div class="span3 ng-scope" ng-repeat="(subKey,subLimit) in limit.limits">
+        <div class="control-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Puntata massima giornaliera (EUR)" init="" model="model.userLimit.product_types[key].limit_groups[keyLimit].limits[subKey].value" require="false" min="0" max="1000" regexp="[0-9]{1,8}" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-pristine ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required"><label class="spansm-12 control-label"><font><font>Daily maximum stake (EUR) </font></font><span ng-show="false" class="ng-hide"><font><font>*</font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Puntata massima giornaliera (EUR)" ng-maxlength="1000" ng-minlength="0" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="[0-9]{1,8}" ng-model="model" ng-disabled="" ng-init="model = init" class="input-block-level ng-pristine ng-untouched ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="Puntata massima giornaliera (EUR)" ng-required="false"><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+    </div><!-- end ngRepeat: (subKey,subLimit) in limit.limits --><div class="span3 ng-scope" ng-repeat="(subKey,subLimit) in limit.limits">
+        <div class="control-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Puntata massima settimanale (EUR)" init="" model="model.userLimit.product_types[key].limit_groups[keyLimit].limits[subKey].value" require="false" min="0" max="1000" regexp="[0-9]{1,8}" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-pristine ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required"><label class="spansm-12 control-label"><font><font>Maximum weekly stake (EUR) </font></font><span ng-show="false" class="ng-hide"><font><font>*</font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Puntata massima settimanale (EUR)" ng-maxlength="1000" ng-minlength="0" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="[0-9]{1,8}" ng-model="model" ng-disabled="" ng-init="model = init" class="input-block-level ng-pristine ng-untouched ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="Puntata massima settimanale (EUR)" ng-required="false"><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+    </div><!-- end ngRepeat: (subKey,subLimit) in limit.limits --><div class="span3 ng-scope" ng-repeat="(subKey,subLimit) in limit.limits">
+        <div class="control-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Puntata massima mensile (EUR)" init="" model="model.userLimit.product_types[key].limit_groups[keyLimit].limits[subKey].value" require="false" min="0" max="1000" regexp="[0-9]{1,8}" spanlabel="spansm-12" spaninput="spansm-12"><ng-form name="fieldForm" class="ng-pristine ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required"><label class="spansm-12 control-label"><font><font>Maximum monthly installment (EUR) </font></font><span ng-show="false" class="ng-hide"><font><font>*</font></font></span></label><div class="spansm-12"><input type="text" autocomplete="off" name="Puntata massima mensile (EUR)" ng-maxlength="1000" ng-minlength="0" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="[0-9]{1,8}" ng-model="model" ng-disabled="" ng-init="model = init" class="input-block-level ng-pristine ng-untouched ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="Puntata massima mensile (EUR)" ng-required="false"><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+    </div><!-- end ngRepeat: (subKey,subLimit) in limit.limits -->
+</div><!-- end ngRepeat: (keyLimit,limit) in model.userLimit.product_types[key].limit_groups --></div>
                             </div>
                             <div class="row-fluid">
                                 <div class="span12">
-                                    <button type="submit" class="btn btn-primary pull-right"><font><font>
+                                    <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary pull-right"><font><font>
                                         ND: Save
                                     </font></font></button>
                                 </div>
@@ -203,7 +198,7 @@
                         </form>
 					</div>
 
-                </div>
+                </div><!-- end ngRepeat: tab in tabset.tabs -->
   </div>
 </div>
         </div>
@@ -213,4 +208,4 @@
 </div>
 </div>
 </div>
-                {% endblock Skweb_content %}
+                </div>
