@@ -1,21 +1,15 @@
 #!/usr/bin/env node
 
-const express = require("express");
-const bodyparser = require("body-parser");
 const cheerio = require("cheerio");
-const tinyreq = require("tinyreq");
 const fs = require("fs");
-const R = require("ramda");
-const cluster = require("cluster");
 
-const log = require("log4js").getLogger("main");
+const log = require("log4js").getLogger("node-tool");
 
 const ID = "#uiViewContainer";
 const PROPERTIES = require("./properties");
 const NGREGEX = new RegExp("ng-");
 const BUILD_PATH = PROPERTIES.BUILD_PATH + "/easyBet/templates";
 const REGEX_ATTRIBUTES = PROPERTIES.REGEX_ATTRIBUTES;
-const ListeningPort = 10000;
 
 function parseHTML(data, path) {
 
@@ -43,7 +37,7 @@ function parseHTML(data, path) {
         let mainContent = $(ID).html();
 
         if (!mainContent) {
-            reject("mainContent undefined");
+            reject("main content undefined");
         }
 
         fs.writeFile(BUILD_PATH + path + "index.html", mainContent, (err) => {
@@ -51,68 +45,24 @@ function parseHTML(data, path) {
                 reject(err);
             }
 
-            resolve("File written");
+            resolve("File(s) written");
         });
 
     });
 
 }
 
-function ServerListening(req, res, next) {
-    log.info(" [listening on port: " + ListeningPort + "].");
-};
-
-function uploadHandler(req, res, next) {
-    let html = req.body.text;
-    let url = req.body.url;
-    log.info("params :", html, url);
-
-    parseHTML(html, url)
-        .then((data) => {
-            log.info(data);
-            res.status(200).send(data);
-            return next();
-        })
-        .catch((error) => {
-            log.error(error);
-            res.status(500).send(null);
-            return next();
-        });
+if (!process.argv[2]) {
+    log.error("Please insert a path")
+    return;
 }
 
-if (cluster.isMaster) {
+let file = process.argv[2];
 
-    cluster.on("online", worker => {
-        log.info("Worker " + worker.process.pid + " is online")
+parseHTML(file)
+    .then((results) => {
+        log.info(results);
     })
-
-    cluster.on("exit", (worker, code, signal) => {
-        log.info("Worker " + worker.process.pid + " died with code: " + code + ", and signal: " + signal)
-        log.info("Starting a new worker")
-        cluster.fork()
+    .catch((error) => {
+        log.error(error);
     })
-
-    let numWorkers = require("os").cpus().length
-
-    for (let i = 0; i < numWorkers; i++)
-        cluster.fork()
-
-} else {
-
-    const app = express();
-
-    app.use(bodyparser.json({
-        limit: "60mb"
-    }));
-
-    app.use(bodyparser.urlencoded({
-        limit: "60mb",
-        extended: false
-    }));
-
-    app.use(express.static(__dirname + "/static"));
-
-    let server = app.listen(ListeningPort, "0.0.0.0", ServerListening);
-
-    app.post("/updateFile/", uploadHandler);
-}
