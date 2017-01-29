@@ -89,7 +89,7 @@ let args = process.argv.splice(2);
 let filesDictionary = {};
 
 args.forEach((arg) => {
-    if (!arg.hasOwnProperty(arg)) {
+    if (!filesDictionary.hasOwnProperty(arg)) {
         filesDictionary[arg] = OPENED;
         parseHTML(arg)
             .then((results) => {
@@ -99,5 +99,4 @@ args.forEach((arg) => {
                 log.error(error);
             });
     }
-
 });
