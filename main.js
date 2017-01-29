@@ -86,7 +86,7 @@ if (!process.argv[2]) {
 let args = process.argv.splice(2);
 
 args.forEach((arg) => {
-  parseHTML(file)
+  parseHTML(arg)
       .then((results) => {
           log.info(results);
       })
