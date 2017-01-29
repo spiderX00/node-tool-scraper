@@ -15,6 +15,7 @@ const REGEX_ATTRIBUTES = PROPERTIES.REGEX_ATTRIBUTES;
 const REGEX_CLASSES = PROPERTIES.REGEX_CLASSES;
 const REGEX_COMMENT = new RegExp(/<!--(.*?)-->/, "g");
 const COMMENT_NODE = "comment";
+const OPENED = true;
 
 function parseHTML(path) {
 
@@ -61,15 +62,16 @@ function parseHTML(path) {
                   {%if(is_granted("ROLE_ADMIN"))%}
                       {{ render(controller("SkwebAdminpageBundle:AdminCrud:menuAdmin",{'id_c':id_c})) }}
                   {%endif%}`,
-                  mainContent,
-               `{% endblock Skweb_content %}`].join('').trim();
+                mainContent,
+                `{% endblock Skweb_content %}`
+            ].join('').trim();
 
             fs.writeFile(path, util.format(htmlContent.replace(REGEX_COMMENT, ``)), (err) => {
                 if (err) {
                     reject(err);
                 }
 
-                resolve(path +":: File(s) written");
+                resolve(path + ":: File(s) written");
             });
 
         });
@@ -84,13 +86,18 @@ if (!process.argv[2]) {
 }
 
 let args = process.argv.splice(2);
+let filesDictionary = {};
 
 args.forEach((arg) => {
-  parseHTML(arg)
-      .then((results) => {
-          log.info(results);
-      })
-      .catch((error) => {
-          log.error(error);
-      });
+    if (!arg.hasOwnProperty(arg)) {
+        filesDictionary[arg] = OPENED;
+        parseHTML(arg)
+            .then((results) => {
+                log.info(results);
+            })
+            .catch((error) => {
+                log.error(error);
+            });
+    }
+
 });
