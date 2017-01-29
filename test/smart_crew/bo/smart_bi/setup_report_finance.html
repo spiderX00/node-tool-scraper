@@ -1,0 +1,133 @@
+﻿<div id="uiViewContainer" class="col-md-12">
+                    <!-- uiView: mainView --><div ui-view="mainView" class="page-content page-relative nga-default nga-stagger nga-fade ng-scope" style=""><div class="ng-scope">
+    <panel binding-field="'Impostazioni (ND)'" class="ng-isolate-scope"> <div class="panel panel-default"><div class="panel-heading " ng-dblclick="$event.preventDefault();" ng-click="show1()"><h3 class="panel-title ng-binding"><font><font>Settings (ND)</font></font></h3></div><div class="panel-body " ng-transclude="" ng-class="{'collapse': model.collapsed === true}">
+
+            <field-set-panel binding-field="Tasse prodotti" class="ng-scope ng-isolate-scope"><fieldset class="scheduler-border"><legend class="scheduler-border-label ng-binding"><i class=""></i><font><font> product taxes</font></font></legend><div ng-transclude="">
+                <div class="row ng-scope">
+                    <div class="col-md-2">
+                        <div class="form-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.fee_tax.product_id" col-label="col-sm-12" col-input="col-sm-12" name="Prodotto" binding-field="model.page.page_data.product_list.data" require="true"><ng-form name="fieldForm" class="ng-pristine ng-invalid ng-invalid-required"><label class="col-sm-12 control-label"><font><font>product </font></font><span ng-show="true" class=""><font><font>*</font></font></span></label><div class="col-sm-12"><select class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" name="Prodotto" ng-disabled="" ng-init="bind = init" ng-model="bind" ng-required="true" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" ng-options="v.id as v.name for (k, v) in bindingField" required="required"><option value="" class="" selected="selected"></option><option label="Casino Live" value="number:3"><font><font>Casino Live</font></font></option><option label="Casino NetEnt" value="number:4"><font><font>Casino NetEnt</font></font></option><option label="Casino WM" value="number:5"><font><font>Casino WM</font></font></option><option label="Casino Quick Fire" value="number:6"><font><font>Casino Quick Fire</font></font></option><option label="Bingo" value="number:7"><font><font>Bingo</font></font></option><option label="Casino Live Pro" value="number:8"><font><font>Casino Live Pro</font></font></option><option label="Betting Exchange" value="number:9"><font><font>Betting Exchange</font></font></option><option label="Skill Games Active" value="number:10"><font><font>Skill Games Active</font></font></option></select><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.fee_tax.fee_base" col-label="col-sm-12" col-input="col-sm-12" name="Base calcolo" binding-field="model.page.page_data.tax_base_calc.data" require="true"><ng-form name="fieldForm" class="ng-pristine ng-invalid ng-invalid-required"><label class="col-sm-12 control-label"><font><font>Calculation base </font></font><span ng-show="true" class=""><font><font>*</font></font></span></label><div class="col-sm-12"><select class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" name="Base calcolo" ng-disabled="" ng-init="bind = init" ng-model="bind" ng-required="true" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" ng-options="v.id as v.name for (k, v) in bindingField" required="required"><option value="" class="" selected="selected"></option><option label="profitto" value="number:1"><font><font>profit</font></font></option><option label="volume" value="number:2"><font><font>volume</font></font></option><option label="Costo fisso annuale" value="number:3"><font><font>Annual fixed cost</font></font></option></select><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Tassa" model="model.fee_tax.fee_value" require="true" min="" type="number" max="" regexp="" col-label="col-sm-12" col-input="col-sm-12"><ng-form name="fieldForm" class="ng-pristine ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength"><label class="col-sm-12 control-label"><font><font>fee </font></font><span ng-show="true" class=""><font><font>*</font></font></span></label><div class="col-sm-12"><input type="number" autocomplete="off" name="Tassa" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="" ng-model="model" ng-disabled="" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" placeholder="Tassa" ng-required="true" required="required"><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" style="margin-top:22px;" class="btn btn-primary ng-binding" ng-class="{ disabled: userAgentProfileForm.$invalid }" ng-click="saveFee('tax')"><font><font>
+                            add
+                        </font></font></button>
+                    </div>
+                </div>
+
+                <table class="table ng-scope">
+                    <tbody>
+                        <!-- ngRepeat: item in model.listTypeTax track by $index --><tr ng-repeat="item in model.listTypeTax track by $index" class="ng-scope">
+                            <td style="width: 150px" class="ng-binding"><font><font>Casino Live</font></font></td>
+                            <td style="width: 150px" class="ng-binding"><font><font>profit</font></font></td>
+                            <td style="width: 150px" class="ng-binding"><font><font>20,00</font></font></td>
+                            <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee('tax',$index,item.id)"></i></div></td>
+                        </tr><!-- end ngRepeat: item in model.listTypeTax track by $index --><tr ng-repeat="item in model.listTypeTax track by $index" class="ng-scope">
+                            <td style="width: 150px" class="ng-binding"><font><font>Casino NetEnt</font></font></td>
+                            <td style="width: 150px" class="ng-binding"><font><font>profit</font></font></td>
+                            <td style="width: 150px" class="ng-binding"><font><font>20,00</font></font></td>
+                            <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee('tax',$index,item.id)"></i></div></td>
+                        </tr><!-- end ngRepeat: item in model.listTypeTax track by $index --><tr ng-repeat="item in model.listTypeTax track by $index" class="ng-scope">
+                            <td style="width: 150px" class="ng-binding"><font><font>Casino WM</font></font></td>
+                            <td style="width: 150px" class="ng-binding"><font><font>profit</font></font></td>
+                            <td style="width: 150px" class="ng-binding"><font><font>20,00</font></font></td>
+                            <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee('tax',$index,item.id)"></i></div></td>
+                        </tr><!-- end ngRepeat: item in model.listTypeTax track by $index --><tr ng-repeat="item in model.listTypeTax track by $index" class="ng-scope">
+                            <td style="width: 150px" class="ng-binding"><font><font>Bingo</font></font></td>
+                            <td style="width: 150px" class="ng-binding"><font><font>volume</font></font></td>
+                            <td style="width: 150px" class="ng-binding"><font><font>12,00</font></font></td>
+                            <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee('tax',$index,item.id)"></i></div></td>
+                        </tr><!-- end ngRepeat: item in model.listTypeTax track by $index --><tr ng-repeat="item in model.listTypeTax track by $index" class="ng-scope">
+                            <td style="width: 150px" class="ng-binding"></td>
+                            <td style="width: 150px" class="ng-binding"><font><font>profit</font></font></td>
+                            <td style="width: 150px" class="ng-binding"><font><font>20,00</font></font></td>
+                            <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee('tax',$index,item.id)"></i></div></td>
+                        </tr><!-- end ngRepeat: item in model.listTypeTax track by $index -->
+                    </tbody>
+                </table>
+            </div></fieldset></field-set-panel>
+
+
+            <field-set-panel binding-field="Costi provider" class="ng-scope ng-isolate-scope"><fieldset class="scheduler-border"><legend class="scheduler-border-label ng-binding"><i class=""></i><font><font> provider costs</font></font></legend><div ng-transclude="">
+                <div class="row ng-scope">
+                    <div class="col-md-2">
+                        <div class="form-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.fee_provider.product_id" col-label="col-sm-12" col-input="col-sm-12" name="Prodotto" binding-field="model.page.page_data.product_list.data" require="true"><ng-form name="fieldForm" class="ng-pristine ng-invalid ng-invalid-required"><label class="col-sm-12 control-label"><font><font>product </font></font><span ng-show="true" class=""><font><font>*</font></font></span></label><div class="col-sm-12"><select class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" name="Prodotto" ng-disabled="" ng-init="bind = init" ng-model="bind" ng-required="true" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" ng-options="v.id as v.name for (k, v) in bindingField" required="required"><option value="" class="" selected="selected"></option><option label="Casino Live" value="number:3"><font><font>Casino Live</font></font></option><option label="Casino NetEnt" value="number:4"><font><font>Casino NetEnt</font></font></option><option label="Casino WM" value="number:5"><font><font>Casino WM</font></font></option><option label="Casino Quick Fire" value="number:6"><font><font>Casino Quick Fire</font></font></option><option label="Bingo" value="number:7"><font><font>Bingo</font></font></option><option label="Casino Live Pro" value="number:8"><font><font>Casino Live Pro</font></font></option><option label="Betting Exchange" value="number:9"><font><font>Betting Exchange</font></font></option><option label="Skill Games Active" value="number:10"><font><font>Skill Games Active</font></font></option></select><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.fee_provider.fee_base" col-label="col-sm-12" col-input="col-sm-12" name="Base calcolo" binding-field="model.page.page_data.tax_base_calc.data" require="true"><ng-form name="fieldForm" class="ng-pristine ng-invalid ng-invalid-required"><label class="col-sm-12 control-label"><font><font>Calculation base </font></font><span ng-show="true" class=""><font><font>*</font></font></span></label><div class="col-sm-12"><select class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" name="Base calcolo" ng-disabled="" ng-init="bind = init" ng-model="bind" ng-required="true" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" ng-options="v.id as v.name for (k, v) in bindingField" required="required"><option value="" class="" selected="selected"></option><option label="profitto" value="number:1"><font><font>profit</font></font></option><option label="volume" value="number:2"><font><font>volume</font></font></option><option label="Costo fisso annuale" value="number:3"><font><font>Annual fixed cost</font></font></option></select><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Tassa" model="model.fee_provider.fee_value" require="true" min="" type="number" max="" regexp="" col-label="col-sm-12" col-input="col-sm-12"><ng-form name="fieldForm" class="ng-pristine ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength"><label class="col-sm-12 control-label"><font><font>fee </font></font><span ng-show="true" class=""><font><font>*</font></font></span></label><div class="col-sm-12"><input type="number" autocomplete="off" name="Tassa" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="" ng-model="model" ng-disabled="" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" placeholder="Tassa" ng-required="true" required="required"><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" style="margin-top:22px;" class="btn btn-primary ng-binding" ng-click="saveFee('provider')"><font><font>
+                            add
+                        </font></font></button>
+                    </div>
+                </div>
+                <table class="table ng-scope">
+                    <tbody>
+                    <!-- ngRepeat: item in model.listTypeProvider --><tr ng-repeat="item in model.listTypeProvider" class="ng-scope">
+                        <td style="width: 150px" class="ng-binding"><font><font>Casino NetEnt</font></font></td>
+                        <td style="width: 150px" class="ng-binding"><font><font>profit</font></font></td>
+                        <td style="width: 150px" class="ng-binding"><font><font>15,00</font></font></td>
+                        <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee('provider',$index,item.id)"></i></div></td>
+                    </tr><!-- end ngRepeat: item in model.listTypeProvider --><tr ng-repeat="item in model.listTypeProvider" class="ng-scope">
+                        <td style="width: 150px" class="ng-binding"><font><font>Casino WM</font></font></td>
+                        <td style="width: 150px" class="ng-binding"><font><font>profit</font></font></td>
+                        <td style="width: 150px" class="ng-binding"><font><font>13,50</font></font></td>
+                        <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee('provider',$index,item.id)"></i></div></td>
+                    </tr><!-- end ngRepeat: item in model.listTypeProvider --><tr ng-repeat="item in model.listTypeProvider" class="ng-scope">
+                        <td style="width: 150px" class="ng-binding"></td>
+                        <td style="width: 150px" class="ng-binding"><font><font>profit</font></font></td>
+                        <td style="width: 150px" class="ng-binding"><font><font>12,50</font></font></td>
+                        <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee('provider',$index,item.id)"></i></div></td>
+                    </tr><!-- end ngRepeat: item in model.listTypeProvider --><tr ng-repeat="item in model.listTypeProvider" class="ng-scope">
+                        <td style="width: 150px" class="ng-binding"><font><font>Casino Live</font></font></td>
+                        <td style="width: 150px" class="ng-binding"><font><font>profit</font></font></td>
+                        <td style="width: 150px" class="ng-binding"><font><font>12,00</font></font></td>
+                        <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee('provider',$index,item.id)"></i></div></td>
+                    </tr><!-- end ngRepeat: item in model.listTypeProvider --><tr ng-repeat="item in model.listTypeProvider" class="ng-scope">
+                        <td style="width: 150px" class="ng-binding"><font><font>Bingo</font></font></td>
+                        <td style="width: 150px" class="ng-binding"><font><font>profit</font></font></td>
+                        <td style="width: 150px" class="ng-binding"><font><font>13,00</font></font></td>
+                        <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee('provider',$index,item.id)"></i></div></td>
+                    </tr><!-- end ngRepeat: item in model.listTypeProvider -->
+                    </tbody>
+                </table>
+            </div></fieldset></field-set-panel>
+
+            <field-set-panel binding-field="Costi personalizzati" class="ng-scope ng-isolate-scope"><fieldset class="scheduler-border"><legend class="scheduler-border-label ng-binding"><i class=""></i><font><font> personalized costs</font></font></legend><div ng-transclude="">
+                <div class="row ng-scope">
+                    <div class="col-md-2">
+                        <div class="form-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Descrizione" model="model.fee_custom.fee_name" require="true" min="" max="" regexp="" col-label="col-sm-12" col-input="col-sm-12"><ng-form name="fieldForm" class="ng-pristine ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength"><label class="col-sm-12 control-label"><font><font>Description </font></font><span ng-show="true" class=""><font><font>*</font></font></span></label><div class="col-sm-12"><input type="text" autocomplete="off" name="Descrizione" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="" ng-model="model" ng-disabled="" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" placeholder="Descrizione" ng-required="true" required="required"><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Importo annuale" model="model.fee_custom.fee_value" require="true" min="" type="number" max="" regexp="" col-label="col-sm-12" col-input="col-sm-12"><ng-form name="fieldForm" class="ng-pristine ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength"><label class="col-sm-12 control-label"><font><font>Annual amount </font></font><span ng-show="true" class=""><font><font>*</font></font></span></label><div class="col-sm-12"><input type="number" autocomplete="off" name="Importo annuale" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="" ng-model="model" ng-disabled="" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" placeholder="Importo annuale" ng-required="true" required="required"><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" style="margin-top:22px;" class="btn btn-primary ng-binding" ng-class="{ disabled: userAgentProfileForm.$invalid }" ng-click="saveCustom()"><font><font>
+                            add
+                        </font></font></button>
+                    </div>
+                </div>
+                <table class="table ng-scope">
+                    <tbody>
+                    <!-- ngRepeat: item in model.listTypeCustom --><tr ng-repeat="item in model.listTypeCustom" class="ng-scope">
+                        <td style="width: 150px" class="ng-binding"><font><font>Management costs</font></font></td>
+                        <td style="width: 150px" class="ng-binding"><font><font>250,000.00</font></font></td>
+                        <td><div class="pull-right"><i class="icon-cancel" ng-click="removeFee('custom',$index,item.id)"></i></div></td>
+                    </tr><!-- end ngRepeat: item in model.listTypeCustom -->
+
+                    </tbody>
+                </table>
+            </div></fieldset></field-set-panel>
+
+    </div></div></panel>
+</div></div>
+                </div>

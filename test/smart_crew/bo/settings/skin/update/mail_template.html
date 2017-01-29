@@ -1,0 +1,177 @@
+﻿<div id="uiViewContainer" class="col-md-12">
+                    <!-- uiView: mainView --><div ui-view="mainView" class="page-content page-relative nga-default nga-stagger nga-fade ng-scope" style=""><div class="row ng-scope">
+    <!-- uiView: subView --><div ui-view="subView" class="ng-scope"><!-- ngInclude: 'src/backend/settings/skinManagement/common/navbar/navbar.html' --><div ng-include="'src/backend/settings/skinManagement/common/navbar/navbar.html'" class="ng-scope"><div ng-controller="navSkinCtrl" class="ng-scope">
+    <div class="scrtabs-tab-container" scrolling-tabs-wrapper=""> <div class="scrtabs-tab-scroll-arrow scrtabs-js-tab-scroll-arrow-left" style="display: none;"><span class="glyphicon glyphicon-chevron-left"></span></div>   <div class="scrtabs-tabs-fixed-container" style="width: 1026px;">     <div class="scrtabs-tabs-movable-container" ng-transclude="" style="width: 1026px; left: 0px;">
+        <div class="tabset-subpage ng-scope ng-isolate-scope">
+  <ul class="nav nav-tabs" ng-class="{'nav-stacked': vertical, 'nav-justified': justified}" ng-transclude="">
+            <!-- ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)" style="">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
+                    <i class=""></i><font><font> Profile
+                </font></font></uib-tab-heading></a>
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)" style="">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
+                    <i class=""></i><font><font> limits
+                </font></font></uib-tab-heading></a>
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)" style="">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
+                    <i class=""></i><font><font> Game Summary
+                </font></font></uib-tab-heading></a>
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)" style="">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
+                    <i class=""></i><font><font> financial report
+                </font></font></uib-tab-heading></a>
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)" style="">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
+                    <i class=""></i><font><font class=""> Audit Trail
+                </font></font></uib-tab-heading></a>
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)" style="">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
+                    <i class=""></i><font><font> Mail settings
+                </font></font></uib-tab-heading></a>
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope active" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)" style="">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
+                    <i class=""></i><font><font> template Mail
+                </font></font></uib-tab-heading></a>
+</li><!-- end ngRepeat: (key,tab) in model.nav -->
+        </ul>
+  <div class="tab-content">
+    <!-- ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab" style="">
+    
+                
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab" style="">
+    
+                
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab" style="">
+    
+                
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab" style="">
+    
+                
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab" style="">
+    
+                
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab" style="">
+    
+                
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope active" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab" style="">
+    
+                
+            </div><!-- end ngRepeat: tab in tabset.tabs -->
+  </div>
+</div>
+    </div>   </div> <div class="scrtabs-tab-scroll-arrow scrtabs-js-tab-scroll-arrow-right" style="display: none;"><span class="glyphicon glyphicon-chevron-right"></span></div> <div class="scrtabs-tab-content-outside-movable-container" ng-transclude="">
+        <div class="tabset-subpage ng-scope ng-isolate-scope">
+  <ul class="nav nav-tabs" ng-class="{'nav-stacked': vertical, 'nav-justified': justified}" ng-transclude="">
+            <!-- ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope active" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
+                    <i class=""></i><font><font> Profile
+                </font></font></uib-tab-heading></a>
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
+                    <i class=""></i><font><font> limits
+                </font></font></uib-tab-heading></a>
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
+                    <i class=""></i><font><font> Game Summary
+                </font></font></uib-tab-heading></a>
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
+                    <i class=""></i><font><font> financial report
+                </font></font></uib-tab-heading></a>
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
+                    <i class=""></i><font><font> Audit Trail
+                </font></font></uib-tab-heading></a>
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
+                    <i class=""></i><font><font> Mail settings
+                </font></font></uib-tab-heading></a>
+</li><!-- end ngRepeat: (key,tab) in model.nav --><li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-isolate-scope" ng-repeat="(key,tab) in model.nav" active="tab.active" select="moveTo(key)">
+  <a href="" ng-click="select()" class="nav-link ng-binding" uib-tab-heading-transclude=""><uib-tab-heading class="ng-binding ng-scope">
+                    <i class=""></i><font><font> template Mail
+                </font></font></uib-tab-heading></a>
+</li><!-- end ngRepeat: (key,tab) in model.nav -->
+        </ul>
+  <div class="tab-content">
+    <!-- ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope active" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
+    
+                
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
+    
+                
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
+    
+                
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
+    
+                
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
+    
+                
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
+    
+                
+            </div><!-- end ngRepeat: tab in tabset.tabs --><div class="tab-pane ng-scope" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab">
+    
+                
+            </div><!-- end ngRepeat: tab in tabset.tabs -->
+  </div>
+</div>
+    </div></div>
+</div>
+</div>
+<!-- uiView: subViewSecond --><div ui-view="subViewSecond" class="ng-scope" style=""><panel classarea="padding-nospace" binding-field="'Template Mail'" initial-state="open" class="ng-scope ng-isolate-scope"> <div class="panel panel-default"><div class="panel-heading " ng-dblclick="$event.preventDefault();" ng-click="show1()"><h3 class="panel-title ng-binding"><font><font>template Mail</font></font></h3></div><div class="panel-body " ng-transclude="" ng-class="{'collapse': model.collapsed === true}">
+    <div class="row ng-scope">
+        <div class="col-sm-4">
+            <table class="table table-striped table-bordered table-hover">
+                <tbody>
+                <!-- ngRepeat: item in model.page.page_value --><tr ng-repeat="item in model.page.page_value" style="cursor: pointer" ng-class="{info: item.id == model.templateMail.id}" ng-click="getData(item.id)" class="ng-scope">
+                    <td><span class="ng-binding">account_near_expire_52</span></td>
+                    <td><span class="text-primary text-bold ng-binding"><font><font>1/1</font></font></span></td>
+                </tr><!-- end ngRepeat: item in model.page.page_value --><tr ng-repeat="item in model.page.page_value" style="cursor: pointer" ng-class="{info: item.id == model.templateMail.id}" ng-click="getData(item.id)" class="ng-scope">
+                    <td><span class="ng-binding">account_near_expire_mail</span></td>
+                    <td><span class="text-primary text-bold ng-binding"><font><font>1/1</font></font></span></td>
+                </tr><!-- end ngRepeat: item in model.page.page_value --><tr ng-repeat="item in model.page.page_value" style="cursor: pointer" ng-class="{info: item.id == model.templateMail.id}" ng-click="getData(item.id)" class="ng-scope">
+                    <td><span class="ng-binding">request_username_mail</span></td>
+                    <td><span class="text-primary text-bold ng-binding"><font><font>1/1</font></font></span></td>
+                </tr><!-- end ngRepeat: item in model.page.page_value --><tr ng-repeat="item in model.page.page_value" style="cursor: pointer" ng-class="{info: item.id == model.templateMail.id}" ng-click="getData(item.id)" class="ng-scope">
+                    <td><span class="ng-binding">welcome_mail</span></td>
+                    <td><span class="text-primary text-bold ng-binding"><font><font>1/1</font></font></span></td>
+                </tr><!-- end ngRepeat: item in model.page.page_value --><tr ng-repeat="item in model.page.page_value" style="cursor: pointer" ng-class="{info: item.id == model.templateMail.id}" ng-click="getData(item.id)" class="ng-scope">
+                    <td><span class="ng-binding">account_near_expire_31</span></td>
+                    <td><span class="text-primary text-bold ng-binding">1/1</span></td>
+                </tr><!-- end ngRepeat: item in model.page.page_value --><tr ng-repeat="item in model.page.page_value" style="cursor: pointer" ng-class="{info: item.id == model.templateMail.id}" ng-click="getData(item.id)" class="ng-scope">
+                    <td><span class="ng-binding">account_recovery</span></td>
+                    <td><span class="text-primary text-bold ng-binding">1/1</span></td>
+                </tr><!-- end ngRepeat: item in model.page.page_value --><tr ng-repeat="item in model.page.page_value" style="cursor: pointer" ng-class="{info: item.id == model.templateMail.id}" ng-click="getData(item.id)" class="ng-scope">
+                    <td><span class="ng-binding">request_pass_mail</span></td>
+                    <td><span class="text-primary text-bold ng-binding">1/1</span></td>
+                </tr><!-- end ngRepeat: item in model.page.page_value -->
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-8">
+            <form ng-class="{ 'show-errors': showErrors }" ng-submit="save()" name="form" class="css-form ng-pristine ng-valid" novalidate="">
+                <field-set-panel ico="icon-th-list" binding-field="contenuto mail" class="ng-isolate-scope"><fieldset class="scheduler-border"><legend class="scheduler-border-label ng-binding"><i class="icon-th-list"></i> contenuto mail</legend><div ng-transclude="">
+                    <!-- ngRepeat: (key,item) in model.page.page_data.language --><div class="panel panel-primary ng-scope" ng-repeat="(key,item) in model.page.page_data.language">
+                        <div class="panel-heading"><h3 class="panel-title ng-binding">Italiano</h3></div>
+                        <div class="panel-body" style="padding: 0px">
+                            <textarea style="width:100%; height:200px;" ng-model="model.templateMail.mail_content[key].text" class="ng-pristine ng-untouched ng-valid"></textarea>
+                        </div>
+                    </div><!-- end ngRepeat: (key,item) in model.page.page_data.language -->
+                </div></fieldset></field-set-panel>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right ng-binding">
+                            Salva
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div></div></panel></div>
+</div>
+</div>
+</div>
+                </div>

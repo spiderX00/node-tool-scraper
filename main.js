@@ -6,11 +6,14 @@ const util = require("util");
 
 const log = require("log4js").getLogger("node-tool");
 
-const ID = "#uiViewContainer";
+const ID = "#main";
+const CONTAINER_ID = "#uiViewContainer";
 const PROPERTIES = require("./properties");
 const NGREGEX = new RegExp("ng-");
 const BUILD_PATH = PROPERTIES.BUILD_PATH;
 const REGEX_ATTRIBUTES = PROPERTIES.REGEX_ATTRIBUTES;
+const REGEX_CLASSES = PROPERTIES.REGEX_CLASSES;
+const REGEX_COMMENT = new RegExp(/<!--(.*?)-->/, "g");
 const COMMENT_NODE = "comment";
 
 function parseHTML(path) {
@@ -37,31 +40,31 @@ function parseHTML(path) {
                 });
             });
 
-            $("*").contents().each(() => {
-                if (this.nodeType === COMMENT_NODE) {
-                    $(this).remove();
-                }
+            $("*").each((index, el) => {
+                let element = $(el);
+                REGEX_CLASSES.forEach((regClass) => {
+                    element.removeClass(regClass);
+                });
             });
 
-            $(ID).addClass("main-content");
+            $(CONTAINER_ID).addClass("main-content");
             let mainContent = $(ID).html();
 
             if (!mainContent) {
                 reject("main content undefined");
             }
 
-            let htmlContent = `
+            let htmlContent = [`
               {% extends "SkwebIncludeBundle:Include:base_admin.html.twig" %}
                 {% block Skweb_content %}
                   {%set id_c=app.request.query.get("id_c")%}
                   {%if(is_granted("ROLE_ADMIN"))%}
                       {{ render(controller("SkwebAdminpageBundle:AdminCrud:menuAdmin",{'id_c':id_c})) }}
-                  {%endif%}
-            ` + mainContent + `
-              {% endblock Skweb_content %}
-            `;
+                  {%endif%}`,
+                  mainContent,
+               `{% endblock Skweb_content %}`].join('').trim();
 
-            fs.writeFile(BUILD_PATH + "/result.html", util.format(htmlContent), (err) => {
+            fs.writeFile(path, util.format(htmlContent.replace(REGEX_COMMENT, ``)), (err) => {
                 if (err) {
                     reject(err);
                 }

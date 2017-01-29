@@ -1,0 +1,419 @@
+﻿<div id="uiViewContainer" class="col-md-12">
+                    <!-- uiView: mainView --><div ui-view="mainView" class="page-content page-relative nga-default nga-stagger nga-fade ng-scope" style=""><div class="row ng-scope">
+        <!-- uiView: subView --><div ui-view="subView" class="ng-scope" style="">
+    <panel binding-field="model.page.page_data.page_title" class="ng-scope ng-isolate-scope"> <div class="panel panel-default"><div class="panel-heading " ng-dblclick="$event.preventDefault();" ng-click="show1()"><h3 class="panel-title ng-binding"><font><font>research Administrator</font></font></h3></div><div class="panel-body " ng-transclude="" ng-class="{'collapse': model.collapsed === true}">
+        <form ng-class="{'show-errors': form.$invalid &amp;&amp; form.$submitted}" ng-submit="search()" name="form" class="css-form ng-pristine ng-scope ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" novalidate="">
+            <!-- ngIf: form.$invalid && form.$submitted -->
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" name="Username" model="model.filterData.username" require="false" min="" max="" regexp="" col-label="col-sm-12" col-input="col-sm-12"><ng-form name="fieldForm" class="ng-pristine ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required"><label class="col-sm-12 control-label"><font><font>Username</font></font><span ng-show="false" class="ng-hide"><font><font> * </font></font></span></label><div class="col-sm-12"><input type="text" autocomplete="off" name="Username" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" pattern="" ng-model="model" ng-disabled="" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-ng-max ng-valid-ng-min ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="Username" ng-required="false"><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.website" col-label="col-sm-12" col-input="col-sm-12" name="Skin" binding-field="model.page.page_data.website.data" require="false"><ng-form name="fieldForm" class="ng-pristine ng-valid ng-valid-required"><label class="col-sm-12 control-label">Skin<span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="col-sm-12"><select class="form-control ng-pristine ng-untouched ng-valid ng-valid-required" name="Skin" ng-disabled="" ng-init="bind = init" ng-model="bind" ng-required="false" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" ng-options="v.id as v.name for (k, v) in bindingField"><option value="" class="" selected="selected"></option><option label="HitStars.it" value="number:1"><font><font>HitStars.it</font></font></option><option label="Roombet.it" value="number:2"><font><font>Roombet.it</font></font></option></select><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.admin_category" col-label="col-sm-12" col-input="col-sm-12" name="Categorie" binding-field="model.page.page_data.admin_category.data" require="false"><ng-form name="fieldForm" class="ng-pristine ng-valid ng-valid-required"><label class="col-sm-12 control-label"><font><font>categories</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="col-sm-12"><select class="form-control ng-pristine ng-untouched ng-valid ng-valid-required" name="Categorie" ng-disabled="" ng-init="bind = init" ng-model="bind" ng-required="false" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" ng-options="v.id as v.name for (k, v) in bindingField"><option value="" class="" selected="selected"></option><option label="Gestore Skin" value="number:1"><font><font>Skin manager</font></font></option><option label="SuperAdmin" value="number:2">SuperAdmin</option><option label="Booking" value="number:3">Booking</option><option label="Limitato" value="number:4"><font><font>Limited</font></font></option><option label="Booking Plus" value="number:5">Booking Plus</option><option label="Booking Low" value="number:6">Booking Low</option></select><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" bind="model.filterData.admin_status" col-label="col-sm-12" col-input="col-sm-12" name="Stato Amministratore" binding-field="model.page.page_data.admin_status.data" require="false"><ng-form name="fieldForm" class="ng-pristine ng-valid ng-valid-required"><label class="col-sm-12 control-label"><font><font>Director State</font></font><span ng-show="false" class="ng-hide"><font><font> *</font></font></span></label><div class="col-sm-12"><select class="form-control ng-pristine ng-untouched ng-valid ng-valid-required" name="Stato Amministratore" ng-disabled="" ng-init="bind = init" ng-model="bind" ng-required="false" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" ng-options="v.id as v.name for (k, v) in bindingField"><option value="" class="" selected="selected"></option><option label="Enabled" value="number:1"><font><font>Enabled</font></font></option><option label="Disabled" value="number:2"><font><font>Disabled</font></font></option></select><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary pull-right ng-binding"><font><font>
+                        FIND
+                    </font></font></button>
+                </div>
+            </div>
+        </form>
+    </div></div></panel>
+
+    <panel binding-field="model.page.page_data.total_result.title" class="ng-scope ng-isolate-scope"> <div class="panel panel-default"><div class="panel-heading " ng-dblclick="$event.preventDefault();" ng-click="show1()"><h3 class="panel-title ng-binding"><font><font>TOTAL RESULTS</font></font></h3></div><div class="panel-body " ng-transclude="" ng-class="{'collapse': model.collapsed === true}">
+        <div class="table-responsive ng-scope">
+            <table ng-table="tableParams" class="table table-striped table-bordered table-hover ng-scope ng-table"><!-- ngInclude: templates.header --><thead ng-include="templates.header" class="ng-scope"><tr class="ng-scope"> <!-- ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-class="{ 'sortable': parse(column.sortable), 'sort-asc': params.sorting()[parse(column.sortable)]=='asc', 'sort-desc': params.sorting()[parse(column.sortable)]=='desc' }" ng-click="sortBy(column, $event)" ng-show="column.show(this)" ng-init="template=column.headerTemplateURL(this)" class="header  sortable"> <!-- ngIf: !template --><div ng-if="!template" ng-show="!template" ng-bind="parse(column.title)" class="ng-binding ng-scope"><font><font>Username</font></font></div><!-- end ngIf: !template --> <!-- ngIf: template --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-class="{ 'sortable': parse(column.sortable), 'sort-asc': params.sorting()[parse(column.sortable)]=='asc', 'sort-desc': params.sorting()[parse(column.sortable)]=='desc' }" ng-click="sortBy(column, $event)" ng-show="column.show(this)" ng-init="template=column.headerTemplateURL(this)" class="header  sortable"> <!-- ngIf: !template --><div ng-if="!template" ng-show="!template" ng-bind="parse(column.title)" class="ng-binding ng-scope"><font><font>Name</font></font></div><!-- end ngIf: !template --> <!-- ngIf: template --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-class="{ 'sortable': parse(column.sortable), 'sort-asc': params.sorting()[parse(column.sortable)]=='asc', 'sort-desc': params.sorting()[parse(column.sortable)]=='desc' }" ng-click="sortBy(column, $event)" ng-show="column.show(this)" ng-init="template=column.headerTemplateURL(this)" class="header  sortable"> <!-- ngIf: !template --><div ng-if="!template" ng-show="!template" ng-bind="parse(column.title)" class="ng-binding ng-scope"><font><font>surname</font></font></div><!-- end ngIf: !template --> <!-- ngIf: template --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-class="{ 'sortable': parse(column.sortable), 'sort-asc': params.sorting()[parse(column.sortable)]=='asc', 'sort-desc': params.sorting()[parse(column.sortable)]=='desc' }" ng-click="sortBy(column, $event)" ng-show="column.show(this)" ng-init="template=column.headerTemplateURL(this)" class="header  sortable"> <!-- ngIf: !template --><div ng-if="!template" ng-show="!template" ng-bind="parse(column.title)" class="ng-binding ng-scope"><font><font>Skin</font></font></div><!-- end ngIf: !template --> <!-- ngIf: template --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-class="{ 'sortable': parse(column.sortable), 'sort-asc': params.sorting()[parse(column.sortable)]=='asc', 'sort-desc': params.sorting()[parse(column.sortable)]=='desc' }" ng-click="sortBy(column, $event)" ng-show="column.show(this)" ng-init="template=column.headerTemplateURL(this)" class="header  sortable"> <!-- ngIf: !template --><div ng-if="!template" ng-show="!template" ng-bind="parse(column.title)" class="ng-binding ng-scope">email</div><!-- end ngIf: !template --> <!-- ngIf: template --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-class="{ 'sortable': parse(column.sortable), 'sort-asc': params.sorting()[parse(column.sortable)]=='asc', 'sort-desc': params.sorting()[parse(column.sortable)]=='desc' }" ng-click="sortBy(column, $event)" ng-show="column.show(this)" ng-init="template=column.headerTemplateURL(this)" class="header  sortable"> <!-- ngIf: !template --><div ng-if="!template" ng-show="!template" ng-bind="parse(column.title)" class="ng-binding ng-scope"><font><font>REGISTRATION DATE</font></font></div><!-- end ngIf: !template --> <!-- ngIf: template --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-class="{ 'sortable': parse(column.sortable), 'sort-asc': params.sorting()[parse(column.sortable)]=='asc', 'sort-desc': params.sorting()[parse(column.sortable)]=='desc' }" ng-click="sortBy(column, $event)" ng-show="column.show(this)" ng-init="template=column.headerTemplateURL(this)" class="header"> <!-- ngIf: !template --><div ng-if="!template" ng-show="!template" ng-bind="parse(column.title)" class="ng-binding ng-scope"> </div><!-- end ngIf: !template --> <!-- ngIf: template --> </th><!-- end ngRepeat: column in $columns --> </tr> <tr ng-show="show_filter" class="ng-table-filters ng-scope ng-hide"> <!-- ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-show="column.show(this)" class="filter ng-scope"> <!-- ngRepeat: (name, filter) in column.filter --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-show="column.show(this)" class="filter ng-scope"> <!-- ngRepeat: (name, filter) in column.filter --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-show="column.show(this)" class="filter ng-scope"> <!-- ngRepeat: (name, filter) in column.filter --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-show="column.show(this)" class="filter ng-scope"> <!-- ngRepeat: (name, filter) in column.filter --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-show="column.show(this)" class="filter ng-scope"> <!-- ngRepeat: (name, filter) in column.filter --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-show="column.show(this)" class="filter ng-scope"> <!-- ngRepeat: (name, filter) in column.filter --> </th><!-- end ngRepeat: column in $columns --><th ng-repeat="column in $columns" ng-show="column.show(this)" class="filter ng-scope"> <!-- ngRepeat: (name, filter) in column.filter --> </th><!-- end ngRepeat: column in $columns --> </tr> </thead>
+                <tbody><!-- ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope" style="">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data --><tr ng-repeat="item in $data" class="ng-scope">
+                    <td data-title="model.page.page_data.username.title" sortable="'username'" data-title-text=" ">
+						&nbsp;</td>
+                    <td data-title="model.page.page_data.name.title" sortable="'name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.last_name.title" sortable="'last_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.website.title" sortable="'website_name'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td data-title="model.page.page_data.email.title" sortable="'email'" data-title-text=" " class="ng-binding">
+                        &nbsp;</td>
+                    <td data-title="model.page.page_data.created_date.title" sortable="'created_date'" data-title-text=" " class="ng-binding">
+					&nbsp;</td>
+                    <td class="text-center" data-title-text=" ">
+                        &nbsp;</td>
+                </tr><!-- end ngRepeat: item in $data -->
+            </tbody></table><div ng-table-pagination="params" template-url="templates.pagination" class="ng-scope ng-isolate-scope"><!-- ngInclude: templateUrl --><div ng-include="templateUrl" class="ng-scope"><div class="ng-table-pager ng-scope"> <!-- ngIf: params.settings().counts.length --><div ng-if="params.settings().counts.length" class="ng-table-counts btn-group pull-right ng-scope"> <!-- ngRepeat: count in params.settings().counts --><button ng-repeat="count in params.settings().counts" type="button" ng-class="{'active':params.count()==count}" ng-click="params.count(count)" class="btn btn-default ng-scope"> <span ng-bind="count" class="ng-binding"><font><font>10</font></font></span> </button><!-- end ngRepeat: count in params.settings().counts --><button ng-repeat="count in params.settings().counts" type="button" ng-class="{'active':params.count()==count}" ng-click="params.count(count)" class="btn btn-default ng-scope active"> <span ng-bind="count" class="ng-binding"><font><font>25</font></font></span> </button><!-- end ngRepeat: count in params.settings().counts --><button ng-repeat="count in params.settings().counts" type="button" ng-class="{'active':params.count()==count}" ng-click="params.count(count)" class="btn btn-default ng-scope"> <span ng-bind="count" class="ng-binding"><font><font>50</font></font></span> </button><!-- end ngRepeat: count in params.settings().counts --><button ng-repeat="count in params.settings().counts" type="button" ng-class="{'active':params.count()==count}" ng-click="params.count(count)" class="btn btn-default ng-scope"> <span ng-bind="count" class="ng-binding"><font><font>100</font></font></span> </button><!-- end ngRepeat: count in params.settings().counts --> </div><!-- end ngIf: params.settings().counts.length --> <ul class="pagination ng-table-pagination"> <!-- ngRepeat: page in pages --><li ng-class="{'disabled': !page.active &amp;&amp; !page.current, 'active': page.current}" ng-repeat="page in pages" ng-switch="page.type" class="ng-scope disabled" style=""> <!-- ngSwitchWhen: prev --><a ng-switch-when="prev" ng-click="params.page(page.number)" href="" class="ng-scope"><font><font>"</font></font></a><!-- end ngSwitchWhen: --> <!-- ngSwitchWhen: first --> <!-- ngSwitchWhen: page --> <!-- ngSwitchWhen: more --> <!-- ngSwitchWhen: last --> <!-- ngSwitchWhen: next --> </li><!-- end ngRepeat: page in pages --><li ng-class="{'disabled': !page.active &amp;&amp; !page.current, 'active': page.current}" ng-repeat="page in pages" ng-switch="page.type" class="ng-scope active" style=""> <!-- ngSwitchWhen: prev --> <!-- ngSwitchWhen: first --><a ng-switch-when="first" ng-click="params.page(page.number)" href="" class="ng-scope"><span ng-bind="page.number" class="ng-binding"><font><font>1</font></font></span></a><!-- end ngSwitchWhen: --> <!-- ngSwitchWhen: page --> <!-- ngSwitchWhen: more --> <!-- ngSwitchWhen: last --> <!-- ngSwitchWhen: next --> </li><!-- end ngRepeat: page in pages --><li ng-class="{'disabled': !page.active &amp;&amp; !page.current, 'active': page.current}" ng-repeat="page in pages" ng-switch="page.type" class="ng-scope" style=""> <!-- ngSwitchWhen: prev --> <!-- ngSwitchWhen: first --> <!-- ngSwitchWhen: page --> <!-- ngSwitchWhen: more --> <!-- ngSwitchWhen: last --><a ng-switch-when="last" ng-click="params.page(page.number)" href="" class="ng-scope"><span ng-bind="page.number" class="ng-binding"><font><font>2</font></font></span></a><!-- end ngSwitchWhen: --> <!-- ngSwitchWhen: next --> </li><!-- end ngRepeat: page in pages --><li ng-class="{'disabled': !page.active &amp;&amp; !page.current, 'active': page.current}" ng-repeat="page in pages" ng-switch="page.type" class="ng-scope"> <!-- ngSwitchWhen: prev --> <!-- ngSwitchWhen: first --> <!-- ngSwitchWhen: page --> <!-- ngSwitchWhen: more --> <!-- ngSwitchWhen: last --> <!-- ngSwitchWhen: next --><a ng-switch-when="next" ng-click="params.page(page.number)" href="" class="ng-scope"><font><font>»</font></font></a><!-- end ngSwitchWhen: --> </li><!-- end ngRepeat: page in pages --> </ul> </div> </div></div>
+        </div>
+    </div></div></panel>
+
+</div>
+</div>
+</div>
+                </div>

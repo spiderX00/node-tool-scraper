@@ -1,0 +1,1516 @@
+<html lang="en" ng-app="smartCrew" class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms no-csstransforms3d csstransitions fontface no-generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths ng-scope test"><head><style type="text/css">.pac-container{background-color:#fff;position:absolute!important;z-index:1000;border-radius:2px;border-top:1px solid #d9d9d9;font-family:Arial,sans-serif;box-shadow:0 2px 6px rgba(0,0,0,0.3);-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden}.pac-logo:after{content:"";padding:1px 1px 1px 0;height:16px;text-align:right;display:block;background-image:url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3.png);background-position:right;background-repeat:no-repeat;background-size:120px 14px}.hdpi.pac-logo:after{background-image:url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3_hdpi.png)}.pac-item{cursor:default;padding:0 4px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;line-height:30px;text-align:left;border-top:1px solid #e6e6e6;font-size:11px;color:#999}.pac-item:hover{background-color:#fafafa}.pac-item-selected,.pac-item-selected:hover{background-color:#ebf2fe}.pac-matched{font-weight:700}.pac-item-query{font-size:13px;padding-right:3px;color:#000}.pac-icon{width:15px;height:20px;margin-right:7px;margin-top:6px;display:inline-block;vertical-align:top;background-image:url(https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons.png);background-size:34px}.hdpi .pac-icon{background-image:url(https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons_hdpi.png)}.pac-icon-search{background-position:-1px -1px}.pac-item-selected .pac-icon-search{background-position:-18px -1px}.pac-icon-marker{background-position:-1px -161px}.pac-item-selected .pac-icon-marker{background-position:-18px -161px}.pac-placeholder{color:gray}</style><style type="text/css">.uib-datepicker .uib-title{width:100%;}.uib-day button,.uib-month button,.uib-year button{min-width:100%;}.uib-datepicker-popup.dropdown-menu{display:block;float:none;margin:0;}.uib-button-bar{padding:10px 9px 2px;}.uib-left,.uib-right{width:100%}</style><style type="text/css">[uib-typeahead-popup].dropdown-menu{display:block;}</style><style type="text/css">[uib-tooltip-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-bottom > .tooltip-arrow,[uib-popover-popup].popover.top-left > .arrow,[uib-popover-popup].popover.top-right > .arrow,[uib-popover-popup].popover.bottom-left > .arrow,[uib-popover-popup].popover.bottom-right > .arrow,[uib-popover-popup].popover.left-top > .arrow,[uib-popover-popup].popover.left-bottom > .arrow,[uib-popover-popup].popover.right-top > .arrow,[uib-popover-popup].popover.right-bottom > .arrow{top:auto;bottom:auto;left:auto;right:auto;margin:0;}[uib-popover-popup].popover,[uib-popover-template-popup].popover{display:block !important;}</style><style type="text/css">.uib-position-measure{display:block !important;visibility:hidden !important;position:absolute !important;top:-9999px !important;left:-9999px !important;}.uib-position-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll;}</style><style type="text/css">.uib-time input{width:50px;}</style><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <meta charset="utf-8">
+    <base href="/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SmartCrew - Backend</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+    <link href="css/backend/style.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style></style><style type="text/css">@keyframes resizeanim { from { opacity: 0; } to { opacity: 0; } } .resize-triggers { animation: 1ms resizeanim; visibility: hidden; opacity: 0; } .resize-triggers, .resize-triggers > div, .contract-trigger:before { content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; } .resize-triggers > div { background: #eee; overflow: auto; } .contract-trigger:before { width: 200%; height: 200%; }</style><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/10/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/10/util.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/10/stats.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/10/controls.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/10/places_impl.js"></script></head>
+
+<body class="animated fixed ng-scope" ng-controller="mainCtrl">
+<!-- ngIf: $root.model.closeConnection -->
+
+<div ng-show="$root.model.loading" class="loader ng-hide">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div ng-show="model.showModalLogin" id="modalPage" class="ng-hide">
+    <!-- uiView: modalView --><div ui-view="modalView" class="ng-scope"></div>
+</div>
+
+<div ng-hide="model.showModalLogin" class="">
+    <!-- ngInclude: 'src/backend/template/header/header.html' --><div id="headerDiv" ng-include="'src/backend/template/header/header.html'" class="ng-scope"><div ng-controller="headerCtrl" class="ng-scope">
+<div class="navbar navbar-default" role="banner">
+    <div class="container-fluid rowTopHeader">
+        <div class="row">
+        <div class="col-md-12 topHeaderLine"></div>
+        </div>
+        <div class="col-md-2 col-xs-4">
+            <div class="navbar-header area-logo">
+                <a href="#/">
+                    <img src="css/img/logo.png">
+                </a>
+            </div>                         <!-- logo -->
+        </div>
+        <div class="col-md-6 hidden-sm hidden-xs">                <!-- topmenu -->
+                <div class="rowBottomHeader2 ng-hide" ng-show="model.showTopHeader">
+                    <ul class="list-inline">
+                        <!-- ngRepeat: item in topMenu -->
+                    </ul>
+                </div>
+        </div>
+        <div class="col-md-4 col-xs-8">
+            <div class="navbar-header pull-right" ng-hide="model.showModalLogin">
+                <ul class="list-inline">
+                    <li><i class="fa fa-user megaIcon" style="color:#808080"></i></li>
+                    <li>
+                        <span class="logo-text ng-binding" style="display:block; padding-right:9px; padding-left:9px"><strong style="color:orangered">Username:</strong> admin</span>
+
+                        <span class="logo-text ng-binding" style="padding-right:9px; padding-left:9px"><strong style="color:orangered">Nome:</strong> admin_name admin_last_name</span>
+                    </li>
+                    <li><strong style="color:orangered">tempo attività:</strong>
+                        <timer interval="1000" class="ng-binding ng-isolate-scope"><span class="ng-binding ng-scope">1:3:36</span></timer></li>
+                    <li>
+                        <a ng-click="logout()"><span class="fa fa-sign-out megaIcon"></span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-header pull-right ng-hide" ng-show="model.showModalLogin">
+                <div id="signInArea">
+                    <input type="text" class="form-control ng-pristine ng-untouched ng-valid" placeholder="Username" ng-model="model.login.username">
+                    <input type="password" class="form-control ng-pristine ng-untouched ng-valid" placeholder="Password" ng-model="model.login.password">
+                    <button ng-click="loginF()"><i class="icon-angle-circled-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="nav navbar navbar-inverse navbar-static-top marginBottom-0 rowBottomHeader" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        <ul class="nav navbar-nav">
+
+            <!-- ngRepeat: item in headerMenu.menu --><!-- ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in headerMenu.menu --><!-- ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in headerMenu.menu --><!-- ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in headerMenu.menu --><!-- ngIf: item.n != 'navbar' --><li ng-if="item.n != 'navbar'" ng-repeat="item in headerMenu.menu" ng-class="{active: item.$isActive === true}" class="ng-scope active">
+                <a ng-click="manageMenuClick(item)" alt="Impostazioni" ng-class="{'dropdown-toggle':item.sub}" data-toggle="dropdown" class="dropdown-toggle">
+                        <span class="iconContainerHeader">
+                            <i class="fa fa-gear" ng-class="item.ico"></i>
+                        </span>
+                    <span class="hidden-sm ng-binding">Impostazioni  <!-- ngIf: item.sub --><b ng-if="item.sub" class="caret hidden-lg hidden-md ng-scope"></b><!-- end ngIf: item.sub --></span>
+                </a>
+                <!-- ngIf: item.sub --><ul ng-if="item.sub" class="dropdown-menu hidden-md hidden-lg ng-scope">
+                    <!-- ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub0" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Gestione Skin</span>
+                        </a>
+                        <!-- ngIf: item2.sub --><ul ng-if="item2.sub" class="dropdown-menu ng-scope">
+                            <!-- ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Crea Skin</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Gestisci Skin</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub -->
+                        </ul><!-- end ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub1" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Gestione Amministratori</span>
+                        </a>
+                        <!-- ngIf: item2.sub --><ul ng-if="item2.sub" class="dropdown-menu ng-scope">
+                            <!-- ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Crea Amministratore</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Ricerca Amministratori</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub -->
+                        </ul><!-- end ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub2" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Gestione Prodotti</span>
+                        </a>
+                        <!-- ngIf: item2.sub --><ul ng-if="item2.sub" class="dropdown-menu ng-scope">
+                            <!-- ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Stato Prodotti</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub -->
+                        </ul><!-- end ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub3" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Gestione Gateway</span>
+                        </a>
+                        <!-- ngIf: item2.sub --><ul ng-if="item2.sub" class="dropdown-menu ng-scope">
+                            <!-- ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Stato Gateway</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Parametri Gateway</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub -->
+                        </ul><!-- end ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub4" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Profilazione Utenti</span>
+                        </a>
+                        <!-- ngIf: item2.sub --><ul ng-if="item2.sub" class="dropdown-menu ng-scope">
+                            <!-- ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Gestisci Gruppi</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Parametri Profilazione</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Lista Parametri Profilazione</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub -->
+                        </ul><!-- end ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub5" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Gestione Ruoli</span>
+                        </a>
+                        <!-- ngIf: item2.sub --><ul ng-if="item2.sub" class="dropdown-menu ng-scope">
+                            <!-- ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Crea Ruolo</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Visualizza Ruoli</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub -->
+                        </ul><!-- end ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub6" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Configurazioni Internazionali</span>
+                        </a>
+                        <!-- ngIf: item2.sub --><ul ng-if="item2.sub" class="dropdown-menu ng-scope">
+                            <!-- ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Valuta</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Lingua</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub -->
+                        </ul><!-- end ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub7" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Configurazione</span>
+                        </a>
+                        <!-- ngIf: item2.sub --><ul ng-if="item2.sub" class="dropdown-menu ng-scope">
+                            <!-- ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Impostazioni Email</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Template Email</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub -->
+                        </ul><!-- end ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub8" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Verifica Utenti</span>
+                        </a>
+                        <!-- ngIf: item2.sub --><ul ng-if="item2.sub" class="dropdown-menu ng-scope">
+                            <!-- ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Tipologia Documenti</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Impostazioni</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub -->
+                        </ul><!-- end ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub -->
+                </ul><!-- end ngIf: item.sub -->
+
+            </li><!-- end ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in headerMenu.menu --><!-- ngIf: item.n != 'navbar' --><li ng-if="item.n != 'navbar'" ng-repeat="item in headerMenu.menu" ng-class="{active: item.$isActive === true}" class="ng-scope">
+                <a ng-click="manageMenuClick(item)" alt="Contabilita'" ng-class="{'dropdown-toggle':item.sub}" data-toggle="dropdown" class="dropdown-toggle">
+                        <span class="iconContainerHeader">
+                            <i class="fa fa-money" ng-class="item.ico"></i>
+                        </span>
+                    <span class="hidden-sm ng-binding">Contabilita'  <!-- ngIf: item.sub --><b ng-if="item.sub" class="caret hidden-lg hidden-md ng-scope"></b><!-- end ngIf: item.sub --></span>
+                </a>
+                <!-- ngIf: item.sub --><ul ng-if="item.sub" class="dropdown-menu hidden-md hidden-lg ng-scope">
+                    <!-- ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub0" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Ricerca Movimenti</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub1" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Lista Depositi</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub2" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Lista Prelievi</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub3" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Lista Saldi</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub4" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Bonus Report</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub -->
+                </ul><!-- end ngIf: item.sub -->
+
+            </li><!-- end ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in headerMenu.menu --><!-- ngIf: item.n != 'navbar' --><li ng-if="item.n != 'navbar'" ng-repeat="item in headerMenu.menu" ng-class="{active: item.$isActive === true}" class="ng-scope">
+                <a ng-click="manageMenuClick(item)" alt="Gestione Utenti" ng-class="{'dropdown-toggle':item.sub}" data-toggle="dropdown" class="dropdown-toggle">
+                        <span class="iconContainerHeader">
+                            <i class="fa icon-users-1" ng-class="item.ico"></i>
+                        </span>
+                    <span class="hidden-sm ng-binding">Gestione Utenti  <!-- ngIf: item.sub --><b ng-if="item.sub" class="caret hidden-lg hidden-md ng-scope"></b><!-- end ngIf: item.sub --></span>
+                </a>
+                <!-- ngIf: item.sub --><ul ng-if="item.sub" class="dropdown-menu hidden-md hidden-lg ng-scope">
+                    <!-- ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub0" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Ricerca Utenti</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub1" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Gestione Documenti</span>
+                        </a>
+                        <!-- ngIf: item2.sub --><ul ng-if="item2.sub" class="dropdown-menu ng-scope">
+                            <!-- ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Ricerca Documenti</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Categorie Documenti</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub -->
+                        </ul><!-- end ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub2" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Storico Stati Utenti</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub3" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Lista Stati Utenti</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub4" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Lista Operazioni Utenti</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub5" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Lista Utenti Autoesclusi</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub6" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Elenco Giocate</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub7" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Chiusura Conto</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub8" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Depositi e Prelievi Ingenti</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub9" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Vincite Ingenti</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub10" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Notifiche Push</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub11" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Attivita' Utenti</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub12" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Bonus Netent</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub -->
+                </ul><!-- end ngIf: item.sub -->
+
+            </li><!-- end ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in headerMenu.menu --><!-- ngIf: item.n != 'navbar' --><li ng-if="item.n != 'navbar'" ng-repeat="item in headerMenu.menu" ng-class="{active: item.$isActive === true}" class="ng-scope">
+                <a ng-click="manageMenuClick(item)" alt="SmartShop" ng-class="{'dropdown-toggle':item.sub}" data-toggle="dropdown" class="dropdown-toggle">
+                        <span class="iconContainerHeader">
+                            <i class="fa fa-university" ng-class="item.ico"></i>
+                        </span>
+                    <span class="hidden-sm ng-binding">SmartShop  <!-- ngIf: item.sub --><b ng-if="item.sub" class="caret hidden-lg hidden-md ng-scope"></b><!-- end ngIf: item.sub --></span>
+                </a>
+                <!-- ngIf: item.sub --><ul ng-if="item.sub" class="dropdown-menu hidden-md hidden-lg ng-scope">
+                    <!-- ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub0" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Impostazioni</span>
+                        </a>
+                        <!-- ngIf: item2.sub --><ul ng-if="item2.sub" class="dropdown-menu ng-scope">
+                            <!-- ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Template Fatture</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub -->
+                        </ul><!-- end ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub1" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Fatturazione</span>
+                        </a>
+                        <!-- ngIf: item2.sub --><ul ng-if="item2.sub" class="dropdown-menu ng-scope">
+                            <!-- ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Gestione Fatture</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Emetti Fatture</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub -->
+                        </ul><!-- end ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub2" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Report</span>
+                        </a>
+                        <!-- ngIf: item2.sub --><ul ng-if="item2.sub" class="dropdown-menu ng-scope">
+                            <!-- ngRepeat: item3 in item2.sub -->
+                        </ul><!-- end ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub3" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Promoter</span>
+                        </a>
+                        <!-- ngIf: item2.sub --><ul ng-if="item2.sub" class="dropdown-menu ng-scope">
+                            <!-- ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Ricerca Promoter</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Aggiungi Promoter</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Visualizza Rete</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub -->
+                        </ul><!-- end ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub4" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Profili Commissionali</span>
+                        </a>
+                        <!-- ngIf: item2.sub --><ul ng-if="item2.sub" class="dropdown-menu ng-scope">
+                            <!-- ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Reggruppamento Prodotti</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Crea Nuovo Profilo</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Gestisci Profili</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Lista Commissioni</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub -->
+                        </ul><!-- end ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub -->
+                </ul><!-- end ngIf: item.sub -->
+
+            </li><!-- end ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in headerMenu.menu --><!-- ngIf: item.n != 'navbar' --><li ng-if="item.n != 'navbar'" ng-repeat="item in headerMenu.menu" ng-class="{active: item.$isActive === true}" class="ng-scope">
+                <a ng-click="manageMenuClick(item)" alt="Report e Analisi" ng-class="{'dropdown-toggle':item.sub}" data-toggle="dropdown" class="dropdown-toggle">
+                        <span class="iconContainerHeader">
+                            <i class="fa fa-calendar" ng-class="item.ico"></i>
+                        </span>
+                    <span class="hidden-sm ng-binding">Report e Analisi  <!-- ngIf: item.sub --><b ng-if="item.sub" class="caret hidden-lg hidden-md ng-scope"></b><!-- end ngIf: item.sub --></span>
+                </a>
+                <!-- ngIf: item.sub --><ul ng-if="item.sub" class="dropdown-menu hidden-md hidden-lg ng-scope">
+                    <!-- ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub0" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">User Trend</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub1" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Trading Reports</span>
+                        </a>
+                        <!-- ngIf: item2.sub --><ul ng-if="item2.sub" class="dropdown-menu ng-scope">
+                            <!-- ngRepeat: item3 in item2.sub -->
+                        </ul><!-- end ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub2" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Product Reports</span>
+                        </a>
+                        <!-- ngIf: item2.sub --><ul ng-if="item2.sub" class="dropdown-menu ng-scope">
+                            <!-- ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Casino MediaLive</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Casino NetEnt</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Casino WM</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Bingo</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Casino Wirex</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Poker Cash</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Poker MTT</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Casino QuickFire</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Skill Games</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Betting Exchange</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub -->
+                        </ul><!-- end ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub3" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Report Finanziari</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub4" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Impostazioni</span>
+                        </a>
+                        <!-- ngIf: item2.sub --><ul ng-if="item2.sub" class="dropdown-menu ng-scope">
+                            <!-- ngRepeat: item3 in item2.sub --><li ng-repeat="item3 in item2.sub" ng-class="{'dropdown dropdown-submenu': item3.sub}" class="ng-scope">
+                                <a ng-class="{'dropdown-toggle':item3.sub}" data-toggle="dropdown" ng-click="manageMenuClickSub(item3, item2); $event.preventDefault(); $event.stopPropagation();">
+                                    <span class="menu-title ng-binding">Costi</span>
+                                    </a><!-- ngIf: item3.sub -->
+
+                            </li><!-- end ngRepeat: item3 in item2.sub -->
+                        </ul><!-- end ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub5" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Report Balance</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub -->
+                </ul><!-- end ngIf: item.sub -->
+
+            </li><!-- end ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in headerMenu.menu --><!-- ngIf: item.n != 'navbar' --><li ng-if="item.n != 'navbar'" ng-repeat="item in headerMenu.menu" ng-class="{active: item.$isActive === true}" class="ng-scope">
+                <a ng-click="manageMenuClick(item)" alt="Gestione Tornei" ng-class="{'dropdown-toggle':item.sub}" data-toggle="dropdown" class="dropdown-toggle">
+                        <span class="iconContainerHeader">
+                            <i class="fa fa-calendar" ng-class="item.ico"></i>
+                        </span>
+                    <span class="hidden-sm ng-binding">Gestione Tornei  <!-- ngIf: item.sub --><b ng-if="item.sub" class="caret hidden-lg hidden-md ng-scope"></b><!-- end ngIf: item.sub --></span>
+                </a>
+                <!-- ngIf: item.sub --><ul ng-if="item.sub" class="dropdown-menu hidden-md hidden-lg ng-scope">
+                    <!-- ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub0" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Crea Nuovo Torneo</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub1" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Lista Tornei</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub -->
+                </ul><!-- end ngIf: item.sub -->
+
+            </li><!-- end ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in headerMenu.menu --><!-- ngIf: item.n != 'navbar' --><li ng-if="item.n != 'navbar'" ng-repeat="item in headerMenu.menu" ng-class="{active: item.$isActive === true}" class="ng-scope">
+                <a ng-click="manageMenuClick(item)" alt="Centro Messaggi" ng-class="{'dropdown-toggle':item.sub}" data-toggle="dropdown" class="dropdown-toggle">
+                        <span class="iconContainerHeader">
+                            <i class="fa icon-mail" ng-class="item.ico"></i>
+                        </span>
+                    <span class="hidden-sm ng-binding">Centro Messaggi  <!-- ngIf: item.sub --><b ng-if="item.sub" class="caret hidden-lg hidden-md ng-scope"></b><!-- end ngIf: item.sub --></span>
+                </a>
+                <!-- ngIf: item.sub --><ul ng-if="item.sub" class="dropdown-menu hidden-md hidden-lg ng-scope">
+                    <!-- ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub0" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Trading Reports</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub -->
+                </ul><!-- end ngIf: item.sub -->
+
+            </li><!-- end ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in headerMenu.menu --><!-- ngIf: item.n != 'navbar' --><li ng-if="item.n != 'navbar'" ng-repeat="item in headerMenu.menu" ng-class="{active: item.$isActive === true}" class="ng-scope">
+                <a ng-click="manageMenuClick(item)" alt="Gestione Sito" ng-class="{'dropdown-toggle':item.sub}" data-toggle="dropdown" class="dropdown-toggle">
+                        <span class="iconContainerHeader">
+                            <i class="fa icon-desktop" ng-class="item.ico"></i>
+                        </span>
+                    <span class="hidden-sm ng-binding">Gestione Sito  <!-- ngIf: item.sub --><b ng-if="item.sub" class="caret hidden-lg hidden-md ng-scope"></b><!-- end ngIf: item.sub --></span>
+                </a>
+                <!-- ngIf: item.sub --><ul ng-if="item.sub" class="dropdown-menu hidden-md hidden-lg ng-scope">
+                    <!-- ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" class="dropdown dropdown-submenu ng-scope">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-id="sub0" ng-click="manageMenuClickSub(item2, item,'sub' + $index); $event.preventDefault(); $event.stopPropagation();">
+                            <!--    <i class="fa-{{item.ico}}">
+                                     <div class="icon-bg bg-orange"></div>
+                                 </i>-->
+                            <span class="menu-title ng-binding">Trading Reports</span>
+                        </a>
+                        <!-- ngIf: item2.sub -->
+                    </li><!-- end ngRepeat: item2 in item.sub -->
+                </ul><!-- end ngIf: item.sub -->
+
+            </li><!-- end ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in headerMenu.menu -->
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
+
+</div></div>
+
+    <div id="contentDiv" class="container" style="position: relative;">
+
+        <div class="row-offcanvas row-offcanvas-left">
+            <!--left-->
+            <div id="sidebar" class="sidebar-offcanvas hidden-sm hidden-xs sidebarDiv" style="height: 1800px;">
+                <!-- ngInclude: 'src/backend/template/menu/sitebar.html' --><div class="col-md-12 ng-scope" style="padding: 0px;" ng-include="'src/backend/template/menu/sitebar.html'"><ul class="list-group admin-nav-main ng-scope" ng-controller="menuCtrl">
+
+    <!-- ngRepeat: item in model.menu --><!-- ngIf: item.n != 'navbar' --><li ng-if="item.n != 'navbar'" ng-repeat="item in model.menu" ng-class="{activeside: item.$isActive === true}" class="nga-default nga-stagger nga-slide-up ng-scope">
+        <a href="javascript:void(0);" ng-click="manageMenuClick(item); $event.preventDefault(); $event.stopPropagation();">
+                        <i class="fa icon-desktop">
+                             <div class="icon-bg bg-orange"></div>
+                         </i>
+            <span class="menu-title ng-binding"><!--<i class="fa {{item.ico}}"></i>-->Gestione Skin</span>
+        </a>
+        <ul ng-class="{'collapse': item.$collapsedSubMenu !== false}" class="list-group nav-second-level">
+            <!-- ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" ng-class="{activecolor: item2.$isActive === true}" class="ng-scope activecolor">
+                <a class="defaultbg" ng-click="manageMenuClick(item2); $event.preventDefault(); $event.stopPropagation();">
+                    <i class="fa ">
+                        <div class="icon-bg bg-orange"></div>
+                    </i>
+                    <span class="menu-title ng-binding">Crea Skin</span>
+                </a>
+            </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" ng-class="{activecolor: item2.$isActive === true}" class="ng-scope">
+                <a class="defaultbg" ng-click="manageMenuClick(item2); $event.preventDefault(); $event.stopPropagation();">
+                    <i class="fa ">
+                        <div class="icon-bg bg-orange"></div>
+                    </i>
+                    <span class="menu-title ng-binding">Gestisci Skin</span>
+                </a>
+            </li><!-- end ngRepeat: item2 in item.sub -->
+        </ul>
+    </li><!-- end ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in model.menu --><!-- ngIf: item.n != 'navbar' --><li ng-if="item.n != 'navbar'" ng-repeat="item in model.menu" ng-class="{activeside: item.$isActive === true}" class="nga-default nga-stagger nga-slide-up ng-scope">
+        <a href="javascript:void(0);" ng-click="manageMenuClick(item); $event.preventDefault(); $event.stopPropagation();">
+                        <i class="fa icon-user-male">
+                             <div class="icon-bg bg-orange"></div>
+                         </i>
+            <span class="menu-title ng-binding"><!--<i class="fa {{item.ico}}"></i>-->Gestione Amministratori</span>
+        </a>
+        <ul ng-class="{'collapse': item.$collapsedSubMenu !== false}" class="list-group nav-second-level collapse">
+            <!-- ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" ng-class="{activecolor: item2.$isActive === true}" class="ng-scope">
+                <a class="defaultbg" ng-click="manageMenuClick(item2); $event.preventDefault(); $event.stopPropagation();">
+                    <i class="fa ">
+                        <div class="icon-bg bg-orange"></div>
+                    </i>
+                    <span class="menu-title ng-binding">Crea Amministratore</span>
+                </a>
+            </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" ng-class="{activecolor: item2.$isActive === true}" class="ng-scope">
+                <a class="defaultbg" ng-click="manageMenuClick(item2); $event.preventDefault(); $event.stopPropagation();">
+                    <i class="fa ">
+                        <div class="icon-bg bg-orange"></div>
+                    </i>
+                    <span class="menu-title ng-binding">Ricerca Amministratori</span>
+                </a>
+            </li><!-- end ngRepeat: item2 in item.sub -->
+        </ul>
+    </li><!-- end ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in model.menu --><!-- ngIf: item.n != 'navbar' --><li ng-if="item.n != 'navbar'" ng-repeat="item in model.menu" ng-class="{activeside: item.$isActive === true}" class="nga-default nga-stagger nga-slide-up ng-scope">
+        <a href="javascript:void(0);" ng-click="manageMenuClick(item); $event.preventDefault(); $event.stopPropagation();">
+                        <i class="fa icon-soccer-ball">
+                             <div class="icon-bg bg-orange"></div>
+                         </i>
+            <span class="menu-title ng-binding"><!--<i class="fa {{item.ico}}"></i>-->Gestione Prodotti</span>
+        </a>
+        <ul ng-class="{'collapse': item.$collapsedSubMenu !== false}" class="list-group nav-second-level collapse">
+            <!-- ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" ng-class="{activecolor: item2.$isActive === true}" class="ng-scope">
+                <a class="defaultbg" ng-click="manageMenuClick(item2); $event.preventDefault(); $event.stopPropagation();">
+                    <i class="fa ">
+                        <div class="icon-bg bg-orange"></div>
+                    </i>
+                    <span class="menu-title ng-binding">Stato Prodotti</span>
+                </a>
+            </li><!-- end ngRepeat: item2 in item.sub -->
+        </ul>
+    </li><!-- end ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in model.menu --><!-- ngIf: item.n != 'navbar' --><li ng-if="item.n != 'navbar'" ng-repeat="item in model.menu" ng-class="{activeside: item.$isActive === true}" class="nga-default nga-stagger nga-slide-up ng-scope">
+        <a href="javascript:void(0);" ng-click="manageMenuClick(item); $event.preventDefault(); $event.stopPropagation();">
+                        <i class="fa icon-cc-visa">
+                             <div class="icon-bg bg-orange"></div>
+                         </i>
+            <span class="menu-title ng-binding"><!--<i class="fa {{item.ico}}"></i>-->Gestione Gateway</span>
+        </a>
+        <ul ng-class="{'collapse': item.$collapsedSubMenu !== false}" class="list-group nav-second-level collapse">
+            <!-- ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" ng-class="{activecolor: item2.$isActive === true}" class="ng-scope">
+                <a class="defaultbg" ng-click="manageMenuClick(item2); $event.preventDefault(); $event.stopPropagation();">
+                    <i class="fa ">
+                        <div class="icon-bg bg-orange"></div>
+                    </i>
+                    <span class="menu-title ng-binding">Stato Gateway</span>
+                </a>
+            </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" ng-class="{activecolor: item2.$isActive === true}" class="ng-scope">
+                <a class="defaultbg" ng-click="manageMenuClick(item2); $event.preventDefault(); $event.stopPropagation();">
+                    <i class="fa ">
+                        <div class="icon-bg bg-orange"></div>
+                    </i>
+                    <span class="menu-title ng-binding">Parametri Gateway</span>
+                </a>
+            </li><!-- end ngRepeat: item2 in item.sub -->
+        </ul>
+    </li><!-- end ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in model.menu --><!-- ngIf: item.n != 'navbar' --><li ng-if="item.n != 'navbar'" ng-repeat="item in model.menu" ng-class="{activeside: item.$isActive === true}" class="nga-default nga-stagger nga-slide-up ng-scope">
+        <a href="javascript:void(0);" ng-click="manageMenuClick(item); $event.preventDefault(); $event.stopPropagation();">
+                        <i class="fa icon-users-1">
+                             <div class="icon-bg bg-orange"></div>
+                         </i>
+            <span class="menu-title ng-binding"><!--<i class="fa {{item.ico}}"></i>-->Profilazione Utenti</span>
+        </a>
+        <ul ng-class="{'collapse': item.$collapsedSubMenu !== false}" class="list-group nav-second-level collapse">
+            <!-- ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" ng-class="{activecolor: item2.$isActive === true}" class="ng-scope">
+                <a class="defaultbg" ng-click="manageMenuClick(item2); $event.preventDefault(); $event.stopPropagation();">
+                    <i class="fa ">
+                        <div class="icon-bg bg-orange"></div>
+                    </i>
+                    <span class="menu-title ng-binding">Gestisci Gruppi</span>
+                </a>
+            </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" ng-class="{activecolor: item2.$isActive === true}" class="ng-scope">
+                <a class="defaultbg" ng-click="manageMenuClick(item2); $event.preventDefault(); $event.stopPropagation();">
+                    <i class="fa ">
+                        <div class="icon-bg bg-orange"></div>
+                    </i>
+                    <span class="menu-title ng-binding">Parametri Profilazione</span>
+                </a>
+            </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" ng-class="{activecolor: item2.$isActive === true}" class="ng-scope">
+                <a class="defaultbg" ng-click="manageMenuClick(item2); $event.preventDefault(); $event.stopPropagation();">
+                    <i class="fa ">
+                        <div class="icon-bg bg-orange"></div>
+                    </i>
+                    <span class="menu-title ng-binding">Lista Parametri Profilazione</span>
+                </a>
+            </li><!-- end ngRepeat: item2 in item.sub -->
+        </ul>
+    </li><!-- end ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in model.menu --><!-- ngIf: item.n != 'navbar' --><li ng-if="item.n != 'navbar'" ng-repeat="item in model.menu" ng-class="{activeside: item.$isActive === true}" class="nga-default nga-stagger nga-slide-up ng-scope">
+        <a href="javascript:void(0);" ng-click="manageMenuClick(item); $event.preventDefault(); $event.stopPropagation();">
+                        <i class="fa icon-wrench-1">
+                             <div class="icon-bg bg-orange"></div>
+                         </i>
+            <span class="menu-title ng-binding"><!--<i class="fa {{item.ico}}"></i>-->Gestione Ruoli</span>
+        </a>
+        <ul ng-class="{'collapse': item.$collapsedSubMenu !== false}" class="list-group nav-second-level collapse">
+            <!-- ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" ng-class="{activecolor: item2.$isActive === true}" class="ng-scope">
+                <a class="defaultbg" ng-click="manageMenuClick(item2); $event.preventDefault(); $event.stopPropagation();">
+                    <i class="fa ">
+                        <div class="icon-bg bg-orange"></div>
+                    </i>
+                    <span class="menu-title ng-binding">Crea Ruolo</span>
+                </a>
+            </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" ng-class="{activecolor: item2.$isActive === true}" class="ng-scope">
+                <a class="defaultbg" ng-click="manageMenuClick(item2); $event.preventDefault(); $event.stopPropagation();">
+                    <i class="fa ">
+                        <div class="icon-bg bg-orange"></div>
+                    </i>
+                    <span class="menu-title ng-binding">Visualizza Ruoli</span>
+                </a>
+            </li><!-- end ngRepeat: item2 in item.sub -->
+        </ul>
+    </li><!-- end ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in model.menu --><!-- ngIf: item.n != 'navbar' --><li ng-if="item.n != 'navbar'" ng-repeat="item in model.menu" ng-class="{activeside: item.$isActive === true}" class="nga-default nga-stagger nga-slide-up ng-scope">
+        <a href="javascript:void(0);" ng-click="manageMenuClick(item); $event.preventDefault(); $event.stopPropagation();">
+                        <i class="fa ">
+                             <div class="icon-bg bg-orange"></div>
+                         </i>
+            <span class="menu-title ng-binding"><!--<i class="fa {{item.ico}}"></i>-->Configurazioni Internazionali</span>
+        </a>
+        <ul ng-class="{'collapse': item.$collapsedSubMenu !== false}" class="list-group nav-second-level collapse">
+            <!-- ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" ng-class="{activecolor: item2.$isActive === true}" class="ng-scope">
+                <a class="defaultbg" ng-click="manageMenuClick(item2); $event.preventDefault(); $event.stopPropagation();">
+                    <i class="fa ">
+                        <div class="icon-bg bg-orange"></div>
+                    </i>
+                    <span class="menu-title ng-binding">Valuta</span>
+                </a>
+            </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" ng-class="{activecolor: item2.$isActive === true}" class="ng-scope">
+                <a class="defaultbg" ng-click="manageMenuClick(item2); $event.preventDefault(); $event.stopPropagation();">
+                    <i class="fa ">
+                        <div class="icon-bg bg-orange"></div>
+                    </i>
+                    <span class="menu-title ng-binding">Lingua</span>
+                </a>
+            </li><!-- end ngRepeat: item2 in item.sub -->
+        </ul>
+    </li><!-- end ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in model.menu --><!-- ngIf: item.n != 'navbar' --><li ng-if="item.n != 'navbar'" ng-repeat="item in model.menu" ng-class="{activeside: item.$isActive === true}" class="nga-default nga-stagger nga-slide-up ng-scope">
+        <a href="javascript:void(0);" ng-click="manageMenuClick(item); $event.preventDefault(); $event.stopPropagation();">
+                        <i class="fa ">
+                             <div class="icon-bg bg-orange"></div>
+                         </i>
+            <span class="menu-title ng-binding"><!--<i class="fa {{item.ico}}"></i>-->Configurazione</span>
+        </a>
+        <ul ng-class="{'collapse': item.$collapsedSubMenu !== false}" class="list-group nav-second-level collapse">
+            <!-- ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" ng-class="{activecolor: item2.$isActive === true}" class="ng-scope">
+                <a class="defaultbg" ng-click="manageMenuClick(item2); $event.preventDefault(); $event.stopPropagation();">
+                    <i class="fa ">
+                        <div class="icon-bg bg-orange"></div>
+                    </i>
+                    <span class="menu-title ng-binding">Impostazioni Email</span>
+                </a>
+            </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" ng-class="{activecolor: item2.$isActive === true}" class="ng-scope">
+                <a class="defaultbg" ng-click="manageMenuClick(item2); $event.preventDefault(); $event.stopPropagation();">
+                    <i class="fa ">
+                        <div class="icon-bg bg-orange"></div>
+                    </i>
+                    <span class="menu-title ng-binding">Template Email</span>
+                </a>
+            </li><!-- end ngRepeat: item2 in item.sub -->
+        </ul>
+    </li><!-- end ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in model.menu --><!-- ngIf: item.n != 'navbar' --><li ng-if="item.n != 'navbar'" ng-repeat="item in model.menu" ng-class="{activeside: item.$isActive === true}" class="nga-default nga-stagger nga-slide-up ng-scope">
+        <a href="javascript:void(0);" ng-click="manageMenuClick(item); $event.preventDefault(); $event.stopPropagation();">
+                        <i class="fa ">
+                             <div class="icon-bg bg-orange"></div>
+                         </i>
+            <span class="menu-title ng-binding"><!--<i class="fa {{item.ico}}"></i>-->Verifica Utenti</span>
+        </a>
+        <ul ng-class="{'collapse': item.$collapsedSubMenu !== false}" class="list-group nav-second-level collapse">
+            <!-- ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" ng-class="{activecolor: item2.$isActive === true}" class="ng-scope">
+                <a class="defaultbg" ng-click="manageMenuClick(item2); $event.preventDefault(); $event.stopPropagation();">
+                    <i class="fa ">
+                        <div class="icon-bg bg-orange"></div>
+                    </i>
+                    <span class="menu-title ng-binding">Tipologia Documenti</span>
+                </a>
+            </li><!-- end ngRepeat: item2 in item.sub --><li ng-repeat="item2 in item.sub" ng-class="{activecolor: item2.$isActive === true}" class="ng-scope">
+                <a class="defaultbg" ng-click="manageMenuClick(item2); $event.preventDefault(); $event.stopPropagation();">
+                    <i class="fa ">
+                        <div class="icon-bg bg-orange"></div>
+                    </i>
+                    <span class="menu-title ng-binding">Impostazioni</span>
+                </a>
+            </li><!-- end ngRepeat: item2 in item.sub -->
+        </ul>
+    </li><!-- end ngIf: item.n != 'navbar' --><!-- end ngRepeat: item in model.menu -->
+</ul></div>
+            </div>
+            <div id="main">
+                <div id="uiViewContainer" class="col-md-12">
+                    <!-- uiView: mainView --><div ui-view="mainView" class="page-content page-relative nga-default nga-stagger nga-fade ng-scope"><div class="row ng-scope">
+    <!-- uiView: subView --><div ui-view="subView" class="ng-scope"><panel binding-field="model.page.page_data.page_title" initial-state="open" class="ng-scope ng-isolate-scope"> <div class="panel panel-default"><div class="panel-heading " ng-dblclick="$event.preventDefault();" ng-click="show1()"><h3 class="panel-title ng-binding">Crea Nuova Skin</h3></div><div class="panel-body " ng-transclude="" ng-class="{'collapse': model.collapsed === true}">
+    <form ng-submit="save()" name="form" class="css-form show-errors ng-pristine ng-scope ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" novalidate="">
+            <!-- ngIf: form.$invalid && form.$submitted -->
+            <div class="row">
+
+                <div class="col-md-4">
+                    <field-set-panel ico="icon-th-list" binding-field="Dati Societari" class="ng-isolate-scope"><fieldset class="scheduler-border"><legend class="scheduler-border-label ng-binding"><i class="icon-th-list"></i> Dati Societari</legend><div ng-transclude="">
+                        <!-- ngRepeat: item in model.society | orderBy:'sort':reverse --><div ng-repeat="item in model.society | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' && item.code != 'wrescity' --><div ng-if="item.form_type=='input' &amp;&amp; item.code != 'wrescity'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Ragione sociale  <!-- ngIf: bind.require --><span ng-if="bind.require" class="ng-scope">*</span><!-- end ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Ragione sociale" ng-maxlength="20" ng-minlength="2" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" placeholder="Ragione sociale" ng-required="1" required="required"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' && item.code != 'wrescity' -->
+                            <!-- ngIf: item.code == 'wrescity' -->
+                            <!-- ngIf: item.form_type=='select' || item.form_type=='select_country' -->
+                        </div><!-- end ngRepeat: item in model.society | orderBy:'sort':reverse --><div ng-repeat="item in model.society | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' && item.code != 'wrescity' --><div ng-if="item.form_type=='input' &amp;&amp; item.code != 'wrescity'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Indirizzo  <!-- ngIf: bind.require --><span ng-if="bind.require" class="ng-scope">*</span><!-- end ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Indirizzo" ng-maxlength="50" ng-minlength="1" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" placeholder="Indirizzo" ng-required="1" required="required"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' && item.code != 'wrescity' -->
+                            <!-- ngIf: item.code == 'wrescity' -->
+                            <!-- ngIf: item.form_type=='select' || item.form_type=='select_country' -->
+                        </div><!-- end ngRepeat: item in model.society | orderBy:'sort':reverse --><div ng-repeat="item in model.society | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' && item.code != 'wrescity' -->
+                            <!-- ngIf: item.code == 'wrescity' -->
+                            <!-- ngIf: item.form_type=='select' || item.form_type=='select_country' --><div ng-if="item.form_type=='select' || item.form_type=='select_country'" class="ng-scope">
+                                <div class="form-group ng-isolate-scope" bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]"><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Nazione</label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><select class="form-control ng-pristine ng-untouched ng-valid" ng-disabled="bind.disabled" name="Nazione" ng-init="model = init" ng-model="model" ng-options="v.id as v.name for (k, v) in bind.form_option"><option value="" class="" selected="selected"></option><option label="Afghanistan" value="string:999200">Afghanistan</option><option label="Albania" value="string:999100">Albania</option><option label="Algeria" value="string:999301">Algeria</option><option label="Andorra" value="string:999101">Andorra</option><option label="Angola" value="string:999302">Angola</option><option label="Anguilla (isola)" value="string:999529">Anguilla (isola)</option><option label="Antigua E Barbuda" value="string:999532">Antigua E Barbuda</option><option label="Antille Britanniche" value="string:999523">Antille Britanniche</option><option label="Antille Olandesi" value="string:999501">Antille Olandesi</option><option label="Arabia Meridionale Federazione" value="string:999201">Arabia Meridionale Federazione</option><option label="Arabia Meridionale Protettorato" value="string:999202">Arabia Meridionale Protettorato</option><option label="Arabia Saudita" value="string:999203">Arabia Saudita</option><option label="Argentina" value="string:999600">Argentina</option><option label="Armenia" value="string:999252">Armenia</option><option label="Australia" value="string:999700">Australia</option><option label="Austria" value="string:999102">Austria</option><option label="Azerbaigian" value="string:999253">Azerbaigian</option><option label="Bahama" value="string:999502">Bahama</option><option label="Bahrein" value="string:999204">Bahrein</option><option label="Bangladesh" value="string:999249">Bangladesh</option><option label="Barbados" value="string:999522">Barbados</option><option label="Basutoland-sud Africa Britannico" value="string:999303">Basutoland-sud Africa Britannico</option><option label="Beciuania-sud Africa Britannico" value="string:999304">Beciuania-sud Africa Britannico</option><option label="Belgio" value="string:999103">Belgio</option><option label="Belize" value="string:999512">Belize</option><option label="Benin" value="string:999314">Benin</option><option label="Bermuda (isole)" value="string:999400">Bermuda (isole)</option><option label="Bhutan" value="string:999205">Bhutan</option><option label="Bielorussia=russia Bianca" value="string:999139">Bielorussia=russia Bianca</option><option label="Birmania" value="string:999206">Birmania</option><option label="Bolivia" value="string:999601">Bolivia</option><option label="Bophuthatswana" value="string:999364">Bophuthatswana</option><option label="Bosnia Ed Erzegovina" value="string:999153">Bosnia Ed Erzegovina</option><option label="Botswana" value="string:999358">Botswana</option><option label="Brasile" value="string:999602">Brasile</option><option label="Brunei" value="string:999207">Brunei</option><option label="Bulgaria" value="string:999104">Bulgaria</option><option label="Burkina" value="string:999354">Burkina</option><option label="Burundi" value="string:999305">Burundi</option><option label="Cambogia" value="string:999208">Cambogia</option><option label="Camerun" value="string:999306">Camerun</option><option label="Canada" value="string:999401">Canada</option><option label="Capo Verde" value="string:999307">Capo Verde</option><option label="Caroline (isole)=stati Federati Di Micronesia" value="string:999701">Caroline (isole)=stati Federati Di Micronesia</option><option label="Cayman (isole)" value="string:999530">Cayman (isole)</option><option label="Ceca Repubblica" value="string:999156">Ceca Repubblica</option><option label="Cecoslovacchia" value="string:999105">Cecoslovacchia</option><option label="Centrafricana Repubblica" value="string:999308">Centrafricana Repubblica</option><option label="Christmas (isola)" value="string:999702">Christmas (isola)</option><option label="Ciad" value="string:999309">Ciad</option><option label="Cile" value="string:999603">Cile</option><option label="Cina Repubblica Popolare" value="string:999210">Cina Repubblica Popolare</option><option label="Cipro" value="string:999211">Cipro</option><option label="Ciskei" value="string:999367">Ciskei</option><option label="Citta' Del Vaticano" value="string:999106">Citta' Del Vaticano</option><option label="Cocos (isole)" value="string:999212">Cocos (isole)</option><option label="Colombia" value="string:999604">Colombia</option><option label="Comore" value="string:999310">Comore</option><option label="Congo Belga" value="string:999370">Congo Belga</option><option label="Congo Repubblica Democratica" value="string:999312">Congo Repubblica Democratica</option><option label="Congo Repubblica Popolare" value="string:999311">Congo Repubblica Popolare</option><option label="Cook (isole)" value="string:999703">Cook (isole)</option><option label="Corea Del Nord" value="string:999214">Corea Del Nord</option><option label="Corea Del Sud" value="string:999213">Corea Del Sud</option><option label="Costa D'avorio" value="string:999313">Costa D'avorio</option><option label="Costa Rica" value="string:999503">Costa Rica</option><option label="Croazia" value="string:999149">Croazia</option><option label="Cuba" value="string:999504">Cuba</option><option label="Danimarca" value="string:999107">Danimarca</option><option label="Dipendenze Australiane" value="string:999900">Dipendenze Australiane</option><option label="Dipendenze Britanniche" value="string:999901">Dipendenze Britanniche</option><option label="Dipendenze Canadesi" value="string:999800">Dipendenze Canadesi</option><option label="Dipendenze Francesi" value="string:999902">Dipendenze Francesi</option><option label="Dipendenze Neozelandesi" value="string:999903">Dipendenze Neozelandesi</option><option label="Dipendenze Norvegesi Antartiche" value="string:999904">Dipendenze Norvegesi Antartiche</option><option label="Dipendenze Norvegesi Artiche" value="string:999801">Dipendenze Norvegesi Artiche</option><option label="Dipendenze Russe" value="string:999802">Dipendenze Russe</option><option label="Dipendenze Statunitensi" value="string:999905">Dipendenze Statunitensi</option><option label="Dipendenze Sudafricane" value="string:999906">Dipendenze Sudafricane</option><option label="Dominica" value="string:999526">Dominica</option><option label="Dominicana Repubblica" value="string:999505">Dominicana Repubblica</option><option label="Ecuador" value="string:999605">Ecuador</option><option label="Egitto" value="string:999336">Egitto</option><option label="El Salvador" value="string:999506">El Salvador</option><option label="Emirati Arabi Uniti" value="string:999215">Emirati Arabi Uniti</option><option label="Eritrea" value="string:999368">Eritrea</option><option label="Estonia" value="string:999144">Estonia</option><option label="Etiopia" value="string:999315">Etiopia</option><option label="Faer Oer (isole)" value="string:999108">Faer Oer (isole)</option><option label="Figi=viti" value="string:999704">Figi=viti</option><option label="Filippine" value="string:999216">Filippine</option><option label="Finlandia" value="string:999109">Finlandia</option><option label="Francia" value="string:999110">Francia</option><option label="Gabon" value="string:999316">Gabon</option><option label="Gambia" value="string:999317">Gambia</option><option label="Gaza (territorio Di)" value="string:999218">Gaza (territorio Di)</option><option label="Georgia" value="string:999254">Georgia</option><option label="Germania" value="string:999112">Germania</option><option label="Germania Repubblica Democratica" value="string:999111">Germania Repubblica Democratica</option><option label="Ghana" value="string:999318">Ghana</option><option label="Giamaica" value="string:999507">Giamaica</option><option label="Giappone" value="string:999219">Giappone</option><option label="Gibilterra" value="string:999113">Gibilterra</option><option label="Gibuti" value="string:999361">Gibuti</option><option label="Gilbert E Ellice (isole)" value="string:999705">Gilbert E Ellice (isole)</option><option label="Giordania" value="string:999220">Giordania</option><option label="Gran Bretagna E Irlanda Del Nord" value="string:999114">Gran Bretagna E Irlanda Del Nord</option><option label="Grecia" value="string:999115">Grecia</option><option label="Grenada" value="string:999524">Grenada</option><option label="Groenlandia" value="string:999402">Groenlandia</option><option label="Guadalupa" value="string:999508">Guadalupa</option><option label="Guam (isola)" value="string:999706">Guam (isola)</option><option label="Guatemala" value="string:999509">Guatemala</option><option label="Guayana=guiana Francese" value="string:999607">Guayana=guiana Francese</option><option label="Guinea" value="string:999319">Guinea</option><option label="Guinea Bissau" value="string:999320">Guinea Bissau</option><option label="Guinea Equatoriale" value="string:999321">Guinea Equatoriale</option><option label="Guyana" value="string:999606">Guyana</option><option label="Haiti" value="string:999510">Haiti</option><option label="Honduras" value="string:999511">Honduras</option><option label="Hong Kong" value="string:999221">Hong Kong</option><option label="Ifni" value="string:999323">Ifni</option><option label="India" value="string:999222">India</option><option label="Indonesia" value="string:999223">Indonesia</option><option label="Iran" value="string:999224">Iran</option><option label="Iraq" value="string:999225">Iraq</option><option label="Irian Occidentale" value="string:999707">Irian Occidentale</option><option label="Irlanda=eire" value="string:999116">Irlanda=eire</option><option label="Islanda" value="string:999117">Islanda</option><option label="Isole Cilene (pasqua E Sala Y Gomez)" value="string:999721">Isole Cilene (pasqua E Sala Y Gomez)</option><option label="Israele" value="string:999226">Israele</option><option label="Italia" value="string:1">Italia</option><option label="Iugoslavia" value="string:999118">Iugoslavia</option><option label="Kazakistan" value="string:999255">Kazakistan</option><option label="Kenya" value="string:999322">Kenya</option><option label="Kirghizistan" value="string:999256">Kirghizistan</option><option label="Kiribati" value="string:999731">Kiribati</option><option label="Kossovo" value="string:999160">Kossovo</option><option label="Kuwait" value="string:999227">Kuwait</option><option label="La Reunion (isola)" value="string:999324">La Reunion (isola)</option><option label="Laos" value="string:999228">Laos</option><option label="Lesotho" value="string:999359">Lesotho</option><option label="Lettonia" value="string:999145">Lettonia</option><option label="Libano" value="string:999229">Libano</option><option label="Liberia" value="string:999325">Liberia</option><option label="Libia" value="string:999326">Libia</option><option label="Liechtenstein" value="string:999119">Liechtenstein</option><option label="Lituania" value="string:999146">Lituania</option><option label="Lussemburgo" value="string:999120">Lussemburgo</option><option label="Macao" value="string:999231">Macao</option><option label="Macedonia" value="string:999148">Macedonia</option><option label="Macquarie (isole)" value="string:999708">Macquarie (isole)</option><option label="Madagascar" value="string:999327">Madagascar</option><option label="Malawi" value="string:999328">Malawi</option><option label="Malaysia" value="string:999247">Malaysia</option><option label="Maldive" value="string:999232">Maldive</option><option label="Mali" value="string:999329">Mali</option><option label="Malta" value="string:999121">Malta</option><option label="Malvine=falkland (isole)" value="string:999609">Malvine=falkland (isole)</option><option label="Man (isola)" value="string:999122">Man (isola)</option><option label="Marcus (isole)" value="string:999709">Marcus (isole)</option><option label="Marianne (isole)" value="string:999710">Marianne (isole)</option><option label="Marocco" value="string:999330">Marocco</option><option label="Marshall" value="string:999711">Marshall</option><option label="Martinica" value="string:999513">Martinica</option><option label="Mauritania" value="string:999331">Mauritania</option><option label="Maurizio" value="string:999332">Maurizio</option><option label="Mayotte (isola)" value="string:999360">Mayotte (isola)</option><option label="Messico" value="string:999514">Messico</option><option label="Micronesia Stati Federati" value="string:999735">Micronesia Stati Federati</option><option label="Midway (isole)" value="string:999712">Midway (isole)</option><option label="Moldavia" value="string:999140">Moldavia</option><option label="Monaco" value="string:999123">Monaco</option><option label="Mongolia" value="string:999233">Mongolia</option><option label="Montenegro" value="string:999159">Montenegro</option><option label="Montserrat" value="string:999531">Montserrat</option><option label="Mozambico" value="string:999333">Mozambico</option><option label="Namibia" value="string:999300">Namibia</option><option label="Nauru" value="string:999713">Nauru</option><option label="Nepal" value="string:999234">Nepal</option><option label="Nicaragua" value="string:999515">Nicaragua</option><option label="Niger" value="string:999334">Niger</option><option label="Nigeria" value="string:999335">Nigeria</option><option label="Niue=savage (isole)" value="string:999714">Niue=savage (isole)</option><option label="Norfolk (isole E Isole Del Mar Dei Coralli)" value="string:999715">Norfolk (isole E Isole Del Mar Dei Coralli)</option><option label="Normanne (isole)=isole Del Canale" value="string:999124">Normanne (isole)=isole Del Canale</option><option label="Norvegia" value="string:999125">Norvegia</option><option label="Nuova Caledonia (isole E Dipendenze)" value="string:999716">Nuova Caledonia (isole E Dipendenze)</option><option label="Nuova Guinea" value="string:999718">Nuova Guinea</option><option label="Nuova Zelanda" value="string:999719">Nuova Zelanda</option><option label="Nuove Ebridi (isole Condominio Franco-inglese)" value="string:999717">Nuove Ebridi (isole Condominio Franco-inglese)</option><option label="Nyasaland" value="string:999369">Nyasaland</option><option label="Oman" value="string:999235">Oman</option><option label="Paesi Bassi" value="string:999126">Paesi Bassi</option><option label="Pakistan" value="string:999236">Pakistan</option><option label="Palau" value="string:999734">Palau</option><option label="Panama Zona Del Canale" value="string:999517">Panama Zona Del Canale</option><option label="Panama'" value="string:999516">Panama'</option><option label="Papua Nuova Guinea" value="string:999730">Papua Nuova Guinea</option><option label="Papuasia" value="string:999720">Papuasia</option><option label="Paraguay" value="string:999610">Paraguay</option><option label="Peru'" value="string:999611">Peru'</option><option label="Pitcairn (e Dipendenze)" value="string:999722">Pitcairn (e Dipendenze)</option><option label="Polinesia Francese (isole)" value="string:999723">Polinesia Francese (isole)</option><option label="Portogallo" value="string:999128">Portogallo</option><option label="Puerto Rico" value="string:999518">Puerto Rico</option><option label="Qatar" value="string:999237">Qatar</option><option label="Repubblica Della Cina Nazionale=taiwan" value="string:999217">Repubblica Della Cina Nazionale=taiwan</option><option label="Repubblica Di Polonia" value="string:999127">Repubblica Di Polonia</option><option label="Romania" value="string:999129">Romania</option><option label="Ruanda" value="string:999338">Ruanda</option><option label="Russia=federazione Russa" value="string:999154">Russia=federazione Russa</option><option label="Ryukyu (isole)" value="string:999238">Ryukyu (isole)</option><option label="Sahara Meridionale" value="string:999362">Sahara Meridionale</option><option label="Sahara Settentrionale" value="string:999363">Sahara Settentrionale</option><option label="Sahara Spagnolo" value="string:999339">Sahara Spagnolo</option><option label="Saint Kitts E Nevis=saint Christopher E Nevis" value="string:999533">Saint Kitts E Nevis=saint Christopher E Nevis</option><option label="Saint Lucia" value="string:999527">Saint Lucia</option><option label="Saint Pierre Et Miquelon (isole)" value="string:999403">Saint Pierre Et Miquelon (isole)</option><option label="Saint Vincent E Grenadine" value="string:999528">Saint Vincent E Grenadine</option><option label="Salomone" value="string:999724">Salomone</option><option label="Samoa" value="string:999726">Samoa</option><option label="Samoa Americane (isole)" value="string:999725">Samoa Americane (isole)</option><option label="San Marino" value="string:999130">San Marino</option><option label="Sant'elena (isola)" value="string:999340">Sant'elena (isola)</option><option label="Sao Tome' E Principe" value="string:999341">Sao Tome' E Principe</option><option label="Seicelle" value="string:999342">Seicelle</option><option label="Senegal" value="string:999343">Senegal</option><option label="Serbia" value="string:999158">Serbia</option><option label="Serbia E Montenegro" value="string:999157">Serbia E Montenegro</option><option label="Sierra Leone" value="string:999344">Sierra Leone</option><option label="Sikkim" value="string:999239">Sikkim</option><option label="Singapore" value="string:999248">Singapore</option><option label="Siria" value="string:999240">Siria</option><option label="Slovacchia" value="string:999155">Slovacchia</option><option label="Slovenia" value="string:999150">Slovenia</option><option label="Somalia" value="string:999345">Somalia</option><option label="Spagna" value="string:999131">Spagna</option><option label="Sri Lanka" value="string:999209">Sri Lanka</option><option label="Stati Uniti D'america" value="string:999404">Stati Uniti D'america</option><option label="Sudafricana Repubblica" value="string:999347">Sudafricana Repubblica</option><option label="Sudan" value="string:999348">Sudan</option><option label="Suriname" value="string:999608">Suriname</option><option label="Svezia" value="string:999132">Svezia</option><option label="Svizzera" value="string:999133">Svizzera</option><option label="Swaziland" value="string:999349">Swaziland</option><option label="Tagikistan" value="string:999257">Tagikistan</option><option label="Tanganica" value="string:999350">Tanganica</option><option label="Tanzania" value="string:999357">Tanzania</option><option label="Territori Palestinesi" value="string:999161">Territori Palestinesi</option><option label="Territorio Francese Degli Afar E Degli Issa" value="string:999346">Territorio Francese Degli Afar E Degli Issa</option><option label="Thailandia" value="string:999241">Thailandia</option><option label="Timor (isola)" value="string:999242">Timor (isola)</option><option label="Togo" value="string:999351">Togo</option><option label="Tokelau=isole Dell'unione" value="string:999727">Tokelau=isole Dell'unione</option><option label="Tonga=isole Degli Amici" value="string:999728">Tonga=isole Degli Amici</option><option label="Transkei" value="string:999365">Transkei</option><option label="Trinidad E Tobago" value="string:999612">Trinidad E Tobago</option><option label="Tunisia" value="string:999352">Tunisia</option><option label="Turchia" value="string:999243">Turchia</option><option label="Turkemenistan" value="string:999258">Turkemenistan</option><option label="Turks E Caicos (isole)" value="string:999519">Turks E Caicos (isole)</option><option label="Tuvalu" value="string:999732">Tuvalu</option><option label="Ucraina" value="string:999138">Ucraina</option><option label="Uganda" value="string:999353">Uganda</option><option label="Ungheria" value="string:999134">Ungheria</option><option label="Unione Repubbliche Socialiste Sovietiche" value="string:999135">Unione Repubbliche Socialiste Sovietiche</option><option label="Uruguay" value="string:999613">Uruguay</option><option label="Uzbekistan" value="string:999259">Uzbekistan</option><option label="Vanuatu" value="string:999733">Vanuatu</option><option label="Venda" value="string:999366">Venda</option><option label="Venezuela" value="string:999614">Venezuela</option><option label="Vergini Americane (isole)" value="string:999520">Vergini Americane (isole)</option><option label="Vergini Britanniche (isole)" value="string:999525">Vergini Britanniche (isole)</option><option label="Vietnam" value="string:999251">Vietnam</option><option label="Vietnam Del Nord" value="string:999245">Vietnam Del Nord</option><option label="Vietnam Del Sud" value="string:999244">Vietnam Del Sud</option><option label="Wallis E Futuna (isole)" value="string:999729">Wallis E Futuna (isole)</option><option label="Yemen" value="string:999246">Yemen</option><option label="Yemen Repubblica Democratica Popolare" value="string:999250">Yemen Repubblica Democratica Popolare</option><option label="Zambia" value="string:999355">Zambia</option><option label="Zanzibar" value="string:999356">Zanzibar</option><option label="Zimbabwe" value="string:999337">Zimbabwe</option></select><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='select' || item.form_type=='select_country' -->
+                        </div><!-- end ngRepeat: item in model.society | orderBy:'sort':reverse --><div ng-repeat="item in model.society | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' && item.code != 'wrescity' -->
+                            <!-- ngIf: item.code == 'wrescity' --><div ng-if="item.code == 'wrescity'" class="ng-scope">
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label ng-binding">CittÃ&nbsp;  <!-- ngIf: item.require --><span ng-if="item.require" class="ng-scope">*</span><!-- end ngIf: item.require --></label>
+                                    <div class="col-sm-12">
+                                        <div class="inner-addon right-addon">
+                                            <i ng-show="form[item.code].$touched &amp;&amp; (form[item.code].$error.required || form[item.code].$error.pattern ||
+                                            form[item.code].$error.minlength || form[item.code].$error.maxlength)" class="glyphicon glyphicon-remove-circle error-input-ico ng-hide"></i>
+                                            <i ng-show="form[item.code].$touched &amp;&amp; form[bind.code].$valid" class="glyphicon glyphicon-ok-circle valid-input-ico ng-hide"></i>
+                                            <input type="text" ng-required="item.require" ng-init="model.skin.website_detail[item.code] = model.page.page_value.website_detail[item.code]" id="Autocomplete2" ng-model="model.skin.website_detail[item.code]" class="form-control ng-pristine ng-untouched ng-isolate-scope ng-invalid ng-invalid-required" ng-autocomplete="" options="model.options" details="details" required="required" placeholder="Enter a location" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- end ngIf: item.code == 'wrescity' -->
+                            <!-- ngIf: item.form_type=='select' || item.form_type=='select_country' -->
+                        </div><!-- end ngRepeat: item in model.society | orderBy:'sort':reverse --><div ng-repeat="item in model.society | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' && item.code != 'wrescity' --><div ng-if="item.form_type=='input' &amp;&amp; item.code != 'wrescity'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Rappresentante  <!-- ngIf: bind.require --><span ng-if="bind.require" class="ng-scope">*</span><!-- end ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Rappresentante" ng-maxlength="10" ng-minlength="3" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" placeholder="Rappresentante" ng-required="1" required="required"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' && item.code != 'wrescity' -->
+                            <!-- ngIf: item.code == 'wrescity' -->
+                            <!-- ngIf: item.form_type=='select' || item.form_type=='select_country' -->
+                        </div><!-- end ngRepeat: item in model.society | orderBy:'sort':reverse --><div ng-repeat="item in model.society | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' && item.code != 'wrescity' --><div ng-if="item.form_type=='input' &amp;&amp; item.code != 'wrescity'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Codice registrazione  <!-- ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Codice registrazione" ng-maxlength="20" ng-minlength="1" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="Codice registrazione" ng-required="0"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' && item.code != 'wrescity' -->
+                            <!-- ngIf: item.code == 'wrescity' -->
+                            <!-- ngIf: item.form_type=='select' || item.form_type=='select_country' -->
+                        </div><!-- end ngRepeat: item in model.society | orderBy:'sort':reverse -->
+                    </div></fieldset></field-set-panel>
+                </div>
+                <div class="col-md-4">
+                    <field-set-panel ico="icon-euro" binding-field="Dati Fiscali" class="ng-isolate-scope"><fieldset class="scheduler-border"><legend class="scheduler-border-label ng-binding"><i class="icon-euro"></i> Dati Fiscali</legend><div ng-transclude="">
+                        <!-- ngRepeat: item in model.fiscal | orderBy:'sort':reverse --><div ng-repeat="item in model.fiscal | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' --><div ng-if="item.form_type=='input'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Partita iva  <!-- ngIf: bind.require --><span ng-if="bind.require" class="ng-scope">*</span><!-- end ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Partita iva" ng-maxlength="20" ng-minlength="2" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" placeholder="Partita iva" ng-required="1" required="required"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' -->
+                            <!-- ngIf: item.form_type=='select' -->
+                        </div><!-- end ngRepeat: item in model.fiscal | orderBy:'sort':reverse --><div ng-repeat="item in model.fiscal | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' --><div ng-if="item.form_type=='input'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Nome Banca  <!-- ngIf: bind.require --><span ng-if="bind.require" class="ng-scope">*</span><!-- end ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Nome Banca" ng-maxlength="20" ng-minlength="2" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" placeholder="Nome Banca" ng-required="1" required="required"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' -->
+                            <!-- ngIf: item.form_type=='select' -->
+                        </div><!-- end ngRepeat: item in model.fiscal | orderBy:'sort':reverse --><div ng-repeat="item in model.fiscal | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' --><div ng-if="item.form_type=='input'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Numero conto  <!-- ngIf: bind.require --><span ng-if="bind.require" class="ng-scope">*</span><!-- end ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Numero conto" ng-maxlength="15" ng-minlength="4" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" placeholder="Numero conto" ng-required="1" required="required"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' -->
+                            <!-- ngIf: item.form_type=='select' -->
+                        </div><!-- end ngRepeat: item in model.fiscal | orderBy:'sort':reverse --><div ng-repeat="item in model.fiscal | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' --><div ng-if="item.form_type=='input'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Nome Intestatario  <!-- ngIf: bind.require --><span ng-if="bind.require" class="ng-scope">*</span><!-- end ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Nome Intestatario" ng-maxlength="20" ng-minlength="2" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" placeholder="Nome Intestatario" ng-required="1" required="required"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' -->
+                            <!-- ngIf: item.form_type=='select' -->
+                        </div><!-- end ngRepeat: item in model.fiscal | orderBy:'sort':reverse --><div ng-repeat="item in model.fiscal | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' --><div ng-if="item.form_type=='input'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Codice swift  <!-- ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Codice swift" ng-maxlength="20" ng-minlength="0" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="Codice swift" ng-required="0"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' -->
+                            <!-- ngIf: item.form_type=='select' -->
+                        </div><!-- end ngRepeat: item in model.fiscal | orderBy:'sort':reverse --><div ng-repeat="item in model.fiscal | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' --><div ng-if="item.form_type=='input'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">IBAN  <!-- ngIf: bind.require --><span ng-if="bind.require" class="ng-scope">*</span><!-- end ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="IBAN" ng-maxlength="30" ng-minlength="4" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" placeholder="IBAN" ng-required="1" required="required"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' -->
+                            <!-- ngIf: item.form_type=='select' -->
+                        </div><!-- end ngRepeat: item in model.fiscal | orderBy:'sort':reverse -->
+                    </div></fieldset></field-set-panel>
+                </div>
+                <div class="col-md-4">
+                    <field-set-panel ico="icon-user-male" binding-field="Contatti principali" class="ng-isolate-scope"><fieldset class="scheduler-border"><legend class="scheduler-border-label ng-binding"><i class="icon-user-male"></i> Contatti principali</legend><div ng-transclude="">
+                        <!-- ngRepeat: item in model.contacts1 | orderBy:'sort':reverse --><div ng-repeat="item in model.contacts1 | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' --><div ng-if="item.form_type=='input'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Nome  <!-- ngIf: bind.require --><span ng-if="bind.require" class="ng-scope">*</span><!-- end ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Nome" ng-maxlength="10" ng-minlength="2" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" placeholder="Nome" ng-required="1" required="required"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' -->
+                            <!-- ngIf: item.form_type=='select' -->
+                        </div><!-- end ngRepeat: item in model.contacts1 | orderBy:'sort':reverse --><div ng-repeat="item in model.contacts1 | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' --><div ng-if="item.form_type=='input'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Cognome  <!-- ngIf: bind.require --><span ng-if="bind.require" class="ng-scope">*</span><!-- end ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Cognome" ng-maxlength="10" ng-minlength="2" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" placeholder="Cognome" ng-required="1" required="required"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' -->
+                            <!-- ngIf: item.form_type=='select' -->
+                        </div><!-- end ngRepeat: item in model.contacts1 | orderBy:'sort':reverse --><div ng-repeat="item in model.contacts1 | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' --><div ng-if="item.form_type=='input'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Email  <!-- ngIf: bind.require --><span ng-if="bind.require" class="ng-scope">*</span><!-- end ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Email" ng-maxlength="255" ng-minlength="6" ng-disabled="" ng-hide="" pattern="[^@]+@[^@]+\.[^@]+" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" placeholder="Email" ng-required="1" required="required"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' -->
+                            <!-- ngIf: item.form_type=='select' -->
+                        </div><!-- end ngRepeat: item in model.contacts1 | orderBy:'sort':reverse --><div ng-repeat="item in model.contacts1 | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' --><div ng-if="item.form_type=='input'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Cellulare  <!-- ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Cellulare" ng-maxlength="20" ng-minlength="4" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="Cellulare" ng-required="0"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' -->
+                            <!-- ngIf: item.form_type=='select' -->
+                        </div><!-- end ngRepeat: item in model.contacts1 | orderBy:'sort':reverse --><div ng-repeat="item in model.contacts1 | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' --><div ng-if="item.form_type=='input'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Telefono  <!-- ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Telefono" ng-maxlength="20" ng-minlength="0" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="Telefono" ng-required="0"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' -->
+                            <!-- ngIf: item.form_type=='select' -->
+                        </div><!-- end ngRepeat: item in model.contacts1 | orderBy:'sort':reverse --><div ng-repeat="item in model.contacts1 | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' --><div ng-if="item.form_type=='input'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Skype  <!-- ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Skype" ng-maxlength="20" ng-minlength="0" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="Skype" ng-required="0"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' -->
+                            <!-- ngIf: item.form_type=='select' -->
+                        </div><!-- end ngRepeat: item in model.contacts1 | orderBy:'sort':reverse -->
+                    </div></fieldset></field-set-panel>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <field-set-panel ico="icon-cog" binding-field="Impostazioni Base" class="ng-isolate-scope"><fieldset class="scheduler-border"><legend class="scheduler-border-label ng-binding"><i class="icon-cog"></i> Impostazioni Base</legend><div ng-transclude="">
+                        <div class="row-field ng-scope">
+                            <div class="form-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" init="model.page.page_value.website_status" bind="model.skin.website_status" col-label="col-sm-12" col-input="col-sm-12" name="Stato Skin" binding-field="model.page.page_data.website_status.data" require="true"><ng-form name="fieldForm" class="ng-pristine ng-invalid ng-invalid-required"><label class="col-sm-12 control-label">Stato Skin<span ng-show="true" class=""> *</span></label><div class="col-sm-12"><select class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" name="Stato Skin" ng-disabled="" ng-init="bind = init" ng-model="bind" ng-required="true" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" ng-options="v.id as v.name for (k, v) in bindingField" required="required"><option value="" class="" selected="selected"></option><option label="Enabled" value="number:1">Enabled</option><option label="Disabled" value="number:2">Disabled</option></select><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+                        </div>
+                        <!-- ngRepeat: item in model.basic_setting --><div class="row-field ng-scope" ng-repeat="item in model.basic_setting">
+
+                            <!-- ngIf: item.form_type=='input' --><div ng-if="item.form_type=='input'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Nome Skin  <!-- ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Nome Skin" ng-maxlength="20" ng-minlength="2" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="Nome Skin" ng-required="0"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' -->
+                            <!-- ngIf: item.form_type=='select' -->
+
+                        </div><!-- end ngRepeat: item in model.basic_setting --><div class="row-field ng-scope" ng-repeat="item in model.basic_setting">
+
+                            <!-- ngIf: item.form_type=='input' --><div ng-if="item.form_type=='input'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Slogan Skin  <!-- ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Slogan Skin" ng-maxlength="20" ng-minlength="0" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="Slogan Skin" ng-required="0"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' -->
+                            <!-- ngIf: item.form_type=='select' -->
+
+                        </div><!-- end ngRepeat: item in model.basic_setting --><div class="row-field ng-scope" ng-repeat="item in model.basic_setting">
+
+                            <!-- ngIf: item.form_type=='input' --><div ng-if="item.form_type=='input'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Indirizzo Web  <!-- ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Indirizzo Web" ng-maxlength="50" ng-minlength="4" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="Indirizzo Web" ng-required="0"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' -->
+                            <!-- ngIf: item.form_type=='select' -->
+
+                        </div><!-- end ngRepeat: item in model.basic_setting --><div class="row-field ng-scope" ng-repeat="item in model.basic_setting">
+
+                            <!-- ngIf: item.form_type=='input' --><div ng-if="item.form_type=='input'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Indirizzo Web Admin  <!-- ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Indirizzo Web Admin" ng-maxlength="50" ng-minlength="2" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="Indirizzo Web Admin" ng-required="0"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' -->
+                            <!-- ngIf: item.form_type=='select' -->
+
+                        </div><!-- end ngRepeat: item in model.basic_setting -->
+                    </div></fieldset></field-set-panel>
+                </div>
+
+
+                <div class="col-md-4">
+                    <field-set-panel ico="icon-user-male" binding-field="Trust Management" class="ng-isolate-scope"><fieldset class="scheduler-border"><legend class="scheduler-border-label ng-binding"><i class="icon-user-male"></i> Trust Management</legend><div ng-transclude="">
+                        <!-- ngRepeat: item in model.trust | orderBy:'sort':reverse --><div ng-repeat="item in model.trust | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' -->
+                            <!-- ngIf: item.form_type=='select' --><div ng-if="item.form_type=='select'" class="ng-scope">
+                                <div class="form-group ng-isolate-scope" bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]"><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Stato fido</label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><select class="form-control ng-pristine ng-untouched ng-valid" ng-disabled="bind.disabled" name="Stato fido" ng-init="model = init" ng-model="model" ng-options="v.id as v.name for (k, v) in bind.form_option"><option value="" class="" selected="selected"></option><option label="Enabled" value="string:6">Enabled</option><option label="Disabled" value="string:7">Disabled</option></select><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='select' -->
+                        </div><!-- end ngRepeat: item in model.trust | orderBy:'sort':reverse --><div ng-repeat="item in model.trust | orderBy:'sort':reverse" class="ng-scope">
+                            <!-- ngIf: item.form_type=='input' --><div ng-if="item.form_type=='input'" class="ng-scope">
+                                <div bind="item" init="model.page.page_value.website_detail[item.code]" model="model.skin.website_detail[item.code]" class="ng-isolate-scope"><div class="form-group" "=""><!-- ngIf: !(showTitle=='false') --><label ng-if="!(showTitle=='false')" class="col-sm-12 control-label ng-binding ng-scope">Fido massimo  <!-- ngIf: bind.require --></label><!-- end ngIf: !(showTitle=='false') --><div class="col-sm-12"><div class="inner-addon right-addon"><input type="input" name="Fido massimo" ng-maxlength="20" ng-minlength="1" ng-disabled="" ng-hide="" pattern="" ng-model="model" ng-init="model = init" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="Fido massimo" ng-required="0"><i class="glyphicon glyphicon-remove-circle error-input-ico"></i></div></div></div></div>
+                            </div><!-- end ngIf: item.form_type=='input' -->
+                            <!-- ngIf: item.form_type=='select' -->
+                        </div><!-- end ngRepeat: item in model.trust | orderBy:'sort':reverse -->
+                    </div></fieldset></field-set-panel>
+                    <field-set-panel ico="icon-soccer-ball" binding-field="Tipologia prodotto" class="ng-isolate-scope"><fieldset class="scheduler-border"><legend class="scheduler-border-label ng-binding"><i class="icon-soccer-ball"></i> Tipologia prodotto</legend><div ng-transclude="">
+                        <!-- ngRepeat: (key, ceck) in model.page.page_data.product_type.data --><div ng-repeat="(key, ceck) in model.page.page_data.product_type.data" class="ng-scope">
+                            <div class="input-group">
+                                <div class="checkbox">
+
+                                    <input type="checkbox" name="ceckgroup" ng-true-value="1" ng-checked="ceck.id == model.product_type[ceck.id]" ng-false-value="0" id="check1" ng-model="model.product_type[ceck.id]" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="check1" class="ng-binding">
+                                    Poker
+                                    </label>
+                                </div>
+                            </div>
+                        </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.product_type.data --><div ng-repeat="(key, ceck) in model.page.page_data.product_type.data" class="ng-scope">
+                            <div class="input-group">
+                                <div class="checkbox">
+
+                                    <input type="checkbox" name="ceckgroup" ng-true-value="2" ng-checked="ceck.id == model.product_type[ceck.id]" ng-false-value="0" id="check2" ng-model="model.product_type[ceck.id]" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="check2" class="ng-binding">
+                                    Casino
+                                    </label>
+                                </div>
+                            </div>
+                        </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.product_type.data --><div ng-repeat="(key, ceck) in model.page.page_data.product_type.data" class="ng-scope">
+                            <div class="input-group">
+                                <div class="checkbox">
+
+                                    <input type="checkbox" name="ceckgroup" ng-true-value="3" ng-checked="ceck.id == model.product_type[ceck.id]" ng-false-value="0" id="check3" ng-model="model.product_type[ceck.id]" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="check3" class="ng-binding">
+                                    Bingo
+                                    </label>
+                                </div>
+                            </div>
+                        </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.product_type.data --><div ng-repeat="(key, ceck) in model.page.page_data.product_type.data" class="ng-scope">
+                            <div class="input-group">
+                                <div class="checkbox">
+
+                                    <input type="checkbox" name="ceckgroup" ng-true-value="4" ng-checked="ceck.id == model.product_type[ceck.id]" ng-false-value="0" id="check4" ng-model="model.product_type[ceck.id]" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="check4" class="ng-binding">
+                                    Casino Live
+                                    </label>
+                                </div>
+                            </div>
+                        </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.product_type.data --><div ng-repeat="(key, ceck) in model.page.page_data.product_type.data" class="ng-scope">
+                            <div class="input-group">
+                                <div class="checkbox">
+
+                                    <input type="checkbox" name="ceckgroup" ng-true-value="5" ng-checked="ceck.id == model.product_type[ceck.id]" ng-false-value="0" id="check5" ng-model="model.product_type[ceck.id]" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="check5" class="ng-binding">
+                                    Betting Exchange
+                                    </label>
+                                </div>
+                            </div>
+                        </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.product_type.data --><div ng-repeat="(key, ceck) in model.page.page_data.product_type.data" class="ng-scope">
+                            <div class="input-group">
+                                <div class="checkbox">
+
+                                    <input type="checkbox" name="ceckgroup" ng-true-value="6" ng-checked="ceck.id == model.product_type[ceck.id]" ng-false-value="0" id="check6" ng-model="model.product_type[ceck.id]" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="check6" class="ng-binding">
+                                    Skill Games
+                                    </label>
+                                </div>
+                            </div>
+                        </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.product_type.data -->
+                    </div></fieldset></field-set-panel>
+                </div>
+                <div class="col-md-4">
+                    <field-set-panel ico="icon-wrench" binding-field="Permessi Generali" class="ng-isolate-scope"><fieldset class="scheduler-border"><legend class="scheduler-border-label ng-binding"><i class="icon-wrench"></i> Permessi Generali</legend><div ng-transclude="">
+                            <!-- ngRepeat: (key, ceck) in model.page.page_data.gen_perm.data --><div class="input-group ng-scope" ng-repeat="(key, ceck) in model.page.page_data.gen_perm.data">
+                                <div class="checkbox">
+                                    <input type="checkbox" ng-true-value="1" name="ceckgroup" ng-checked="model.skin.gen_perm[ceck.id].value == 1" id="gen_perm1" ng-false-value="0" ng-model="model.skin.gen_perm[ceck.id].value" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="gen_perm1" class="ng-binding">
+                                        Manage Fido
+                                    </label>
+                                </div>
+                            </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.gen_perm.data --><div class="input-group ng-scope" ng-repeat="(key, ceck) in model.page.page_data.gen_perm.data">
+                                <div class="checkbox">
+                                    <input type="checkbox" ng-true-value="1" name="ceckgroup" ng-checked="model.skin.gen_perm[ceck.id].value == 1" id="gen_perm2" ng-false-value="0" ng-model="model.skin.gen_perm[ceck.id].value" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="gen_perm2" class="ng-binding">
+                                        Enable Message Center
+                                    </label>
+                                </div>
+                            </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.gen_perm.data --><div class="input-group ng-scope" ng-repeat="(key, ceck) in model.page.page_data.gen_perm.data">
+                                <div class="checkbox">
+                                    <input type="checkbox" ng-true-value="1" name="ceckgroup" ng-checked="model.skin.gen_perm[ceck.id].value == 1" id="gen_perm3" ng-false-value="0" ng-model="model.skin.gen_perm[ceck.id].value" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="gen_perm3" class="ng-binding">
+                                        Enable User Recharge
+                                    </label>
+                                </div>
+                            </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.gen_perm.data --><div class="input-group ng-scope" ng-repeat="(key, ceck) in model.page.page_data.gen_perm.data">
+                                <div class="checkbox">
+                                    <input type="checkbox" ng-true-value="1" name="ceckgroup" ng-checked="model.skin.gen_perm[ceck.id].value == 1" id="gen_perm4" ng-false-value="0" ng-model="model.skin.gen_perm[ceck.id].value" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="gen_perm4" class="ng-binding">
+                                        Enable Withdraw
+                                    </label>
+                                </div>
+                            </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.gen_perm.data --><div class="input-group ng-scope" ng-repeat="(key, ceck) in model.page.page_data.gen_perm.data">
+                                <div class="checkbox">
+                                    <input type="checkbox" ng-true-value="1" name="ceckgroup" ng-checked="model.skin.gen_perm[ceck.id].value == 1" id="gen_perm5" ng-false-value="0" ng-model="model.skin.gen_perm[ceck.id].value" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="gen_perm5" class="ng-binding">
+                                        Enalbe User Wallet Verify
+                                    </label>
+                                </div>
+                            </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.gen_perm.data --><div class="input-group ng-scope" ng-repeat="(key, ceck) in model.page.page_data.gen_perm.data">
+                                <div class="checkbox">
+                                    <input type="checkbox" ng-true-value="1" name="ceckgroup" ng-checked="model.skin.gen_perm[ceck.id].value == 1" id="gen_perm6" ng-false-value="0" ng-model="model.skin.gen_perm[ceck.id].value" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="gen_perm6" class="ng-binding">
+                                        Enable Promoter Creation
+                                    </label>
+                                </div>
+                            </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.gen_perm.data --><div class="input-group ng-scope" ng-repeat="(key, ceck) in model.page.page_data.gen_perm.data">
+                                <div class="checkbox">
+                                    <input type="checkbox" ng-true-value="1" name="ceckgroup" ng-checked="model.skin.gen_perm[ceck.id].value == 1" id="gen_perm7" ng-false-value="0" ng-model="model.skin.gen_perm[ceck.id].value" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="gen_perm7" class="ng-binding">
+                                        Enable Player Profiling
+                                    </label>
+                                </div>
+                            </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.gen_perm.data --><div class="input-group ng-scope" ng-repeat="(key, ceck) in model.page.page_data.gen_perm.data">
+                                <div class="checkbox">
+                                    <input type="checkbox" ng-true-value="1" name="ceckgroup" ng-checked="model.skin.gen_perm[ceck.id].value == 1" id="gen_perm8" ng-false-value="0" ng-model="model.skin.gen_perm[ceck.id].value" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="gen_perm8" class="ng-binding">
+                                        Enable Admin Creation
+                                    </label>
+                                </div>
+                            </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.gen_perm.data --><div class="input-group ng-scope" ng-repeat="(key, ceck) in model.page.page_data.gen_perm.data">
+                                <div class="checkbox">
+                                    <input type="checkbox" ng-true-value="1" name="ceckgroup" ng-checked="model.skin.gen_perm[ceck.id].value == 1" id="gen_perm9" ng-false-value="0" ng-model="model.skin.gen_perm[ceck.id].value" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="gen_perm9" class="ng-binding">
+                                        Manage User Group
+                                    </label>
+                                </div>
+                            </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.gen_perm.data --><div class="input-group ng-scope" ng-repeat="(key, ceck) in model.page.page_data.gen_perm.data">
+                                <div class="checkbox">
+                                    <input type="checkbox" ng-true-value="1" name="ceckgroup" ng-checked="model.skin.gen_perm[ceck.id].value == 1" id="gen_perm10" ng-false-value="0" ng-model="model.skin.gen_perm[ceck.id].value" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="gen_perm10" class="ng-binding">
+                                        Create Commission Profile
+                                    </label>
+                                </div>
+                            </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.gen_perm.data --><div class="input-group ng-scope" ng-repeat="(key, ceck) in model.page.page_data.gen_perm.data">
+                                <div class="checkbox">
+                                    <input type="checkbox" ng-true-value="1" name="ceckgroup" ng-checked="model.skin.gen_perm[ceck.id].value == 1" id="gen_perm11" ng-false-value="0" ng-model="model.skin.gen_perm[ceck.id].value" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="gen_perm11" class="ng-binding">
+                                        Enable Agent
+                                    </label>
+                                </div>
+                            </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.gen_perm.data --><div class="input-group ng-scope" ng-repeat="(key, ceck) in model.page.page_data.gen_perm.data">
+                                <div class="checkbox">
+                                    <input type="checkbox" ng-true-value="1" name="ceckgroup" ng-checked="model.skin.gen_perm[ceck.id].value == 1" id="gen_perm12" ng-false-value="0" ng-model="model.skin.gen_perm[ceck.id].value" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="gen_perm12" class="ng-binding">
+                                        Enable Affiliate
+                                    </label>
+                                </div>
+                            </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.gen_perm.data -->
+
+                    </div></fieldset></field-set-panel>
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+
+                    <field-set-panel ico="icon-money" binding-field="Valuta di Backoffice" class="ng-isolate-scope"><fieldset class="scheduler-border"><legend class="scheduler-border-label ng-binding"><i class="icon-money"></i> Valuta di Backoffice</legend><div ng-transclude="">
+                        <div class="row ng-scope">
+                        <div class="form-group has-feedback ng-isolate-scope" ng-class="{'has-error' : fieldForm[name].$invalid &amp;&amp; fieldForm[name].$touched}" init="model.page.page_value.cur_back_office" bind="model.skin.cur_back_office" col-label="col-sm-12" col-input="col-sm-12" name="Valuta di Backoffice" binding-field="model.page.page_data.cur_back_office.data" require="true"><ng-form name="fieldForm" class="ng-pristine ng-invalid ng-invalid-required"><label class="col-sm-12 control-label">Valuta di Backoffice<span ng-show="true" class=""> *</span></label><div class="col-sm-12"><select class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" name="Valuta di Backoffice" ng-disabled="" ng-init="bind = init" ng-model="bind" ng-required="true" tooltip-enable="true" tooltip-trigger="focus" tooltip-placement="top" tooltip="" tooltip-class="infoTooltipClass" ng-options="v.id as v.name for (k, v) in bindingField" required="required"><option value="" class="" selected="selected"></option><option label="Euro" value="number:1">Euro</option><option label="Dollaro" value="number:2">Dollaro</option><option label="Sterlina" value="number:3">Sterlina</option><option label="Yen" value="number:4">Yen</option></select><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --><!-- ngIf: fieldForm[name].$invalid && fieldForm[name].$touched --></div></ng-form></div>
+                        </div>
+                    </div></fieldset></field-set-panel>
+                </div>
+                <div class="col-md-4">
+                    <field-set-panel ico="icon-pound" binding-field="Valute Disponibili" class="ng-isolate-scope"><fieldset class="scheduler-border"><legend class="scheduler-border-label ng-binding"><i class="icon-pound"></i> Valute Disponibili</legend><div ng-transclude="">
+                        <div class="row ng-scope">
+                            <!-- ngRepeat: (key, ceck) in model.page.page_data.cur_available.data --><div ng-repeat="(key, ceck) in model.page.page_data.cur_available.data" class="ng-scope">
+                                <div class="input-group">
+                                    <div class="checkbox">
+                                        <input type="checkbox" name="ceckgroup" ng-true-value="1" ng-checked="ceck.id == model.cur_available[ceck.id]" id="cur_available1" ng-false-value="0" ng-model="model.cur_available[ceck.id]" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="cur_available1" class="ng-binding">
+                                        Euro
+                                    </label>
+                                    </div>
+                                </div>
+                            </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.cur_available.data --><div ng-repeat="(key, ceck) in model.page.page_data.cur_available.data" class="ng-scope">
+                                <div class="input-group">
+                                    <div class="checkbox">
+                                        <input type="checkbox" name="ceckgroup" ng-true-value="2" ng-checked="ceck.id == model.cur_available[ceck.id]" id="cur_available2" ng-false-value="0" ng-model="model.cur_available[ceck.id]" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="cur_available2" class="ng-binding">
+                                        Dollaro
+                                    </label>
+                                    </div>
+                                </div>
+                            </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.cur_available.data --><div ng-repeat="(key, ceck) in model.page.page_data.cur_available.data" class="ng-scope">
+                                <div class="input-group">
+                                    <div class="checkbox">
+                                        <input type="checkbox" name="ceckgroup" ng-true-value="3" ng-checked="ceck.id == model.cur_available[ceck.id]" id="cur_available3" ng-false-value="0" ng-model="model.cur_available[ceck.id]" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="cur_available3" class="ng-binding">
+                                        Sterlina
+                                    </label>
+                                    </div>
+                                </div>
+                            </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.cur_available.data --><div ng-repeat="(key, ceck) in model.page.page_data.cur_available.data" class="ng-scope">
+                                <div class="input-group">
+                                    <div class="checkbox">
+                                        <input type="checkbox" name="ceckgroup" ng-true-value="4" ng-checked="ceck.id == model.cur_available[ceck.id]" id="cur_available4" ng-false-value="0" ng-model="model.cur_available[ceck.id]" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="cur_available4" class="ng-binding">
+                                        Yen
+                                    </label>
+                                    </div>
+                                </div>
+                            </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.cur_available.data -->
+                        <!--static-check binding-field="model.page.page_data.cur_available.data" validate="true" model="model.skin.cur_available" min="1"></static-check-->
+                        </div>
+                    </div></fieldset></field-set-panel>
+
+                </div>
+                <div class="col-md-4">
+                    <field-set-panel ico="icon-globe" binding-field="Lingue Configurate" class="ng-isolate-scope"><fieldset class="scheduler-border"><legend class="scheduler-border-label ng-binding"><i class="icon-globe"></i> Lingue Configurate</legend><div ng-transclude="">
+                        <div class="row ng-scope">
+                            <!-- ngRepeat: (key, ceck) in model.page.page_data.conf_lang.data --><div class="col-xs-12 ng-scope" ng-repeat="(key, ceck) in model.page.page_data.conf_lang.data">
+                                <div class="col-xs-6">
+                                    <div class="checkbox">
+                                    <input type="checkbox" ng-true-value="1" ng-checked="ceck.id == model.conf_lang[ceck.id]" id="conf_lang1" ng-false-value="0" ng-model="model.conf_lang[ceck.id]" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="conf_lang1" class="ng-binding">
+                                    Italiano
+                                    </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="checkbox">
+                                    <input type="checkbox" name="radioGroup" ng-true-value="1" ng-disabled="!model.page.page_value.conf_lang[ceck.id]" ng-checked="model.page.page_value.conf_lang[ceck.id] &amp;&amp; ceck.id == model.page.page_value.lang" ng-model="model.skin.lang" class="ng-pristine ng-untouched ng-valid" disabled="disabled">
+                                    &nbsp;<i style="font-weight: normal">Default</i>
+                                </div>
+
+                            </div>
+                        </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.conf_lang.data --><div class="col-xs-12 ng-scope" ng-repeat="(key, ceck) in model.page.page_data.conf_lang.data">
+                                <div class="col-xs-6">
+                                    <div class="checkbox">
+                                    <input type="checkbox" ng-true-value="2" ng-checked="ceck.id == model.conf_lang[ceck.id]" id="conf_lang2" ng-false-value="0" ng-model="model.conf_lang[ceck.id]" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="conf_lang2" class="ng-binding">
+                                    English
+                                    </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="checkbox">
+                                    <input type="checkbox" name="radioGroup" ng-true-value="2" ng-disabled="!model.page.page_value.conf_lang[ceck.id]" ng-checked="model.page.page_value.conf_lang[ceck.id] &amp;&amp; ceck.id == model.page.page_value.lang" ng-model="model.skin.lang" class="ng-pristine ng-untouched ng-valid" disabled="disabled">
+                                    &nbsp;<i style="font-weight: normal">Default</i>
+                                </div>
+
+                            </div>
+                        </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.conf_lang.data --><div class="col-xs-12 ng-scope" ng-repeat="(key, ceck) in model.page.page_data.conf_lang.data">
+                                <div class="col-xs-6">
+                                    <div class="checkbox">
+                                    <input type="checkbox" ng-true-value="3" ng-checked="ceck.id == model.conf_lang[ceck.id]" id="conf_lang3" ng-false-value="0" ng-model="model.conf_lang[ceck.id]" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="conf_lang3" class="ng-binding">
+                                    Deutschland
+                                    </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="checkbox">
+                                    <input type="checkbox" name="radioGroup" ng-true-value="3" ng-disabled="!model.page.page_value.conf_lang[ceck.id]" ng-checked="model.page.page_value.conf_lang[ceck.id] &amp;&amp; ceck.id == model.page.page_value.lang" ng-model="model.skin.lang" class="ng-pristine ng-untouched ng-valid" disabled="disabled">
+                                    &nbsp;<i style="font-weight: normal">Default</i>
+                                </div>
+
+                            </div>
+                        </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.conf_lang.data --><div class="col-xs-12 ng-scope" ng-repeat="(key, ceck) in model.page.page_data.conf_lang.data">
+                                <div class="col-xs-6">
+                                    <div class="checkbox">
+                                    <input type="checkbox" ng-true-value="4" ng-checked="ceck.id == model.conf_lang[ceck.id]" id="conf_lang4" ng-false-value="0" ng-model="model.conf_lang[ceck.id]" class="ng-pristine ng-untouched ng-valid">
+                                    <label for="conf_lang4" class="ng-binding">
+                                    Espana
+                                    </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="checkbox">
+                                    <input type="checkbox" name="radioGroup" ng-true-value="4" ng-disabled="!model.page.page_value.conf_lang[ceck.id]" ng-checked="model.page.page_value.conf_lang[ceck.id] &amp;&amp; ceck.id == model.page.page_value.lang" ng-model="model.skin.lang" class="ng-pristine ng-untouched ng-valid" disabled="disabled">
+                                    &nbsp;<i style="font-weight: normal">Default</i>
+                                </div>
+
+                            </div>
+                        </div><!-- end ngRepeat: (key, ceck) in model.page.page_data.conf_lang.data -->
+
+                </div>
+            </div></fieldset></field-set-panel></div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <field-set-panel ico="icon-edit" binding-field="" class="ng-isolate-scope"><fieldset class="scheduler-border"><legend class="scheduler-border-label ng-binding"><i class="icon-edit"></i> </legend><div ng-transclude="">
+                        <div row="5" init="" name="" model="model.skin.w_note" require="false" min="" max="" regexp="" col-input="col-sm-12" class="ng-scope ng-isolate-scope"><div class="form-group"><label class=" control-label"><span ng-show="false" class="ng-hide"> *</span></label><div class="col-sm-12"><textarea name="local" pattern="" ng-model="model" ng-init="model = init" rows="5" class="form-control ng-pristine ng-untouched ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid ng-valid-required" placeholder="" ng-required="false"></textarea></div></div></div>
+                    </div></fieldset></field-set-panel>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary pull-right ng-binding" disabled="disabled">
+                        Salva
+                    </button>
+                </div>
+            </div>
+
+
+</div></form></div></div></panel></div>
+</div>
+</div>
+                </div>
+            </div>
+        </div>
+    <div class="resize-triggers"><div class="expand-trigger"><div style="width: 1906px; height: 1801px;"></div></div><div class="contract-trigger"></div></div></div>
+</div>
+<!--main-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;libraries=places"></script>
+
+<script src="vendorsBackend.min.js"></script>
+<script src="js/ngAutocomplete.js"></script>
+<script src="backend.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('#contentDiv').resize(function () {
+            var head = $("#headerDiv"),
+                    container = $("#contentDiv"),
+                    sidebar = $(".sidebarDiv"),
+                    wHeight = window.innerHeight,
+                    sideHeight = sidebar.height(),
+                    headHeight = head.height(),
+                    containerHeight = container.height(),
+                    offset = wHeight - (headHeight + containerHeight);
+            if (offset > 0) {
+                sidebar.height(sideHeight + offset);
+            } else {
+                sidebar.height(containerHeight);
+            }
+        })
+    });
+
+</script>
+
+
+
+<div id="ngProgress-container" class="ng-scope"><div id="ngProgress" style="height: 3px; background-color: rgb(255, 102, 0); color: rgb(255, 102, 0); width: 0%; opacity: 1;"></div></div><input id="textAngular-editableFix-010203040506070809" class="ta-hidden-input" aria-hidden="true" unselectable="on" tabindex="-1"><div class="pac-container pac-logo" style="display: none; width: 501px; position: absolute; left: 259px; top: 452px;"></div></body></html>
