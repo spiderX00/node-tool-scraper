@@ -29,8 +29,9 @@ function parseHTML(path) {
 
         fs.readFile(path, (error, data) => {
             let $ = cheerio.load(data);
+            let uiView = $(`*[ui-view="mainView"]`).html();
 
-            if (!HTMLREGEX.test(data) || !$(CONTAINER_ID).html()) {
+            if (!uiView) {
                 return reject(path + ":: Invalid file");
             }
 
@@ -63,8 +64,7 @@ function parseHTML(path) {
                 });
             });
 
-            $(CONTAINER_ID).addClass("main-content");
-            let mainContent = $(CONTAINER_ID).html();
+            let mainContent = $(`*[ui-view="mainView"]`).html();
 
             if (!mainContent) {
                 return reject(path + ":: main content undefined");
