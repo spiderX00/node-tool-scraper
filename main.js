@@ -2,7 +2,7 @@
 
 const cheerio = require("cheerio");
 const fs = require("fs");
-const beautifier = require('node-js-beautify');
+const beautifier = require("node-js-beautify");
 const dedent = require("dedent-js");
 
 const log = require("log4js").getLogger("node-tool");
