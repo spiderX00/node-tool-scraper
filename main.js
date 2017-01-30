@@ -85,8 +85,6 @@ function parseHTML(path) {
             content = util.format(content, route, template, functionName);
             log.info(content);
 
-            return resolve(path + ":: File(s) written");
-
             fs.writeFile(path, dedent(htmlContent), (err) => {
                 if (err) {
                     return reject(path + ":: " + err);
