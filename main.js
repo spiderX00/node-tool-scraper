@@ -3,6 +3,7 @@
 const cheerio = require("cheerio");
 const fs = require("fs");
 const beautifier = require('node-js-beautify');
+const jade = require("jade");
 
 const log = require("log4js").getLogger("node-tool");
 const b = new beautifier();
@@ -24,7 +25,7 @@ function parseHTML(path) {
 
     return new Promise((resolve, reject) => {
 
-        fs.readFile(path, (error, data) => {
+        jade.renderFile(path, {}, (error, data) => {
             let $ = cheerio.load(data);
 
             if (!HTMLREGEX.test(data) || !$(CONTAINER_ID).html()) {
@@ -67,7 +68,8 @@ function parseHTML(path) {
                   `,
                 b.beautify_html(mainContent.replace(REGEX_COMMENT, ``)),
                 `</div>
-              {% endblock Skweb_content %}`].join('').trim();
+              {% endblock Skweb_content %}`
+            ].join('').trim();
 
             fs.writeFile(path, htmlContent, (err) => {
                 if (err) {
