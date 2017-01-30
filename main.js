@@ -45,10 +45,13 @@ function parseHTML(path) {
                 });
             });
 
-            $("*").each((index, el) => {
+            $(`*[class*="ng-"]`).each((index, el) => {
                 let element = $(el);
-                REGEX_CLASSES.forEach((regClass) => {
-                    element.removeClass(regClass);
+                let classes = element.attr("class").split(' ');
+                classes.forEach((regClass) => {
+                    if (NGREGEX.test(regClass)) {
+                        element.removeClass(regClass);
+                    }
                 });
             });
 
