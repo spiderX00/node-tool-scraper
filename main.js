@@ -15,11 +15,11 @@ const NGREGEX = new RegExp("ng-");
 const BUILD_PATH = PROPERTIES.BUILD_PATH;
 const REGEX_ATTRIBUTES = PROPERTIES.REGEX_ATTRIBUTES;
 const ROUTES = PROPERTIES.ROUTES;
-let regexClasses = PROPERTIES.REGEX_CLASSES;
 const REGEX_COMMENT = new RegExp(/<!--(.*?)-->/, "g");
 const COMMENT_NODE = "comment";
 const OPENED = true;
 
+let regexClasses = PROPERTIES.REGEX_CLASSES;
 let filesDictionary = {};
 
 function parseHTML(path) {
@@ -81,9 +81,11 @@ function parseHTML(path) {
             route = levels.splice(indexLevels).join('/').replace(".html.twig", "");
             let functionName = _.camelCase(route.split('/').join('') + "Action");
             let template = path.replace("test/smart_crew/bo/", "");
-            let content = `/** \n * @Route("%s") \n * @Template("%s") \n  */ \n\n public function %s() { \n //#query \n //#option  \n //#code \n return array('id_c' => 0);  }`
-            content = util.format(content, route, template, functionName);
+            let content = `/** \n * @Route("%s", name="%s") \n * @Template("%s") \n  */ \n\n public function %s() { \n //#query \n //#option  \n //#code \n return array('id_c' => 0);  }`
+            content = util.format(content, route, _.camelCase(route.split('/').join('')), template, functionName);
             log.info(content);
+
+            //return resolve(path + ":: File(s) written");
 
             fs.writeFile(path, dedent(htmlContent), (err) => {
                 if (err) {
