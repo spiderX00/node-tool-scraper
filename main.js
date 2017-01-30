@@ -3,7 +3,6 @@
 const cheerio = require("cheerio");
 const fs = require("fs");
 const beautifier = require('node-js-beautify');
-const jade = require("jade");
 
 const log = require("log4js").getLogger("node-tool");
 const b = new beautifier();
@@ -18,6 +17,8 @@ const REGEX_CLASSES = PROPERTIES.REGEX_CLASSES;
 const REGEX_COMMENT = new RegExp(/<!--(.*?)-->/, "g");
 const COMMENT_NODE = "comment";
 const OPENED = true;
+
+let filesDictionary = {};
 
 function parseHTML(path) {
 
@@ -66,9 +67,8 @@ function parseHTML(path) {
                   {%endif%}
                   <div id="uiViewContainer" class="main-content span12">
                   `,
-                jade.render(mainContent.replace(REGEX_COMMENT, ``)),
-                `</div>
-              {% endblock Skweb_content %}`
+                b.beautify_html(mainContent.replace(REGEX_COMMENT, ``)),
+                `</div>{% endblock Skweb_content %}`
             ].join('').trim();
 
             fs.writeFile(path, htmlContent, (err) => {
@@ -89,7 +89,6 @@ if (!process.argv[2]) {
 }
 
 let args = process.argv.splice(2);
-let filesDictionary = {};
 
 args.forEach((arg) => {
     if (!filesDictionary.hasOwnProperty(arg)) {
