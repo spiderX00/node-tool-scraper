@@ -87,8 +87,6 @@ function parseHTML(path) {
 
             return resolve(path + ":: File(s) written");
 
-            /*
-
             fs.writeFile(path, dedent(htmlContent), (err) => {
                 if (err) {
                     return reject(path + ":: " + err);
@@ -105,8 +103,6 @@ function parseHTML(path) {
                 });
 
             });
-
-            */
 
         });
 
