@@ -45,16 +45,12 @@ function parseHTML(path) {
                 });
             });
 
-            /*
-
             $("*").each((index, el) => {
                 let element = $(el);
                 REGEX_CLASSES.forEach((regClass) => {
                     element.removeClass(regClass);
                 });
             });
-
-            */
 
             $(`*[class*="ng-"]`).each((index, el) => {
                 let element = $(el);

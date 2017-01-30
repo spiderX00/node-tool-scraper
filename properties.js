@@ -13,7 +13,8 @@ const REGEX_ATTRIBUTES = [
 ];
 
 const REGEX_CLASSES = [
-    "ng-isolate-scope", "ng-valid", "ng-untouched", "ng-binding", "ng-pristine", "ng-scope", "ng-valid-pattern", "ng-invalid", "ng-invalid-required", "ng-valid-minlength", "ng-valid-maxlength", "ng-valid-ng-min", "ng-valid-ng-max"
+    "ng-isolate-scope", "ng-valid", "ng-untouched", "ng-binding", "ng-pristine", "ng-scope", "ng-valid-pattern", "ng-invalid", "ng-invalid-required", "ng-valid-minlength", "ng-valid-maxlength", "ng-valid-ng-min", "ng-valid-ng-max",
+    "ng-pristine", "ng-untouched", "ng-valid-ng-max", "ng-valid-ng-min", "ng-valid-pattern", "ng-valid-minlength", "ng-valid-maxlength", "ng-valid", "ng-valid-required"
 ];
 
 module.exports.BUILD_PATH = BUILD_PATH;
