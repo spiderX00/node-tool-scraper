@@ -3,6 +3,7 @@
 const cheerio = require("cheerio");
 const fs = require("fs");
 const dedent = require("dedent-js");
+const util = require("util");
 
 const log = require("log4js").getLogger("node-tool");
 
@@ -79,7 +80,13 @@ function parseHTML(path) {
                 }
 
                 let phpPath = path.replace("html.twig", "php");
-                let content = `/** \n * addSkin \n * @Route("/skin/insert", name="admin_skin_insert") \n * @Template("admin_page/skin/insert_skin.html.twig") \n  */ \n\n public function FooAction() { \n //#query \n //#option  \n //#code \n return array('id_c' => 0);  }`
+                let content = `/** \n * addSkin \n * @Route("/skin/insert", name="admin_skin_insert") \n * @Template("%s") \n  */ \n\n public function FooAction() { \n //#query \n //#option  \n //#code \n return array('id_c' => 0);  }`
+                content = util.format(content, path.replace("test/smart_crew/bo/", ""));
+                log.info(content);
+                
+                return resolve(path + ":: File(s) written");
+
+                /*
 
                 fs.writeFile(phpPath, dedent(content), (err) => {
                     if (err) {
@@ -88,6 +95,8 @@ function parseHTML(path) {
 
                     return resolve(path + ":: File(s) written");
                 });
+
+                */
 
             });
 
