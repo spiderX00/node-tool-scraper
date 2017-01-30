@@ -2,11 +2,9 @@
 
 const cheerio = require("cheerio");
 const fs = require("fs");
-const beautifier = require("node-js-beautify");
 const dedent = require("dedent-js");
 
 const log = require("log4js").getLogger("node-tool");
-const b = new beautifier();
 
 const MAIN_ID = "#main";
 const CONTAINER_ID = "#uiViewContainer";
@@ -14,6 +12,7 @@ const PROPERTIES = require("./properties");
 const NGREGEX = new RegExp("ng-");
 const BUILD_PATH = PROPERTIES.BUILD_PATH;
 const REGEX_ATTRIBUTES = PROPERTIES.REGEX_ATTRIBUTES;
+const ROUTES = PROPERTIES.ROUTES;
 let regexClasses = PROPERTIES.REGEX_CLASSES;
 const REGEX_COMMENT = new RegExp(/<!--(.*?)-->/, "g");
 const COMMENT_NODE = "comment";
@@ -78,7 +77,18 @@ function parseHTML(path) {
                 if (err) {
                     return reject(path + ":: " + err);
                 }
-                return resolve(path + ":: File(s) written");
+
+                let phpPath = path.replace("html.twig", "php");
+                let content = `/** \n * addSkin \n * @Route("/skin/insert", name="admin_skin_insert") \n * @Template("admin_page/skin/insert_skin.html.twig") \n  */ \n\n public function FooAction() { \n //#query \n //#option  \n //#code \n return array('id_c' => 0);  }`
+
+                fs.writeFile(phpPath, dedent(content), (err) => {
+                    if (err) {
+                        return reject(phpPath + ":: " + err);
+                    }
+
+                    return resolve(path + ":: File(s) written");
+                });
+
             });
 
         });
