@@ -25,7 +25,7 @@ function parseHTML(path) {
 
     return new Promise((resolve, reject) => {
 
-        jade.renderFile(path, {}, (error, data) => {
+        fs.readFile(path, (error, data) => {
             let $ = cheerio.load(data);
 
             if (!HTMLREGEX.test(data) || !$(CONTAINER_ID).html()) {
@@ -66,7 +66,7 @@ function parseHTML(path) {
                   {%endif%}
                   <div id="uiViewContainer" class="main-content span12">
                   `,
-                b.beautify_html(mainContent.replace(REGEX_COMMENT, ``)),
+                jade.render(mainContent.replace(REGEX_COMMENT, ``)),
                 `</div>
               {% endblock Skweb_content %}`
             ].join('').trim();
