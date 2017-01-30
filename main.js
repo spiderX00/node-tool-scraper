@@ -2,7 +2,6 @@
 
 const cheerio = require("cheerio");
 const fs = require("fs");
-const util = require("util");
 const beautifier = require('node-js-beautify');
 
 const log = require("log4js").getLogger("node-tool");
@@ -63,16 +62,14 @@ function parseHTML(path) {
                   {%set id_c=app.request.query.get("id_c")%}
                   {%if(is_granted("ROLE_ADMIN"))%}
                       {{ render(controller("SkwebAdminpageBundle:AdminCrud:menuAdmin",{'id_c':id_c})) }}
-                  {%endif%}`,
-                `<div id="uiViewContainer" class="main-content span12">`,
-                mainContent,
-                `</div>`,
-                `{% endblock Skweb_content %}`
-            ].join('').replace(REGEX_COMMENT, ``).trim();
+                  {%endif%}
+                  <div id="uiViewContainer" class="main-content span12">
+                  `,
+                b.beautify_html(mainContent.replace(REGEX_COMMENT, ``)),
+                `</div>
+              {% endblock Skweb_content %}`].join('').trim();
 
-            htmlContent = util.format(htmlContent);
-
-            fs.writeFile(path, b.beautify_html(htmlContent), (err) => {
+            fs.writeFile(path, htmlContent, (err) => {
                 if (err) {
                     return reject(path + ":: " + err);
                 }
