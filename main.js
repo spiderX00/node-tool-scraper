@@ -3,6 +3,7 @@
 const cheerio = require("cheerio");
 const fs = require("fs");
 const beautifier = require('node-js-beautify');
+const dedent = require("dedent-js");
 
 const log = require("log4js").getLogger("node-tool");
 const b = new beautifier();
@@ -71,7 +72,7 @@ function parseHTML(path) {
                 `</div>{% endblock Skweb_content %}`
             ].join('').trim();
 
-            fs.writeFile(path, htmlContent, (err) => {
+            fs.writeFile(path, dedent(htmlContent), (err) => {
                 if (err) {
                     return reject(path + ":: " + err);
                 }
