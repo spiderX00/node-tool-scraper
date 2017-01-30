@@ -59,18 +59,16 @@ function parseHTML(path) {
                 return reject(path + ":: main content undefined");
             }
 
-            let htmlContent = [`
+            let htmlContent = `
               {% extends "SkwebIncludeBundle:Include:base_admin.html.twig" %}
                 {% block Skweb_content %}
                   {%set id_c=app.request.query.get("id_c")%}
                   {%if(is_granted("ROLE_ADMIN"))%}
                       {{ render(controller("SkwebAdminpageBundle:AdminCrud:menuAdmin",{'id_c':id_c})) }}
                   {%endif%}
-                  <div id="uiViewContainer" class="main-content span12">
-                  `,
-                b.beautify_html(mainContent.replace(REGEX_COMMENT, ``)),
-                `</div>{% endblock Skweb_content %}`
-            ].join('').trim();
+                  <div id="uiViewContainer" class="main-content span12">` + "\n\n" +
+                mainContent.replace(REGEX_COMMENT, ``) + "\n\n" +
+                `</div>{% endblock Skweb_content %}`;
 
             fs.writeFile(path, dedent(htmlContent), (err) => {
                 if (err) {
