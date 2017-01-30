@@ -14,7 +14,7 @@ const PROPERTIES = require("./properties");
 const NGREGEX = new RegExp("ng-");
 const BUILD_PATH = PROPERTIES.BUILD_PATH;
 const REGEX_ATTRIBUTES = PROPERTIES.REGEX_ATTRIBUTES;
-const REGEX_CLASSES = PROPERTIES.REGEX_CLASSES;
+let regexClasses = PROPERTIES.REGEX_CLASSES;
 const REGEX_COMMENT = new RegExp(/<!--(.*?)-->/, "g");
 const COMMENT_NODE = "comment";
 const OPENED = true;
@@ -45,20 +45,21 @@ function parseHTML(path) {
                 });
             });
 
-            $("*").each((index, el) => {
-                let element = $(el);
-                REGEX_CLASSES.forEach((regClass) => {
-                    element.removeClass(regClass);
-                });
-            });
-
             $(`*[class*="ng-"]`).each((index, el) => {
                 let element = $(el);
                 let classes = element.attr("class").split(' ');
                 classes.forEach((regClass) => {
                     if (NGREGEX.test(regClass)) {
+                        regexClasses.push(regClass);
                         $("*").removeClass(regClass);
                     }
+                });
+            });
+
+            $("*").each((index, el) => {
+                let element = $(el);
+                regexClasses.forEach((regClass) => {
+                    element.removeClass(regClass);
                 });
             });
 
