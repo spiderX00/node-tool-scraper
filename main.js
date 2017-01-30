@@ -45,6 +45,8 @@ function parseHTML(path) {
                 });
             });
 
+            /*
+
             $("*").each((index, el) => {
                 let element = $(el);
                 REGEX_CLASSES.forEach((regClass) => {
@@ -52,13 +54,14 @@ function parseHTML(path) {
                 });
             });
 
+            */
 
             $(`*[class*="ng-"]`).each((index, el) => {
                 let element = $(el);
                 let classes = element.attr("class").split(' ');
                 classes.forEach((regClass) => {
                     if (NGREGEX.test(regClass)) {
-                        element.removeClass(regClass);
+                        $("*").removeClass(regClass);
                     }
                 });
             });
