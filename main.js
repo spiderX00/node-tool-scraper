@@ -4,6 +4,7 @@ const cheerio = require("cheerio");
 const fs = require("fs");
 const dedent = require("dedent-js");
 const util = require("util");
+const _ = require("lodash");
 
 const log = require("log4js").getLogger("node-tool");
 
@@ -74,19 +75,26 @@ function parseHTML(path) {
                 mainContent.replace(REGEX_COMMENT, ``) + "\n\n" +
                 `</div> \n\n {% endblock Skweb_content %}`.trim();
 
+            let route = path.replace("test/smart_crew/bo/", "");
+            let levels = route.split("/");
+            let indexLevels = levels.length - 2;
+            route = levels.splice(indexLevels).join('/').replace(".html.twig", "");
+            let functionName = _.camelCase(route.split('/').join('') + "Action");
+            let template = path.replace("test/smart_crew/bo/", "");
+            let content = `/** \n * @Route("%s") \n * @Template("%s") \n  */ \n\n public function %s() { \n //#query \n //#option  \n //#code \n return array('id_c' => 0);  }`
+            content = util.format(content, route, template, functionName);
+            log.info(content);
+
+            return resolve(path + ":: File(s) written");
+
+            /*
+
             fs.writeFile(path, dedent(htmlContent), (err) => {
                 if (err) {
                     return reject(path + ":: " + err);
                 }
 
                 let phpPath = path.replace("html.twig", "php");
-                let content = `/** \n * addSkin \n * @Route("/skin/insert", name="admin_skin_insert") \n * @Template("%s") \n  */ \n\n public function FooAction() { \n //#query \n //#option  \n //#code \n return array('id_c' => 0);  }`
-                content = util.format(content, path.replace("test/smart_crew/bo/", ""));
-                log.info(content);
-                
-                return resolve(path + ":: File(s) written");
-
-                /*
 
                 fs.writeFile(phpPath, dedent(content), (err) => {
                     if (err) {
@@ -96,9 +104,9 @@ function parseHTML(path) {
                     return resolve(path + ":: File(s) written");
                 });
 
-                */
-
             });
+
+            */
 
         });
 
