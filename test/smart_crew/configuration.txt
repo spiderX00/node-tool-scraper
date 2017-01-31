@@ -1,0 +1,340 @@
+/** 
+* @Route("/smart_bi/setup_report_finance", name="smartBisetupReportFinance") 
+* @Template("admin_page/smart_bi/setup_report_finance.html.twig") 
+*/ 
+
+public function smartBisetupReportFinanceAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/smart_bi/report_games", name="smartBireportGames") 
+* @Template("admin_page/smart_bi/report_games.html.twig") 
+*/ 
+
+public function smartBireportGamesAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/currency/settings", name="currencysettings") 
+* @Template("admin_page/settings/currency/settings.html.twig") 
+*/ 
+
+public function currencysettingsAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/administrator/list", name="administratorlist") 
+* @Template("admin_page/settings/administrator/list.html.twig") 
+*/ 
+
+public function administratorlistAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/smart_bi/report_finance", name="smartBireportFinance") 
+* @Template("admin_page/smart_bi/report_finance.html.twig") 
+*/ 
+
+public function smartBireportFinanceAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/gateway/limits_list", name="gatewaylimitsList") 
+* @Template("admin_page/settings/gateway/limits_list.html.twig") 
+*/ 
+
+public function gatewaylimitsListAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/smart_bi/report_general", name="smartBireportGeneral") 
+* @Template("admin_page/smart_bi/report_general.html.twig") 
+*/ 
+
+public function smartBireportGeneralAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/gateway/list", name="gatewaylist") 
+* @Template("admin_page/settings/gateway/list.html.twig") 
+*/ 
+
+public function gatewaylistAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/administrator/insert", name="administratorinsert") 
+* @Template("admin_page/settings/administrator/insert.html.twig") 
+*/ 
+
+public function administratorinsertAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/skin/list_skin", name="skinlistSkin") 
+* @Template("admin_page/settings/skin/list_skin.html.twig") 
+*/ 
+
+public function skinlistSkinAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/update/mail_template", name="updatemailTemplate") 
+* @Template("admin_page/settings/skin/update/mail_template.html.twig") 
+*/ 
+
+public function updatemailTemplateAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/update/report_financial", name="updatereportFinancial") 
+* @Template("admin_page/settings/skin/update/report_financial.html.twig") 
+*/ 
+
+public function updatereportFinancialAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/update/limits", name="updatelimits") 
+* @Template("admin_page/settings/skin/update/limits.html.twig") 
+*/ 
+
+public function updatelimitsAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/update/setup_mail", name="updatesetupMail") 
+* @Template("admin_page/settings/skin/update/setup_mail.html.twig") 
+*/ 
+
+public function updatesetupMailAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/skin/add_skin", name="skinaddSkin") 
+* @Template("admin_page/settings/skin/add_skin.html.twig") 
+*/ 
+
+public function skinaddSkinAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/update/profile", name="updateprofile") 
+* @Template("admin_page/settings/skin/update/profile.html.twig") 
+*/ 
+
+public function updateprofileAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/update/report_product", name="updatereportProduct") 
+* @Template("admin_page/settings/skin/update/report_product.html.twig") 
+*/ 
+
+public function updatereportProductAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/update/session", name="updatesession") 
+* @Template("admin_page/settings/skin/update/session.html.twig") 
+*/ 
+
+public function updatesessionAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/documents/documents_type", name="documentsdocumentsType") 
+* @Template("admin_page/settings/documents/documents_type.html.twig") 
+*/ 
+
+public function documentsdocumentsTypeAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/documents/settings", name="documentssettings") 
+* @Template("admin_page/settings/documents/settings.html.twig") 
+*/ 
+
+public function documentssettingsAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/user_doc/document_detail", name="userDocdocumentDetail") 
+* @Template("admin_page/smart_account/user_doc/document_detail.html.twig") 
+*/ 
+
+public function userDocdocumentDetailAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/user_doc/document_type", name="userDocdocumentType") 
+* @Template("admin_page/smart_account/user_doc/document_type.html.twig") 
+*/ 
+
+public function userDocdocumentTypeAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/smart_account/user_list_balance", name="smartAccountuserListBalance") 
+* @Template("admin_page/smart_account/user_list_balance.html.twig") 
+*/ 
+
+public function smartAccountuserListBalanceAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/smart_account/user_list", name="smartAccountuserList") 
+* @Template("admin_page/smart_account/user_list.html.twig") 
+*/ 
+
+public function smartAccountuserListAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/profile/user_bonus", name="profileuserBonus") 
+* @Template("admin_page/smart_account/profile/user_bonus.html.twig") 
+*/ 
+
+public function profileuserBonusAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/user_doc/document_list", name="userDocdocumentList") 
+* @Template("admin_page/smart_account/user_doc/document_list.html.twig") 
+*/ 
+
+public function userDocdocumentListAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/profile/user_docs", name="profileuserDocs") 
+* @Template("admin_page/smart_account/profile/user_docs.html.twig") 
+*/ 
+
+public function profileuserDocsAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/profile/change_password", name="profilechangePassword") 
+* @Template("admin_page/smart_account/profile/change_password.html.twig") 
+*/ 
+
+public function profilechangePasswordAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/smart_account/user_list_deposit", name="smartAccountuserListDeposit") 
+* @Template("admin_page/smart_account/user_list_deposit.html.twig") 
+*/ 
+
+public function smartAccountuserListDepositAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/smart_account/user_list_withdrawal", name="smartAccountuserListWithdrawal") 
+* @Template("admin_page/smart_account/user_list_withdrawal.html.twig") 
+*/ 
+
+public function smartAccountuserListWithdrawalAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
+
+/** 
+* @Route("/profile/modify_user", name="profilemodifyUser") 
+* @Template("admin_page/smart_account/profile/modify_user.html.twig") 
+*/ 
+
+public function profilemodifyUserAction() { 
+//#query 
+//#option  
+//#code 
+return array('id_c' => 0);  }
